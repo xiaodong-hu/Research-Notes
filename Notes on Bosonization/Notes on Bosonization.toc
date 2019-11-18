@@ -1,0 +1,13 @@
+\tocdepth@munge 
+\contentsline {section}{\numberline {}Contents}{1}{}
+\tocdepth@restore 
+\contentsline {section}{\numberline {I}1D Electron Gas}{1}{}
+\contentsline {subsection}{\numberline {A}Particularity of 1D Electron Gas}{1}{}
+\contentsline {subsection}{\numberline {B}Linearization}{1}{}
+\contentsline {section}{\numberline {II}Bosonization}{2}{}
+\contentsline {subsection}{\numberline {A}Kac-Moody Algebra}{2}{}
+\contentsline {subsection}{\numberline {B}Equivalence of Fermionic and Bosonic Description: Partition Function}{2}{}
+\contentsline {section}{\numberline {III}Interactive Terms}{2}{}
+\contentsline {section}{\numberline {IV}Application on Other Models}{2}{}
+\contentsline {section}{\numberline {V}Non-abelian Bosonization}{2}{}
+\contentsline {section}{\numberline {}Appendix A: Conformal Field Theory}{2}{}

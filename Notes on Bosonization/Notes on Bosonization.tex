@@ -1,0 +1,80 @@
+\documentclass[10pt,nofootinbib]{revtex4}
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,bm,dsfont}
+\usepackage{graphics,color}
+
+\newcommand*\dd{\mathop{}\!\mathrm{d}}
+
+
+
+\begin{document}
+\title{Notes on Bosonization}% Force line breaks with \\
+\thanks{A footnote to the article title}%
+
+\author{Xiaodong Hu}
+%\altaffiliation[Also at ]{Boson College}
+\email{xiaodong.hu@bc.edu}
+\affiliation{Department of Physics, Boston College}
+
+\date{\today}
+
+
+\begin{abstract}
+Notes of Bosonization.
+\end{abstract}
+\maketitle
+\tableofcontents
+\section{1D Electron Gas}
+	\subsection{Particularity of 1D Electron Gas}
+		Hamiltonian for \emph{compactified}\footnote{To circle $S^1$.} 1DEG is $H=H_0+H_{\text{int}}$ where
+		\begin{equation}\label{1.1.1}
+			H_0=\sum_{\sigma}\int_0^L\dd\bm{x}\,\psi^\dagger_\sigma(\bm{x}) \left(-\dfrac{\hbar^2}{2m}\dfrac{\partial^2}{\partial x^2}-\mu\right) \psi_\sigma(\bm{x})
+		\end{equation}
+		and
+		\begin{equation}\label{1.1.2}
+			H_{\text{int}}=\sum_{\sigma,\sigma'}\int\dd\bm{x}
+		\end{equation}
+	\subsection{Linearization}
+		We are interested in the low energy effective theory of 1DES, in which fermions around FS has the energy
+		\begin{equation*}
+			\varepsilon(p)\sim(|p|-p_F)v_F.
+		\end{equation*}
+		In momentum space, this means that only the Fourier compponent of 
+		\begin{equation*}
+			\psi_\sigma(\bm{x})\equiv\sum\dfrac{\dd p}{2\pi}\psi_\sigma(p)e^{ipx/\hbar}
+		\end{equation*}
+		near $\pm p_F$ contributes to the description of low-energy states. With the cut off $\Lambda$, one can write
+		\begin{align}\label{1.2.1}
+			\psi_\sigma(x)&\sim\sum_{-\Lambda}^\Lambda\dfrac{\dd p}{2\pi}\psi_\sigma(-p_F+p)e^{ix(-p_F+p)/\hbar}+\sum_{-\Lambda}^\Lambda\dfrac{\dd p}{2\pi}\psi_\sigma(p_F+p)e^{ix(p_F+p)/\hbar}\nonumber\\
+			&=:e^{-ixp_F/\hbar}L_\sigma(x)+e^{ixp_F/\hbar}R_\sigma(x),
+		\end{align}
+		where
+		\begin{equation*}
+			L_\sigma(x)\equiv\sum_{-\Lambda}^\Lambda\dfrac{\dd p}{2\pi}\psi_\sigma(p-p_F)e^{ipx/\hbar},\quad R_\sigma(x)\equiv\sum_{-\Lambda}^\Lambda\dfrac{\dd p}{2\pi}\psi_\sigma(p+p_F)e^{ipx/\hbar},
+		\end{equation*}
+		or in momentum space
+		\begin{equation*}
+			L_\sigma(p)\equiv\psi_\sigma(p-p_F),\quad R_\sigma(p)\equiv\psi_\sigma(p+p_F).
+		\end{equation*}
+		Therefore the free Hamiltonian
+		\begin{equation}\label{1.2.2}
+			H_0=\sum_\sigma\sum\dfrac{\dd p}{2\pi} \varepsilon(p)\psi_\sigma^\dagger(p)\psi_\sigma(p)
+		\end{equation}
+		can be approximated to narrow integral around the region $p\pm p_F$, i.e.,
+		\begin{align}
+			H_0&=\sum_\sigma\sum_{-\Lambda}^\Lambda\dfrac{\dd p}{2\pi}\bigg[\varepsilon(p-p_F)\psi_\sigma^\dagger(p-p_F)\psi_\sigma(p-p_F)+\varepsilon(p+p_F)\psi_\sigma^\dagger(p+p_F)\psi_\sigma(p+p_F)\bigg]\nonumber\\
+			&=\sum_\sigma\sum_{-\Lambda}^\Lambda\dfrac{\dd p}{2\pi}\,p v_F\bigg(R^\dagger(p)R(p)-L^\dagger(p)L(p)\bigg)
+		\end{align}
+
+\section{Bosonization}
+	\subsection{Kac-Moody Algebra}
+	\subsection{Equivalence of Fermionic and Bosonic Description: Partition Function}
+
+\section{Interactive Terms}
+
+\section{Application on Other Models}
+
+\section{Non-abelian Bosonization}
+
+\section*{Appendix A: Conformal Field Theory}
+
+\end{document}

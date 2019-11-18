@@ -1,0 +1,12 @@
+\tocdepth@munge 
+\contentsline {section}{\numberline {}Contents}{1}{section*.1}
+\tocdepth@restore 
+\contentsline {section}{\numberline {I}Berezinskii-Kosterlitz-Thouless Transition of XY Model}{1}{section*.2}
+\contentsline {subsection}{\numberline {A}Asymptotic Behavior of Correlation Function}{2}{section*.3}
+\contentsline {subsubsection}{\numberline {1}High-temperature Limit---Deconfined Phase}{2}{section*.4}
+\contentsline {subsubsection}{\numberline {2}Low-temperature Limit---Confined Phase}{2}{section*.5}
+\contentsline {subsection}{\numberline {B}Duality to 2D Coulomb Gas---Instanton Effects}{3}{section*.6}
+\contentsline {subsection}{\numberline {C}Duality to Sine-Gordon Model}{5}{section*.7}
+\contentsline {section}{\numberline {II}Renormalization Group}{7}{section*.8}
+\contentsline {section}{\numberline {III}A Rush Course on Conformal Field Theory}{7}{section*.9}
+\contentsline {section}{\numberline {}References}{7}{section*.10}

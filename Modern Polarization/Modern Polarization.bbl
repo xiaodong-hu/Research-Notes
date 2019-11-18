@@ -1,0 +1,127 @@
+\begin{thebibliography}{18}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname bibnamefont\endcsname\relax
+  \def\bibnamefont#1{#1}\fi
+\expandafter\ifx\csname bibfnamefont\endcsname\relax
+  \def\bibfnamefont#1{#1}\fi
+\expandafter\ifx\csname citenamefont\endcsname\relax
+  \def\citenamefont#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{\citenamefont{Jackson}(1999)}]{jackson1999classical}
+\bibinfo{author}{\bibfnamefont{J.~D.} \bibnamefont{Jackson}},
+  \emph{\bibinfo{title}{Classical electrodynamics}} (\bibinfo{year}{1999}).
+
+\bibitem[{\citenamefont{Ashcroft and Mermin}(1976)}]{Ashcroft}
+\bibinfo{author}{\bibfnamefont{N.~W.} \bibnamefont{Ashcroft}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{N.~D.} \bibnamefont{Mermin}},
+  \emph{\bibinfo{title}{Solid State Physics}} (\bibinfo{publisher}{Saunders
+  College}, \bibinfo{year}{1976}).
+
+\bibitem[{\citenamefont{Russakoff}(1970)}]{russakoff1970derivation}
+\bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Russakoff}},
+  \bibinfo{journal}{American Journal of Physics} \textbf{\bibinfo{volume}{38}},
+  \bibinfo{pages}{1188} (\bibinfo{year}{1970}).
+
+\bibitem[{\citenamefont{Posternak et~al.}(1994)\citenamefont{Posternak, Resta,
+  and Baldereschi}}]{posternak1994role}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Posternak}},
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Resta}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Baldereschi}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{50}},
+  \bibinfo{pages}{8911} (\bibinfo{year}{1994}).
+
+\bibitem[{\citenamefont{Resta and Vanderbilt}(2007)}]{resta2007theory}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Resta}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Vanderbilt}}, in
+  \emph{\bibinfo{booktitle}{Physics of Ferroelectrics}}
+  (\bibinfo{publisher}{Springer}, \bibinfo{year}{2007}), pp.
+  \bibinfo{pages}{31--68}.
+
+\bibitem[{\citenamefont{Hybertsen and
+  Louie}(1987{\natexlab{a}})}]{hybertsen1987ab1}
+\bibinfo{author}{\bibfnamefont{M.~S.} \bibnamefont{Hybertsen}}
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{S.~G.} \bibnamefont{Louie}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{35}},
+  \bibinfo{pages}{5585} (\bibinfo{year}{1987}{\natexlab{a}}).
+
+\bibitem[{\citenamefont{Hybertsen and
+  Louie}(1987{\natexlab{b}})}]{hybertsen1987ab2}
+\bibinfo{author}{\bibfnamefont{M.~S.} \bibnamefont{Hybertsen}}
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{S.~G.} \bibnamefont{Louie}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{35}},
+  \bibinfo{pages}{5602} (\bibinfo{year}{1987}{\natexlab{b}}).
+
+\bibitem[{\citenamefont{Tagantsev}(1991)}]{tagantsev1991electric}
+\bibinfo{author}{\bibfnamefont{A.~K.} \bibnamefont{Tagantsev}},
+  \bibinfo{journal}{Phase Transitions: A Multinational Journal}
+  \textbf{\bibinfo{volume}{35}}, \bibinfo{pages}{119} (\bibinfo{year}{1991}).
+
+\bibitem[{\citenamefont{Kallin and Halperin}(1984)}]{kallin1984surface}
+\bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Kallin}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Halperin}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{29}},
+  \bibinfo{pages}{2175} (\bibinfo{year}{1984}).
+
+\bibitem[{\citenamefont{Xiao et~al.}(2010)\citenamefont{Xiao, Chang, and
+  Niu}}]{xiao2010berry}
+\bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Xiao}},
+  \bibinfo{author}{\bibfnamefont{M.-C.} \bibnamefont{Chang}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{Q.}~\bibnamefont{Niu}},
+  \bibinfo{journal}{Reviews of modern physics} \textbf{\bibinfo{volume}{82}},
+  \bibinfo{pages}{1959} (\bibinfo{year}{2010}).
+
+\bibitem[{\citenamefont{Ortiz and Martin}(1994)}]{ortiz1994macroscopic}
+\bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Ortiz}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{R.~M.} \bibnamefont{Martin}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{49}},
+  \bibinfo{pages}{14202} (\bibinfo{year}{1994}).
+
+\bibitem[{\citenamefont{Hirst}(1997)}]{hirst1997microscopic}
+\bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Hirst}},
+  \bibinfo{journal}{Reviews of Modern Physics} \textbf{\bibinfo{volume}{69}},
+  \bibinfo{pages}{607} (\bibinfo{year}{1997}).
+
+\bibitem[{\citenamefont{Niu et~al.}(1985)\citenamefont{Niu, Thouless, and
+  Wu}}]{Niu1985quantized}
+\bibinfo{author}{\bibfnamefont{Q.}~\bibnamefont{Niu}},
+  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Thouless}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{Y.-S.} \bibnamefont{Wu}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{31}},
+  \bibinfo{pages}{3372} (\bibinfo{year}{1985}).
+
+\bibitem[{\citenamefont{King-Smith and Vanderbilt}(1993)}]{king1993theory}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{King-Smith}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Vanderbilt}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{47}},
+  \bibinfo{pages}{1651} (\bibinfo{year}{1993}).
+
+\bibitem[{\citenamefont{Watanabe and
+  Oshikawa}(2018)}]{Watanabe2018inequivalent}
+\bibinfo{author}{\bibfnamefont{H.}~\bibnamefont{Watanabe}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Oshikawa}},
+  \bibinfo{journal}{Physical Review X} \textbf{\bibinfo{volume}{8}},
+  \bibinfo{pages}{021065} (\bibinfo{year}{2018}).
+
+\bibitem[{\citenamefont{Zak}(1964)}]{zak1964magnetic}
+\bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Zak}},
+  \bibinfo{journal}{Physical Review} \textbf{\bibinfo{volume}{134}},
+  \bibinfo{pages}{A1602} (\bibinfo{year}{1964}).
+
+\bibitem[{\citenamefont{Fradkin}(2013)}]{Fradkin2013Field}
+\bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{Fradkin}},
+  \emph{\bibinfo{title}{Field Theories of Condensed Matter Physics}}
+  (\bibinfo{publisher}{Cambridge University Press}, \bibinfo{year}{2013}).
+
+\bibitem[{\citenamefont{Bernevig and Hughes}(2013)}]{bernevig2013topological}
+\bibinfo{author}{\bibfnamefont{B.~A.} \bibnamefont{Bernevig}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{T.~L.} \bibnamefont{Hughes}},
+  \emph{\bibinfo{title}{Topological insulators and topological
+  superconductors}} (\bibinfo{publisher}{Princeton University Press},
+  \bibinfo{year}{2013}).
+
+\end{thebibliography}

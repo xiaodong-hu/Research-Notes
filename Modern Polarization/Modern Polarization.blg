@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: Modern Polarization.aux
+The style file: apsrev.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: hxd.bib
+I was expecting a `,' or a `}'---line 1241 of file hxd.bib
+ : @article{Kitaev-topological 
+ :                             entanglement entropy,
+I'm skipping whatever remains of this entry
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 18 entries,
+            3411 wiz_defined-function locations,
+            1270 strings with 12461 characters,
+and the built_in function-call counts, 10810 in all, are:
+= -- 656
+> -- 270
+< -- 49
++ -- 197
+- -- 66
+* -- 1385
+:= -- 1225
+add.period$ -- 18
+call.type$ -- 18
+change.case$ -- 73
+chr.to.int$ -- 17
+cite$ -- 18
+duplicate$ -- 996
+empty$ -- 973
+format.name$ -- 192
+if$ -- 2076
+int.to.chr$ -- 2
+int.to.str$ -- 19
+missing$ -- 156
+newline$ -- 69
+num.names$ -- 54
+pop$ -- 271
+preamble$ -- 1
+purify$ -- 72
+quote$ -- 0
+skip$ -- 418
+stack$ -- 0
+substring$ -- 401
+swap$ -- 740
+text.length$ -- 34
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 102
+warning$ -- 0
+while$ -- 52
+width$ -- 0
+write$ -- 190
+(There was 1 error message)

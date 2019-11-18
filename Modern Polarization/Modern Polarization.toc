@@ -1,0 +1,11 @@
+\tocdepth@munge 
+\contentsline {section}{\numberline {}Contents}{1}{}
+\tocdepth@restore 
+\contentsline {section}{\numberline {I}Classical Definition of Polarization }{1}{}
+\contentsline {section}{\numberline {II}Fallacies on Classical Definition}{2}{}
+\contentsline {subsection}{\numberline {A}Theoretical Aspects}{2}{}
+\contentsline {subsection}{\numberline {B}Experimental Aspects}{3}{}
+\contentsline {section}{\numberline {III}Berry Phase for Bulk Polarization}{4}{}
+\contentsline {section}{\numberline {IV}Appendix}{5}{}
+\contentsline {subsection}{\numberline {A}Insensitivity of Boundary Condition for Gapped System}{5}{}
+\contentsline {section}{\numberline {}References}{5}{}

@@ -1,0 +1,15 @@
+\tocdepth@munge 
+\contentsline {section}{\numberline {}Contents}{1}{}
+\tocdepth@restore 
+\contentsline {section}{\numberline {I}Effective Hamiltonian}{1}{}
+\contentsline {subsection}{\numberline {A}Impurities in Mott Insulator: Anderson Model}{1}{}
+\contentsline {subsection}{\numberline {B}Schrieffer-Wolff Transformation to Single-occupied Effective Hamiltonian}{1}{}
+\contentsline {subsection}{\numberline {C}Spin Hamiltonian: sd Model}{4}{}
+\contentsline {section}{\numberline {II}Resistance Minimum due to Impurity Scattering}{5}{}
+\contentsline {subsection}{\numberline {A}Warm up: Green Function and Relaxation Time}{5}{}
+\contentsline {subsection}{\numberline {B}Logarithm Contribution from Spin-flip Process}{7}{}
+\contentsline {section}{\numberline {III}Kondo Problem}{9}{}
+\contentsline {subsection}{\numberline {A}Poor Man's Scaling: Renormalization}{9}{}
+\contentsline {subsection}{\numberline {B}Schrieffer-Wolff Transformation Again}{9}{}
+\contentsline {subsection}{\numberline {C}Single-loop $\beta $-function and Asymptotic Freedom}{10}{}
+\contentsline {section}{\numberline {}References}{12}{}

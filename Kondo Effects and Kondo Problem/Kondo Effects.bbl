@@ -1,0 +1,89 @@
+\begin{thebibliography}{13}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname bibnamefont\endcsname\relax
+  \def\bibnamefont#1{#1}\fi
+\expandafter\ifx\csname bibfnamefont\endcsname\relax
+  \def\bibfnamefont#1{#1}\fi
+\expandafter\ifx\csname citenamefont\endcsname\relax
+  \def\citenamefont#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{\citenamefont{Anderson}(1961)}]{anderson1961localized}
+\bibinfo{author}{\bibfnamefont{P.~W.} \bibnamefont{Anderson}},
+  \bibinfo{journal}{Physical Review} \textbf{\bibinfo{volume}{124}},
+  \bibinfo{pages}{41} (\bibinfo{year}{1961}).
+
+\bibitem[{\citenamefont{Fradkin}(2013)}]{Fradkin2013Field}
+\bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{Fradkin}},
+  \emph{\bibinfo{title}{Field Theories of Condensed Matter Physics}}
+  (\bibinfo{publisher}{Cambridge University Press}, \bibinfo{year}{2013}).
+
+\bibitem[{\citenamefont{Altland and Simons}(2010)}]{altland2010condensed}
+\bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Altland}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{B.~D.} \bibnamefont{Simons}},
+  \emph{\bibinfo{title}{Condensed Matter Field Theory}}
+  (\bibinfo{publisher}{Cambridge University Press}, \bibinfo{year}{2010}).
+
+\bibitem[{\citenamefont{Schrieffer and Wolff}(1966)}]{schrieffer1966relation}
+\bibinfo{author}{\bibfnamefont{J.~R.} \bibnamefont{Schrieffer}}
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{P.~A.} \bibnamefont{Wolff}},
+  \bibinfo{journal}{Physical Review} \textbf{\bibinfo{volume}{149}},
+  \bibinfo{pages}{491} (\bibinfo{year}{1966}).
+
+\bibitem[{\citenamefont{Phillips}(2012)}]{phillips2012advanced}
+\bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Phillips}},
+  \emph{\bibinfo{title}{Advanced solid state physics}}
+  (\bibinfo{publisher}{Cambridge University Press}, \bibinfo{year}{2012}).
+
+\bibitem[{\citenamefont{Abrikosov et~al.}(2012)\citenamefont{Abrikosov, Gorkov,
+  and Dzyaloshinski}}]{abrikosov2012methods}
+\bibinfo{author}{\bibfnamefont{A.~A.} \bibnamefont{Abrikosov}},
+  \bibinfo{author}{\bibfnamefont{L.~P.} \bibnamefont{Gorkov}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{I.~E.}
+  \bibnamefont{Dzyaloshinski}}, \emph{\bibinfo{title}{Methods of Quantum Field
+  Theory in Statistical Physics}} (\bibinfo{publisher}{Courier Corporation},
+  \bibinfo{year}{2012}).
+
+\bibitem[{\citenamefont{Hewson}(1997)}]{hewson1997kondo}
+\bibinfo{author}{\bibfnamefont{A.~C.} \bibnamefont{Hewson}},
+  \emph{\bibinfo{title}{The Kondo problem to heavy fermions}},
+  vol.~\bibinfo{volume}{2} (\bibinfo{publisher}{Cambridge university press},
+  \bibinfo{year}{1997}).
+
+\bibitem[{\citenamefont{Weinberg}(1995)}]{weinberg1995quantum}
+\bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Weinberg}},
+  \emph{\bibinfo{title}{The quantum theory of fields}},
+  vol.~\bibinfo{volume}{1} (\bibinfo{publisher}{Cambridge university press},
+  \bibinfo{year}{1995}).
+
+\bibitem[{\citenamefont{Kondo}(1964)}]{kondo1964resistance}
+\bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Kondo}},
+  \bibinfo{journal}{Progress of theoretical physics}
+  \textbf{\bibinfo{volume}{32}}, \bibinfo{pages}{37} (\bibinfo{year}{1964}).
+
+\bibitem[{\citenamefont{Anderson}(1970)}]{anderson1970poor}
+\bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Anderson}},
+  \bibinfo{journal}{Journal of Physics C: Solid State Physics}
+  \textbf{\bibinfo{volume}{3}}, \bibinfo{pages}{2436} (\bibinfo{year}{1970}).
+
+\bibitem[{\citenamefont{Gross and Wilczek}(1973)}]{gross1973ultraviolet}
+\bibinfo{author}{\bibfnamefont{D.~J.} \bibnamefont{Gross}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Wilczek}},
+  \bibinfo{journal}{Physical Review Letters} \textbf{\bibinfo{volume}{30}},
+  \bibinfo{pages}{1343} (\bibinfo{year}{1973}).
+
+\bibitem[{\citenamefont{Polyakov}(1975)}]{polyakov1975interaction}
+\bibinfo{author}{\bibfnamefont{A.~M.} \bibnamefont{Polyakov}},
+  \bibinfo{journal}{Physics Letters B} \textbf{\bibinfo{volume}{59}},
+  \bibinfo{pages}{79} (\bibinfo{year}{1975}).
+
+\bibitem[{\citenamefont{Witten}(1994)}]{witten1994non}
+\bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{Witten}}, in
+  \emph{\bibinfo{booktitle}{Bosonization}} (\bibinfo{publisher}{World
+  Scientific}, \bibinfo{year}{1994}), pp. \bibinfo{pages}{201--218}.
+
+\end{thebibliography}

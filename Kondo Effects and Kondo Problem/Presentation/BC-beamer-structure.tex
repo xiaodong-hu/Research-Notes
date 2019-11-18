@@ -1,0 +1,145 @@
+%\usepackage[space=false]{ctex}
+\usepackage{fontspec,xunicode,xltxtra}
+\usepackage{hyperref}	
+\usepackage{booktabs}	
+\usepackage{mathrsfs,amssymb,amsfonts,amsmath,bm}	%Math packages
+\usepackage{dsfont}     %double line number
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{graphicx,psfrag}
+\usepackage{epsfig}
+\usepackage{array, booktabs}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{slashed}	%Dirac Operator
+\usepackage{tikz}
+	\usetikzlibrary{calc}
+	\usetikzlibrary{decorations.markings}
+	\usetikzlibrary{arrows}
+\usepackage{extarrows}
+
+
+\def\Re{\mathop{\mathcal{R}e}}
+\def\Im{\mathop{\mathcal{I}m}}
+\def\arrow{\tikz[scale=0.1,baseline=.1ex]{
+	\draw[fill=black,rotate=-90] (-0.7,0)--(0,2)--(0.7,0);}
+	}
+
+\def\cross{\tikz[scale=0.1,baseline=.1ex]{
+	\draw[thick,rotate=45] (-1,0)--(1,0);
+	\draw[thick,rotate=45] (0,-1)--(0,1);}
+	}
+
+\newcommand*\dd{\mathop{}\!\mathrm{d}}
+\newcommand*\ddd[1]{\mathop{}\!\mathrm{d^#1}}
+\def\Re{\mathop{\mathcal{R}e}}					%Real part
+\def\Im{\mathop{\mathcal{I}m}}					%imaginary part
+\def\imp{\text{imp}}
+
+\mode <presentation>
+%\usetheme{Madrid}%% default Warsaw [secheader]
+%\usetheme{Warsaw}%% tested by hxd
+\usetheme{CambridgeUS}
+\usecolortheme{beaver} %% changed by hxd, red style
+\beamersetaveragebackground{black!10} % gray scale background
+
+\setbeamercovered{transparent}
+%\setbeamertemplate{navigation symbols}{}
+
+\usefonttheme{professionalfonts}
+\useinnertheme{circles}%{rectangles}
+\setbeamertemplate{itemize item}{$\circledast$}% design the item bullet %\circledast  %\checkmark
+
+
+\DeclareCaptionFont{blue}{\color{orange}}%LightSteelBlue3
+
+\newcommand{\foo}{\color{blue}\makebox[0pt]{\textbullet}\hskip-0.5pt\vrule width 1pt\hspace{\labelsep}}%LightSteelBlue3
+
+\hypersetup{pdfpagemode=FullScreen} % makes your presentation go automatically to full screen
+%\setcounter{tocdepth}{1} % depth of table of contents
+
+\defbeamertemplate{title page}{English}{ % English version of title page, use by \setbeamertemplate{title page}[Chinese/English]
+	%\vbox{}
+	\vfill
+	\begin{center}
+		\includegraphics[height=2.0cm]{BC-Eagle.svg}
+		\vskip1em\par%
+		\begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+			\usebeamerfont{title}\inserttitle\par%
+			\ifx\insertsubtitle\@empty%
+			\else%
+				\vskip0.25em%
+				{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+			\fi%
+		\end{beamercolorbox}%
+		%\vskip1em\par
+		%\begin{beamercolorbox}[sep=8pt,center]{author}
+		%	\usebeamerfont{author}%\insertauthor
+		%	{
+		%	    \begin{tabular}{cc}
+		%	    Respondant: &\insertauthor\\ %答辩人：
+		%	    Supervisor: &\advisor %导\quad 师：
+		%	    \end{tabular}
+		%	}
+		\end{beamercolorbox}
+		\begin{beamercolorbox}[sep=6pt,center]{institute} %sep means separationb between beamercolorboxes
+			\usebeamerfont{institute}\insertinstitute
+		\end{beamercolorbox}
+		\begin{beamercolorbox}[sep=6pt,center]{date}
+			\usebeamerfont{date}\insertdate
+		\end{beamercolorbox}\vskip0.5em
+		%{\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic\par}
+	\end{center}
+	\vfill
+}
+
+%\setbeamertemplate{section in toc}[ball,hideothersubsections]
+%\setbeamertemplate{subsection in toc}[subsections numbered]
+
+
+\setbeamertemplate{footline}{% change the ratio of each colorbox, cf. https://tex.stackexchange.com/questions/315580/how-to-adjust-width-of-footnotes-in-beamer-cambridgeus-theme/315587
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+			\usebeamerfont{author in head/foot}\insertshortauthor\expandafter~~(\insertshortinstitute)
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.45\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+			\usebeamerfont{title in head/foot}\insertshorttitle
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.3\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+			\usebeamerfont{date in head/foot}\insertshortdate{}\hspace*{2em}
+			\insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+		\end{beamercolorbox}
+	}%
+	\vskip0pt%
+}
+
+%%%%%%%%% set environments like block's color %%%%%%%%%%%
+	\setbeamercolor{block title}{use=structure,fg=structure.fg,bg=structure.fg!20!bg}
+	\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!50!bg}
+
+	\setbeamercolor{block title example}{use=example text,fg=example text.fg,bg=example text.fg!20!bg}
+	\setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!50!bg}
+
+	\newenvironment<>{redblock}[1]{%
+		\setbeamercolor{block title}{fg=white,bg=red!70!pink}%
+		\begin{block}#2{#1}}{\end{block}
+	}
+	\newenvironment<>{greenblock}[1]{%
+		\setbeamercolor{block title}{fg=white,bg=green!70!blue}%
+		\begin{block}#2{#1}}{\end{block}
+	}
+
+	\addtobeamertemplate{proof begin}{%
+		\setbeamercolor{block title}{fg=black,bg=red!50!white}
+		\setbeamercolor{block body}{fg=red, bg=red!30!white}
+	}{}
+
+	\BeforeBeginEnvironment{theorem}{
+		\setbeamercolor{block title}{fg=black,bg=orange!50!white}
+		\setbeamercolor{block body}{fg=orange, bg=orange!30!white}
+	}
+	\AfterEndEnvironment{theorem}{
+		\setbeamercolor{block title}{use=structure,fg=structure.fg,bg=structure.fg!20!bg}
+		\setbeamercolor{block body}{parent=normal text,use=block title,bg=block title.bg!50!bg, fg=black}
+	}

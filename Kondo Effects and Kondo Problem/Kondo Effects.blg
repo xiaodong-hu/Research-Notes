@@ -1,0 +1,62 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: Kondo Effects.aux
+The style file: apsrev.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: hxd.bib
+Repeated entry---line 879 of file hxd.bib
+ : @book{abrikosov2012methods
+ :                           ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 969 of file hxd.bib
+ : @book{phillips2012advanced
+ :                           ,
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 1058 of file hxd.bib
+ : @article{Kitaev-topological 
+ :                             entanglement entropy,
+I'm skipping whatever remains of this entry
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 13 entries,
+            3411 wiz_defined-function locations,
+            1232 strings with 11606 characters,
+and the built_in function-call counts, 6984 in all, are:
+= -- 409
+> -- 139
+< -- 33
++ -- 98
+- -- 36
+* -- 853
+:= -- 822
+add.period$ -- 13
+call.type$ -- 13
+change.case$ -- 52
+chr.to.int$ -- 13
+cite$ -- 13
+duplicate$ -- 669
+empty$ -- 675
+format.name$ -- 99
+if$ -- 1339
+int.to.chr$ -- 1
+int.to.str$ -- 14
+missing$ -- 113
+newline$ -- 54
+num.names$ -- 39
+pop$ -- 196
+preamble$ -- 1
+purify$ -- 52
+quote$ -- 0
+skip$ -- 269
+stack$ -- 0
+substring$ -- 238
+swap$ -- 469
+text.length$ -- 21
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 66
+warning$ -- 0
+while$ -- 35
+width$ -- 0
+write$ -- 140
+(There were 3 error messages)

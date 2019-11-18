@@ -1,0 +1,11 @@
+\beamer@sectionintoc {1}{Kondo Effect}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Experimental Review}{4}{0}{1}
+\beamer@subsectionintoc {1}{2}{Anderson Model}{7}{0}{1}
+\beamer@subsectionintoc {1}{3}{Low-energy Effective Hamiltonian}{12}{0}{1}
+\beamer@subsectionintoc {1}{4}{Warmup: Relaxation time from Spin Scattering}{18}{0}{1}
+\beamer@subsectionintoc {1}{5}{Logarithmical Term from Spin Scattering}{20}{0}{1}
+\beamer@sectionintoc {2}{Kondo Problem}{30}{0}{2}
+\beamer@subsectionintoc {2}{1}{Is This the End of the Story?}{31}{0}{2}
+\beamer@subsectionintoc {2}{2}{Schrieffer-Wolff Transformation Again}{34}{0}{2}
+\beamer@subsectionintoc {2}{3}{RG Flow and Asymptotic Freedom}{38}{0}{2}
+\beamer@sectionintoc {3}{Summary and Outlook}{52}{0}{3}

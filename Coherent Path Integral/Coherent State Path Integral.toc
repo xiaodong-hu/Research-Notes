@@ -1,0 +1,10 @@
+\tocdepth@munge 
+\contentsline {section}{\numberline {}Contents}{1}{section*.1}
+\tocdepth@restore 
+\contentsline {section}{\numberline {I}Motivation}{1}{section*.2}
+\contentsline {section}{\numberline {II}Fermionic Case}{1}{section*.3}
+\contentsline {subsection}{\numberline {A}Gaussian Integral of Grassmann Number}{2}{section*.4}
+\contentsline {subsection}{\numberline {B}Completeness Relation}{3}{section*.5}
+\contentsline {subsection}{\numberline {C}Partition Function}{4}{section*.6}
+\contentsline {section}{\numberline {III}Bosonic Case}{6}{section*.7}
+\contentsline {section}{\numberline {IV}Application: Hubbard-Stratonovich Transformation}{7}{section*.8}

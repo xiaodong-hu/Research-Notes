@@ -1,0 +1,304 @@
+\documentclass[10pt,nofootinbib]{revtex4}
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,bm,dsfont}
+\usepackage{graphics,color}
+\usepackage{hyperref}
+
+\newcommand*\dd{\mathop{}\!\mathrm{d}}
+\newcounter{Claim}[section]
+\newenvironment{Claim}[1][]{{\par\normalfont\bfseries \underline{Claim~\stepcounter{Claim}\arabic{Claim}.}~#1~~}}{\par}
+\newcounter{Proposition}[section]
+\newenvironment{Proposition}[1][]{{\par\normalfont\bfseries \underline{Proposition~\stepcounter{Proposition}\arabic{Proposition}.}~#1~~}}{\par}
+\newcounter{Note}[section]
+\newenvironment{Note}[1][]{{\par\normalfont\bfseries \underline{Note~\stepcounter{Note}\arabic{Note}.}~#1~~}}{\par}
+\newcounter{Lemma}[section]
+\newenvironment{Lemma}[1][]{{\par\normalfont\bfseries \underline{Lemma~\stepcounter{Lemma}\arabic{Lemma}.}~#1~~}}{\par}
+\newcounter{Corollary}[section]
+\newenvironment{Corollary}[1][]{{\par\normalfont\bfseries \underline{Corollary~\stepcounter{Corollary}\arabic{Corollary}.}~#1~~}}{\par}
+\newenvironment{Proof}{{\par~{\normalfont\bfseries $\vartriangleright$}~~}}{\hfill $\square$\par\hfill\par} %\par
+\newcounter{Def}[section]
+\newenvironment{Def}[1][]{{\par\normalfont\bfseries \underline{Definition~\stepcounter{Def}\arabic{Def}.}~#1~~}}{\par}
+
+
+\def\Re{\mathop{\mathcal{R}e}}
+\def\Im{\mathop{\mathcal{I}m}}
+
+
+\begin{document}
+\title{Coherent State Path Integral Representation of Partition Function}% Force line breaks with \\
+\thanks{This is a reminiscent note for Hubbard-Stratonovich Transformation.}%
+
+\author{Xiaodong Hu}
+%\altaffiliation[Also at ]{Boson College}
+\email{xiaodong.hu@bc.edu}
+\affiliation{Department of Physics, Boston College}
+
+\date{\today}
+
+
+\begin{abstract}
+Notes of coherent state path integral formalism.
+\end{abstract}
+\maketitle
+\tableofcontents
+\section{Motivation}
+	We start with a concrete problem. Given, for example, one general Hamiltonian up to two-body interaction in \emph{Wannier basis} (ignoring all spin freedoms for simplicity)
+	\begin{equation}\label{1.1}
+		H(a^\dagger,a)=\sum_{i,j}h_{ij}a_i^\dagger a_j+\dfrac{1}{2}\sum_{ij{\color{red}k\ell}}v_{ij{\color{red}k\ell}}a_i^\dagger a_j^\dagger a_{\color{red}\ell} a_{\color{red}k},
+	\end{equation}
+	where $a$ and $a^\dagger$ are either bosonic or fermionic annihilation and creation operators depending on the physical system. All the thermal dynamic properties can be determined if the partition function for grand caninical ensemble
+	\begin{equation}\label{1.2}
+		\mathcal{Z}=\mathrm{tr}\left(e^{-\beta(H-\mu N)}\right) 
+	\end{equation}
+	is known. However, the accurate form of \eqref{1.2} is almost impossible to obtain at the thermodynamic limit where the number of particle goes to infinity. That's why we need to express the partition function in the language of path integral and apply some standard approximation techniques like mean-field and large-$N$ expansion afterwards.
+\section{Fermionic Case}
+	Completeness relation is necessary for constructing path integral when slicing time or inverse temperature infinitely. And because most condensed matter systems are described by Hamiltonian like \eqref{1.1}, which is a polynomial of creation and annihilation operators, we expect to find a simple completeness basis of the annihilation operators as coordinates and momentum does in QM, i.e.,
+	\begin{equation*}
+		a_i|\psi\rangle=\psi_i|\psi\rangle,
+	\end{equation*}
+	where $i$ is diecrete site label in Wannier basis, or continuum momentum in Bloch basis.\par
+	However, CAR of fermionic creation and annihilation operators negate the naive guess of a simple c-number eigenvalues $\psi_i$. In fact, to incorporate the CAR $[a_i,a_j]_+\equiv0$, we must have
+	\begin{equation}\label{2.1}
+		[a_i,a_j]_+|\psi\rangle=(\psi_i\psi_j+\psi_j\psi_i)|\psi\rangle=0\implies\psi_i\psi_j+\psi_j\psi_i\equiv0,
+	\end{equation}
+	indicating that \textbf{it is \emph{Grassmann algebra} (or \emph{exterior algebra}) that plays the role of eigenvalues of annihilation operators}.
+	\begin{Def}[(Grassmann Algebra)]
+		\emph{Grassmann Algebra} is an algebra over field $\mathbb{C}$ such that the multiplication is \emph{associative} and \emph{anti-commutative}.
+	\end{Def}
+	Furthormore, as is seen below, chances are multiplications occur between Grassmann number and creation and annihilation operator themselves, so we need to require
+	\begin{equation}\label{2.2}
+		\psi_ia_i+a_i\psi_i\equiv0
+	\end{equation}
+	to enlarge the Grassmann algebra of eigenvalues to include creation and annihilation operators, and make our definition consistent.
+	\begin{Proposition}
+		Eigenstates of annihilation and creation operators can be expressed by
+		\begin{equation}\label{2.3}
+			|\psi\rangle=e^{-\sum_i\psi_ia_i^\dagger}|0\rangle,\quad \langle\psi|=\langle0|e^{\sum_i\bar{\psi_i}a_i},
+		\end{equation}
+		where $\bar{\psi}_i\equiv(\psi_i)^\dagger$ and must be treated independenly\footnote{Since we have never defined the transpose conjugate of an element of Grassmann algebra.}.
+	\end{Proposition}
+	\begin{Proof}
+	We only need to show that RHS of \eqref{2.3} are indeed the eigenstates of annihilation and creation operators, respectively. Note that repeated appearance of the same Grassmann number is zero, so
+		\begin{align*}
+			a_j|\psi\rangle&=a_je^{-\sum_i\psi_ia_i^\dagger}|0\rangle\equiv a_j\prod_i e^{-\psi_ia_i^\dagger}|0\rangle=a_j\prod_i(1-\psi_ia_i^\dagger)|0\rangle=a_j(1+\psi_ja_j^\dagger)|0\rangle=(a_j+\psi_ja_ja_j^\dagger)|0\rangle\\
+			&=\bigg(a_j+\psi_j(1-a_j^\dagger a_j)\bigg)|0\rangle=\psi_j|0\rangle=\psi_j(1-\psi_ja_j^\dagger)|0\rangle=\psi_j\prod_i(1-\psi_i a_i^\dagger)|0\rangle=\psi_je^{-\sum_i\psi_ia_i^\dagger}|0\rangle=\psi_j|\psi\rangle,
+		\end{align*}
+		where in the first line \eqref{2.2} is utilized, bringing in a minus sign, and in the second line we insert a zero term $\psi_j\psi_ja_j^\dagger$ to make it back to the form of exponential. Ditto for the other side $\langle\psi|a_j^\dagger=\langle\psi|\bar\psi_j$.
+	\end{Proof}
+	We have already established the complete basis of creation and annihilation operators. But that is still not enough. On the one hand, we have no idea whether basis $|\psi\rangle$ is exactly othornormal. On the other hand, \textbf{more seriously, we have never defined the topology on Grassman algebra so the notation like $\displaystyle\int\dd\bar\psi\dd\psi|\psi\rangle\langle\psi|$ is totally meaningless}. As a contrast, coordinates and momentum are both always defined on spacetime manifold so the second condition is automatically satisfied.\par
+
+	\subsection{Gaussian Integral of Grassmann Number}
+	To avoid bogging down by the complicated topological structures on Grassmann algebra, we circumvent this problem through direct definition of the action rules of differentiation and integral (and it is human natural to define them as simple as possible).
+	\begin{Def}[(Differentiation and Integral over Grassmann Algebra)]
+		The topology of Grassman algebra is defined such that the (left)-differentiation and integral over Grassmann numbers satisfy (so does for transpose conjugated Grassman variables)
+		\begin{equation}\label{2.4}
+			\partial_{\psi_i}\psi_j:=\delta_{ij},\quad\int\dd\psi_i\,\psi_j:=\partial_{\psi_i}\psi_j=\delta_{ij}.
+		\end{equation}
+	\end{Def}
+	Under this simplest definition, we have
+	\begin{Lemma}[(Gaussian Integral of Single Grassman Number)]
+		\begin{equation}\label{2.5}
+			\int\dd\bar\psi\dd\psi\,e^{-\bar\psi h\psi}=h.
+		\end{equation}
+	\end{Lemma}
+	\begin{Proof}
+		\begin{equation*}
+			\int\dd\bar\psi\dd\psi\,e^{-\bar\psi h\psi}=\partial_{\bar\psi}\partial_\psi e^{-\bar\psi h\psi}=\partial_{\bar\psi}\partial_\psi(1-\bar\psi h\psi)=\partial_{\bar\psi}\partial_\psi(1+\psi h\bar\psi)=h,
+		\end{equation*}
+		where from \eqref{2.5} we have $\partial_{\bar\psi}\partial_\psi\bar\psi\psi=-\partial_{\bar\psi}(\partial_\psi\psi)\bar\psi=\partial_{\bar\psi}\bar\psi=1.$
+	\end{Proof}
+	The above results can be easily extended to multi-variable case.
+	\begin{Proposition}[(Gaussian Integral of Grassman Numbers)]
+		For a Hermitian matrix $H$, we have
+		\begin{equation}\label{2.6}
+			\int\dd\bm{\bar\psi}\dd\bm{\psi}\,e^{-\bm{\bar\psi}^T H\bm{\psi}}\equiv\int\prod_i\dd\bar\psi_i\dd\psi_i\,e^{-\sum_{ij}\bar\psi_i H_{ij}\psi_j}=\det H.
+		\end{equation}
+	\end{Proposition}
+	\begin{Proof}
+		We can always find a unitary transformation $U$ to diagonize the Hermitian matrix $H$ without influencing the measure of integral. So
+		\begin{equation*}
+			\int\dd\bm{\bar\psi}\dd\bm{\psi}\,e^{-\bm{\bar\psi}^T H\bm{\psi}}=\partial_{(U\bm{\psi})^\dagger}\partial_{U\bm{\psi}} (1-(U\bm{\psi})^\dagger (UHU^\dagger)(U\bm{\psi}))=h_1h_2\cdots h_n=\det H,
+		\end{equation*}
+		where $h_i$ is the $i$-th eigenvalue of $H$.
+	\end{Proof}
+	\begin{Corollary}
+		\begin{equation}\label{2.7}
+			\boxed{\int\dd\bm{\bar\psi}\dd\bm{\psi}\,e^{-\bm{\bar\psi}^T H\bm{\psi}\pm\bm{\bar v}^T\bm{\psi}\pm\bm{\bar\psi}^T\bm{v}}=e^{\bm{\bar v}^T H^{-1}\bm{v}}\det H}.
+		\end{equation}
+	\end{Corollary}
+	\begin{Proof}
+		Just rearrange the integrand
+		\begin{equation*}
+			-\bm{\bar\psi}^T H\bm{\psi}\pm\bm{\bar v}^T\bm{\psi}\pm\bm{\bar\psi}^T\bm{v}\equiv-(\bm{\bar\psi}^T\mp\bm{\bar v}^T H^{-1})H(\bm{\psi}\mp H^{-1}\bm{v})+\bm{\bar v}^T H^{-1}\bm{v}
+		\end{equation*}
+		and switch the variable (without influencing the measure) $\bm{\psi}\mapsto\bm{\psi}\mp H^{-1}\bm{v}$.
+	\end{Proof}
+	\begin{Note}
+		Unlike Gaussian integral for bosonic fields (see in next section), in fermionic case there is no constraint on convergence of \eqref{2.7} as long as $H$ is diagonizable by some unitary transformation. But, in real-time formalism of path integral, where the integrand takes the form of $e^{i\int\dd t\mathcal{L}}$, we always confront with imaginary integrals. So for simplicity it is a convention to absorb $i$ into the definition of measure. That is,
+		\begin{align*}
+			\boxed{\int\mathcal{D}(\bm{\bar\psi},\bm{\psi})e^{i(-\bm{\bar\psi}H\bm{\psi}\pm\bm{\bar v}^T\bm{\psi}\pm\bm{\bar\psi}^T\bm{v})}\equiv\int\dfrac{\dd\bm{\bar\psi}\dd\bm{\psi}}{i^N}\,e^{-(\psi\mp H^{-1}v)^\dagger (iH)(\psi\mp H^{-1}v)}\cdot e^{\bm{\bar v}^T iH^{-1}\bm{v}}=e^{i\bm{\bar v}^T H^{-1}\bm{v}}\cdot\dfrac{\det(iH)}{i^N}=e^{i\bm{\bar v}^T H^{-1}\bm{v}}\det H}.
+		\end{align*}
+		Similarly, minus sign can also be absorbed if one wants to integrate a functional looking like
+		\begin{equation*}
+			\int\mathcal{D}(\bar\psi,\psi)\,e^{i\bm{\bar\psi} H\bm{\psi}}\equiv\int\dfrac{\dd\bm{\bar\psi}\dd\bm{\psi}}{(-i)^N}\,e^{i\bm{\bar\psi} H\bm{\psi}}=\dfrac{\det(-iH)}{(-i)^N}=\det H.
+		\end{equation*}
+	\end{Note}
+
+	\subsection{Completeness Relation}
+	After clarifying the topology over Grassmann algebra and the meaning of integral measure, we next proceed to study the important completeness relation.
+	\begin{Proposition}
+		Eigenstates of creation and annihilation operators are \emph{overcomplete}. More precisely,
+		\begin{equation}\label{2.8}
+			\int\dd\bm{\bar\psi}\dd\bm{\psi}\,e^{-\bm{\bar\psi}^T\bm{\psi}}|\psi\rangle\langle\psi|\equiv\int\prod_i\dd\bar\psi_i\dd\psi_i\,e^{-\sum_i\bar\psi_i\psi_i}|\psi\rangle\langle\psi|=\mathds{1}.
+		\end{equation}
+	\end{Proposition}
+	\begin{Proof}
+		One can certainly prove by expressing $|\psi\rangle$ with the antisymmetrized identity many-particle states. But here I will provide with a more abstract but elegent proof.\par
+		Recalling that creation and annihilation operators $a_i^\dagger, a_i$ form the (complex) irreducible unitary representation of Heisenberg algebra. So the RHS of \eqref{2.8} is a reminisent of the conclusion of \emph{Schur's Lemma}, which claims that \textbf{{\color{red}an automorphism $T\in\mathrm{Aut}(V)$ always commuting with \emph{complex} irreducible unitary representation of a group $\rho:G\rightarrow\mathrm{GL}(V)$ is trivial}}. Therefore, what we need to prove is that the LHS of \eqref{2.8} indeed commutes with those representations.
+		\begin{align*}
+			a_j\int\dd\bm{\bar\psi}\dd\bm{\psi}\,e^{-\sum_i\bar\psi_i\psi_i}|\psi\rangle\langle\psi|&=\int\dd\bm{\bar\psi}\dd\bm{\psi}\,a_je^{-\sum_i\bar\psi_i\psi_i}|\psi\rangle\langle\psi|=\int\dd\bm{\bar\psi}\dd\bm{\psi}\,e^{-\sum_i\bar\psi_i\psi_i}a_j|\psi\rangle\langle\psi|=\int\dd\bm{\bar\psi}\dd\bm{\psi}\,e^{-\sum_i\bar\psi_i\psi_i}\psi_j|\psi\rangle\langle\psi|\\
+			&=\int\dd\bm{\bar\psi}\dd\bm{\psi}\,\left[-\partial_{\bar\psi_j}\left(e^{-\sum_i\bar\psi_i\psi_i}\right)|\psi\rangle\langle\psi|\right]=\int\dd\bm{\bar\psi}\dd\bm{\psi}\,e^{-\sum_i\bar\psi_i\psi_i}\partial_{\bar\psi_j}\left(|\psi\rangle\langle\psi|\right)\\
+			&=\int\dd\bm{\bar\psi}\dd\bm{\psi}\,e^{-\sum_i\bar\psi_i\psi_i}|\psi\rangle\langle0|\partial_{\bar\psi_j}e^{\sum_i\bar\psi_i a_i}=\int\dd\bm{\bar\psi}\dd\bm{\psi}\,e^{-\sum_i\bar\psi_i\psi_i}|\psi\rangle\langle0|e^{\sum_i\bar\psi_i a_i}a_j\\
+			&=\int\dd\bm{\bar\psi}\dd\bm{\psi}\,e^{-\sum_i\bar\psi_i\psi_i}|\psi\rangle\langle\psi|a_j,
+		\end{align*}
+		where in the first line we commute Grassmann number with even times, in the second line we integrate by parts, and in the third line by \eqref{2.3} merely bra state contain $\bar\phi_i$.\par
+		Similarly,
+		\begin{align*}
+			a_j^\dagger\int\dd\bm{\bar\psi}\dd\bm{\psi}\,e^{-\sum_i\bar\psi_i\psi_i}|\psi\rangle\langle\psi|&=\int\dd\bm{\bar\psi}\dd\bm{\psi}\,a_j^\dagger e^{-\sum_i\bar\psi_i\psi_i}|\psi\rangle\langle\psi|=\int\dd\bm{\bar\psi}\dd\bm{\psi}\,e^{-\sum_i\bar\psi_i\psi_i}|\psi\rangle\langle\psi|a_j^\dagger=\int\dd\bm{\bar\psi}\dd\bm{\psi}\,e^{-\sum_i\bar\psi_i\psi_i}|\psi\rangle\langle\psi|\bar\psi_j\\
+			&=\int\dd\bm{\bar\psi}\dd\bm{\psi}\,\left[\partial_{\psi_j}\left(e^{\sum_i\psi_i\bar\psi_i}\right)|\psi\rangle\langle\psi|\right]=-\int\dd\bm{\bar\psi}\dd\bm{\psi}\,e^{-\sum_i\bar\psi_i\psi_i}\partial_{\psi_j}\left(|\psi\rangle\langle\psi|\right)\\
+			&=-\int\dd\bm{\bar\psi}\dd\bm{\psi}\,e^{-\sum_i\bar\psi_i\psi_i}\partial_{\psi_j}\left(e^{-\sum_i\psi_i a_i^\dagger}\right)|0\rangle\langle\psi|=\int\dd\bm{\bar\psi}\dd\bm{\psi}\,e^{-\sum_i\bar\psi_i\psi_i}e^{-\sum_i\psi_i a_i^\dagger}|0\rangle\langle\psi|a_j^\dagger\\
+			&=\int\dd\bm{\bar\psi}\dd\bm{\psi}\,e^{-\sum_i\bar\psi_i\psi_i}|\psi\rangle\langle\psi|a_j^\dagger.
+		\end{align*}
+		Thus by Schur's Lemma LHS of \eqref{2.8} is propotional to identical mapping. To determine its scale, one just needs to calculate the overlapping with vacuum state
+		\begin{equation*}
+			\int\dd\bm{\bar\psi}\dd\bm{\psi}\,e^{\sum_i\bar\psi_i\psi_i}\langle0|\psi\rangle\langle\psi|0\rangle=\int\dd\bm{\bar\psi}\dd\bm{\psi}\,e^{\sum_i\bar\psi_i\psi_i}=1.
+		\end{equation*}
+		So from $\langle0|0\rangle\equiv1$ we know \eqref{2.8} holds.
+	\end{Proof}
+
+	\subsection{Partition Function}
+	Now we can resolve the partition function \eqref{1.2} with our overcomplete eigenstates of creation and annihilation operators (suppose there are $M$ groups of \emph{independent} fermions, i.e., $\bm{\psi}=(\psi^1,\cdots,\psi^M)^T$)
+	\begin{align*}
+		\mathcal{Z}&=\sum_n\langle n|e^{-\beta(H-\mu N)}|n\rangle=\sum_n\int\dd\bm{\bar\psi}\dd\bm{\psi}\,e^{-\bm{\bar\psi}^T\bm{\psi}}\langle n|\psi\rangle\langle\psi|e^{-\beta(H-\mu N)}|n\rangle\\
+		&=\sum_n\int\dd\bm{\bar\psi}\dd\bm{\psi}\,e^{-\bm{\bar\psi}^T\bm{\psi}}\langle-\psi|e^{-\beta(H-\mu N)}|n\rangle\langle n|\psi\rangle=\int\dd\bm{\bar\psi}\dd\bm{\psi}\,e^{-\bm{\bar\psi}^T\bm{\psi}}\langle-\psi|e^{-\beta(H-\mu N)}|\psi\rangle,
+	\end{align*}
+	where in the second line we exchange the position of two Grassman function so an extra minus sign appear. By inserting infinite overcomplete basis, we obtain
+	\begin{align*}
+		\mathcal{Z}&=\int\dd\bm{\bar\psi}\dd\bm{\psi}\int\dd\bm{\bar\psi}_{N-1}\dd\bm{\psi}_{N-1}\cdots\int\dd\bm{\bar\psi}_1\dd\bm{\psi}_1\\
+		&\qquad\qquad e^{-\bm{\bar\psi}^T\bm{\psi}-\sum_{i=1}^{N-1}\bm{\bar\psi_i}^T\bm{\psi_i}}\langle-\psi|e^{-\frac{\beta}{N}(H-\mu N)}|\psi_{N-1}\rangle\langle\psi_{N-1}|e^{-\frac{\beta}{N}(H-\mu N)}|\psi_{N-2}\rangle\cdots \langle\psi_1|e^{-\frac{\beta}{N}(H-\mu N)}|\psi\rangle\\
+		&=\lim_{N\rightarrow\infty}\int_{\text{ABC}}\prod_{n=1}^N\left(\dd\bm{\bar\psi_n}\dd\bm{\psi_n}\right)\prod_{n=0}^{N-1} e^{-\bm{\bar\psi_n}^T\bm{\psi_n}}\langle\psi_{n+1}|e^{-\frac{\beta}{N}(H(\bm{a}^\dagger,\bm{a})-\mu \bm{a}^\dagger\bm{a})}|\psi_n\rangle\\
+		&=\lim_{N\rightarrow\infty}\int_{\text{ABC}}\prod_{n=1}^N\left(\dd\bm{\bar\psi_n}\dd\bm{\psi_n}\right)\prod_{n=0}^{N-1} e^{-\bm{\bar\psi_n}^T\bm{\psi_n}}\langle\psi_{n+1}|\psi_n\rangle e^{-\frac{\beta}{N}(H(\bm{\bar\psi_{n+1}}^T,\bm{\psi_n})-\mu \bm{\bar\psi_{n+1}}^T\bm{\psi_n})}\\
+		&=\lim_{N\rightarrow\infty}\int_{\text{ABC}}\prod_{n=1}^N\left(\dd\bm{\bar\psi_n}\dd\bm{\psi_n}\right)\prod_{n=0}^{N-1} e^{-\bm{\bar\psi_n}^T\bm{\psi_n}}e^{\bm{\bar\psi_{n+1}}^T\bm{\psi_n}} e^{-\frac{\beta}{N}(H(\bm{\bar\psi_{n+1}}^T,\bm{\psi_n})-\mu \bm{\bar\psi_{n+1}}^T\bm{\psi_n})}\\
+		&=\lim_{N\rightarrow\infty}\int_{\text{ABC}}\prod_{n=1}^N\left(\dd\bm{\bar\psi_n}\dd\bm{\psi_n}\right)\prod_{n=0}^{N-1} e^{-(\bm{\bar\psi_n}^T-\bm{\bar\psi_{n+1}}^T)\bm{\psi_n}-\frac{\beta}{N}(H(\bm{\bar\psi_{n+1}}^T,\bm{\psi_n})-\mu \bm{\bar\psi_{n+1}}^T\bm{\psi_n})}\\
+		&=\lim_{N\rightarrow\infty}\int_{\text{ABC}}\prod_{n=1}^N\left(\dd\bm{\bar\psi_n}\dd\bm{\psi_n}\right)\exp\left\{\sum_{n=0}^{N-1} \dfrac{\beta}{N}\left[-\left(\dfrac{\bm{\bar\psi_n}^T-\bm{\bar\psi_{n+1}}^T}{\beta/N}-\mu\right)\bm{\psi_n}-H(\bm{\bar\psi_{n+1}}^T,\bm{\psi_n})\right]\right\}\\
+		&=\int_{\text{ABC}}\mathcal{D}(\bm{\bar\psi},\bm{\psi})\,\exp\left\{-\int_0^\beta\dd\tau\bigg[\bm{\bar\psi}^T(\partial_\tau-\mu)\bm{\psi}+H(\bm{\bar\psi},\bm{\psi})\bigg]\right\},
+	\end{align*}
+	where ABC means antiperiodic boundary contition $\bm{\psi}(\beta)\equiv-\bm{\psi}(0), \bm{\bar\psi}(\beta)\equiv-\bm{\bar\psi}(0)$. It is convenient to explicitly express the antiperiodic boundary condition in frequency space. Writting
+	\begin{equation*}
+		\bm{\psi}(\tau)=\dfrac{1}{\sqrt{\beta}}\sum_n e^{i\omega_n\tau}\bm{\psi}(\omega_n),
+	\end{equation*}
+	then from $\bm{\psi}(\beta)\equiv-\bm{\psi}(0)$ we get
+	\begin{equation*}
+		e^{i\omega_n \tau}\equiv-1\implies \omega_n\equiv\dfrac{(2n+1)\pi}{\beta}
+	\end{equation*}
+	and 
+	\begin{equation}\label{2.9}
+		\mathcal{Z}=\int\mathcal{D}(\bm{\bar\psi},\bm{\psi})\,\exp\left\{-\dfrac{1}{\beta}\sum_n\bigg[\bm{\bar\psi}^T(-i\omega_n-\mu)\bm{\psi}+H(\bm{\bar\psi},\bm{\psi})\bigg]\right\}.
+	\end{equation}
+	
+	For our problem in the very beginning, we have
+	\begin{equation}\label{2.10}
+		\mathcal{Z}=\int\mathcal{D}(\bar\psi,\psi)\,\exp\left\{-\dfrac{1}{\beta}\sum_n\bigg[\sum_i\bar\psi_i(-i\omega_n-\mu)\psi_i+\sum_{i,j}h_{ij}\bar\psi_i\psi_j+\dfrac{1}{2}\sum_{ij{\color{red}k\ell}}v_{ij{\color{red}k\ell}}\bar\psi_i\bar\psi_j \psi_{\color{red}\ell} \psi_{\color{red}k}\bigg]\right\}.
+	\end{equation}
+	One must be clear in mind that \textbf{it is because we chose Wannier state as basis in \eqref{1.1} that the final expression of Grassmann number path integral takes the form of summing up all lattice coordinates}.\par
+	\noindent If our Hamiltonian is expressed in basis of Bloch states instead, for example, the \emph{Jellium Model}
+	\begin{equation*}
+		H=\sum_{\bm{k}}\dfrac{\hbar^2\bm{k}^2}{2m}\psi_k^\dagger\psi_k+\dfrac{1}{2V}\sum_{\bm{q\neq0}}\sum_{\bm{k,k'}}u(\bm{q})\psi_{k+q}^\dagger\psi_{k'-q}^\dagger\psi_{k'}\psi_k
+	\end{equation*}
+	we have
+	\begin{equation}\label{2.11}
+		\mathcal{Z}=\int\mathcal{D}(\bar\psi,\psi)\,\exp\left\{-\dfrac{1}{\beta}\sum_{\omega_n}\bigg[\sum_{\bm{k}}\bar\psi_k\left(-i\omega_n+\dfrac{\hbar^2\bm{k}^2}{2m}-\mu\right)\psi_k+\dfrac{1}{2V}\sum_{\bm{q\neq0}}\sum_{\bm{k,k'}}u(\bm{q})\bar\psi_{k+q}\bar\psi_{k'-q}\psi_{k'}\psi_k\bigg]\right\}.
+	\end{equation}
+
+\section{Bosonic Case}
+	Although eigenvalue of bosons turn back to ususal complex number $\phi\equiv\Re \phi+i\Im\phi\in\mathbb{C}$, only slight changes are needed for construction of bosonic coherent state path integral formalism.\par
+	With CCR $[a_i,a_i^\dagger]_-\equiv1$ it can be easily seen that proposition \eqref{2.3} still holds. The first change arises from the normalization of Gaussian integral (if $\phi$ is \emph{complex})
+	\begin{equation*}
+		\int\dd\bar\phi\dd\phi\,e^{-\bar\phi a\phi}\equiv\int\dd\Re\phi\dd\Im\phi\,e^{-a(\Re\phi)^2}e^{-a(\Im\phi)^2}=\left(\int_{-\infty}^{\infty}\dd x\,e^{-ax^2}\right)=\dfrac{\pi}{a},\quad \Re a>0.
+	\end{equation*}
+	So if we extend it to multi-variables (if matrix $A$ is definite positive)
+	\begin{equation*}
+		\int\dd\bm{\bar\phi}\dd\bm{\phi}\,e^{-\bm{\bar\phi}^TA\bm{\phi}}\equiv\int\prod_{k=1}^N\left(\dfrac{\dd\bar\phi\dd\phi}{\pi}\right)^ke^{-\sum_{ij}^N\bar\phi_i A_{ij}\phi_j}=\dfrac{\pi^N}{\det A},
+	\end{equation*}
+	and
+	\begin{equation*}
+		\int\dfrac{\dd\bm{\bar\phi}\dd\bm{\phi}}{\pi^N}\,e^{-\bm{\bar\phi}^T A\bm{\phi}\pm\bm{\bar v}^T\bm{\phi}\pm\bm{\bar\phi}^T\bm{v}}=\int\dfrac{\dd\bm{\bar\phi}\dd\bm{\phi}}{\pi^N}\,e^{-(\bm{\bar\phi}^T\mp\bm{\bar v}^TA^{-1})A(\bm{\phi}\mp A^{-1}\bm{v})}\cdot e^{\bm{\bar v}^T A^{-1}\bm{v}}=\dfrac{e^{\bm{\bar v}^T A^{-1}\bm{v}}}{\det A}.
+	\end{equation*}
+	But in practice the average infinitesimal fluctuation of bosonic or fermionic fields is always bosonic. So in most cases the bosonic fields are taken to be \emph{real} instead. Thus the real version of bosonic Gaussian integral is more important.
+	\begin{equation}\label{3.1}
+		\int\dd\phi\,e^{-\frac12a\phi^2}=\sqrt{\dfrac{2\pi}{a}}.
+	\end{equation}
+	and for multi-variables
+	\begin{equation}\label{3.2}
+		\boxed{\color{red}\int\dfrac{\dd\bm{\phi}}{(2\pi)^{N/2}}\,e^{-\frac12\bm{\phi}^T A\bm{\phi}\pm\frac12\bm{v}^T\bm{\phi}\pm\frac12\bm{\phi}^T\bm{v}}\equiv\int\dfrac{\dd\bm{\phi}}{(2\pi)^{N/2}}\,e^{-\frac12\bm{\phi}^T A\bm{\phi}\mp\bm{ v}^T\bm{\phi}}=\dfrac{e^{\frac12\bm{v}^T A^{-1}\bm{v}}}{\sqrt{\det A}}}.
+	\end{equation}
+	\begin{Note}
+		Like the situation for fermionic fields, if we are calculating in real-time formarlism, the measure needs to be renormalized to absorbing the extra $i$ in the exponential. That is,
+		\begin{align*}
+			\int\mathcal{D}\bm{\phi}\,e^{i(-\frac12\bm{\phi}^T A\bm{\phi}\pm\frac12\bm{v}^T\bm{\phi}\pm\frac12\bm{\phi}^T\bm{v})}&=\int\left(\dfrac{i}{2\pi}\right)^{N/2}\dd\bm{\phi}\,e^{i(-\frac12\bm{\phi}^T A\bm{\phi}\pm\frac12\bm{v}^T\bm{\phi}\pm\frac12\bm{\phi}^T\bm{v})}\\
+			&=\int\left(\dfrac{i}{2\pi}\right)^{N/2}\dd\bm{\phi}\,e^{-\frac12(\bm{\phi}\mp A^{-1}\bm{v})^T(iA)(\bm{\phi}\mp A^{-1}\bm{v})}\cdot e^{\frac12\bm{v}^T iA^{-1}\bm{v}}\\
+			&=e^{i\frac12\bm{v}^T A^{-1}\bm{v}}\sqrt{\dfrac{i^{N/2}}{\det iA}}=\dfrac{e^{i\frac12\bm{v}^T A^{-1}\bm{v}}}{\sqrt{\det A}}.
+		\end{align*}
+	\end{Note}
+	\indent Algebraic proof (Schur's Lemma) of the overcomplete relation also holds because whatever kinds of creation and annihilation operators, they forms a complex irreducible unitary representation of Heisenberg algebra, but with a sligh change of the normalization factor on integral measure
+	\begin{equation}\label{3.3}
+		\int\dfrac{\dd\bm{\bar\phi}\dd\bm{\phi}}{\pi^N}\,e^{-\bm{\bar\phi}^T\bm{\phi}}|\phi\rangle\langle\phi|\equiv\int\prod_i \left(\dfrac{\dd\bar\phi_i\dd\phi_i}{\pi}\right)\,e^{-\sum_i\bar\phi_i\phi_i}|\phi\rangle\langle\phi|=\mathds{1},
+	\end{equation}
+	or for real fields
+	\begin{equation}\label{3.4}
+		\int\dfrac{\dd\bm{\phi}}{(2\pi)^{N/2}}\,e^{-\bm{\phi}^T\bm{\phi}}|\phi\rangle\langle\phi|\equiv\int\prod_i \left(\dfrac{\dd\phi_i}{(2\pi)^{i/2}}\right)\,e^{-\sum_i\bar\phi_i\phi_i}|\phi\rangle\langle\phi|=\mathds{1}.
+	\end{equation}
+	\indent Recall that an important minus sign emerges when we transferring basis in the trace of partition function, leading to ABC. But because we are working with $c$-numbers, such minus sign disappears and we are left with PBC (periodic boundary condition) $\bm{\phi}(\tau)=\bm{\phi},\bm{\bar\phi}(\tau)=\bm{\phi}(0)$ instead, which gives
+	\begin{equation}\label{3.5}
+		\omega_n=\dfrac{2n\pi}{\beta}.
+	\end{equation}
+	Finally, the path integral representation of bosonic fields is
+	\begin{equation}\label{3.6}
+		\mathcal{Z}=\int\mathcal{D}(\bm{\bar\phi},\bm{\phi})\,\exp\left\{-\dfrac{1}{\beta}\sum_{\omega_n}\bigg[\bm{\bar\phi}^T(-i\omega_n-\mu)\bm{\phi}+H(\bm{\bar\phi},\bm{\phi})\bigg]\right\},
+	\end{equation}
+	where $\displaystyle\mathcal{D}(\bm{\bar\phi},\bm{\phi})\equiv\lim_{N\rightarrow\infty}\prod_n^N\left(\dfrac{\dd\bm{\bar\phi_n}\dd\bm{\phi_n}}{\pi}\right)^n $, or for real fields
+	\begin{equation}\label{3.7}
+		\mathcal{Z}=\int\mathcal{D}(\bm{\phi})\,\exp\left\{-\dfrac{1}{\beta}\sum_{\omega_n}\bigg[\bm{\phi}^T(-i\omega_n-\mu)\bm{\phi}+H(\bm{\phi},\bm{\phi})\bigg]\right\},
+	\end{equation}
+	where  $\displaystyle\mathcal{D}(\bm{\phi})\equiv\lim_{N\rightarrow\infty}\prod_n^N\left(\dfrac{\dd\bm{\phi_n}}{(2\pi)^{n/2}}\right)^n $.
+
+\section{Application: Hubbard-Stratonovich Transformation}
+	Non-linear \emph{quartic} interactive terms are widely seen in real condensed matter systems. For example, in the above Jellium model \eqref{2.11} we encountered the quartic Couloumb interaction term
+	\begin{equation}\label{4.1}
+		S_{int}=\dfrac{1}{\beta}\dfrac{1}{2V}\sum_{\bm{q},\omega_n}u(\bm{q})\rho(\bm{q},i\omega_n)\rho(\bm{-q},-i\omega_n),
+	\end{equation} 
+	where $u(\bm{q})\equiv\frac{4\pi e^2}{|\bm{q}|^2}$ and for simplicity we introduce the density operator in momentum space
+	\begin{equation*}
+		\rho(\bm{q})\equiv\int\dd\bm{r}e^{-\bm{iq\cdot r}}\rho(\bm{r})=\sum_{\bm{k}}\bar\psi_{k}\psi_{k+q}.
+	\end{equation*}
+	Since the only thing we know about path integral is of {\color{red}quadratic} form, an auxiliary \emph{bosonic} field $\phi(\bm{q},i\omega_n)$ is needed to lower the {\color{red}quartic} order of fermionic fields in \eqref{4.1}. More specifically, by the real version of bosonic Gaussian integrals \eqref{3.2}, Coulomb interaction can be recovered through
+	\begin{align*}
+		e^{-S_{int}}&\equiv\exp \left[-\dfrac{1}{\beta}\sum_{\bm{q},\omega_n}\rho_{q}\dfrac{2\pi e^2}{\bm{q}^2 V}\rho_{-q}\right]=\exp \left[\dfrac{1}{\beta}\sum_{\bm{q},\omega_n}\dfrac{1}{2}(i\rho_{q})\left(\dfrac{4\pi e^2}{\bm{q}^2 V}\right)(i\rho_{-q})\right] \\
+		&=\sqrt{\dfrac{\det \left(\frac{\bm{q}^2 V}{4\pi e^2}\right) }{(2\pi)^{N/2}}}\int\mathcal{D}\phi\,\exp\left\{\dfrac{1}{\beta}\sum_{\bm{q},\omega_n}\left[-\dfrac{1}{2}\phi_q\left(\dfrac{\bm{q}^2 V}{4\pi e^2}\right)\phi_{-q}-i\rho_q\phi_{-q}\right]\right\}.
+	\end{align*}
+	Absorbing the constant into the entire partition function, we have
+	\begin{align}
+		\dfrac{\mathcal{Z}}{\mathcal{Z}_0}&=\int\mathcal{D}(\bar\psi,\psi)\mathcal{D}\phi\,\exp \left\{-\left[\sum_{q}\bar\psi_q \left(-i\omega_n+\dfrac{\bm{q}^2}{2m}-\mu\right)\psi_q+\sum_{q}\phi_q\left(\dfrac{\bm{q}^2V}{8\pi e^2}\right)\phi_{-q}+i\sum_{q,p}\bar\psi_q\psi_{q+p}\phi_{-p}\right]\right\}\nonumber\\
+		&=\int\mathcal{D}(\bar\psi,\psi)\mathcal{D}\phi\,\exp  \left\{-\left[\sum_{q}\phi_q\left(\dfrac{\bm{q}^2V}{8\pi e^2}\right)\phi_{-q}+\sum_{q,q'}\bar\psi_q\left[\left(-i\omega_n+\dfrac{\hbar^2\bm{q}^2}{2m}-\mu\right)\delta_{q,q'}+i\phi_{q-q'}\right]\psi_{q'}\right]\right\},\label{4.4}
+	\end{align}
+	where
+	\begin{equation*}
+		\sum_q\equiv\dfrac{1}{\beta}\sum_{i\omega_n}\sum_{\bm{q}}.
+	\end{equation*}
+	Action in \eqref{4.4} already succeeds in becoming {\color{red}quadratic} in fermionic fields. Therefore, after integrating out all fermionic freedoms we are able to obtain the \emph{effective theory} of merely bosonic fields
+	\begin{equation}\label{4.5}
+		\dfrac{\mathcal{Z}}{\mathcal{Z}_0}=\int\mathcal{D}\phi\,\exp \left\{-\sum_{q}\phi_q\left(\dfrac{\bm{q}^2V}{8\pi e^2}\right)\phi_{-q}-\mathop{\mathrm{tr}}\ln\left(-i\omega_n+\dfrac{\hat{\bm{p}}^2}{2m}-\mu+i\hat{\phi}\right)\right\},
+	\end{equation}
+	and Mean-field approximation, RPA (random phase approximation) etc. can be reached simply by truncating the expansion of the trace and logarithm to the first and second order. Please refer to chapter six of Altland\&Simons for more examples.
+
+
+\end{document}

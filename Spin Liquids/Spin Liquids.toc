@@ -1,0 +1,24 @@
+\tocdepth@munge 
+\contentsline {section}{\numberline {}Contents}{1}{}
+\tocdepth@restore 
+\contentsline {section}{\numberline {I}Introduction}{1}{}
+\contentsline {section}{\numberline {II}Parton Construction and Mean-field Approach}{2}{}
+\contentsline {subsection}{\numberline {A}Abrikosov Femion}{2}{}
+\contentsline {subsection}{\numberline {B}Physical Symmetry and Gauge Redundancy}{2}{}
+\contentsline {subsection}{\numberline {C}Schwinger Bosons}{3}{}
+\contentsline {subsection}{\numberline {D}Mean-Field Approximation}{3}{}
+\contentsline {section}{\numberline {III}Projective Symmetry Group}{4}{}
+\contentsline {subsection}{\numberline {A}Universal Lifting from SG to PSG}{4}{}
+\contentsline {subsection}{\numberline {B}Physical Origin of IGG: Anderson-Higgs Mechanism under Translation-invariant Ansatzs}{5}{}
+\contentsline {section}{\numberline {IV}Classification of PSG on Square Lattice}{5}{}
+\contentsline {subsection}{\numberline {A}$\mathbb {Z}_2$ Spin Liquids with Translation Symmetries}{6}{}
+\contentsline {subsubsection}{\numberline {1}Plus Time-reversal Symmetry}{7}{}
+\contentsline {subsubsection}{\numberline {2}Plus Parity Symmetries}{7}{}
+\contentsline {subsection}{\numberline {B}$\mathrm {U}(1)$ or $\mathrm {SU}(2)$ Spin Liquids with Translation Symmetries}{8}{}
+\contentsline {subsubsection}{\numberline {1}Plus Time-Reversal Symmetry}{8}{}
+\contentsline {subsubsection}{\numberline {2}Plus Parity Symmetrise}{8}{}
+\contentsline {section}{\numberline {V}Selected Examples of Ansatz: Spectrum, Phase Diagram and Low Energy Effective Theory}{8}{}
+\contentsline {subsubsection}{\numberline {1}$\pi $-flux State}{8}{}
+\contentsline {subsubsection}{\numberline {2}Staggered Flux Liquids}{8}{}
+\contentsline {subsubsection}{\numberline {3}$\mathbb {Z}_2$-gapped State}{8}{}
+\contentsline {section}{\numberline {}References}{8}{}

@@ -1,0 +1,68 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname bibnamefont\endcsname\relax
+  \def\bibnamefont#1{#1}\fi
+\expandafter\ifx\csname bibfnamefont\endcsname\relax
+  \def\bibfnamefont#1{#1}\fi
+\expandafter\ifx\csname citenamefont\endcsname\relax
+  \def\citenamefont#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{\citenamefont{Wen}(1991)}]{wen1991mean}
+\bibinfo{author}{\bibfnamefont{X.-G.} \bibnamefont{Wen}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{44}},
+  \bibinfo{pages}{2664} (\bibinfo{year}{1991}).
+
+\bibitem[{\citenamefont{Wen}(2002)}]{wen2002quantum}
+\bibinfo{author}{\bibfnamefont{X.-G.} \bibnamefont{Wen}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{65}},
+  \bibinfo{pages}{165113} (\bibinfo{year}{2002}).
+
+\bibitem[{\citenamefont{Anderson}(1973)}]{anderson1973resonating}
+\bibinfo{author}{\bibfnamefont{P.~W.} \bibnamefont{Anderson}},
+  \bibinfo{journal}{Materials Research Bulletin} \textbf{\bibinfo{volume}{8}},
+  \bibinfo{pages}{153} (\bibinfo{year}{1973}).
+
+\bibitem[{\citenamefont{Anderson}(1987)}]{anderson1987resonating}
+\bibinfo{author}{\bibfnamefont{P.~W.} \bibnamefont{Anderson}},
+  \bibinfo{journal}{science} \textbf{\bibinfo{volume}{235}},
+  \bibinfo{pages}{1196} (\bibinfo{year}{1987}).
+
+\bibitem[{\citenamefont{Emery}(1976)}]{emery1976theory}
+\bibinfo{author}{\bibfnamefont{V.}~\bibnamefont{Emery}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{14}},
+  \bibinfo{pages}{2989} (\bibinfo{year}{1976}).
+
+\bibitem[{\citenamefont{Fradkin}(2013)}]{Fradkin2013Field}
+\bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{Fradkin}},
+  \emph{\bibinfo{title}{Field Theories of Condensed Matter Physics}}
+  (\bibinfo{publisher}{Cambridge University Press}, \bibinfo{year}{2013}).
+
+\bibitem[{\citenamefont{Lee et~al.}(2006)\citenamefont{Lee, Nagaosa, and
+  Wen}}]{lee2006doping}
+\bibinfo{author}{\bibfnamefont{P.~A.} \bibnamefont{Lee}},
+  \bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Nagaosa}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{X.-G.} \bibnamefont{Wen}},
+  \bibinfo{journal}{Reviews of modern physics} \textbf{\bibinfo{volume}{78}},
+  \bibinfo{pages}{17} (\bibinfo{year}{2006}).
+
+\bibitem[{\citenamefont{Wen}(2001)}]{wen2001quantum}
+\bibinfo{author}{\bibfnamefont{X.-G.} \bibnamefont{Wen}},
+  \bibinfo{journal}{arXiv preprint cond-mat/0107071}  (\bibinfo{year}{2001}).
+
+\bibitem[{\citenamefont{Wen}(2004)}]{Wen-QFT}
+\bibinfo{author}{\bibfnamefont{X.-G.} \bibnamefont{Wen}},
+  \emph{\bibinfo{title}{Quantum field theory of many-body systems: from the
+  origin of sound to an origin of light and electrons}}
+  (\bibinfo{publisher}{Oxford University Press}, \bibinfo{year}{2004}).
+
+\bibitem[{\citenamefont{Kogut}(1979)}]{kogut1979introduction}
+\bibinfo{author}{\bibfnamefont{J.~B.} \bibnamefont{Kogut}},
+  \bibinfo{journal}{Reviews of Modern Physics} \textbf{\bibinfo{volume}{51}},
+  \bibinfo{pages}{659} (\bibinfo{year}{1979}).
+
+\end{thebibliography}

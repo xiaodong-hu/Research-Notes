@@ -1,0 +1,361 @@
+\documentclass[10pt,nofootinbib]{revtex4}
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,bm,dsfont}
+\usepackage[all]{xy}
+\usepackage[normalem]{ulem}	% delete line
+\usepackage{graphics,color}
+%\usepackage{hyperref}
+
+\newcommand*\dd{\mathop{}\!\mathrm{d}}
+\newcounter{Claim}[section]
+\newenvironment{Claim}[1][]{{\par\normalfont\bfseries \underline{Claim~\stepcounter{Claim}\arabic{Claim}.}~#1~~}}{\par}
+\newcounter{Proposition}[section]
+\newenvironment{Proposition}[1][]{{\par\normalfont\bfseries \underline{Proposition~\stepcounter{Proposition}\arabic{Proposition}.}~#1~~}}{\par}
+\newcounter{Note}[section]
+\newenvironment{Note}[1][]{{\par\normalfont\bfseries \underline{Note~\stepcounter{Note}\arabic{Note}.}~#1~~}}{\par}
+\newcounter{Lemma}[section]
+\newenvironment{Lemma}[1][]{{\par\normalfont\bfseries \underline{Lemma~\stepcounter{Lemma}\arabic{Lemma}.}~#1~~}}{\par}
+\newcounter{Corollary}[section]
+\newenvironment{Corollary}[1][]{{\par\normalfont\bfseries \underline{Corollary~\stepcounter{Corollary}\arabic{Corollary}.}~#1~~}}{\par}
+\newenvironment{Proof}{{\par~{\normalfont\bfseries $\vartriangleright$}~~}}{\hfill $\square$\par\hfill\par} %\par
+\newcounter{Def}[section]
+\newenvironment{Def}[1][]{{\par\normalfont\bfseries \underline{Definition~\stepcounter{Def}\arabic{Def}.}~#1~~}}{\par}
+
+
+\def\Re{\mathop{\mathcal{R}e}}
+\def\Im{\mathop{\mathcal{I}m}}
+
+
+\begin{document}
+\title{Spin Liquids and Projective Symmetry Group}% Force line breaks with \\
+%\thanks{This is a reminiscent note for Hubbard-Stratonovich Transformation.}%
+
+\author{Xiaodong Hu}
+%\altaffiliation[Also at ]{Boson College}
+\email{xiaodong.hu@bc.edu}
+\affiliation{Department of Physics, Boston College}
+
+\date{\today}
+
+
+\begin{abstract}
+	In this note we reviewed the famous work of Wen \cite{wen1991mean,wen2002quantum}, representing Heisenberg model with slave fermion approach and classifying quantum spin liquid (QSL) with classification of projective symmetric group (PSG). Other works like slave boson approach would also be discussed.
+\end{abstract}
+\maketitle
+\tableofcontents
+
+\section{Introduction}
+	One core question of CMT is that \textbf{given one Hamiltonian with some symmetries (plus lattice symmetries), can we distinguish and classify all possible phases?} Shortly after Landau proposed his theory of spontaneous symmetry breaking, people believed that all possible phases can be obtained by a proper choice of symmetry-breaking group. But the discovery of KT transition in XY model started to shake the optimistic belief since they can only be distinguished by the form of correlation function rather than a local order parameter, and the following talented construction of resonating valence bond (RVB) states in Heisenberg model by Anderson \cite{anderson1973resonating,anderson1987resonating} totally shattered such a beautiful illusion.\par
+
+	It is well-kwnon that \emph{half-filling} Hubbard model will reduce to Heisenberg model at strong coupling limit $U/t\gg1$ (see, for example, \cite{emery1976theory,Fradkin2013Field})
+	\begin{equation}\label{0.1.1}
+		H=\sum_{\langle \bm{ij}\rangle}J_{\bm{ij}}\bm{S}_{\bm{i}}\cdot\bm{S}_{\bm{j}},
+	\end{equation}
+	where $\bm{i}\equiv(i_x,i_y)$. We're interested in anti-ferromagnetic (AF) case $J_{\bm{ij}}>0$, where the ground state is used to believed in Neel order.\par
+	But it can be easily shown that at least for kagome lattice \textbf{spin singlets configuration (valence bond solids) is much more energetically favorable}, where local order parameter vanishes everywhere $\langle \bm{S}_{\bm{i}}\rangle\neq0$ so one cannot write down an ordinary mean field theory (MF), like in superfluids or BCS theory. Situation becomes worse for RVB or following quantum spin liquids (QSLs), where by definition \textbf{there is no local symmetry breaking}. That's why we need to impose some pretreatment of Hamiltonian before applying MF. This treatment is called \emph{parton construction}.
+
+\section{Parton Construction and Mean-field Approach}
+	\subsection{Abrikosov Femion}
+	Illuminating by the separation of spin-charge in 1D strongly correlated electron system, let us formally introduce the site-dependent fermionic parton operator $f_{\bm{i}\alpha}$ (called \emph{Abrikosov fermion}) carrying spin one half but no charge
+	\begin{equation}\label{1.1.1}
+		\bm{S}_{\bm{i}}\equiv\sum_{\alpha \beta}\dfrac{1}{2}f_{\bm{i}\alpha}^\dagger\bm{\sigma}_{\alpha \beta}f_{\bm{i}\beta}.
+	\end{equation}
+	One must be clear that decomposition of bosonic spin operator to spinon operator \eqref{1.1.1} is NOT exact. In fact, originally half-filling condition with strong coupling limit localizes electrons on each site to be one, so the Hilbert space for spin remains to be of two-dimensional as ususal $\mathcal{H}_i=\mathop{\mathrm{Span}}\{|\uparrow\rangle,|\downarrow\rangle\}$, whereas slave-fermion approach releases the constraint of single fermion on each site and rewrites spin Hilbert space as \textbf{enlarged} fermionic Fock space
+	\begin{equation*}
+		\mathrm{Fock}_i'=\mathop{\mathrm{Span}}\{|0\rangle,f_{i\uparrow}^\dagger|0\rangle,f_{i\downarrow}^\dagger|0\rangle,f_{i\uparrow}^\dagger f_{i\downarrow}^\dagger|0\rangle\}\equiv\mathop{\mathrm{Span}}\{|0\rangle,|\uparrow\rangle,|\downarrow\rangle,|\uparrow\downarrow\rangle\}.
+	\end{equation*}
+	Therefore, to ensure the exactness of mapping, we need to artificially impose constraint on the number of fermions for each site
+	\begin{equation}\label{1.1.2}
+		n_i\equiv f_{\bm{i} \alpha}^\dagger f_{\bm{i}}^\alpha=1.
+	\end{equation}
+	
+	\subsection{Physical Symmetry and Gauge Redundancy}
+	Scalar form of Heisenberg Model Hamiltonian \eqref{0.1.1} tells us Hamiltonian is invariant under $\mathrm{SO}(3)$ rotation\footnote{Since global spin flipping has no observable effects, we would not take this transformation as physical. That is, real physical symmetry group is $\mathrm{SU}(2)/\mathbb{Z}_2=\mathrm{SO}(3)$.} on spin operators. Since such transformations change the form of physical operators and only holds for some specific Hamiltonian, we take them to be \textbf{physical symmetries}.\par
+	As a contrast, you may immediately observed from \eqref{1.1.1} that under $\mathrm{U}(1)$ phase transition of spinon operator $b_{\bm{i}\alpha}\mapsto e^{i\theta_i}b_{\bm{i}\alpha}$, not only the Hamiltonian but also spin operator itself stays to be unchanged. This redundancy is obviously irrelvant to the concrete form of Hamiltonian. In fact, it exists because we choose parton construction as our language. So based on this, we call such transformation without influencing spin operators the \textbf{gauge redundancy}.\par
+	However, the first glance of $\mathrm{U}(1)$ gauge redundancy of \eqref{1.1.1} is NOT enough, we will see immediately that \textbf{apart from $\mathrm{SO}(3)$ rotation on physical spin operators, there are still $\mathrm{SU}(2)$ gauge redundancy left in fermionic parton construction}, which is a huge gauge group.\par
+
+	To explicitly separate the gauge degree of freedoms from physical ones, let us introduce Nambu spinor $\psi_i\equiv\left(\begin{array}{c}
+			f_{i\uparrow}\\f_{i\downarrow}^\dagger
+		\end{array}\right)$ for each site,	then show for each component of $\bm{S}_i$ that they are invariant under an arbitrary site-dependent $\mathrm{SU}(2)$ transformation
+	\begin{equation*}
+		W_i\psi_i\equiv\left(\begin{array}{cc}
+			\alpha & -\beta^*\\ \beta & \alpha^*
+		\end{array}\right)\left(\begin{array}{c}
+			f_{i\uparrow}\\ f_{i\downarrow}^\dagger
+		\end{array}\right)=\left(\begin{array}{c}
+			f'_{i\uparrow}\\ {f'}_{i\downarrow}^\dagger
+		\end{array}\right),
+	\end{equation*}
+	where $|\alpha|^2+|\beta|^2\equiv1$. As one example, let's check for $S_i^x$:
+	\begin{align*}
+		{S'}_i^x&\equiv\dfrac12({f'}_{i\uparrow}^\dagger f'_{i\downarrow}+{f'}_{i\downarrow}^\dagger f'_{i\downarrow})=\dfrac12\left[(\alpha^* f_{i\uparrow}^\dagger-\beta f_{i\downarrow})(\beta^* f_{i\uparrow}^\dagger+\alpha f_{i \downarrow})+(\beta f_{i\uparrow}+\alpha^* f_{i\downarrow}^\dagger)(\alpha f_{i\uparrow}-\beta^*f_{i\downarrow}^\dagger)\right]\\
+		&=\dfrac12\left[{\color{blue}\alpha^* \beta^*(f_{i\uparrow}^\dagger f_{i\uparrow}^\dagger-f_{i\downarrow}^\dagger f_{i\downarrow}^\dagger)}+|\alpha|^2(f_{i\uparrow}^\dagger f_{i\downarrow}+f_{i\downarrow}^\dagger f_{i\uparrow})-|\beta|^2(f_{i\downarrow}f_{i\uparrow}^\dagger+f_{i\uparrow}f_{i\downarrow}^\dagger)-{\color{blue}\alpha \beta(f_{i\downarrow}f_{i\downarrow}-f_{i\uparrow}f_{i\uparrow})}\right].
+	\end{align*}
+	Because $f_{i \alpha}$ are \emph{fermionic} operators satisfying \emph{anticommutative} relation $[f_{i \alpha}, f_{j \beta}^\dagger]=\delta_{ij}\delta_{\alpha \beta}$, blue terms above vanish and we are left with
+	\begin{equation*}
+		{S'}_i^x=\dfrac{1}{2}(|\alpha|^2+|\beta|^2)(f_{i\uparrow}^\dagger f_{i\downarrow}+f_{i\downarrow}^\dagger f_{i\uparrow})=\dfrac12(f_{i\uparrow}^\dagger f_{i\downarrow}+f_{i\downarrow}^\dagger f_{i\uparrow})=S_i^x.
+	\end{equation*}
+	Ditto for other two components. What's important in this proof is that such $\mathrm{SU}(2)$ redundancy highly depends on the \emph{anticommutative} properties of fermionic creation and annihilation operators. Therefore, if we are working with bosonic parton construction, then this large redundancy will disappear.
+	\subsection{Schwinger Bosons}
+	Replacing the fermionic operators in \eqref{1.1.1} with bosonic ones carrying spin one half (so we still call them spinons) but no charge, we have
+	\begin{equation}\label{1.3.1}
+		\bm{S}_{\bm{i}}\equiv\sum_{\alpha \beta}\dfrac{1}{2}b_{\bm{i}\alpha}^\dagger\bm{\sigma}_{\alpha \beta}b_{\bm{i}\beta}.
+	\end{equation}
+	But here the constraint of the number of fermion on each site will be replaced with the dimensionality of the spin Hilbert space (Essentially speaking, \textbf{whatever kind of parton we are working with, constraints on parton operators all come from the structure of spin Hilbert space (providing with a faithful representation) and has nothing to do with specific form of Hamiltonains})
+	\begin{equation}\label{1.3.2}
+		b_{i \alpha}^\dagger b_i^\alpha=2S,
+	\end{equation}
+	where $S=1/2$ in our case.\par
+	This time, as is discussed above, we still have physical $\mathrm{SO}(3)$ symmetry on spin operators (arise from the concrete form of Heisenberg Hamiltonain), while merely simple $\mathrm{U}(1)$ gauge redundancy $b_{i\alpha}\mapsto e^{i\theta_i}b_{i \alpha}$ in our language, which is easily seen from \eqref{1.3.1}.
+
+	\subsection{Mean-Field Approximation}
+	Performing Hubbard-Stratonovich transformation on both particle-hole channel and spinon-pair condensation (particle-particle) channel, i.e., introducing two complex bosonic mean-field (one can check that another exchange channel is trivial in our case)
+	\begin{equation*}
+		\chi_{\bm{ij}}:=\langle f_{\bm{i}\alpha}^\dagger f_{\bm{j}}^\alpha\rangle,\quad\Delta_{\bm{ij}}:=\varepsilon_{\alpha \beta}\langle f_{\bm{i}\alpha}f_{\bm{j}\beta}\rangle,
+	\end{equation*}
+	Then with the identity $\bm{\sigma}_{\alpha \beta}\cdot\bm{\sigma}_{\mu \nu}\equiv2\delta_{\alpha \nu}\delta_{\beta \mu}-\delta_{\alpha \beta}\delta_{\mu \nu}$, Hamiltonian \eqref{0.1.1} becomes BCS-like
+	\begin{equation}\label{1.4.1}
+		H_{MF}=\sum_{\langle\bm{ij}\rangle}-\dfrac{1}{2}J_{\bm{ij}}\bigg((f_{i \alpha}^\dagger f_j^\alpha\chi_{ij}+f_{i \alpha}^\dagger f_{j \beta}^\dagger \varepsilon^{\alpha \beta}\Delta_{ij}+\text{h.c.}-|\chi_{ij}|^2-|\Delta_{ij}|^2)\bigg)+\sum_{\bm{i}}a_{\bm{i}}^0(f_{i \alpha}^\dagger f_{i}^\alpha-1),
+	\end{equation}
+	or with
+	\begin{equation*}
+		U_{\bm{ij}}\equiv\left(\begin{array}{cc}
+			\chi_{\bm{ij}}^\dagger & \Delta_{\bm{ij}}\\
+			\Delta_{\bm{ij}}^\dagger & -\chi_{\bm{ij}}
+		\end{array}\right),
+	\end{equation*}
+	writting in a more compact and explicit form
+	\begin{equation}\label{1.4.2}
+		H_{MF}=\sum_{\langle ij\rangle}\dfrac{3}{8}J_{ij}\left[\dfrac{1}{2}\mathop{\mathrm{Tr}}(U_{ij}^\dagger U_{ij})-(\psi_i^\dagger U_{ij}\psi_j+\text{h.c.})\right]+\sum_i a_0^\ell\psi_i^\dagger\tau^\ell\psi_i.
+	\end{equation}
+	Once Ansatz $\{\chi_{ij},\Delta_{ij}\}$ or $U_{ij}$ is given, MF spectrum can be directly obtained by Frouier transformation followed by a Bogoliubov transformation since \eqref{1.4.2} is just a free theory of spinons. And not only MF wave function $|\psi_{MF}^{(U_{ij})}\rangle$ can be read from diagonalizing MF Hamiltonian, even physical spin wave function can be obtained by projecting our MF wave functions that more one electron reside on each site, i.e., by a \emph{Gutzwiller} projection \cite{lee2006doping}
+	\begin{equation}\label{1.4.3}
+			|\psi\rangle=P_G|\psi_{MF}^{(U_{ij})}\rangle\equiv\prod_{\bm{i}}(1-n_{\bm{i}\uparrow}n_{\bm{i}\downarrow})|\psi_{MF}^{(U_{ij})}\rangle.
+	\end{equation}
+	\indent The question is, however, so far there is no criterion guiding us how to guess the form of Ansatz. And as is discussed above, since huge gauge redundency is hidden in our Hamiltonian, chances are our guessing form of Ansatzs actually belongs to the same classes of MF, giving the same physics (excitation specturm, gauge fluctuation, etc.). Worse still, even though we have successfully picking out all independent Ansatzs, whether they corresponds to specific real phases of matter is totally unknown. Therefore, writting down the MF Hamiltonian \eqref{1.4.2} is just the first digging of underground rich physics. 
+
+\section{Projective Symmetry Group}
+	\subsection{Universal Lifting from SG to PSG}
+	Due to the gauge redundancy in our language of description, Gutzwiller projection in \eqref{1.4.3} is actually a \emph{many to one} mapping labeling physical spin states. And because physical states are connected by \emph{symmetry transformatoin} $T\in SG$ (which is represented by $U\in GL(\mathcal{H}_N)$ when acting on many-body Hilbert space), the onto Gutzwiller projection naturally leads to a corresponding \emph{gauge transformation} $G_U\in GG$ connecting two corresponding MF states, such that the diagram\footnote{Sorry for the abuse of notation $U$ here...}
+	\begin{equation*}
+		\xymatrix@C=2cm{|\psi_{MF}^{(U_{ij})}\rangle \ar[d]_{P_G} & |\psi_{MF}^{(U(U_{ij}))}\rangle \ar@{-->}[l]_{G_U} \ar[d]^{P_G}\\ |\psi_{\text{spin}}\rangle \ar[r]^{U} & |\psi_{\text{spin}}'\rangle}
+	\end{equation*}
+	commutes. That is,
+	\begin{equation}\label{2.1.1}
+		G_UU(U_{\bm{ij}})\equiv G_U(U_{T^{-1}(\bm{i})T^{-1}(\bm{j})})\equiv G_U(T^{-1}(\bm{i}))U_{T^{-1}(\bm{i})T^{-1}(\bm{j})}G_U^\dagger(T^{-1}(\bm{j}))=U_{\bm{ij}}.
+	\end{equation}
+	\begin{Def}[(PSG)]
+		\emph{Projective symmetry group} (PSG) is a group parameterized by symmetry transformations $U$ whose elements takes the combination of symmetry transformation $U$ and gauge transformation $G_U$ such that \eqref{2.1.1} is satisfied. In other words, PSG is the set of all transformations leaving Ansatzs $U_{\bm{ij}}$ unchanged.
+	\end{Def}
+	By construction the redundancy discussed above is only possible to occur at the choice of gauge transformation $G_U$ to make \eqref{2.1.1} satisfied. More precisely, if we have some site-dependent gauge transformation $W_{\bm{i}}$ keeping the label of Ansatzs (the collection of which we define it as \emph{invaraint gauge group}, or IGG)
+	\begin{equation}\label{2.1.2}
+		W(U_{\bm{ij}})\equiv W_{\bm{i}}^\dagger U_{\bm{ij}} W_{\bm{j}}=U_{\bm{ij}},
+	\end{equation}
+	and have an element of PSG for one symmetry transformation $U$, say $G_UU$, then apparently $WG_UU$ is also an element of PSG because by definition
+	\begin{equation*}
+		WG_UU(U_{\bm{ij}})=W(U_{\bm{ij}})=U_{\bm{ij}}.
+	\end{equation*} 
+	\indent Although the many to one projection impairs the labeling of physical spin states by MF states, or Ansatzs, \textbf{if we manage to mod out all equivalent Ansatzs belonging to the same classes, then classifying Ansatzs becomes equivalent to classify physical states}. And the entire ambiguity of the choice of PSG can be achieved by considering a system possessing some \emph{physical symmetries} $|\psi_{\text{spin}}\rangle=U(T)|\psi_{\text{spin}}'\rangle$ for all $T\in SG$. The from the commutative diagram we constructed above, we can safely say that IGG is the only amibguity for symmetric quantum systems, and come to the significant conjecture of Wen \cite{wen2001quantum,Wen-QFT}
+	\begin{equation}\label{2.1.3}
+		\boxed{\color{red}SG=\dfrac{PSG}{IGG}}.
+	\end{equation}
+	And by classifying PSG can we classify QSLs.
+
+	\subsection{Physical Origin of IGG: Anderson-Higgs Mechanism under Translation-invariant Ansatzs}
+	Before marching to concrete classification of PSG, it is necessary to pause and discuss one physical origin\footnote{Another mechanism is to adding a Chern-Simons term \cite{Wen-QFT}. This mechanism is applied in chiral spin liquids.} of IGG defined above, by realization of Anderson-Higgs mechanism through condensation of $SU(2)$ gauge flux (without Higgs gauge boson).\par
+	Throughout this paper \textbf{we only focus on the system with translation-invariant Ansatz}. In lattice gauge field theory, gauge invariant correlation functions are defined only for close loops \cite{kogut1979introduction} of some specific base point, forming a $SU(2)$-flux for fermionic spinons or a $U(1)$-flux for bosonic spinons
+	\begin{equation}\label{2.2.1}
+		P_{C_i}=U_{\bm{ij}}U_{\bm{jk}}\cdots U_{\bm{\ell m}}U_{\bm{m i}},
+	\end{equation}
+	where  $\bm{i}$ is one base point. Here we focus on fermionic case. Similar discussion can be easily generalize to bosonic one\footnote{See, for example, Prof. Ran's teaching notes}.\par
+	One may naively deem that, {\color{red}\sout{thanks to the translation-invariance of $U_{\bm{ij}}$, we are able to sharply narrow our discussion of loops to those based on the same point}}. {\color{red}But this is NOT true!} As is shown before, although translation-invariance gurantees that
+	\begin{equation*}
+		P_{C_i}\equiv P_{C_{T^{-1}(i)}},
+	\end{equation*}
+	one cannot brutally conclude that.
+	Since each $U_{\bm{ij}}$ is one element of $SU(2)$ in fermionic situation, generally we can write
+	\begin{equation}\label{2.2.2}
+		P_{C_i}=\alpha_0(C_i)\tau^0+i\sum_\ell\alpha_\ell(C_i)\tau^\ell
+	\end{equation}
+	Coefficients in \eqref{2.2.2} can be understood as a pair of constant $\alpha_0$ and a unit vector $\bm{\alpha}\equiv(\alpha_1,\alpha_2,\alpha_3)$ in parameter space.
+
+
+\section{Classification of PSG on Square Lattice}
+	We already knew in the last section that depending on the special choice of Ansatzs, flux operator would be trivial, collinear, or non-collinear, allowing existence of mass term (through Anderson-Higgs mechanism) of $SU(2)$, $U(1)$, or $\mathbb{Z}_2$ condensed bosons, respectively. In this section, however, \textbf{we try to work in a reversed but more systematic direction, appointing first the IGG of spin liquid, then find out all distinct classes of Ansatzs condensing $SU(2)$-flux to massive bosons we want}. We give examples all on square lattice, but our techniques of classificiation are not confined to this regime. Many works have been done for trianglular lattice and kagome lattice. But \textbf{at least our system possesses translation symmeries} (otherwise one cannot define the Brillouin zone and the spectrum of spinons cannot be obtained).
+
+	\subsection{$\mathbb{Z}_2$ Spin Liquids with Translation Symmetries}
+		SG of translation symmetry is generated by two elements $T_x$ and $T_y$ such that
+		\begin{equation*}
+			T_xU_{\bm{ij}}\equiv U_{\bm{i-x,j-x}},\quad T_yU_{\bm{ij}}=U_{\bm{i-y},\bm{j-y}},
+		\end{equation*}
+		with just one constraint
+		\begin{equation}\label{3.1.1}
+			T_{x}T_{y}T_y^{-1}T_x^{-1}=1.
+		\end{equation}
+		\indent For a translation-invariant ansatz $U_{\bm{ij}}\equiv U_{T^{-1}(\bm{ij})}$, $SU(2)$-flux of the translation-related loops (with distinct base point) should take the same value, since by definition
+		\begin{equation*}
+			P_{C_{\bm{i}}}\equiv U_{\bm{ij}}U_{\bm{jk}}\cdots U_{\bm{\ell i}}\equiv U_{T^{-1}(\bm{ij})}U_{T^{-1}(\bm{jk})}\cdots U_{T^{-1}(\bm{\ell i})}\equiv P_{C_{T^{-1}(\bm{i})}}.
+		\end{equation*}
+		But on the other hand, gauge redundancy always allows us to write $U_{\bm{ij}}$ up to an element of PSG, viz, $U_{\bm{ij}}\equiv G_UU(U_{\bm{ij}})$. So $P_{C_{\bm{i}}}$ can also be written as
+		\begin{equation*}
+			P_{C_{\bm{i}}}=G_U(\bm{i})U_{T^{-1}(\bm{ij})}G_U^\dagger(\bm{j})G_U(\bm{j})U_{T^{-1}(\bm{jk})}G_U^\dagger(\bm{j})\cdots G_U(\bm{\ell})U_{T^{-1}(\bm{\ell i})}G_U^\dagger(\bm{i})=G_U(\bm{i})P_{C_{T^{-1}(\bm{i})}}G_U^\dagger(\bm{i})
+		\end{equation*}
+		for some arbitrary gauge transformation $G_U\in GG$. Therefore, we have
+		\begin{equation}\label{3.1.2}
+			P_{C_{\bm{i}}}\equiv G_U(\bm{i})P_{C_{\bm{i}}}G_U^\dagger(\bm{i}),
+		\end{equation}
+		for all $SU(2)$-flux with base point $\bm{i}$. Since  different $SU(2)$-flux do not commute for $\mathbb{Z}_2$ spin liquids (\emph{non-collinear flux}), identity \eqref{3.1.2} is true only if $G_U(\bm{i})=\pm\tau^0$, or for our 2D lattice
+		\begin{equation}\label{3.1.3}
+			G_x(\bm{i})=\eta_x(\bm{i})\tau^0,\quad G_y(\bm{i})=\eta_y(\bm{i})\tau^0,
+		\end{equation}
+		where $\eta_x,\eta_y$ take value in $\mathbb{Z}_2$.\par
+
+		On the other hand, when acting on arbitrary links of Ansatz $U_{\bm{ij}}\in SU(2)$, constraint \eqref{3.1.1} gives us
+		\begin{align*}
+			U_{\bm{ij}}&=G_xT_xG_yT_y(G_yT_y)^{-1}(G_xT_x)^{-1}(U_{\bm{ij}})\\
+			&\equiv G_xT_xG_yT_yT_x^{-1}G_x^{-1}T_y^{-1}G_y^{-1}(U_{\bm{ij}})\\
+			&=\bigg(G_x(\bm{i})G_y(\bm{i+x})G_{x}^{-1}(\bm{i+y})G_y^{-1}(\bm{i})\bigg)U_{\bm{ij}}\bigg(G_x(\bm{i})G_y(\bm{i+x})G_{x}^{-1}(\bm{i+y})G_y^{-1}(\bm{i})\bigg)^\dagger.
+		\end{align*}
+		This is true only if
+		\begin{equation}\label{3.1.4}
+			\bigg(G_x(\bm{i})G_y(\bm{i+x})G_{x}^{-1}(\bm{i+y})G_y^{-1}(\bm{i})\bigg)\in IGG.
+		\end{equation}
+		\indent \textbf{Equations \eqref{3.1.3} and \eqref{3.1.4} determine all possible PSG in our translation-invariant $\mathbb{Z}_2$ spin liquids, and \emph{gauge independent} solutions of them give the classification we want}. To reduce the complexity of discussion, it's natural for us to fix the gauge before solving equations. \textbf{And once we have eliminated \emph{all} gauge redundancy, then each distinct solution of \eqref{3.1.3} and \eqref{3.1.4} exactly corresponds to one class of $\mathbb{Z}_2$ spin liquids}.\par
+		To achieve this, we hope to find a site-dependent IGG transformation on GG\footnote{The IGG transformation of one gauge transformation can be immdiately obtained from definition \eqref{2.1.1} and \eqref{2.1.2}. For $W\in IGG$ and $G_UU\in PSG$, we have
+		\begin{equation*}
+			G_UU(U_{\bm{ij}})\equiv WG_UU(U_{\bm{ij}})\equiv W G_UUW^{-1}W(U_{\bm{ij}})\equiv WG_U(UW^{-1}U^\dagger)UW(U_{\bm{ij}})=:WG_UW_U^\dagger UW(U_{ij})\equiv WG_UW_U^\dagger U(U_{\bm{ij}}).
+		\end{equation*}
+		So gauge transformation becomes $G_U\mapsto WG_UW_U^\dagger$ under IGG transformation, where $W_U(\bm{i})\equiv U^\dagger W(\bm{i}) U=W(T^{-1}(\bm{i}))$.} such that $G_y(\bm{i})$ becomes trivial
+		\begin{equation*}
+			W(\bm{i})G_y(\bm{i})W_{U(T_y)}(\bm{i})\equiv W(\bm{i})G_y(\bm{i})W(\bm{i-y})=\tau^0,
+		\end{equation*}
+		or from \eqref{3.1.3} such that
+		\begin{equation}\label{3.1.5}
+			\eta_y(\bm{i})=W(\bm{i})^\dagger W(\bm{i-y}).
+		\end{equation}
+		Plus the the confiment $G(\bm{i})\in IGG$, clearly $W(\bm{i})=f(i_x)\eta_y^{i_y}\tau^0$ for arbitrary function $f(i_x)$ is the IGG transformation meeting our requirement.\par
+		With trivial $G_y(\bm{i})$, equation \eqref{3.1.4} reduces to simple
+		\begin{equation*}
+			G_x(\bm{i})G_x^{-1}(\bm{i+y})=+\tau^0,
+		\end{equation*}
+		or
+		\begin{equation*}
+			G_x(\bm{i})G_x^{-1}(\bm{i+y})=-\tau^0.
+		\end{equation*}
+		Now we find that \textbf{there are only \emph{two} gauge inequivalent extensions of translation symmetry group by $IGG=\mathbb{Z}_2$}. These \emph{two} PSGs are given by
+		\begin{equation}\label{3.1.6}
+			G_x(\bm{i})=G_y(\bm{i})=\tau^0,
+		\end{equation}
+		and
+		\begin{equation}\label{3.1.7}
+			G_x(\bm{i})=(-1)^{i_y}\tau^0,\quad G_y(\bm{i})=\tau^0.
+		\end{equation}
+		\indent Corrsepondingly, two classes of translation-invaraint Ansatz take the form of
+		\begin{equation}\label{3.1.8}
+			U_{\bm{i,i+m}}\equiv(G_xT_x)^{i_x}(G_yT_y)^{i_y}U_{\bm{i,i+m}}= U_{\bm{0,m}},
+		\end{equation}
+		and
+		\begin{equation}\label{3.1.9}
+			U_{\bm{i,i+m}}\equiv(G_xT_x)^{i_x}(G_yT_y)^{i_y}U_{\bm{i,i+m}}= (-1)^{m_yi_y}U_{\bm{0,m}}.
+		\end{equation}
+
+	\subsubsection{Plus Time-reversal Symmetry}
+		If time-reversal symmetry is added in our SG, with generator $T$ satisfying the constraint
+		\begin{equation}\label{3.2.1}
+			T^2=1,\quad T_x^{-1}TT_xT=1,\quad T_y^{-1}TT_yT=1,
+		\end{equation}
+		then after acting on arbitrary Ansatz $U_{\bm{ij}}$, we have
+		\begin{equation}\label{3.2.2}
+			G_T^2(\bm{i})\in IGG,\quad G_{x}^{-1}(\bm{i})G_T(\bm{i+x})G_x(\bm{i})G_T(\bm{i})=\eta_{xt}(\bm{i})\tau^0,\quad G_{y}^{-1}(\bm{i})G_T(\bm{i+y})G_y(\bm{i})G_T(\bm{i})=\eta_{yt}(\bm{i})\tau^0
+		\end{equation}
+		for $\eta_{xt,yt}=\pm1$.
+		And because $G_{x,y}(\bm{i})\propto\tau^0$, the above conditions reduce to simple
+		\begin{equation}\label{3.2.3}
+			G_T^2(\bm{i})\in IGG,\quad G_T(\bm{i})G_T(\bm{i+x})=\eta_{xt}(\bm{i})\tau^0,\quad G_T(\bm{i+y})G_T(\bm{i})=\eta_{yt}(\bm{i})\tau^0,
+		\end{equation}
+		leading to the solution
+		\begin{equation}\label{3.2.4}
+			G_T(\bm{i})=\eta_{xt}^{i_x}\eta_{yt}^{i_y}g_T,
+		\end{equation}
+		where $g_T^2=\tau^0\implies g_T=\tau^0,i\tau^3$.\par
+		Therefore, \textbf{there are $2\times 4\times 2=16$ kinds of gauge inequivalent extension of the translation and time-reversal symmetry group by $\mathbb{Z}_2$}.
+
+	\subsubsection{Plus Parity Symmetries}
+		If we go further to add parity symmetry in our SG as well, then PSG will be prominently enlarged. Parity symmetry group has three generators satisfying
+		\begin{equation*}
+			P_x^2=P_y^2=P_{xy}^2=1,
+		\end{equation*}
+		with the constraints among themselves
+		\begin{equation}\label{3.3.1}
+			P_{xy}P_xP_{xy}P_y^{-1}=P_yP_xP_y^{-1}P_x^{-1}=1,
+		\end{equation}
+		and constraints among translation generators (parity symmetry always commutes with time-reversal symmetry so their constraints are trivial)
+		\begin{equation}\label{3.3.1}
+			T_xP_x^{-1}T_xP_x=T_x^{-1}P_y^{-1}T_xP_y=T_yP_y^{-1}T_yP_y=T_y^{-1}P_x^{-1}T_xP_x=1,
+		\end{equation}
+
+	\subsection{$\mathrm{U}(1)$ or $\mathrm{SU}(2)$ Spin Liquids with Translation Symmetries}
+	\subsubsection{Plus Time-Reversal Symmetry}
+	\subsubsection{Plus Parity Symmetrise}
+
+\section{Selected Examples of Ansatz: Spectrum, Phase Diagram and Low Energy Effective Theory}
+		\subsubsection{$\pi$-flux State}
+
+		\subsubsection{Staggered Flux Liquids}
+
+		\subsubsection{$\mathbb{Z}_2$-gapped State}
+
+
+\iffalse
+	Since the above summation runs over distinct nearby sites $\bm{i}\neq\bm{j}$, we have $f_{j \alpha}f_{j \beta}^\dagger+f_{j \beta}^\dagger f_{j \alpha}=\delta_{ij}\delta_{\alpha \beta}=0$ and
+	\begin{equation}\label{1.1.2}
+		H=\sum_{\langle\bm{ij}\rangle}\sum_{\alpha \beta}-\dfrac{J_{\bm{ij}}}{2}f_{i \alpha}^\dagger f_{j \alpha} f_{j \beta}^\dagger f_{i \beta}+\sum_{\langle\bm{ij}\rangle}J_{\bm{ij}} \left(\dfrac{1}{2}n_i-\dfrac{1}{4}n_i n_j\right).
+	\end{equation}
+	which leads Hamiltonian \eqref{1.1.2} reducing to simple
+	\begin{equation}\label{1.1.4}
+		H=-\sum_{\langle\bm{ij}\rangle}\sum_{\alpha \beta}\dfrac{J_{\bm{ij}}}{2}f_{i \alpha}^\dagger f_{j \alpha} f_{j \beta}^\dagger f_{i \beta}.
+	\end{equation}
+
+		Hubbard-Stratonovish transformation is the standard approach to handle with such a four-fermion interaction in \eqref{1.1.4}. Here we start by MF method contracting only particle-hole channel, i.e., introducing
+		\begin{equation}
+			\chi_{\bm{ij}}=\langle f_{\bm{i}\alpha}^\dagger f_{\bm{j}}^\alpha\rangle,
+		\end{equation}
+		and re-writing \eqref{1.1.4} by 
+		\begin{equation}\label{2.1.1}
+			H_{MF}=\sum_{\langle\bm{ij}\rangle}-\dfrac{1}{2}J_{\bm{ij}}\bigg((f_{i \alpha}^\dagger f_j^\alpha\chi_{ij}-|\chi_{ij}|^2)\bigg)+\sum_{\bm{i}}a_{\bm{i}}^0(f_{i \alpha}^\dagger f_{i}^\alpha-1),
+		\end{equation}
+		then spinon spectrum can be obtained from porper choice of MF ansatz $\chi_{\bm{ij}}$ and lagrangian multiplier $a^0_{\bm{i}}$ (of course they must satisfy the self-consistent condition) 
+\fi
+
+
+
+\iffalse
+\section{Appendix}
+	\subsection{Hubbard-Stratonovich Transformation and Mean-field Approximation}
+	Hubbard-Stratonovich transformation is standard to handle with such a four-fermion interaction \eqref{1.1.4}. For each pair of nearest neighbor $\langle\bm{ij}\rangle$, introducing a real bosonic field $\chi_{\bm{ij}}$
+	\begin{equation*}
+		\dfrac{1}{\sqrt{J_{\bm{ij}}}}=\int\mathcal{D}\chi_{ij}^*\,e^{-\frac12\chi_{ij}J_{ij}^{-1}\chi_{ij}}
+	\end{equation*}
+	and shift variables with $\chi_{ij}\mapsto\chi_{ij}-\sum_{\alpha} J_{ij}f_{i \alpha}^\dagger f_{j \alpha}$, then
+	\begin{align*}
+		\dfrac{1}{\sqrt{J_{\bm{ij}}}}&=\int\mathcal{D}\chi_{ij}\,e^{-\frac12(\chi^*_{ij}-\sum_\beta J_{ij}f_{j \beta}^\dagger f_{i \beta})J^{-1}_{ij}(\chi_{ij}-\sum_\alpha J_{ij}f_{i \alpha}^\dagger f_{j \alpha})}\\
+		&=\int\mathcal{D}\chi_{ij}\,e^{-\frac12\chi_{ij}^*J_{ij}^{-1}\chi_{ij}+\frac12\sum_\alpha\chi_{ij}f_{i \alpha}^\dagger f_{j \alpha}+\frac12\sum_\beta\chi_{ij}^*f_{j \beta}^\dagger f_{i \beta}-\frac12\sum_{\alpha\beta} J_{ij}f_{i \alpha}^\dagger f_{j \alpha}f_{j \beta}^\dagger f_{i \beta}},
+	\end{align*}
+	or
+	\begin{equation}\label{1.2.1}
+		\dfrac{e^{\frac12\sum_{\alpha\beta} J_{ij}f_{i \alpha}^\dagger f_{j \alpha}f_{j \beta}^\dagger f_{i \beta}}}{\sqrt{J_{\bm{ij}}}}=\int\mathcal{D}\chi_{ij}\,e^{-\frac12\chi_{ij}^*J_{ij}^{-1}\chi_{ij}+\frac12\sum_\alpha\chi_{ij}f_{i \alpha}^\dagger f_{j \alpha}+\frac12\sum_\beta\chi_{ij}^*f_{j \beta}^\dagger f_{i \beta}}.
+	\end{equation}
+	So the partition function of quartic form of Hamiltonian \eqref{1.1.4} {\color{red}with the constraint} \eqref{1.1.3} (strickly speaking, we should use Grassmann number rather than creation and annihilation operator to write the fermionic path integral. Here for convenience we use the same notation.)
+	\begin{equation*}
+		\mathcal{Z}=\int\mathcal{D}f\,\prod_{\bm{i},t}\delta \left(\sum_\alpha f_{i \alpha}^\dagger(t)f_{i \alpha}(t)-1\right) \exp \left[i\int\dd t \left(\sum_{\bm{i},\alpha}f_{i \alpha}^\dagger i\partial_\tau f_{i \alpha}-\sum_{\langle\bm{ij}\rangle}\sum_{\alpha \beta}-\dfrac{J_{ij}}{2}f_{i \alpha}^\dagger f_{j \alpha}f_{j \beta}^\dagger f_{i \beta}\right)\right]
+	\end{equation*}
+	can be reduced to quadratic form
+	\begin{align*}
+		\mathcal{Z}&=\int\mathcal{D}f\mathcal{D}\chi\,\prod_{\bm{i},t}\delta \left(\sum_\alpha f_{i \alpha}^\dagger(t)f_{i \alpha}(t)-1\right) \exp \left[i\int\dd t \left(\sum_{\bm{i},\alpha}f_{i \alpha}^\dagger i\partial_\tau f_{i \alpha}-\dfrac{1}{2}\sum_{\langle\bm{ij}\rangle}\sum_{\alpha}\left(f_{j \beta}^\dagger f_{i \beta}\chi_{ij}+\text{h.c.}-\dfrac{1}{J_{ij}}|\chi_{ij}|^2\right)\right) \right]\\
+		&=\int\mathcal{D}f\mathcal{D}\chi\mathcal{D}a_0\,\exp \left[i\int\dd t \left(\sum_{\bm{i},\alpha}f_{i \alpha}^\dagger i\partial_\tau f_{i \alpha}-\dfrac{1}{2}\sum_{\langle\bm{ij}\rangle}\sum_{\alpha}\left(f_{j \beta}^\dagger f_{i \beta}\chi_{ij}+\text{h.c.}-\dfrac{1}{J_{ij}}|\chi_{ij}|^2\right)-a_0(\bm{i},t)\left(\sum_\alpha f_{i \alpha}^\dagger(t)f_{i \alpha}(t)-1\right)\right) \right].
+	\end{align*}
+	Therefore, 
+\fi
+
+\bibliography{hxd}
+\bibliographystyle{apsrev} % apsrev is format for PRL of APS
+\end{document}

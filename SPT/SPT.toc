@@ -1,0 +1,6 @@
+\tocdepth@munge 
+\contentsline {section}{\numberline {}Contents}{1}{section*.1}
+\tocdepth@restore 
+\contentsline {section}{\numberline {I}Group Cohomology}{1}{section*.2}
+\contentsline {subsection}{\numberline {A}Preliminary}{1}{section*.3}
+\contentsline {subsection}{\numberline {B}Algebraic Definition of Group Cohomology}{2}{section*.4}

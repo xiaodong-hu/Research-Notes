@@ -1,0 +1,93 @@
+\documentclass[10pt,nofootinbib]{revtex4}
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,bm,dsfont}
+\usepackage{mathtools}
+\usepackage{graphics,color}
+\usepackage{hyperref}
+
+\newcommand*\dd{\mathop{}\!\mathrm{d}}
+\newcounter{Claim}[section]
+\newenvironment{Claim}[1][]{{\par\normalfont\bfseries \underline{Claim~\stepcounter{Claim}\arabic{Claim}.}~#1~~}}{\par}
+\newcounter{Example}[section]
+\newenvironment{Example}[1][]{{\par\normalfont\bfseries Example~\stepcounter{Example}\arabic{Example}.~#1~~}}{\par}
+\newcounter{Proposition}[section]
+\newenvironment{Proposition}[1][]{{\par\normalfont\bfseries \underline{Proposition~\stepcounter{Proposition}\arabic{Proposition}.}~#1~~}}{\par}
+\newcounter{Note}[section]
+\newenvironment{Note}[1][]{{\par\normalfont\bfseries \underline{Note~\stepcounter{Note}\arabic{Note}.}~#1~~}}{\par}
+\newcounter{Lemma}[section]
+\newenvironment{Lemma}[1][]{{\par\normalfont\bfseries \underline{Lemma~\stepcounter{Lemma}\arabic{Lemma}.}~#1~~}}{\par}
+\newcounter{Corollary}[section]
+\newenvironment{Corollary}[1][]{{\par\normalfont\bfseries \underline{Corollary~\stepcounter{Corollary}\arabic{Corollary}.}~#1~~}}{\par}
+\newenvironment{Proof}{{\par~{\normalfont\bfseries $\vartriangleright$}~~}}{\hfill $\square$\par\hfill\par} %\par
+\newcounter{Def}[section]
+\newenvironment{Def}[1][]{{\par\normalfont\bfseries \underline{Definition~\stepcounter{Def}\arabic{Def}.}~#1~~}}{\par}
+
+
+\def\Re{\mathop{\mathcal{R}e}}
+\def\Im{\mathop{\mathcal{I}m}}
+\def\C{\mathcal{C}}
+
+
+\begin{document}
+\title{Symmetry Protected Topological Phases and Group cohomology}% Force line breaks with \\
+\thanks{This is a note of }%
+
+\author{Xiaodong Hu}
+%\altaffiliation[Also at ]{Boson College}
+\email{xiaodong.hu@bc.edu}
+\affiliation{Department of Physics, Boston College}
+
+\date{\today}
+
+
+\begin{abstract}
+Notes of SPT.
+\end{abstract}
+\maketitle
+\tableofcontents
+\section{Group Cohomology}
+	\subsection{Preliminary}
+		\begin{Def}[(Ring)]
+			A \emph{ring} (with identity) $(R,+,\cdot)$ is an abelian group of $(R,+)$ and monoid\footnote{A monoid is a semi-group with an identity $1_R$ (called two-sided multiplication identity).} of $(R,\cdot)$ such that the multiplication of monoid is distributive. Particularly if $a\cdot b\equiv b\cdot a$, then $R$ is said to be \emph{commutative}
+		\end{Def}
+		\begin{Example}[(Group Ring)]
+			A \emph{group ring} or \emph{$\mathbb{Z}$-group ring} $\mathbb{Z}[G]$ is the set of \emph{finite sum}
+			\begin{equation*}
+				\mathbb{Z}[G]:=\left\{\sum_{g\in G}a_g g~\bigg|~a_g\in\mathbb{Z},\text{ almost all $a_g=0$}\right\}
+			\end{equation*}
+			on which the sum and multiplication are naturally defined as 
+			\begin{equation*}
+				\sum_{g} a_g g+\sum_{h} a_h h=\sum_{g\in G}(a_g+b_g)g,
+			\end{equation*}
+			and
+			\begin{equation*}
+				\left(\sum_{g} a_g g\right)\cdot\left(\sum_{h} a_h h\right)\equiv\sum_{g,h}(a_g\cdot b_h)gh=\sum_{g,gh}(a_g\cdot b_{g^{-1}gh})gh=\sum_{g,k}(a_g\cdot b_{g^{-1}k})k,
+			\end{equation*}
+			where we replace dummy group index $h$ by $gh$ since it suns over the entire group $G$.
+		\end{Example}
+		\begin{Def}[(Left $R$-module)]
+			A \emph{left $R$-module} denoted as $M$ over a ring $(R,+,\cdot)$ consists of an \emph{abelian group} $(M,\times)$ and a ring homomorphism\footnote{A ring homomorphism $f\in\mathrm{End}(R)$ is an addition, multiplication, and multiplication identity preserving mapping\begin{equation*}
+				f(a+b)=f(a)+f(b),\quad f(a\cdot b)=f(a)\cdot f(b),\quad f(1_R)=1_R.
+			\end{equation*}} $\sigma:R\rightarrow\mathrm{End}_{\mathsf{Ab}}(M), \sigma(r)(m)\mapsto rm\in M$ called scalar multiplication such that this mapping is associative and distributive for $(M,+)$.
+		\end{Def}
+		\begin{Example}
+			Denoting $F$ as field, an $F$-module is a $F$-vector space. So {\color{red}module can be regarded as the ``vector space'' over a ring}.
+		\end{Example}
+		\begin{Example}
+			$\mathbb{Z}$-module is an abelian group.
+			%Given an abelian group $(G,+)$ and a ring of integer $(\mathbb{Z},+,\cdot)$, we can define a $\mathbb{Z}$-module by assigning the ring homomorphism $\sigma:\mathbb{Z}\rightarrow\mathrm{End}_{\mathsf{Ab}}(G)$ as $\sigma(a)(g)\equiv ag:=\overbrace{g+\cdots+g}^{a}$. Such homomorphism is certainly to be distributive. 
+		\end{Example}
+		\begin{Example}[($G$-Module)]
+			A $\mathbb{Z}[G]$-module (or simply referred as \emph{$G$-module}) is an abelian group $(A,+)$ with the ring homomorphism $\sigma:\mathbb{Z}[G]\rightarrow\mathrm{End}_{\mathsf{Ab}}(A)$ compatible with the abelian group multiplication. {\color{red}Studying the representation of a group can be \emph{equivalently} converted to study the module over its group ring}.
+		\end{Example}
+	\subsection{Algebraic Definition of Group Cohomology}
+		Given an $G$-module $M$ and an arbitrary function (called \emph{$n$-cochain}) $\omega:\underbrace{G\times\cdots\times G}_n\rightarrow M$, we can naturally assgin an abelian group multiplication on the collection of these functions $\C^n(G,M)\equiv\left\{\omega|G^n\rightarrow M\right\}$ from the ablian group structure
+		%\footnote{To be in consistent with Wen's paper, here we use $\cdot$ rather than $+$ representing the abelian group multiplication.}
+		of $(M,+)$ by
+		\begin{equation*}
+			(\omega*\omega')(g_1,\cdots,g_n):=\omega(g_1,\cdots,g_n)+\omega'(g_1,\cdots,g_n).
+		\end{equation*}
+		If we define an $n$-th differential $d^n:C^n(G,M)\rightarrow C^{n+1}(G,M)$ as usual
+		\begin{equation}\label{1.2.1}
+			d^n\omega(g_0,g_1,\cdots,g_n):=g_0\cdot\omega(g_1,\cdots,g_n)+
+		\end{equation}
+\end{document}

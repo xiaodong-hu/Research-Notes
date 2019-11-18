@@ -1,0 +1,539 @@
+\documentclass[10pt,nofootinbib]{revtex4}
+
+\usepackage[nocap]{ctex}
+
+%\usepackage{xeCJK}
+%\setCJKmainfont{Source Han Sans CN}
+%\setCJKmonofont{Source Han Sans CN}
+%\setCJKsansfont{Source Han Sans CN}
+
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,bm,dsfont}
+\usepackage{enumerate}
+\usepackage{enumitem} % Customize itemize, see https://ctan.org/tex-archive/macros/latex/contrib/enumitem/
+\usepackage[all]{xy}
+\usepackage[normalem]{ulem}	% delete line
+\usepackage{graphics,color}
+\usepackage{tikz}
+	\usetikzlibrary{calc}
+	\usetikzlibrary{decorations.markings}
+	\usetikzlibrary{arrows}
+	\usetikzlibrary{patterns}
+	%\usetikzlibrary{shapes.callouts}
+\tikzset{
+    level/.style = {
+        ultra thick,
+        blue,
+    },
+    connect/.style = {
+        dashed,
+        red
+    },
+    label/.style = {
+        text width=2cm
+    }
+}
+\usepackage{pgfplots}
+%\usepackage[citestyle=authortitle]{biblatex} % able to cite the title, author and year
+%\usepackage{hyperref}
+\usepackage{feynmp} % feymann diagram
+\usepackage{extarrows}
+
+\usepackage[normalem]{ulem} % 文字划掉（横），与 cite 兼容问题，见 https://tex.stackexchange.com/questions/98222/ulem-incompatibility-with-multiple-entries-in-cite
+
+\newcommand*\dd{\mathop{}\!\mathrm{d}}
+\newcounter{Claim}[section]
+\newenvironment{Claim}[1][]{{\par\normalfont\bfseries \underline{Claim~\stepcounter{Claim}\arabic{Claim}.}~#1~~}}{\par}
+\newcounter{Proposition}[section]
+\newenvironment{Proposition}[1][]{{\par\normalfont\bfseries \underline{Proposition~\stepcounter{Proposition}\arabic{Proposition}.}~#1~~}}{\par}
+\newcounter{Note}[section]
+\newenvironment{Note}[1][]{{\par\normalfont\bfseries \underline{Note~\stepcounter{Note}\arabic{Note}.}~#1~~}}{\par}
+\newcounter{Lemma}[section]
+\newenvironment{Lemma}[1][]{{\par\normalfont\bfseries \underline{Lemma~\stepcounter{Lemma}\arabic{Lemma}.}~#1~~}}{\par}
+\newcounter{Corollary}[section]
+\newenvironment{Corollary}[1][]{{\par\normalfont\bfseries \underline{Corollary~\stepcounter{Corollary}\arabic{Corollary}.}~#1~~}}{\par}
+\newenvironment{Proof}{{\par~{\normalfont\bfseries $\vartriangleright$}~~}}{\hfill $\square$\par\hfill\par} %\par
+\newcounter{Def}[section]
+\newenvironment{Def}[1][]{{\par\normalfont\bfseries \underline{Definition~\stepcounter{Def}\arabic{Def}.}~#1~~}}{\par}
+
+\allowdisplaybreaks[4] %允许 align 跨页编排
+
+
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+\def\G{\mathcal{G}}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt,thick] (char) {#1};}}
+% from https://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
+
+
+
+\begin{document}
+\title{Thermal Hall Transport of Bosonic System with Pairing Hamiltonian --- from Magnon to Topological Superconductor}
+\author{Xiaodong Hu}
+%\altaffiliation[Also at ]{Boson College}
+\email{xiaodong.hu@bc.edu}
+\affiliation{Department of Physics, Boston College}
+
+\date{\today}
+
+\begin{abstract}
+	In this note the recent new approach of Kapustin \cite{kapustin2019thermal} is applied to calculate the transport thermal Hall coefficient of magnon with pairing Hamiltonian. The result is consistent with the previous result of \cite{matsumoto2014thermal}.\par
+	%\begin{center}
+		\hfill\par
+		{\centering\kaishu 一点浩然气，千里快哉风。\\[0.5em]}
+	%\end{center}
+	\hfill------ 苏轼「水调歌头」
+\end{abstract}
+
+\maketitle
+\tableofcontents
+
+
+\section{Thermal Hall Effect of Magnon}
+	\subsection{On-site Quadratic Hamiltonian}
+		A general quadratic bosonic Hamiltonian with $N$ degree of freedom (both sublattice and orbital degree of freedom) per unit cell takes the form of
+		\begin{align}\label{1.1.1}
+			\mathcal{H}&=\dfrac{1}{2}\sum_{\{m,n\}\in\text{lattice}}\bm{b}^\dagger_m \bm{A}_{mn}\bm{b}_n+\bm{b}_m^\dagger \bm{B}_{mn}\bm{b}_n^\dagger+\bm{b}_m \bm{C}_{mn}\bm{b}_n+\bm{b}_m\bm{D}_{mn}\bm{b}_n^\dagger\nonumber\\
+			&=\dfrac{1}{2}\sum_{\{m,n\}\in\text{lattice}}\left(\begin{array}{cc}
+				\bm{b}_m^\dagger&\bm{b}_n
+			\end{array}\right)\left(\begin{array}{cc}
+				\bm{A}_{mn}&\bm{B}_{mn}\\\bm{C}_{mn}&\bm{D}_{mn}
+			\end{array}\right)\left(\begin{array}{c}
+				\bm{b}_n\\\bm{b}_n^\dagger
+			\end{array}\right) 
+		\end{align}
+		where \textbf{$\bm{A},\bm{B},\bm{C},\bm{D}$ are complex coefficient $N$ by $N$ matrix and $\bm{b}_m$ is a $N$-tuple vector on site $m$} (we explicitly keep the site label to avoid the ambiguity). Hermicity of Hamiltonian $\mathcal{H}^\dagger\equiv \mathcal{H}$ requires
+		\begin{equation*}
+			\bm{A}_{mn}^\dagger\equiv\bm{A}_{nm},\quad \bm{D}_{mn}^\dagger\equiv\bm{D}_{nm},\quad\bm{B}_{mn}^\dagger\equiv\bm{C}_{nm}.
+		\end{equation*}
+		C.C.R. of bosonic field operators $[(b_m)_i,(b_n^\dagger)_j]\equiv\delta_{ij}\delta_{mn}$ and $[(b_m)_i,(b_n)_j]\equiv0$ relates the term $\bm{b}_m^\dagger \bm{A}_{mn}\bm{b}_{n}$ with $\bm{b}_m\bm{D}_{mn}\bm{b}_n^\dagger$, giving $\bm{A}_{mn}\equiv\bm{D}_{mn}^*$, where $i,j$ are sublattice or orbital labels (do not mix them with the site label!). Ditto for the second and third terms in Hamiltonian so that $\mathbf{B}_{mn}=\mathbf{B}_{nm}^T$. So Hamiltonian \eqref{1.1.1} becomes
+		\begin{equation}\label{1.1.2}
+			\mathcal{H}=\dfrac{1}{2}\sum_{\{m,n\}\in\text{lattice}}\left(\begin{array}{cc}
+				\bm{b}_m^\dagger&\bm{b}_n
+			\end{array}\right) \left(\begin{array}{cc}
+				\bm{A}_{mn}&\bm{B}_{mn}\\{\color{red}\bm{B}_{nm}^\dagger}&\bm{A}_{mn}^*
+			\end{array}\right)\left(\begin{array}{c}
+				\bm{b}_n\\\bm{b}_n^\dagger
+			\end{array}\right)=:\dfrac{1}{2}\sum_{mn}\psi_m^\dagger H_{mn}\psi_n,
+		\end{equation}
+		where $2N$-tuple vector $\bm{\psi}_n$ is introduced.\par
+		The on-site Hamiltonian $\mathcal{H}_{\bm{r}}$ s.t. $\mathcal{H}\equiv\sum_{\bm{r}}\mathcal{H}_{\bm{r}}$ should be Hermitian as well, so we can make a symmetric choice\footnote{Actually \textbf{it is the ambiguity on the choice of $\mathcal{H}$ that gives rise to operator modification and then magnetization}.} of the form that
+		\begin{equation}\label{1.1.3}
+			\mathcal{H}_{\bm{r}}=\dfrac{1}{4}\sum_{\bm{r'}}\psi_{\bm{r}}^\dagger H_{\bm{r},\bm{r'}}\psi_{\bm{r'}}+\psi_{\bm{r'}}^\dagger H_{\bm{r'},\bm{r}}\psi_{\bm{r}}.
+		\end{equation}
+		because
+		\begin{equation}\label{1.1.4}
+			H_{\bm{rr'}}^\dagger\equiv \left(\begin{array}{cc}
+				\bm{A}_{\bm{rr'}}^\dagger & \bm{B}_{\bm{r'r}} \\
+				\bm{B}_{\bm{rr'}}^\dagger & (\bm{A}_{\bm{rr'}}^\dagger)^*
+			\end{array}\right)=\left(\begin{array}{cc}
+				\bm{A}_{\bm{r'r}} & \bm{B}_{\bm{r'r}}\\
+				\bm{B}_{\bm{rr'}}^\dagger & \bm{A}_{\bm{r'r}}^*
+			\end{array}\right)\equiv H_{\bm{r'r}}.
+		\end{equation}
+		Another useful identity is that
+		\begin{equation}\label{1.1.5}
+			\sigma_1H_{\bm{rr'}}\sigma_1\equiv \left(\begin{array}{cc}
+				&\mathbf{1}\\\mathbf{1}&
+			\end{array}\right)\left(\begin{array}{cc}
+				\bm{A}_{\bm{rr'}}&\bm{B}_{\bm{rr'}}\\\bm{B}_{\bm{r'r}}^\dagger&\bm{A}_{\bm{rr'}}^*
+			\end{array}\right)\left(\begin{array}{cc}
+				&\bm{1}\\\bm{1}&
+			\end{array}\right)=\left(\begin{array}{cc}
+				\bm{A}_{\bm{rr'}}^*&\bm{B}_{\bm{r'r}}^\dagger\\\bm{B}_{\bm{rr'}}&\bm{A}_{\bm{rr'}}
+			\end{array}\right)=\left(\begin{array}{cc}
+				\bm{A}_{\bm{r'r}}^T&\bm{B}_{\bm{r'r}}\\\bm{B}_{\bm{r'r}}^T&\bm{A}_{\bm{r'r}}^\dagger
+			\end{array}\right)=\left(\begin{array}{cc}
+				\bm{A}_{\bm{r'r}}&\bm{B}_{\bm{r'r}}\\\bm{B}_{\bm{rr'}}^*&\bm{A}_{\bm{r'r}}^*
+			\end{array}\right)^T\equiv H_{\bm{r'r}}^T.
+		\end{equation}
+		\indent We are interested in translate-invaraint system (to define bands) $H_{\bm{rr'}}\equiv H_{\bm{\delta}}$, so the above properties can be reexpressed as
+		\begin{equation}\label{1.1.6}
+			H_{\bm{\delta}}^\dagger\equiv H_{-\bm{\delta}},
+		\end{equation}
+		and
+		\begin{equation}\label{1.1.7}
+			\sigma_1 H_{\bm{\delta}}\sigma_1=H_{\bm{-\delta}}^T.
+		\end{equation}
+
+	\subsection{Energy Current}
+		By \cite{kitaev2006anyons,kapustin2019thermal} the energy current on lattice is defined as $1$-chain
+		\begin{equation}\label{1.2.1}
+			J_{ab}^E\equiv-i[\mathcal{H}_{a},\mathcal{H}_{b}]\equiv-\dfrac{i}{16}\sum_{cd}[\psi^\dagger_aH_{ac}\psi_c+\psi_c^\dagger H_{ca}\psi_a,\psi^\dagger_b H_{bd}\psi_d+\psi_d^\dagger H_{db}\psi_b].
+		\end{equation}
+		Taking $\displaystyle\sum_{cd}[\psi_a^\dagger H_{ac}\psi_c,\psi_b^\dagger H_{bd}\psi_d]$ as an example
+		\begin{align*}
+			&\sum_{cd}\sum_{ijk\ell}[(\psi_a^\dagger)_i (H_{ac})_{ij}(\psi_c)j,(\psi_b^\dagger)_k (H_{bd})_{k\ell}(\psi_d)_\ell]\\
+			&=\sum_{cd}\sum_{ijk\ell}\bigg\{(\psi_a^\dagger)_i(H_{ac})_{ij}[(\psi_c)_j,(\psi^\dagger)_k](H_{bd})_{k\ell}(\psi_d)_\ell+(\psi_a^\dagger)_i (H_{ac})_{ij}(\psi_b^\dagger)_k(H_{bd})_{k\ell}[(\psi_c)_j,(\psi_d)_\ell]\\
+			&\qquad+(\psi_b^\dagger)_k (H_{bd})_{k\ell}[(\psi_a^\dagger)_i,(\psi_d)_\ell](H_{ac})_{ij}(\psi_c)_j+[(\psi_a^\dagger)_i,(\psi_b^\dagger)_k](H_{bd})_{k\ell})(\psi_d)_\ell(H_{ac})_{ij}(\psi_c)_j\bigg\}\\
+			&=\sum_{cd}\sum_{ijk\ell}\bigg\{(\psi_a^\dagger)_i(H_{ac})_{ij}(\sigma_3)_{jk}(H_{bd})_{k\ell}(\psi_d)_\ell\delta_{bc}+i(\psi_a^\dagger)(H_{ac})_{ij}(\psi_b^\dagger)_k(H_{bd})_{k\ell}(\sigma_2)_{j\ell}\delta_{cd}\\
+			&\qquad-(\psi_b^\dagger)_k(H_{bd})_{k\ell}(\sigma_3)_{i\ell}(H_{ac})_{ij}(\psi_c)_j\delta_{ad}-i(\sigma_2)_{ik}(H_{bd})_{k\ell}(\psi_d)_\ell(H_{ac})_{ij}(\psi_c)_j\delta_{ab}\bigg\}\equiv \circled{1}+\circled{2}+\circled{3}+\circled{4},
+		\end{align*}
+		where in the last line we utilize the C.C.R. of $2$-N tuple vector $\psi$
+		\begin{subequations}
+			\begin{align}
+				[(\psi_a)_i,(\psi_b^\dagger)_j]&=(\sigma_3)_{ij}\delta_{ab},\label{1.2.2a}\\
+				[(\psi_a)_i,(\psi_b)_j]&=i(\sigma_2)_{ij}\delta_{ab},\label{1.2.2b}\\
+				[(\psi_a^\dagger)_i,(\psi_b^\dagger)_j]&=-i(\sigma_2)_{ij}\delta_{ab}.\label{1.2.2c}
+			\end{align}
+		\end{subequations}
+		Using $\sigma_2\equiv i\sigma_1\sigma_3\equiv-i\sigma_3\sigma_1, \sigma_1\psi_a\equiv \psi_a^\dagger$ and $\sigma_1\psi_a^\dagger\equiv\psi_a$, we have
+		\begin{equation*}\label{1.2.3}
+			\circled{1}=\sum_{ad}\psi_a^\dagger H_{ac}\sigma_3 H_{bd}\psi_d\delta_{ac},
+		\end{equation*}
+		and
+		\begin{align*}
+			\circled{2}&=\sum_{cd}\sum_{ijk\ell mn}i(\psi_a^\dagger)_i(H_{ac})_{ij}(-i)(\sigma_3)_{jm}(\sigma_1)_{m\ell}(H_{bd})_{k\ell}(\sigma_1)_{kn}(\psi_b)_n\delta_{cd}\\
+			&=\sum_{cd}\sum_{ijk\ell mn}(\psi_a^\dagger)_i(H_{ac})_{ij}(\sigma_3)_{jm}(\sigma_1)_{m\ell}(H_{bd}^T)_{\ell k}(\sigma_1)_{kn}(\psi_b)_n\delta_{cd}\\
+			&=\sum_{cd}\sum_{ijmn}(\psi_a^\dagger)_i(H_{ac})_{ij}(\sigma_3)_{jm}(H_{db})_{mn}(\psi_b)_n\delta_{cd}\equiv\sum_{cd}\psi_a^\dagger H_{ac}\sigma_3 H_{db}\psi_b\delta_{cd},
+		\end{align*}
+		where in the second line we use \eqref{1.1.7}. Similarly
+		\begin{equation*}
+			\circled{3}=-\sum_{cd}\psi_b^\dagger H_{bd}\sigma_3 H_{ac}\psi_c\delta_{ad},
+		\end{equation*}
+		and
+		\begin{align*}
+			\circled{4}&=\sum_{cd}\sum_{ijk\ell mn}-i(\sigma_3)_{im}(\sigma_1)_{mk}(H_{bd})_{k\ell}(\sigma_1)_{\ell n}(\psi_d^\dagger)_n(H_{ac})_{ij}(\psi_c)_j\delta_{ab}\\
+			&=-\sum_{cd}\sum_{ijmn}(\sigma_3)_{im}(H_{db}^T)_{mn}(\psi_d^\dagger)_n(H_{ac})_{ij}(\psi_c)_j\delta_{ab}\\
+			&=-\sum_{cd}\sum_{ijmn}(\psi_d^\dagger)_m(H_{db})_{nm}(\sigma_3)_{mi}(H_{ac})_{ij}(\psi_c)_j\delta_{ab}\equiv-\sum_{cd}\psi_c^\dagger H_{db}\sigma_3 H_{ac}\psi_c\delta_{ab}.
+		\end{align*}
+		\indent The other three terms in \eqref{1.2.1} can be immediately obtained by cyclying the labels of sites. Since energy current only possess anti-symmtric components, all terms containing $\delta_{ab}$ is gone in $J_{ab}^E$. Thus we have
+		\begin{align}\label{1.2.3}
+			J_{ab}^E&=\dfrac{-i}{8}\sum_c\bigg\{\psi_a^\dagger H_{ab}\sigma_3 H_{bc}\psi_c+\psi_a^\dagger H_{ac}\sigma_3 H_{cb}\psi_b-\psi_b^\dagger H_{ba}\sigma_3 H_{ac}\psi_c\nonumber\\
+			&\qquad+\psi_c^\dagger H_{ca}\sigma_3 H_{ab}\psi_b-\psi_b^\dagger H_{bc}\sigma_3 H_{ca}\psi_a-\psi_c^\dagger H_{cb}\sigma_3 H_{ba}\psi_a\bigg\}.
+		\end{align}
+		When evaluating with an arbitary $1$-cochain $\delta f$,
+		\begin{equation}\label{1.2.4}
+			J^E(\delta f)\equiv\dfrac{1}{2}\sum_{ab}J_{ab}^E(f_a-f_b)=\dfrac{-i}{4}\psi^\dagger(fH\sigma_3 H-H\sigma_3 H)f=\dfrac{-i}{4}\psi^\dagger[f,H\sigma_3H]\psi,
+		\end{equation}
+		where we omit the summation over spatial labels. This result is half of the free fermionic case in \cite{kapustin2019thermal}, as expected.
+
+	\subsection{Bogoliubov Transformation}
+		For translate-invariant system, let us writing the fields operator in momentum representation, i.e.,
+		\begin{equation*}
+			b_{\bm{r}}\equiv\dfrac{1}{\sqrt{N}}\sum_{\bm{k}}e^{\bm{k\cdot r}}b_{\bm{k}},\quad b_{\bm{r}}^\dagger\equiv\dfrac{1}{\sqrt{N}}\sum_{\bm{k}}e^{-\bm{k\cdot r}}b_{\bm{k}},
+		\end{equation*}
+		then the original Hamiltonian \eqref{1.1.2} becomes
+		\begin{equation}\label{1.3.1}
+			\mathcal{H}=\sum_{\bm{k}}\left(\begin{array}{cc}
+				\bm{b}_{\bm{k}}^\dagger&\bm{b}_{\bm{-k}}
+			\end{array}\right) 
+			H_{\bm{k}}
+			\left(\begin{array}{c}
+				\bm{b}_{\bm{k}}\\\bm{b}_{\bm{-k}}^\dagger
+			\end{array}\right) ,
+		\end{equation}
+		where $H_{\bm{k}}\equiv\sum_{\bm{k}}H_{\bm{\delta}}e^{i\bm{k\cdot\delta}}$. As is shown in \cite{colpa1978diagonalization}, $H_{\bm{k}}$ can diagonalized by a \emph{paraunitary matrix}\footnote{Paraunitarity means \begin{equation*}
+			T_{\bm{k}}^\dagger\sigma_3 T_{\bm{k}}\equiv\sigma_3,\quad T_{\bm{k}}\sigma_3 T_{\bm{k}}^\dagger\equiv\sigma_3,
+		\end{equation*}} $T_{\bm{k}}$ such that
+		\begin{equation*}
+			\psi_{\bm{k}}\equiv\left(\begin{array}{c}
+				b_{\bm{k}}\\b_{\bm{-k}}^\dagger
+			\end{array}\right)\equiv
+			T_{\bm{k}}\left(\begin{array}{c}
+				\gamma_{\bm{k}}\\\gamma_{\bm{-k}}^\dagger
+			\end{array}\right),
+		\end{equation*}
+		or in component
+		\begin{equation}\label{1.3.2}
+			(\psi_{\bm{k}})_i\equiv \sum_{n=1}^N\bigg((T_{\bm{k}})_{i,n}\gamma_{\bm{k},n}+(T_{\bm{k}})_{i,N+n}\gamma_{\bm{-k},N+n}^\dagger\bigg),
+		\end{equation}
+		and
+		\begin{equation}\label{1.3.3}
+			\mathcal{H}=\sum_{\bm{k}}\left(\begin{array}{cc}
+				\gamma_{\bm{k}}^\dagger & \gamma_{\bm{-k}}
+			\end{array}\right)
+			\mathcal{E}_{\bm{k}}\left(\begin{array}{c}
+				\gamma_{\bm{k}}\\\gamma_{\bm{-k}}^\dagger
+			\end{array}\right)\equiv\sum_{\bm{k}}\sum_{n=1}^N \varepsilon_{n\bm{k}}\left(\gamma_{n\bm{k}}^\dagger\gamma_{n\bm{k}}+\dfrac{1}{2}\right),
+		\end{equation}
+		where the $N$ bands energy
+		\begin{equation*}
+			\mathcal{E}_{\bm{k}}\equiv T_{\bm{k}}^\dagger H_{\bm{k}}T_{\bm{k}}\equiv \left(\begin{array}{ccc|ccc}
+				\varepsilon_{1\bm{k}}&&&&&\\&\ddots&&&&\\&&\varepsilon_{N\bm{k}}&&&\\
+				\hline
+				&&&\varepsilon_{1,\bm{-k}}&&\\&&&&\ddots&\\&&&&&\varepsilon_{N,\bm{-k}}
+			\end{array}\right).
+		\end{equation*}
+	\subsection{Kubo Part}
+		Kubo part of thermal Hall coefficient is given by Kubo pair of energy current \cite{kubo2012statistical}
+		\begin{equation}\label{1.4.1}
+			\kappa_{\text{Kubo}}(\alpha,\gamma):=\beta^2\int_0^\infty\dd t\,e^{-0^+t}\langle \langle J^E(\delta\alpha,t);J^E(\delta\gamma)\rangle \rangle,
+		\end{equation}
+		where
+		\begin{align}
+			\langle \langle J^E(\delta\alpha,t);J^E(\delta\gamma)\rangle \rangle &\equiv\dfrac{-1}{\beta}\int_0^\beta\dd\tau \langle e^{\tau H}J^E(\delta\alpha,t)e^{-\tau H}J^E(\delta\gamma)\rangle- \langle J^E(\delta\alpha,t)\rangle\langle J^E(\delta\gamma)\rangle\nonumber\\
+			&=\dfrac{-1}{\beta}\int_0^\beta\dd\tau \langle e^{\tau H}e^{iHt}J^E(\delta\alpha)e^{-iHt}e^{-\tau H}J^E(\delta\gamma)\rangle\nonumber\\
+			&=\dfrac{-1}{\beta}\int_0^\beta\dd\tau \langle J^E(\delta\alpha,t-i\tau)J^E(\delta\gamma)\rangle,\label{1.4.2}
+		\end{align}
+		the second term in the first line is ignored due to energy current version of Bloch theorem \cite{watanabe2019proof,kapustin2019absence}. Inserting energy-current in \eqref{1.2.4}, there are two kinds of connnected contractions, i.e.,
+		\begin{align}
+			\langle J^E(\delta\alpha,t-i\tau)J^E(\delta\gamma)\rangle&=\dfrac{-1}{16}\sum_{\bm{p},\bm{q}}\sum_{ijmn}^N\bigg\langle\psi_{i\bm{p}}^\dagger(t-i\tau)(A_\alpha)_{ij}\psi_{j\bm{p}}(t-i\tau)\psi_{m\bm{q}}^\dagger(A_\gamma)_{mn}\psi_{n\bm{q}}\bigg\rangle\nonumber\\
+			&=\dfrac{-1}{16}\sum_{\bm{k}}\sum_{ijmn}\bigg(\langle\psi_{i\bm{k}}^\dagger(t-i\tau)\psi_{m\bm{k}}^\dagger\rangle \langle\psi_{j\bm{k}}(t-i\tau)\psi_{n\bm{k}}\rangle+\langle\psi_{i\bm{k}}^\dagger(t-i\tau)\psi_{n\bm{k}}\rangle\langle\psi_{j\bm{k}}(t-i\tau)\psi_{m\bm{k}}^\dagger\rangle\bigg)\nonumber\\
+			&\qquad\times(A_\alpha)_{ij}(A_\gamma)_{mn},\label{1.4.3}
+		\end{align}
+		where $A_\alpha\equiv[\alpha,H_{\bm{k}}\sigma_3H_{\bm{k}}]$. Thermal average of the occupation number of diagonal basis in \eqref{1.3.3} gives
+		\begin{equation*}
+			\langle \gamma_{n\bm{k}}^\dagger\gamma_{m\bm{k}}\rangle=\delta_{mn}g(\varepsilon_{m\bm{k}}),\quad \langle \gamma_{n\bm{k}}\gamma_{m\bm{k}}^\dagger \rangle=-\delta_{mn}(1-g(\varepsilon_{m\bm{k}}))\equiv-\delta_{m,n}g(-\varepsilon_{m\bm{k}}),
+		\end{equation*}
+		then from \eqref{1.3.2}
+		\begin{align*}
+			\langle \psi_{i\bm{k}}^\dagger(t-i\tau)\psi_{j\bm{k}}\rangle&=\sum_{\bm{k}}\sum_{m=1}^N\left(g(\varepsilon_{m\bm{k}})(T^\dagger_{\bm{k}})_{m,i}(T_{\bm{k}})_{j,m}e^{i \varepsilon_{m\bm{k}}(t-i\tau)}-g(-\varepsilon_{m,\bm{-k}})(T^\dagger_{\bm{k}})_{m+N,i}(T_{\bm{k}})_{j,m+N}e^{-i \varepsilon_{m,\bm{-k}}(t-i\tau)}\right),\\
+			\langle \psi_{i\bm{k}}(t-i\tau)\psi^\dagger_{j\bm{k}}\rangle&=\sum_{\bm{k}}\sum_{m=1}^N\left(-g(-\varepsilon_{m\bm{k}})(T_{\bm{k}})_{i,m}(T^\dagger_{\bm{k}})_{j,m}e^{-i \varepsilon_{m\bm{k}}(t-i\tau)}+g(\varepsilon_{m,\bm{-k}})(T_{\bm{k}})_{i,m+N}(T^\dagger_{\bm{k}})_{m+N,j}e^{i \varepsilon_{m,\bm{-k}}(t-i\tau)}\right).
+		\end{align*}
+		It can be easily shown that the other two contractions $\langle \psi_{i\bm{k}}^\dagger(t-i\tau)\psi^\dagger_{j\bm{k}}\rangle$ and $\langle \psi_{i\bm{k}}(t-i\tau)\psi_{j\bm{k}}\rangle$ have exactly the same result. So the above current-current correlation \eqref{1.4.3} consists of four parts
+		\begin{align}
+			\langle J^E(\delta\alpha,t-i\tau)J^E(\delta\gamma)\rangle&=\dfrac{-1}{8}\sum_{\bm{k}}\sum_{m,n=1}^N\bigg\{g(\varepsilon_{m\bm{k}})(B_{\alpha\bm{k}})_{m,n}g(-\varepsilon_{n\bm{k}})(B_{\gamma\bm{k}})_{nm}e^{i(\varepsilon_{m\bm{k}}-\varepsilon_{n\bm{k}})(t-i\tau)}\nonumber\\
+			&\qquad\qquad\qquad-g(\varepsilon_{m\bm{k}})(B_{\alpha\bm{k}})_{m,n+N}g(\varepsilon_{n,-\bm{k}})B_{n+N,m}e^{i(\varepsilon_{m\bm{k}}+\varepsilon_{n,-\bm{k}})(t-i\tau)}\nonumber\\
+			&\qquad\qquad\qquad-g(-\varepsilon_{m,-\bm{k}})(B_{\alpha\bm{k}})_{m+N,n}g(-\varepsilon_{n,\bm{k}})B_{n,m+N}e^{-i(\varepsilon_{m,-\bm{k}}+\varepsilon_{n,-\bm{k}})(t-i\tau)}\nonumber\\
+			&\qquad\qquad\qquad+g(-\varepsilon_{m,-\bm{k}})(B_{\alpha\bm{k}})_{m+N,n+N}g(\varepsilon_{n,-\bm{k}})B_{n+N,m+N}e^{-i(\varepsilon_{m,-\bm{k}}-\varepsilon_{n,-\bm{k}})(t-i\tau)}\bigg\},\label{1.4.4}
+		\end{align}
+		where $B_{\alpha\bm{k}}\equiv T_{\bm{k}}^\dagger A_\alpha T_{\bm{k}}$. Substituting \eqref{1.4.4} back to \eqref{1.4.1} and integrate over temperature $\beta$ and time $t$, we get (after some rearrangement)
+		\begin{align}
+			\kappa_{\text{Kubo}}(\alpha,\gamma)&=\dfrac{i}{8\beta}\sum_{\bm{k}}\sum_{m,n=1}^N\bigg\{(B_{\alpha\bm{k}})_{mn}(B_{\gamma\bm{k}})_{nm}\dfrac{g(\varepsilon_{m\bm{k}})-g(\varepsilon_{n\bm{k}})}{(\varepsilon_{m\bm{k}}-\varepsilon_{n\bm{k}})^2}-(B_{\alpha\bm{k}})_{m,n+N}(B_{\gamma\bm{k}})_{n+N,m}\dfrac{g(\varepsilon_{m\bm{k}})-g(-\varepsilon_{n,-\bm{k}})}{(\varepsilon_{m\bm{k}}+\varepsilon_{n,-\bm{k}})^2}\nonumber\\
+			&-(B_{\alpha\bm{k}})_{m+N,n}(B_{\gamma\bm{k}})_{n,m+N}\dfrac{g(-\varepsilon_{m,-\bm{k}})-g(\varepsilon_{n\bm{k}})}{(\varepsilon_{m,-\bm{k}}+\varepsilon_{n\bm{k}})^2}+(B_{\alpha\bm{k}})_{m+N,n+N}(B_{\gamma\bm{k}})_{n+N,m+N}\dfrac{g(-\varepsilon_{m,-\bm{k}})-g(-\varepsilon_{n,-\bm{k}})}{(\varepsilon_{m,-\bm{k}}-\varepsilon_{n,-\bm{k}})^2}\bigg\}.\label{1.4.5}
+		\end{align}
+		Minus signs in \eqref{1.4.5} can be absorbed by insertion of $\sigma_3$. Finally we come to the neat expression
+		\begin{align}\label{1.4.6}
+			\kappa_{\text{Kubo}}(\alpha,\gamma)&=\dfrac{i}{8\beta}\sum_{\bm{k}}{\color{red}\sum_{mn=1}^{2N}}(\sigma_3)_{mm}(B_{\alpha\bm{k}})_{mn}(\sigma_3)_{nn}(B_{\gamma\bm{k}})_{nm}\dfrac{g(\sigma_3\mathscr{E}_{\bm{k}})_{mm}-g(\sigma_3\mathscr{E}_{\bm{k}})_{nn}}{\big((\sigma_3\mathscr{E}_{\bm{k}})_{mm}-(\sigma_3\mathscr{E}_{\bm{k}})_{nn}\big)^2}\nonumber\\
+			&=\dfrac{i}{8\beta}\beta\int\dd z\,g(z)\mathbf{Tr}\left\{\delta(z-\sigma_3\mathscr{E})\sigma_3 B_\alpha\dfrac{1}{(z-\sigma_3\mathscr{E})^2}\sigma_3 B_\gamma-\dfrac{1}{(\sigma_3\mathscr{E}-z)^2}\sigma_3 B_\alpha\delta(z-\sigma_3\mathscr{E})\sigma_3 B_\gamma\right\}\nonumber\\
+			&=\dfrac{-\beta}{16\pi}\int\dd z\,g(z)\mathbf{Tr}\bigg\{(G_+-G_-)\sigma_3 B_\alpha G_+^2\sigma_3 B_\gamma-(G_+-G_-)\sigma_3 B_\gamma G_-^2\sigma_3 B_\alpha\bigg\},
+		\end{align}
+		where the trace $\mathbf{Tr}$ runs over \emph{both} momentum and $N$-subband or orbital degree of freedom, Green function
+		\begin{equation*}
+			G_{\pm}(z):=\dfrac{1}{z-\sigma\mathscr{E}\pm i\delta},
+		\end{equation*}
+		and we use the representation of Dirac delta function
+		\begin{equation*}
+			\lim_{\delta\rightarrow0}\left(\dfrac{1}{z-\sigma\mathscr{E}+i\delta}-\dfrac{1}{z-\sigma\mathscr{E}-i\delta}\right)\equiv-2\pi i\delta(z-\sigma_3\mathscr{E}).
+		\end{equation*}
+		\indent Note that although we start from the specific form of two-body operator $A_\alpha\equiv[\alpha,H_{\bm{k}}\sigma_3 H_{\bm{k}}]$, the above derivation has nothing to do with that. So generally for arbitary \emph{equal-time} two-body operators $\hat{O}_1=\psi^\dagger A\psi$ and $\hat{O}_2=\psi^\dagger B\psi$ (of course with the requirement of Bloch theorem), we have similar results of \eqref{1.4.6} that
+		\begin{align}\label{1.4.7}
+			\langle \langle \psi^\dagger A\psi,\psi^\dagger B\psi\rangle\rangle&=\dfrac{-2}{\beta}\sum_{\bm{k}}\sum_{mn=1}^{2N}(\sigma_3)_{mm}(\widetilde{A} _{\bm{k}})_{mn}(\sigma_3)_{nn}(\widetilde{B} _{\bm{k}})_{nm}\dfrac{g(\sigma_3\mathscr{E}_{\bm{k}})_{mm}-g(\sigma_3\mathscr{E}_{\bm{k}})_{nn}}{(\sigma_3\mathscr{E}_{\bm{k}})_{mm}-(\sigma_3\mathscr{E}_{\bm{k}})_{nn}}\nonumber\\
+			&=\dfrac{-2}{\beta}\int\dd z\,g(z)\mathbf{Tr}\left\{\delta(z-\sigma_3\mathscr{E})\sigma_3 \widetilde{A}\dfrac{1}{z-\sigma_3\mathscr{E}}\sigma_3 \widetilde{B}-\dfrac{1}{\sigma_3\mathscr{E}-z}\sigma_3 \widetilde{A}\delta(z-\sigma_3\mathscr{E})\sigma_3 \widetilde{B}\right\}\nonumber\\
+			&=\dfrac{1}{\pi i\beta}\int\dd z\,g(z)\mathbf{Tr}\bigg\{(G_+-G_-)\sigma_3 \widetilde{A}G_+\sigma_3 \widetilde{B} + G_-\sigma_3 \widetilde{A}(G_+-G_-)\sigma_3 \widetilde{B}\bigg\}\nonumber\\
+			&=\dfrac{1}{\pi i\beta}\int\dd z\,g(z)\mathbf{Tr}\bigg\{G_+\sigma_3\widetilde{A}G_+\sigma_3\widetilde{B}-G_-\sigma_3\widetilde{A}G_-\sigma_3\widetilde{B}\bigg\},
+		\end{align}
+		where again $\widetilde{A}\equiv T^\dagger A T$.\par
+		Paraunitary matrix $T_{\bm{k}}$ is annoying here, but fortunately we can absorb them through the identity
+		\begin{equation}\label{1.4.8}
+			T^{-1}_{\bm{k}}f(\sigma_3 H_{\bm{k}})T_{\bm{k}}=f(\sigma_3\mathscr{E}_{\bm{k}})
+		\end{equation}
+		so that for example
+		\begin{align*}
+			\mathbf{Tr}\bigg\{G_+\sigma_3\widetilde{A}G_+\sigma_3\widetilde{B}\bigg\}&\equiv\sum_{\bm{k}}\mathbf{Tr}\bigg\{\dfrac{1}{z-\sigma_3\mathscr{E}+i\delta}\sigma_3(T_{\bm{k}}^\dagger A_{\bm{k}}T_{\bm{k}})\dfrac{1}{z-\sigma_3\mathscr{E}+i\delta}\sigma_3(T_{\bm{k}}^\dagger B_{\bm{k}}T_{\bm{k}})\bigg\}\\
+			&=\sum_{\bm{k}}\mathbf{Tr}\bigg\{\left(T_{\bm{k}}^{-1}\dfrac{1}{z-\sigma_3H_{\bm{k}}+i\delta}T_{\bm{k}}\right)\sigma_3(T_{\bm{k}}^\dagger A_{\bm{k}}T_{\bm{k}})\left(T_{\bm{k}}^{-1}\dfrac{1}{z-\sigma_3H_{\bm{k}}+i\delta}T_{\bm{k}}\right)\sigma_3(T_{\bm{k}}^\dagger B_{\bm{k}}T_{\bm{k}})\bigg\}\\
+			&=\sum_{\bm{k}}\mathbf{Tr}\bigg\{\dfrac{1}{z-\sigma_3 H_{\bm{k}}+i\delta}\sigma_3 A_{\bm{k}}\dfrac{1}{z-\sigma_3H_{\bm{k}}+i\delta}\sigma_3 A_{\bm{k}}\bigg\}.
+		\end{align*}
+		Therefore \eqref{1.4.6} and \eqref{1.4.7} can be written as
+		\begin{align}
+			\kappa_{\text{Kubo}}(\alpha,\gamma)&=\dfrac{-\beta}{16\pi}\int\dd z\,g(z)\mathbf{Tr}\bigg\{(\mathcal{G}_+ - \mathcal{G}_-)[\alpha,h^2]\mathcal{G}_+^2[\gamma,h^2]-(\mathcal{G}_+ - \mathcal{G}_-)[\gamma,h^2]\mathcal{G}_-^2[\alpha,h^2]\bigg\},\label{1.4.9}\\
+			\langle \langle \psi^\dagger A\psi,\psi^\dagger B\psi\rangle\rangle&=\dfrac{1}{\pi i\beta}\int\dd z\,g(z)\mathbf{Tr}\bigg\{\mathcal{G}_+\sigma_3 A\mathcal{G}_+\sigma_3 B-\mathcal{G}_-\sigma_3A\mathcal{G}_-\sigma_3 B\bigg\},\label{1.4.10}
+		\end{align}
+		where $h\equiv\sigma_3 H$, and $\mathcal{G}_{\pm}\equiv1/(z-\sigma_3H\pm i\delta)$.
+
+
+	\subsection{Energy Magnetization}
+		Energy Magnetization has a canonical definition as a $1$-form valued $2$-chain \cite{kitaev2006anyons,kapustin2019thermal} such that
+		\begin{equation}\label{1.5.1}
+			\mu^E_{pqr}\equiv-\beta \langle\langle\dd \mathcal{H}_p,J^E_{qr}\rangle\rangle-\beta \langle\langle\dd \mathcal{H}_r,J^E_{pq}\rangle\rangle-\beta \langle\langle\dd \mathcal{H}_q,J^E_{rp}\rangle\rangle.
+		\end{equation}
+		After evaluation on $2$-cochain we can separate $\mu^E(\delta \alpha\cup\delta\gamma)$ into two parts
+		\begin{align}\label{1.5.2}
+			\mu^E(\delta \alpha\cup\delta\gamma)&\equiv\dfrac{1}{3!}\sum_{pqr}\mu^E_{pqr}\cdot\delta \alpha\cup\delta\gamma(p,q,r)\nonumber\\
+			&\equiv\dfrac{1}{3!}\sum_{pqr}\mu^E_{pqr}\cdot\dfrac{1}{3!}\bigg(\delta\alpha_{pq}\delta\gamma_{qr}-\delta\alpha_{pr}\delta\gamma_{rq}-\delta\alpha_{qp}\delta\gamma_{pr}+\delta\alpha_{qr}\delta\gamma_{rp}+\delta\alpha_{rp}\delta\gamma_{pq}-\delta\alpha_{rq}\delta\gamma_{qp}\bigg)\nonumber\\
+			&=\dfrac{1}{12}\sum_{pqr}\mu^E_{pqr}\bigg(\alpha_p\delta\gamma_{qr}+\alpha_q\delta_{rp}+\alpha_r\delta\gamma_{rp}\bigg)\equiv\dfrac{-\beta}{12}\sum_{pqr}\bigg(\langle\langle\dd H_p;J^E_{qr}\rangle\rangle+\text{cycle}\bigg)\bigg(\alpha_p\delta\gamma_{qr}+\text{cycle}\bigg)\nonumber\\
+			&=\dfrac{\beta}{12}\sum_{pqr}\bigg(\langle \langle\dd \mathcal{H}_p,J^E_{qr}\rangle \rangle+\text{cycle}\bigg)(\alpha_p\delta\gamma_{qr}+\text{cycle})\nonumber\\
+			&=\dfrac{-\beta}{12}\left(\left\langle\left\langle\sum_p H_p \alpha_p;\sum_{qr}J^E_{qr}\delta\gamma_{qr}\right\rangle\right\rangle+\text{cycle}\right)+\dfrac{-\beta}{12}\sum_{pqr}\bigg(\langle\langle H_p;J^E_{qr}\rangle\rangle(\alpha_p\delta\gamma_{rp}+\alpha_r\delta\gamma_{pq})+\text{cycle}\bigg)\nonumber\\
+			&=\cdots\nonumber\\
+			&=\dfrac{-\beta}{2}\bigg(\langle\langle \dd \mathcal{H}(\alpha);J^E(\delta\gamma)\rangle\rangle-(\alpha\leftrightarrow\gamma)\bigg)+\dfrac{-\beta}{6}\left(\sum_{pqr}\langle \langle\dd \mathcal{H}_p,J^E_{qr}\rangle\rangle \alpha_q\gamma_r+\text{cycle}\right)\equiv\text{PART}_1+\text{PART}_2.
+		\end{align}
+		\indent For the first part, using \eqref{1.4.8} we immediately have
+		\begin{align}\label{1.5.3}
+			\langle\langle\dd H(\alpha),J^E(\delta\gamma)\rangle\rangle&=\left\langle \left\langle \dfrac{1}{4}\psi^\dagger(\alpha\dd H+\dd H\alpha)\psi;\dfrac{-i}{4}\psi^\dagger[\gamma,H\sigma_3 H]\psi\right\rangle\right\rangle\nonumber\\
+			&=\dfrac{-1}{16\pi\beta}\sum_{\bm{k}}\int\dd z\,g(z)\mathbf{Tr}\bigg\{\G_+\sigma_3(\alpha\dd H_{\bm{k}}+\dd H_{\bm{k}}\alpha)\G_+\sigma_3[\gamma,H_{\bm{k}}\sigma H_{\bm{k}}]-(\G_+\leftrightarrow \G_-)\bigg\}
+		\end{align}
+		Using the identity that
+		\begin{align*}
+			\mathcal{G}_\pm[\sigma_3H,f]\mathcal{G}_\pm&\equiv\dfrac{1}{z-\sigma_3 H\pm i\delta}(\sigma_3 Hf-fH\sigma_3)\dfrac{1}{z-\sigma H\pm i\delta}\\
+			&=\left(-1+\dfrac{z}{z-\sigma_3H\pm i\delta}\right)f\dfrac{1}{z-\sigma_3 H\pm i\delta}+\dfrac{1}{z-\sigma_3 H\pm i\delta}f\left(1-\dfrac{z}{z-\sigma_3 H\pm i\delta}\right)\equiv[\mathcal{G}_\pm,f],
+		\end{align*}
+		then
+		\begin{align*}
+			\mathcal{G}_+\sigma_3\alpha\dd H\mathcal{G}_+&\equiv\bigg(\alpha\mathcal{G}_++\mathcal{G}_+[\sigma_3 H,\alpha]\mathcal{G}_+\bigg)\sigma_3\dd H\mathcal{G}_+,\\
+			\mathcal{G}_+\sigma_3\dd H\alpha\mathcal{G}_+&\equiv\mathcal{G}_+\sigma_3\dd H\bigg(\mathcal{G}_+\alpha-\mathcal{G}_+[\sigma_3 H,\alpha]\mathcal{G}_+\bigg),
+		\end{align*}
+		and for example
+		\begin{align*}
+			\mathbf{Tr}&\bigg\{\G_+\sigma_3(\alpha\dd H_{\bm{k}}+\dd H_{\bm{k}}\alpha)\G_+\sigma_3[\gamma,H_{\bm{k}}\sigma H_{\bm{k}}]\bigg\}\\
+			&=\mathbf{Tr}\bigg\{\mathcal{G}_+\sigma_3\dd H_{\bm{k}}\mathcal{G}_+\bigg(\sigma_3[\gamma,H_{\bm{k}}\sigma_3H_{\bm{k}}]\alpha+\sigma_3[\gamma,H_{\bm{k}}\sigma_3H_{\bm{k}}]\mathcal{G}_+[\sigma_3H_{\bm{k}},\alpha]+\alpha\sigma_3[\gamma,H_{\bm{k}}\sigma_3 H_{\bm{k}}]-[\sigma_3H_{\bm{k}},\alpha]\mathcal{G}_+\sigma_3[\gamma,H_{\bm{k}}\sigma_3 H_{\bm{k}}]\bigg)\bigg\}.
+		\end{align*}
+		Therefore
+		\begin{align}\label{1.5.4}
+			\text{PART}_1&=\dfrac{1}{32\pi}\int\dd z g(z)\mathbf{Tr}\bigg\{\mathcal{G}_+\sigma_3\dd H_{\bm{k}}\mathcal{G}_+\bigg(\sigma_3[\gamma,H_{\bm{k}}\sigma_3H_{\bm{k}}]\alpha+\sigma_3[\gamma,H_{\bm{k}}\sigma_3H_{\bm{k}}]\mathcal{G}_+[\sigma_3H_{\bm{k}},\alpha]+\alpha\sigma_3[\gamma,H_{\bm{k}}\sigma_3 H_{\bm{k}}]\nonumber\\
+			&\qquad-[\sigma_3H_{\bm{k}},\alpha]\mathcal{G}_+\sigma_3[\gamma,H_{\bm{k}}\sigma_3 H_{\bm{k}}]-(\alpha\leftrightarrow\gamma)\bigg)-(\mathcal{G}_+\leftrightarrow\mathcal{G}_-)\bigg\}\nonumber\\
+			&=\dfrac{1}{32\pi}\int\dd z g(z)\mathbf{Tr}\bigg\{\mathcal{G}_+\sigma_3\dd H_{\bm{k}}\mathcal{G}_+\bigg(\sigma_3[\alpha,H_{\bm{k}}\sigma_3 H_{\bm{k}}]\mathcal{G}_+[\gamma,\sigma_3 H_{\bm{k}}]-\sigma_3[\gamma,H_{\bm{k}}\sigma_3 H_{\bm{k}}]\mathcal{G}_+[\alpha,\sigma_3 H_{\bm{k}}]\nonumber\\
+			&\qquad+[\alpha,\sigma_3H_{\bm{k}}]\mathcal{G}_+\sigma_3[\gamma,H_{\bm{k}}\sigma_3 H_{\bm{k}}]-[\gamma,\sigma_3 H_{\bm{k}}]\mathcal{G}_+\sigma_3[\alpha,H_{\bm{k}}\sigma_3 H_{\bm{k}}]+\Gamma_{\bm{k}}\bigg)-(\mathcal{G}_+\leftrightarrow\mathcal{G}_-)\bigg\},
+		\end{align}
+		where
+		\begin{equation}\label{1.5.5}
+			\Gamma_{\bm{k}}\equiv\sigma_3[\gamma,H_{\bm{k}}\sigma_3H_{\bm{k}}]\alpha+\sigma_3 \alpha[\gamma,H_{\bm{k}}\sigma_3 H_{\bm{k}}]-\sigma_3[\alpha,H_{\bm{k}}\sigma_3H_{\bm{k}}]\gamma- \sigma_3\gamma[\alpha,H_{\bm{k}} \sigma_3H_{\bm{k}}].
+		\end{equation}
+
+		\indent For the second part, using the on-site current $J^E_{ab}$ in \eqref{1.2.1}, we know
+		\begin{align}\label{1.5.6}
+			\sum_{ab}J^E_{ab}\alpha_a\gamma_b&=-\dfrac{i}{8}\psi^\dagger\bigg(\alpha H \sigma_3 \gamma H+\alpha H\sigma_3H\gamma-\gamma H\sigma_3\alpha H+H\alpha\sigma_3 H\gamma-\gamma H\sigma_3 H\alpha-H\gamma\sigma_3 H\alpha\bigg)\psi\equiv\dfrac{-i}{8}\psi^\dagger\sigma_3\Lambda\psi,
+		\end{align}
+		where we explicitly extract $\sigma_3$ in definition of $\Lambda$ for further simplification. 
+		Thus
+		\begin{align}\label{1.5.7}
+			\text{PART}_2&\equiv\dfrac{-\beta}{6}\left\langle\left\langle\sum_a\dd H_a;\sum_{bc}J_{bc}^E \alpha_b\gamma_c\right\rangle\right\rangle+\text{cycle}=\dfrac{-\beta}{2}\left\langle\left\langle\dfrac{1}{2}\psi^\dagger\dd H\psi;\dfrac{-i}{8}\psi^\dagger\sigma_3\Lambda\psi\right\rangle\right\rangle\nonumber\\
+			&=\dfrac{1}{32\pi}\int\dd zg(z)\mathbf{Tr}\bigg\{\mathcal{G}_+\sigma_3\dd H\mathcal{G}_+\Lambda-(\mathcal{G}_+\leftrightarrow\mathcal{G}_-)\bigg\}.
+		\end{align}
+		Because neither $0$-cochain $\alpha,\gamma$ contains a momentum label or sublattice (or orbital d.o.f.) label, they must commutes with $\sigma_3$. Thus we can re-express $\Gamma$ and $\Lambda$ in a more suggestive form:
+		\begin{equation}\label{1.5.8}
+			\Gamma\equiv[\gamma,h^2]\alpha+\alpha[\gamma,h^2]-[\alpha,h^2]\gamma- \gamma[\alpha,h^2],
+		\end{equation}
+		\begin{equation}\label{1.5.9}
+			\Lambda\equiv \alpha h \gamma h+\alpha h^2 \gamma- \gamma h \alpha h+h \alpha h\gamma- \gamma h^2 \alpha-h\gamma h\alpha,
+		\end{equation}
+		where again $h\equiv\sigma_3 H$. Thus in combination of \eqref{1.5.4} and \eqref{1.5.7}, energy magnetization is
+		\begin{align}\label{1.5.10}
+			\mu^E(\delta\alpha\cup\delta\gamma)&=\dfrac{1}{32\pi}\int\dd z g(z)\mathbf{Tr}\bigg\{\mathcal{G}_+\dd h_{\bm{k}}\mathcal{G}_+\bigg((\Gamma_{\bm{k}}+\Lambda_{\bm{k}})+[h_{\bm{k}}^2,\alpha]\mathcal{G}_+[h_{\bm{k}},\gamma]+[h_{\bm{k}},\alpha]\mathcal{G}_+[\gamma,h_{\bm{k}}^2]\nonumber\\
+			&\qquad-[h_{\bm{k}}^2,\gamma]\mathcal{G}_+[h_{\bm{k}},\alpha]-[h_{\bm{k}},\gamma]\mathcal{G}_+[\alpha,h_{\bm{k}}^2]\bigg)-(\mathcal{G}_+\leftrightarrow\mathcal{G}_-)\bigg\}\nonumber\\
+			&=\cdots\nonumber\\
+			&=\dfrac{1}{32\pi}\int\dd z g(z)\mathbf{Tr}\bigg\{\mathcal{G}_+\dd h_{\bm{k}}\mathcal{G}_+\bigg([[h_{\bm{k}},\alpha],[h_{\bm{k}},\gamma]]+[h_{\bm{k}}^2,\alpha]\mathcal{G}_+[h_{\bm{k}},\gamma]+[h_{\bm{k}},\alpha]\mathcal{G}_+[\gamma,h_{\bm{k}}^2]\nonumber\\
+			&\qquad-[h_{\bm{k}}^2,\gamma]\mathcal{G}_+[h_{\bm{k}},\alpha]-[h_{\bm{k}},\gamma]\mathcal{G}_+[\alpha,h_{\bm{k}}^2]\bigg)-(\mathcal{G}_+\leftrightarrow\mathcal{G}_-)\bigg\}.
+		\end{align}
+	\subsection{Transport Thermal Hall Coefficient}
+		Kapustin discussed the appropriate definition on the topological invariant thermal Hall transport coefficient. He claimed that the \emph{transport} thermal Hall coefficient, given by temperature integral of $1$-form
+		\begin{equation}\label{1.6.1}
+			\dfrac{\dd}{\dd T}\left(\dfrac{\kappa_{\text{tr}}(\alpha,\gamma)}{T}\right)=\dfrac{\dd}{\dd T}\left(\dfrac{\kappa_{\text{Kubo}}(\alpha,\gamma)}{T}\right)-\dfrac{2}{T^3}\tau^E(\delta \alpha\cup\delta\gamma),
+		\end{equation}
+		where $2$-chain $\tau^E\equiv-\mu^E(\dd H_p\mapsto H_p)$, \textbf{is topological only in the sense of path independence of the integral over parameter space}. In other words, one can only tell the \emph{relative} thermal Hall coefficient to some specific temperature.\par
+		After cancellation of many term on the RHS\footnote{See my notes for more caluculation details} of \eqref{1.6.1}, we are left with (\textbf{we are interested in finite-temperature thermal Hall coefficient relative to infinite temperature (assuming vanishing)})
+		\begin{align}\label{1.6.2}
+			\int_{T_0}^\infty\dd\left(\dfrac{\kappa_{\text{tr}}(\alpha,\gamma)}{T}\right)&=\int_{T_0}^\infty\dd T\,\dfrac{1}{4\pi T^3}\int\dd z\,g'(z)z^3\mathbf{Tr}\bigg\{[h,\alpha]\mathcal{G}_+^2[h,\gamma]z^3(\mathcal{G}_+ - \mathcal{G}_-)-[h,\gamma]\mathcal{G}_-^2[h,\gamma](\mathcal{G}_+ - \mathcal{G}_-)\bigg\}\nonumber\\
+			&=\dfrac{1}{4\pi}\int\dd z\left(\int_\infty^{u_0(z)}u^2\dfrac{\dd}{\dd u}g(u)\dd u\right)\times\mathbf{Tr}\bigg\{[h,\alpha]\mathcal{G}_+^2[h,\gamma](\mathcal{G}_+ - \mathcal{G}_-)-[h,\gamma]\mathcal{G}_-^2[h,\gamma](\mathcal{G}_+ - \mathcal{G}_-)\bigg\},
+		\end{align}
+		where we use the identity
+		\begin{equation*}
+			\dfrac{\dd}{\dd z}g(z)=\dfrac{-e^{z/T}}{T(e^{z/T}-1)^2}\equiv-\dfrac{T}{z}\dfrac{\dd}{\dd T}g(z)
+		\end{equation*}
+		and change integral variable from $T$ to $u\equiv\frac{z}{T}$ so that
+		\begin{align*}
+			\int_{T_0}^\infty\dfrac{1}{T^3}\dfrac{\dd}{\dd z}g(z)\dd T&\equiv\dfrac{-1}{z^3}\int_\infty^{u_0(z)}u^2\dfrac{\dd}{\dd u}g(u)\dd u\\
+			&=\dfrac{-1}{z^3}\left[\frac{e^{u_0(z)} a^2}{e^{u_0(z)}-1}-2\mathrm{Li}_2(e^{u_0(z)})-2 a \ln(1-e^{u_0(z)})+\frac{2 \pi ^2}{3}\right]\equiv\dfrac{-2}{z^3}\left(c_2(g(z))-\dfrac{\pi^2}{3}\right).
+		\end{align*}
+		Thus the left work is to simplify the trace
+		\begin{equation}\label{1.6.3}
+			\left.\dfrac{\kappa_{\text{tr}}(\alpha,\gamma)}{T}\right|_{T_0}^\infty=\dfrac{-1}{2\pi}\int\dd z\left(c_2(g(z))-\dfrac{\pi^2}{3}\right)\times\mathbf{Tr}\bigg\{[h,\alpha]\mathcal{G}_+^2[h,\gamma](\mathcal{G}_+ - \mathcal{G}_-)-[h,\gamma]\mathcal{G}_-^2[h,\gamma](\mathcal{G}_+ - \mathcal{G}_-)\bigg\},
+		\end{equation}
+		where explicitly
+		\begin{align}\label{1.6.4}
+			\mathbf{Tr}\{\cdots\}&\equiv-2\pi i\sum_{\bm{k}}\mathrm{Tr}\bigg\{\delta(z-\sigma_3 H)\sigma_3 V_{k_\alpha}\mathcal{G}_+^2\sigma_3 V_{k_\gamma}-\delta(z-\sigma_3 H)\sigma_3 V_{k_\gamma}\mathcal{G}_-^2\sigma_3 V_{k_\alpha}\bigg\}\nonumber\\
+			&=-2\pi i\sum_{\bm{k}}\sum_{mn}^{2N}\delta(z-(\sigma_3\mathscr{E})_{mm})\bigg\{(\sigma_3)_{mm}(T^\dagger_{\bm{k}}V_{k_\alpha}T_{\bm{k}})_{mn}(G_+^2)_{nn}(\sigma_3)_{nn}(T_{\bm{k}}^\dagger V_{k_\gamma}T_{\bm{k}})_{nn}\nonumber\\
+			&\qquad\qquad\qquad-(\sigma_3)_{mm}(T^\dagger_{\bm{k}}V_{k_\gamma}T_{\bm{k}})_{mn}(G_-^2)_{nn}(\sigma_3)_{nn}(T_{\bm{k}}^\dagger V_{k_\alpha}T_{\bm{k}})_{nn}\bigg\}.
+		\end{align}
+		Only \emph{off-diagonal} element of operator $(T_{\bm{k}}^\dagger V_{k_f}T_{\bm{k}})$ contrbute to the asymmetric transport thermal Hall coefficient. So it can be simplified as following: Because $\mathscr{E}_{\bm{k}}$ is diagonal,
+		\begin{align*}
+			(T_{\bm{k}}^\dagger V_{k_f}T_{\bm{k}})_{mn}&\equiv\bigg\{\partial_{k_f}\mathscr{E}_{\bm{k}}-(\partial_{k_f}T_{\bm{k}}^\dagger)H_{\bm{k}}T_{\bm{k}}-T_{\bm{k}}^\dagger H_{\bm{k}}(\partial_{k_f}T_{\bm{k}})\bigg\}_{mn}=-\bigg\{(\partial_{k_f}T_{\bm{k}}^\dagger)H_{\bm{k}}T_{\bm{k}}+T_{\bm{k}}^\dagger H_{\bm{k}}(\partial_{k_f}T_{\bm{k}})\bigg\}_{mn}.
+		\end{align*}
+		Paraunitarity condition tells us
+		\begin{equation*}
+			T_{\bm{k}}^\dagger\sigma_3 T_{\bm{k}}\equiv\sigma_3\implies \begin{cases}
+				\partial_{k_f}T_{\bm{k}}=-\sigma_3(T_{\bm{k}}^\dagger)^{-1}(\partial_{k_f}T_{\bm{k}}^\dagger)\sigma_3 T_{\bm{k}},\\
+				\partial_{k_f}T_{\bm{k}}^\dagger=-T_{\bm{k}}^\dagger\sigma_3(\partial_{k_f}T_{\bm{k}})T_{\bm{k}}^{-1}\sigma_3.
+			\end{cases}
+		\end{equation*}
+		And using the fact that
+		\begin{equation*}
+			\sigma_3 H_{\bm{k}}\sigma_3=T_{\bm{k}}\sigma_3T_{\bm{k}}^\dagger H_{\bm{k}}T_{\bm{k}}\sigma_3 T_{\bm{k}}^\dagger=T_{\bm{k}}\sigma_3\mathscr{E}_{\bm{k}}\sigma_3 T_{\bm{k}}^\dagger=T_{\bm{k}}\mathscr{E}_{k}T_{\bm{k}}^\dagger,
+		\end{equation*}
+		one immediately obtains
+		\begin{equation}\label{1.6.5}
+			(T_{\bm{k}}^\dagger V_{k_f}T_{\bm{k}})_{mn}=\begin{cases}
+				\bigg[(\sigma_3\mathscr{E}_{\bm{k}})_{mm}-(\sigma_3\mathscr{E}_{\bm{k}})_{nn}\bigg]\bigg((\partial_{k_f}T_{\bm{k}}^\dagger)\sigma_3 T_{\bm{k}}\bigg)_{mn},\\[1em]
+				\bigg[(\sigma_3\mathscr{E}_{\bm{k}})_{nn}-(\sigma_3\mathscr{E}_{\bm{k}})_{mm}\bigg]\bigg(T_{\bm{k}}^\dagger\sigma_3 (\partial_{k_f}T_{\bm{k}})\bigg)_{mn}.
+			\end{cases}
+		\end{equation}
+		Inserting \eqref{1.6.5} back into \eqref{1.6.4} and \eqref{1.6.3} and performing the integral of Dirac delta function (note that the square of $\left((\sigma_3\mathscr{E}_{\bm{k}})_{mm}-(\sigma_3\mathscr{E}_{\bm{k}})_{nn}\right)$ cancel exactly either $G_+^2$ or $G_-^2$), we finally get
+		\begin{align}\label{1.6.6}
+			0-\dfrac{\kappa_{\text{tr}}(\alpha,\gamma)}{T_0}&=i\sum_{\bm{k}}\sum_{mn}\left(c_2(g((\sigma_3\mathscr{E})_{mm}))-\dfrac{\pi^2}{3}\right)\times\bigg\{(\sigma_3)_{mn}\bigg((\partial_{k_\alpha}T_{\bm{k}}^\dagger)\sigma_3 T_{\bm{k}}\bigg)_{mn}(\sigma_3)_{nn}\bigg(T_{\bm{k}}^\dagger\sigma_3(\partial_{k_\gamma}T_{\bm{k}})\bigg)_{nm}-(\alpha\leftrightarrow\gamma)\bigg\}\nonumber\\
+			&=i\sum_{\bm{k}}\sum_m^{2N}\left(c_2(g(\varepsilon_{m\bm{k}}))-\dfrac{\pi^2}{3}\right)\mathrm{Tr}\bigg\{\Gamma_{m}\sigma_3\dfrac{\partial T_{\bm{k}}^\dagger}{\partial k_\alpha}\sigma_3\dfrac{\partial T_{\bm{k}}}{\partial k_\gamma}-(\alpha\leftrightarrow\gamma)\bigg\}\equiv-\sum_{\bm{k}}\sum_m^{2N}\left(c_2(g(\varepsilon_{m\bm{k}}))-\dfrac{\pi^2}{3}\right)\Omega_{m\bm{k}},
+		\end{align}
+		which is unsurprisingly the same as the result in \cite{matsumoto2014thermal}. In the last line we recognize the integral of the trace part as Berry curvature of the magnon $m$th-bands by introducing the projection operator
+		\begin{equation*}
+			\hat{P}_m\equiv\Gamma_mT_{\bm{k}}\sigma_3T_{\bm{k}}^\dagger\sigma_3,
+		\end{equation*}
+		so that by \cite{avron1983homotopy}
+		\begin{equation}\label{1.6.7}
+			c_m=\dfrac{1}{2\pi}\int_{\text{BZ}}\mathrm{Tr}\bigg\{\hat{P}_m\dd\hat{P}_m\wedge \dd\hat{P}_m\bigg\}.
+		\end{equation}
+		where $\Gamma_m$ is a diagonal matrix taking $+1$ for the $m$th diagonal component and zero otherwise \cite{shindou2013topological}.
+
+\iffalse
+	\subsection{Contrast on Previous Work}
+		In this section we will re-written the above results in a more familiar form of (derivatives on) Green functions and compare them with the previous work of Matsumoto \textit{et al.} \cite{matsumoto2014thermal}. Comparing the expression of charge current with that in \cite{streda1982theory}, clearly the commutator of $1$-cochain $\alpha$ and the coefficient matrix of Hamiltonian $[h,\alpha]$ is nothing but $\partial_{k_\alpha}h$ in the direction of $\alpha$. This fact can also be seen directly from the physical meaning of $1$-cochain (in the sense of measurement).\par
+
+
+		Matrix element of $(B_{\alpha\bm{k}})_{mn}$ can be simplified by the paraunitarity condition and conventional notation\footnote{This can be easily seen from the comparison of free-electron calculation of thermal Hall effect in the appendix of \cite{kapustin2019thermal} and Streda-like formula in \cite{streda1982theory,smrcka1977transport}.} $[f,H_{\bm{k}}]\mapsto V_{k_f}$
+		\begin{align*}
+			(B_{\alpha\bm{k}})_{mn}&\equiv\left(T^\dagger_{\bm{k}}[\alpha,H_{\bm{k}}\sigma_3 H_{\bm{k}}]T_{\bm{k}}\right)_{mn}\equiv \left(T_{\bm{k}}^\dagger V_{k_\alpha}\sigma_3 H_{\bm{k}}T_{\bm{k}}+T^\dagger_{\bm{k}}H_{\bm{k}}\sigma_3V_{k_\alpha}T_{\bm{k}}\right)_{mn}\\
+			&=\left(T_{\bm{k}}^\dagger V_{k_\alpha}T^\dagger_{\bm{k}}\sigma_3 T_{\bm{k}}H_{\bm{k}}T_{\bm{k}}+T^\dagger_{\bm{k}}H_{\bm{k}}T^\dagger_{\bm{k}}\sigma_3 T_{\bm{k}}V_{k_\alpha}T_{\bm{k}}\right)_{mn}=\left(T_{\bm{k}}^\dagger V_{k_\alpha}T_{\bm{k}}\mathscr{E}_{\bm{k}}\sigma_3+\sigma_3\mathscr{E}_{\bm{k}}T^\dagger_{\bm{k}}V_{k_\alpha}T_{\bm{k}}\right)_{mn}\\
+			&\equiv \big((\sigma_3\mathscr{E}_{\bm{k}})_{mm}+(\sigma_3\mathscr{E}_{\bm{k}})_{nn}\big)(T^\dagger_{\bm{k}}V_{k_\alpha}T_{\bm{k}})_{mn}.
+		\end{align*}
+		So with identity $(\varepsilon_{m\bm{k}}\pm \varepsilon_{n\bm{k}})^2\equiv(\varepsilon_{m\bm{k}}\mp\varepsilon_{n\bm{k}})^2\pm4 \varepsilon_{m\bm{k}}\varepsilon_{n\bm{k}}$ the Kubo part of thermal Hall coefficient can be splitted into two parts\footnote{I follow the notation with \cite{matsumoto2014thermal}.})
+		\begin{equation*}
+			\kappa_{\text{Kubo}}(\alpha,\gamma)\equiv\kappa_{\text{Kubo}}^{(1)}+\kappa_{\text{Kubo}}^{(2)}
+		\end{equation*}
+		where
+		\begin{align}
+			\kappa_{\text{Kubo}}^{(1)}(\alpha,\gamma)&=-i\sum_{\bm{k}}\sum_{m,n=1}^N\bigg\{g(\varepsilon_{m\bm{k}})(B_{\alpha\bm{k}})_{mn}(B_{\gamma\bm{k}})_{nm}\dfrac{4 \varepsilon_{m\bm{k}}\varepsilon_{n\bm{k}}}{(\varepsilon_{m\bm{k}}-\varepsilon_{n\bm{k}})^2}+g(\varepsilon_{m\bm{k}})(B_{\alpha\bm{k}})_{m,n+N}(B_{\gamma\bm{k}})_{n+N,m}\dfrac{4 \varepsilon_{m\bm{k}}\varepsilon_{n,-\bm{k}}}{(\varepsilon_{m\bm{k}}+\varepsilon_{n,-\bm{k}})^2}\nonumber\\
+			&\qquad\qquad\qquad+g(-\varepsilon_{-m,-\bm{k}})(B_{\alpha\bm{k}})_{m+N,n}(B_{\gamma\bm{k}})_{n,m+N}\dfrac{4 \varepsilon_{m,-\bm{k}}\varepsilon_{n\bm{k}}}{(\varepsilon_{m,-\bm{k}}+\varepsilon_{n\bm{k}})^2}\nonumber\\
+			&\qquad\qquad\qquad+g(-\varepsilon_{m,-\bm{k}})(B_{\alpha\bm{k}})_{m+N,n+N}(B_{\gamma\bm{k}})_{n+N,m+N}\dfrac{4 \varepsilon_{m,-\bm{k}}\varepsilon_{n,-\bm{k}}}{(\varepsilon_{m,-\bm{k}}-\varepsilon_{n,-\bm{k}})^2}\bigg\}-(\alpha\leftrightarrow\gamma)\nonumber\\
+			&=-4i\sum_{\bm{k}}{\color{red}\sum_{m,n=1}^{2N}} g(\sigma_3\mathscr{E}_{\bm{k}})_{mm}(\mathscr{E}_{\bm{k}})_{mm}(T^\dagger_{\bm{k}}V_{k_\alpha}T_{\bm{k}})_{mn}\left\{\dfrac{\mathscr{E}_{\bm{k}}}{\big((\sigma_3\mathscr{E}_{\bm{k}})_{mm}-\sigma_3\mathscr{E}_{\bm{k}}\big)^2}\right\}_{nn}(T^\dagger_{\bm{k}}V_{k_\alpha}T_{\bm{k}})_{nm}-(\alpha\leftrightarrow\gamma)\label{1.4.6}
+		\end{align}
+		and
+		\begin{align}
+			\kappa_{\text{Kubo}}^{(2)}(\alpha,\gamma)&=-i\sum_{\bm{k}}\sum_{m,n=1}^N\bigg\{g(\varepsilon_{m\bm{k}})(B_{\alpha\bm{k}})_{mn}(B_{\gamma\bm{k}})_{nm}-g(\varepsilon_{m\bm{k}})(B_{\alpha\bm{k}})_{m,n+N}(B_{\gamma\bm{k}})_{n+N,m}\nonumber\\
+			&\qquad\qquad\qquad+g(-\varepsilon_{-m,-\bm{k}})(B_{\alpha\bm{k}})_{m+N,n}(B_{\gamma\bm{k}})_{n,m+N}+g(-\varepsilon_{m,-\bm{k}})(B_{\alpha\bm{k}})_{m+N,n+N}(B_{\gamma\bm{k}})_{n+N,m+N}\bigg\}-(\alpha\leftrightarrow\gamma)\nonumber\\
+			&=-i\sum_{\bm{k}}{\color{red}\sum_{m,n=1}^{2N}}g(\sigma_3\mathscr{E}_{\bm{k}})_{mm}(\sigma_3)_{mm}(T^\dagger_{\bm{k}}V_{k_\alpha}T_{\bm{k}})_{mn}(\sigma_3)_{nn}(T^\dagger_{\bm{k}}V_{k_\gamma}T_{\bm{k}})_{nm}-(\alpha\leftrightarrow\gamma).\label{1.4.7}
+		\end{align}
+		\indent We will see that $\kappa_{\text{Kubo}}^{(2)}$ \textbf{will cancel with the corresponding part of energy magnetization}. So we only focus on $\kappa_{\text{Kubo}}^{(1)}$ here. The off-diagonal element of operator $(T_{\bm{k}}^\dagger V_{k_f}T_{\bm{k}})$ can be simplified as following because $\mathscr{E}_{\bm{k}}$ is diagonal:
+		\begin{align*}
+			(T_{\bm{k}}^\dagger V_{k_f}T_{\bm{k}})_{mn}&\equiv\dfrac{1}{\hbar}\bigg\{\partial_{k_f}\mathscr{E}_{\bm{k}}-(\partial_{k_f}T_{\bm{k}}^\dagger)H_{\bm{k}}T_{\bm{k}}-T_{\bm{k}}^\dagger H_{\bm{k}}(\partial_{k_f}T_{\bm{k}})\bigg\}_{mn}=-\dfrac{1}{\hbar}\bigg\{(\partial_{k_f}T_{\bm{k}}^\dagger)H_{\bm{k}}T_{\bm{k}}+T_{\bm{k}}^\dagger H_{\bm{k}}(\partial_{k_f}T_{\bm{k}})\bigg\}_{mn}.
+		\end{align*}
+		Again paraunitarity condition tells us
+		\begin{equation*}
+			T_{\bm{k}}^\dagger\sigma_3 T_{\bm{k}}\equiv\sigma_3\implies \begin{cases}
+				\partial_{k_f}T_{\bm{k}}=-\sigma_3(T_{\bm{k}}^\dagger)^{-1}(\partial_{k_f}T_{\bm{k}}^\dagger)\sigma_3 T_{\bm{k}},\\
+				\partial_{k_f}T_{\bm{k}}^\dagger=-T_{\bm{k}}^\dagger\sigma_3(\partial_{k_f}T_{\bm{k}})T_{\bm{k}}^{-1}\sigma_3.
+			\end{cases}
+		\end{equation*}
+		And using the fact that
+		\begin{equation*}
+			\sigma_3 H_{\bm{k}}\sigma_3=T_{\bm{k}}\sigma_3T_{\bm{k}}^\dagger H_{\bm{k}}T_{\bm{k}}\sigma_3 T_{\bm{k}}^\dagger=T_{\bm{k}}\sigma_3\mathscr{E}_{\bm{k}}\sigma_3 T_{\bm{k}}^\dagger=T_{\bm{k}}\mathscr{E}_{k}T_{\bm{k}}^\dagger,
+		\end{equation*}
+		one can easily shown that
+		\begin{equation}\label{1.4.8}
+			(T_{\bm{k}}^\dagger V_{k_f}T_{\bm{k}})_{mn}=\begin{cases}
+				\dfrac{1}{\hbar}\bigg[(\sigma_3\mathscr{E}_{\bm{k}})_{mm}-(\sigma_3\mathscr{E}_{\bm{k}})_{nn}\bigg]\bigg((\partial_{k_f}T_{\bm{k}}^\dagger)\sigma_3 T_{\bm{k}}\bigg)_{mn},\\[1em]
+				\dfrac{1}{\hbar}\bigg[(\sigma_3\mathscr{E}_{\bm{k}})_{nn}-(\sigma_3\mathscr{E}_{\bm{k}})_{mm}\bigg]\bigg(T_{\bm{k}}^\dagger\sigma_3 (\partial_{k_f}T_{\bm{k}})\bigg)_{mn}.
+			\end{cases}
+		\end{equation}
+		Inserting \eqref{1.4.8} into \eqref{1.4.6}, the middel fraction happen to disappear so we finally come to a unified expression
+		\begin{align}
+			\kappa_{\text{Kubo}}^{(1)}(\alpha,\gamma)&=-4i\sum_{\bm{k}}{\color{red}\sum_{m,n=1}^{2N}} g(\sigma_3\mathscr{E}_{\bm{k}})_{mm}(\mathscr{E}_{\bm{k}})_{mm}\bigg((\partial_{k_\alpha}T_{\bm{k}}^\dagger)\sigma_3 T_{\bm{k}}\bigg)_{mn}(\mathscr{E}_{\bm{k}})_{nn}\bigg(T_{\bm{k}}^\dagger\sigma_3 (\partial_{k_\gamma}T_{\bm{k}})\bigg)_{nm}-(\alpha\leftrightarrow\gamma)\nonumber\\
+			&=-4i\sum_{\bm{k}}{\color{red}\sum_{m,n=1}^{2N}} g(\sigma_3\mathscr{E}_{\bm{k}})_{mm}(\sigma_3\mathscr{E}_{\bm{k}})_{mm}(\sigma_3)_{mm}\left(\dfrac{\partial T_{\bm{k}}^\dagger}{\partial k_\alpha}\right)_{mn}(H_{\bm{k}})_{nn}\left(\dfrac{\partial T_{\bm{k}}}{\partial k_\gamma}\right)_{nm}\nonumber\\
+			&\equiv-4i\sum_{\bm{k}}\int\dd z\,zg(z)\mathrm{Tr}\left\{\delta(z-\sigma_3\mathscr{E}_{\bm{k}})\sigma_3\dfrac{\partial T_{\bm{k}}^\dagger}{\partial k_\alpha}H_{\bm{k}}\dfrac{\partial T_{\bm{k}}}{\partial k_\gamma}-(\alpha\leftrightarrow\gamma)\right\}.
+		\end{align}
+\fi
+
+
+\section{Application to Topological Superconductors?}
+	
+
+\bibliography{hxd}
+\bibliographystyle{apsrev} % apsrev is format for PRL of APS
+\end{document}

@@ -1,0 +1,77 @@
+\begin{thebibliography}{9}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname bibnamefont\endcsname\relax
+  \def\bibnamefont#1{#1}\fi
+\expandafter\ifx\csname bibfnamefont\endcsname\relax
+  \def\bibfnamefont#1{#1}\fi
+\expandafter\ifx\csname citenamefont\endcsname\relax
+  \def\citenamefont#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{\citenamefont{Kapustin and
+  Spodyneiko}(2019{\natexlab{a}})}]{kapustin2019thermal}
+\bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Kapustin}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Spodyneiko}},
+  \bibinfo{journal}{arXiv preprint arXiv:1905.06488}
+  (\bibinfo{year}{2019}{\natexlab{a}}).
+
+\bibitem[{\citenamefont{Matsumoto et~al.}(2014)\citenamefont{Matsumoto,
+  Shindou, and Murakami}}]{matsumoto2014thermal}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Matsumoto}},
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Shindou}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Murakami}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{89}},
+  \bibinfo{pages}{054420} (\bibinfo{year}{2014}).
+
+\bibitem[{\citenamefont{Kitaev}(2006)}]{kitaev2006anyons}
+\bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Kitaev}},
+  \bibinfo{journal}{Annals of Physics} \textbf{\bibinfo{volume}{321}},
+  \bibinfo{pages}{2} (\bibinfo{year}{2006}).
+
+\bibitem[{\citenamefont{Colpa}(1978)}]{colpa1978diagonalization}
+\bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Colpa}},
+  \bibinfo{journal}{Physica A: Statistical Mechanics and its Applications}
+  \textbf{\bibinfo{volume}{93}}, \bibinfo{pages}{327} (\bibinfo{year}{1978}).
+
+\bibitem[{\citenamefont{Kubo et~al.}(2012)\citenamefont{Kubo, Toda, and
+  Hashitsume}}]{kubo2012statistical}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Kubo}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Toda}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Hashitsume}},
+  \emph{\bibinfo{title}{Statistical physics II: nonequilibrium statistical
+  mechanics}}, vol.~\bibinfo{volume}{31} (\bibinfo{publisher}{Springer Science
+  \& Business Media}, \bibinfo{year}{2012}).
+
+\bibitem[{\citenamefont{Watanabe}(2019)}]{watanabe2019proof}
+\bibinfo{author}{\bibfnamefont{H.}~\bibnamefont{Watanabe}},
+  \bibinfo{journal}{arXiv preprint arXiv:1904.02700}  (\bibinfo{year}{2019}).
+
+\bibitem[{\citenamefont{Kapustin and
+  Spodyneiko}(2019{\natexlab{b}})}]{kapustin2019absence}
+\bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Kapustin}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Spodyneiko}},
+  \bibinfo{journal}{arXiv preprint arXiv:1904.05491}
+  (\bibinfo{year}{2019}{\natexlab{b}}).
+
+\bibitem[{\citenamefont{Avron et~al.}(1983)\citenamefont{Avron, Seiler, and
+  Simon}}]{avron1983homotopy}
+\bibinfo{author}{\bibfnamefont{J.~E.} \bibnamefont{Avron}},
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Seiler}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Simon}},
+  \bibinfo{journal}{Physical review letters} \textbf{\bibinfo{volume}{51}},
+  \bibinfo{pages}{51} (\bibinfo{year}{1983}).
+
+\bibitem[{\citenamefont{Shindou et~al.}(2013)\citenamefont{Shindou, Matsumoto,
+  Murakami, and Ohe}}]{shindou2013topological}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Shindou}},
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Matsumoto}},
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Murakami}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{J.-i.} \bibnamefont{Ohe}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{87}},
+  \bibinfo{pages}{174427} (\bibinfo{year}{2013}).
+
+\end{thebibliography}

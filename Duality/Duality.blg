@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2019)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: Duality.aux
+The style file: apsrev.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: hxd.bib
+I was expecting a `,' or a `}'---line 861 of file hxd.bib
+ : @article{Kitaev-topological 
+ :                             entanglement entropy,
+I'm skipping whatever remains of this entry
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 1 entry,
+            3411 wiz_defined-function locations,
+            1158 strings with 10117 characters,
+and the built_in function-call counts, 590 in all, are:
+= -- 41
+> -- 7
+< -- 3
++ -- 4
+- -- 2
+* -- 55
+:= -- 77
+add.period$ -- 1
+call.type$ -- 1
+change.case$ -- 4
+chr.to.int$ -- 1
+cite$ -- 1
+duplicate$ -- 53
+empty$ -- 52
+format.name$ -- 5
+if$ -- 111
+int.to.chr$ -- 1
+int.to.str$ -- 2
+missing$ -- 7
+newline$ -- 18
+num.names$ -- 3
+pop$ -- 15
+preamble$ -- 1
+purify$ -- 4
+quote$ -- 0
+skip$ -- 24
+stack$ -- 0
+substring$ -- 27
+swap$ -- 33
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 6
+warning$ -- 0
+while$ -- 5
+width$ -- 0
+write$ -- 24
+(There was 1 error message)

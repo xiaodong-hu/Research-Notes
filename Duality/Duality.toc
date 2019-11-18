@@ -1,0 +1,9 @@
+\tocdepth@munge 
+\contentsline {section}{\numberline {}Contents}{1}{}
+\tocdepth@restore 
+\contentsline {section}{\numberline {I}Warm-up: Classical and Quantum Ising Duality}{1}{}
+\contentsline {subsection}{\numberline {A}$d=0$ Quantum Ising Model}{1}{}
+\contentsline {subsection}{\numberline {B}$d>1$ Quantum Ising Model}{2}{}
+\contentsline {section}{\numberline {II}$\mathbb {Z}_2$ Gauge Theory}{2}{}
+\contentsline {subsection}{\numberline {A}Kramers-Wannier-Wegner Duality}{2}{}
+\contentsline {section}{\numberline {}References}{2}{}

@@ -42,11 +42,15 @@
 \end{abstract}
 \maketitle
 \tableofcontents
-\section{Warm-up: Classical and Quantum Ising Duality}
-	\subsection{$d=0$ Quantum Ising Model}
-		$d=0$ Quantum Ising Model\footnote{This is pure \emph{statistical model} so has \emph{no} time dimensionality.} is special because there is no interactive term in Hamiltonian
+\section{Exact Dualities of Lattice Model}
+	\subsection{Quantum-Classical Mapping}
+		As a warm-up, let us start with the simplest $d=0$ \emph{quantum Ising model}\footnote{Or \emph{transverse field Ising model} if you like. Note that statistical model has \emph{no} time dimensionality.}, namely a quantum spin plased on one site, with the Hamiltonian
 		\begin{equation}\label{1.1.1}
-			H_{q}=-g\sum_i\sigma_i^x.
+			H_{Q}=-g\sigma^x.
+		\end{equation}
+		One can always express the finite-$T$ partition function in terms of path integral by slicing the temperature (treating temperature as imaginary time) 
+		\begin{equation}\label{1.1.1}
+			H_{Q}=-g\sum_i\sigma_i^x.
 		\end{equation}
 		To compute the partition function of \eqref{1.1.1}, we need to slice the temperature (imaginary time) to $N$ segments and let $N$ tends to infinity. Namely,
 		\begin{align}\label{1.1.2}
@@ -69,9 +73,8 @@
 		\begin{equation}\label{1.1.5}
 			H_{c}=B\sum_{\langle ij\rangle}\sigma_i^z\sigma_j^z
 		\end{equation}
-		is the Hamiltonian of $1d$ classical Ising model.
-	\subsection{$d>1$ Quantum Ising Model}
-		Hamiltonian of $d>1$ Quantum Ising Model is
+		is the Hamiltonian of $1d$ classical Ising model.\par
+		The above result can be easily generalized to higher orders. Hamiltonian of $d>1$ Quantum Ising Model is
 		\begin{equation}\label{1.2.1}
 			H_q=-J\sum_{\langle ij\rangle}\sigma_i^z\sigma_j^z-g\sum_i\sigma_i^x.
 		\end{equation}
@@ -84,14 +87,25 @@
 			e^{A}e^B=e^{A+B+\frac12[A,B]+\frac{1}{12}[A,[A,B]]+\cdots}.
 		\end{equation*}
 		So we say \cite{hsieh2016d} {\color{red}\textbf{Partition function of d-dim quantum statistical model is equivalent to (d+1)-dim classical statistical model}}.
-
-\section{$\mathbb{Z}_2$ Gauge Theory}
-	$\mathbb{Z}_2$ gauge field describe the fluctuation of gauge freedoms, or visually fluctuation of loops on \emph{infinitely large} square lattice. Spins live on the links of sites, 
-	\begin{equation}\label{2.1.1}
-		H_{\mathbb{Z}_2}=-K\sum_\square\prod_{\ell\in\square}\sigma_\ell^z-g\sum_\ell\sigma_\ell^x.
-	\end{equation}
-	\subsection{Kramers-Wannier-Wegner Duality}
+	\subsection{Kramers-Wannier Duality}
+	\subsection{$\mathbb{Z}_2$ Gauge Theory}
+		$\mathbb{Z}_2$ gauge field describe the fluctuation of gauge freedoms, or visually fluctuation of loops on \emph{infinitely large} square lattice. Spins live on the links of sites, 
+		\begin{equation}\label{2.1.1}
+			H_{\mathbb{Z}_2}=-K\sum_\square\prod_{\ell\in\square}\sigma_\ell^z-g\sum_\ell\sigma_\ell^x.
+		\end{equation}
+	\subsection{Jordan-Wigner Transformation to Anyons}
 		Consider an \emph{infinite} square lattice, on the links of which spins are placed such that the Hamiltonian
+
+\section{IR Dualities of Continuous Field Theory}
+	\subsection{Bosonic Particle/Vortex Duality}
+	\subsection{Fermionic Particle/Vortex Duality}
+	\subsection{Duality Web}
+
+\section{Application of Duality}
+
+\section{Subtleties on Duality}
+	\subsection{Does Duality Keep Entanglement Entropy?}
+		Thanks to the deep discussion on \url{https://physics.stackexchange.com/questions/135098}.
 
 \bibliography{hxd}
 \bibliographystyle{apsrev} % apsrev is format for PRL of APS

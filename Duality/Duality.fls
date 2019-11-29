@@ -1,4 +1,4 @@
-PWD /home/hxd/Dropbox/Research Notes/Duality
+PWD /home/hxd/Documents/Research-Notes/Duality
 INPUT /usr/local/texlive/2019/texmf.cnf
 INPUT /usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2019/texmf-var/web2c/xetex/xelatex.fmt
@@ -101,6 +101,7 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy
 INPUT Duality.toc
 INPUT Duality.toc
 OUTPUT Duality.toc
+OUTPUT Duality.xdv
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
@@ -111,7 +112,6 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx9.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib9.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy9.tfm
-OUTPUT Duality.xdv
 INPUT Duality.bbl
 INPUT Duality.bbl
 INPUT Duality.aux

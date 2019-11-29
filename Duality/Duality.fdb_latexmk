@@ -1,16 +1,16 @@
 # Fdb version 3
-["bibtex Duality"] 1573941959 "Duality.aux" "Duality.bbl" "Duality" 1574047573
+["bibtex Duality"] 1574996216 "Duality.aux" "Duality.bbl" "Duality" 1574996342
   "/usr/local/texlive/2019/texmf-dist/bibtex/bst/revtex4/apsrev.bst" 1261594643 44155 dc7233506a001aedcd59cfd90f9fe8d7 ""
-  "Duality.aux" 1574047573 1400 87cc709127946992df9fe68345cc3b38 "xelatex"
+  "Duality.aux" 1574996341 2088 d774231c80c49440d263e9d89d0007ec "xelatex"
   "hxd.bib" 1549471706 25015 b4def233fd5c252081f738e1ac2d4f31 ""
   (generated)
   "Duality.blg"
   "Duality.bbl"
-["xdvipdfmx"] 1574047573 "Duality.xdv" "Duality.pdf" "Duality" 1574047573
-  "Duality.xdv" 1574047573 26124 918ad5c5948b3770b9b78129760f7d3d "xelatex"
+["xdvipdfmx"] 1574996342 "Duality.xdv" "Duality.pdf" "Duality" 1574996342
+  "Duality.xdv" 1574996341 35508 9631a4c8eb05274bae2ee9fc54046c3a "xelatex"
   (generated)
   "Duality.pdf"
-["xelatex"] 1574047573 "Duality.tex" "Duality.xdv" "Duality" 1574047573
+["xelatex"] 1574996341 "Duality.tex" "Duality.xdv" "Duality" 1574996342
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1246382020 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -79,10 +79,10 @@
   "/usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf" 1553552136 35430 ca24fb44b873d21ac4c63d01600decd4 ""
   "/usr/local/texlive/2019/texmf-var/web2c/xetex/xelatex.fmt" 1571979336 2818500 330a1a4029c7dda78c336be8b5c6dc24 ""
   "/usr/local/texlive/2019/texmf.cnf" 1571979303 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "Duality.aux" 1574047573 1400 87cc709127946992df9fe68345cc3b38 "xelatex"
-  "Duality.bbl" 1573941959 788 2ad2af93032b888d47117e5103dfe237 "bibtex Duality"
-  "Duality.tex" 1574047573 5338 44227aec25d430a533337398dea19b29 ""
-  "Duality.toc" 1574047573 536 31e10f7a887478c6bea23b129d822265 "xelatex"
+  "Duality.aux" 1574996341 2088 d774231c80c49440d263e9d89d0007ec "xelatex"
+  "Duality.bbl" 1574996216 788 2ad2af93032b888d47117e5103dfe237 "bibtex Duality"
+  "Duality.tex" 1574996340 6105 f7ea51777b5bc55da4931c9be7b63d30 ""
+  "Duality.toc" 1574996341 1066 9b319f31892c86d3f6411793e5889cff "xelatex"
   (generated)
   "Duality.toc"
   "Duality.xdv"

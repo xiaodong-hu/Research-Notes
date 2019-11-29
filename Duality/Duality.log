@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.10.25)  17 NOV 2019 22:26
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.10.25)  28 NOV 2019 21:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -188,7 +188,11 @@ Package color Info: Driver file: xetex.def on input line 147.
 \c@Corollary=\count110
 \c@Def=\count111
 
-(./Duality.aux)
+(./Duality.aux
+
+LaTeX Warning: Label `1.1.1' multiply defined.
+
+)
 \openout1 = `Duality.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
@@ -213,6 +217,7 @@ LaTeX Font Info:    Try loading font information for U+msa on input line 43.
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 43.
+
 (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -224,14 +229,18 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 \tf@toc=\write3
 \openout3 = `Duality.toc'.
 
- [1] (./Duality.bbl) [2] (./Duality.aux) ) 
+ [1] (./Duality.bbl [2]) [3] (./Duality.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3275 strings out of 494719
- 40399 string characters out of 6170196
- 117398 words of memory out of 5000000
- 7171 multiletter control sequences out of 15000+600000
- 16612 words of font info for 78 fonts, out of 8000000 for 9000
+ 3279 strings out of 494719
+ 40462 string characters out of 6170196
+ 118398 words of memory out of 5000000
+ 7173 multiletter control sequences out of 15000+600000
+ 16620 words of font info for 79 fonts, out of 8000000 for 9000
  62 hyphenation exceptions out of 8191
  33i,9n,27p,418b,272s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Duality.xdv (2 pages, 26124 bytes).
+Output written on Duality.xdv (3 pages, 35508 bytes).

@@ -1,9 +1,16 @@
 \tocdepth@munge 
 \contentsline {section}{\numberline {}Contents}{1}{}
 \tocdepth@restore 
-\contentsline {section}{\numberline {I}Warm-up: Classical and Quantum Ising Duality}{1}{}
-\contentsline {subsection}{\numberline {A}$d=0$ Quantum Ising Model}{1}{}
-\contentsline {subsection}{\numberline {B}$d>1$ Quantum Ising Model}{2}{}
-\contentsline {section}{\numberline {II}$\mathbb {Z}_2$ Gauge Theory}{2}{}
-\contentsline {subsection}{\numberline {A}Kramers-Wannier-Wegner Duality}{2}{}
-\contentsline {section}{\numberline {}References}{2}{}
+\contentsline {section}{\numberline {I}Exact Dualities of Lattice Model}{1}{}
+\contentsline {subsection}{\numberline {A}Quantum-Classical Mapping}{1}{}
+\contentsline {subsection}{\numberline {B}Kramers-Wannier Duality}{2}{}
+\contentsline {subsection}{\numberline {C}$\mathbb {Z}_2$ Gauge Theory}{2}{}
+\contentsline {subsection}{\numberline {D}Jordan-Wigner Transformation to Anyons}{2}{}
+\contentsline {section}{\numberline {II}IR Dualities of Continuous Field Theory}{3}{}
+\contentsline {subsection}{\numberline {A}Bosonic Particle/Vortex Duality}{3}{}
+\contentsline {subsection}{\numberline {B}Fermionic Particle/Vortex Duality}{3}{}
+\contentsline {subsection}{\numberline {C}Duality Web}{3}{}
+\contentsline {section}{\numberline {III}Application of Duality}{3}{}
+\contentsline {section}{\numberline {IV}Subtleties on Duality}{3}{}
+\contentsline {subsection}{\numberline {A}Does Duality Keep Entanglement Entropy?}{3}{}
+\contentsline {section}{\numberline {}References}{3}{}

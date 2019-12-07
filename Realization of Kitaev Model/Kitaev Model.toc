@@ -1,0 +1,20 @@
+\tocdepth@munge 
+\contentsline {section}{\numberline {}Contents}{1}{}
+\tocdepth@restore 
+\contentsline {section}{\numberline {I}Effective Hilbert Space and Pseudospin}{1}{}
+\contentsline {subsection}{\numberline {A}Preliminaries: Crystal Field Splitting --- Representation of Octahedral Group $O_h$}{1}{}
+\contentsline {subsection}{\numberline {B}Quenching of Orbital Angular Momentum --- $t_{2g}$-$p$ Equivalence}{2}{}
+\contentsline {subsection}{\numberline {C}$t_{2g}$ Splitting and Pseudospins from Spin-Orbital Coupling}{2}{}
+\contentsline {section}{\numberline {II}Hamiltonian}{4}{}
+\contentsline {subsection}{\numberline {A}On-site Hamiltonian}{4}{}
+\contentsline {subsubsection}{\numberline {1}Free Part}{4}{}
+\contentsline {subsubsection}{\numberline {2}Coulomb Interaction Part}{4}{}
+\contentsline {subsubsection}{\numberline {3}On-Site Two-Particle Hilbert Space}{5}{}
+\contentsline {subsection}{\numberline {B}Inter-Site Hamiltonian}{5}{}
+\contentsline {subsubsection}{\numberline {1}Hopping Part}{5}{}
+\contentsline {subsubsection}{\numberline {2}Inter-Site Two-Particle Hilbert Space}{6}{}
+\contentsline {section}{\numberline {III}Large-U Approximation}{7}{}
+\contentsline {subsection}{\numberline {A}Self-Energy Operator}{7}{}
+\contentsline {subsection}{\numberline {B}Projection to Low-Energy Pseudospin Subspace}{7}{}
+\contentsline {subsection}{\numberline {C}Kitaev Coupling}{7}{}
+\contentsline {section}{\numberline {}References}{7}{}

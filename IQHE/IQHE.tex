@@ -1,0 +1,62 @@
+\documentclass[10pt,nofootinbib]{revtex4}
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,bm,dsfont}
+\usepackage[all]{xy}
+\usepackage[normalem]{ulem}	% delete line
+\usepackage{graphics,color}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+%\usepackage{hyperref}
+
+\newcommand*\dd{\mathop{}\!\mathrm{d}}
+\newcounter{Claim}[section]
+\newenvironment{Claim}[1][]{{\par\normalfont\bfseries \underline{Claim~\stepcounter{Claim}\arabic{Claim}.}~#1~~}}{\par}
+\newcounter{Proposition}[section]
+\newenvironment{Proposition}[1][]{{\par\normalfont\bfseries \underline{Proposition~\stepcounter{Proposition}\arabic{Proposition}.}~#1~~}}{\par}
+\newcounter{Note}[section]
+\newenvironment{Note}[1][]{{\par\normalfont\bfseries \underline{Note~\stepcounter{Note}\arabic{Note}.}~#1~~}}{\par}
+\newcounter{Lemma}[section]
+\newenvironment{Lemma}[1][]{{\par\normalfont\bfseries \underline{Lemma~\stepcounter{Lemma}\arabic{Lemma}.}~#1~~}}{\par}
+\newcounter{Corollary}[section]
+\newenvironment{Corollary}[1][]{{\par\normalfont\bfseries \underline{Corollary~\stepcounter{Corollary}\arabic{Corollary}.}~#1~~}}{\par}
+\newenvironment{Proof}{{\par~{\normalfont\bfseries $\vartriangleright$}~~}}{\hfill $\square$\par\hfill\par} %\par
+\newcounter{Def}[section]
+\newenvironment{Def}[1][]{{\par\normalfont\bfseries \underline{Definition~\stepcounter{Def}\arabic{Def}.}~#1~~}}{\par}
+
+\allowdisplaybreaks[4] %允许 align 跨页编排
+
+\def\Re{\mathop{\mathcal{R}e}}
+\def\Im{\mathop{\mathcal{I}m}}
+
+\newcommand\hexagon{\mathop{\begin{tikzpicture}[scale=0.06,baseline]
+		\draw (0,-1) -- (1.732,0) -- (1.732,2) -- (0,3) -- (-1.732,2) -- (-1.732,0) -- (0,-1);
+	\end{tikzpicture}}}
+
+
+
+\begin{document}
+\title{Integer Quantum Hall Effects}% Force line breaks with \\
+%\thanks{This is a reminiscent note for Hubbard-Stratonovich Transformation.}%
+
+\author{Xiaodong Hu}
+%\altaffiliation[Also at ]{Boson College}
+\email{xiaodong.hu@bc.edu}
+\affiliation{Department of Physics, Boston College}
+
+\date{\today}
+
+
+\begin{abstract}
+	This is a note of Laughlin argument, linear response theory, and calculation of Hall conductance.
+\end{abstract}
+\maketitle
+\tableofcontents
+
+\subsection{Laughlin Argument}
+	\subsection{}
+\section{Linear Response Theory}
+
+\section{Hall Conductance}
+
+\bibliography{hxd}
+\bibliographystyle{apsrev} % apsrev is format for PRL of APS
+\end{document}

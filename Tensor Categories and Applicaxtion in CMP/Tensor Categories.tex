@@ -1,0 +1,114 @@
+\documentclass[10pt,nofootinbib]{revtex4}
+\usepackage[nocap]{ctex}
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,bm,dsfont}
+\usepackage{enumerate}
+\usepackage{enumitem} % Customize itemize, see https://ctan.org/tex-archive/macros/latex/contrib/enumitem/
+\usepackage[all]{xy}
+\usepackage[normalem]{ulem}	% delete line
+\usepackage{graphics,color}
+\usepackage{tikz}
+	\usetikzlibrary{calc}
+	\usetikzlibrary{decorations.markings}
+	\usetikzlibrary{arrows}
+	\usetikzlibrary{patterns}
+	%\usetikzlibrary{shapes.callouts}
+\tikzset{
+    level/.style = {
+        ultra thick,
+        blue,
+    },
+    connect/.style = {
+        dashed,
+        red
+    },
+    label/.style = {
+        text width=2cm
+    }
+}
+\usepackage{pgfplots}
+%\usepackage[citestyle=authortitle]{biblatex} % able to cite the title, author and year
+%\usepackage{hyperref}
+\usepackage{feynmp} % feymann diagram
+\usepackage{extarrows}
+
+\usepackage[normalem]{ulem} % 文字划掉（横），与 cite 兼容问题，见 https://tex.stackexchange.com/questions/98222/ulem-incompatibility-with-multiple-entries-in-cite
+
+\newcommand*\dd{\mathop{}\!\mathrm{d}}
+\newcounter{Claim}[section]
+\newenvironment{Claim}[1][]{{\par\normalfont\bfseries \underline{Claim~\stepcounter{Claim}\arabic{Claim}.}~#1~~}}{\par}
+\newcounter{Proposition}[section]
+\newenvironment{Proposition}[1][]{{\par\normalfont\bfseries \underline{Proposition~\stepcounter{Proposition}\arabic{Proposition}.}~#1~~}}{\par}
+\newcounter{Note}[section]
+\newenvironment{Note}[1][]{{\par\normalfont\bfseries \underline{Note~\stepcounter{Note}\arabic{Note}.}~#1~~}}{\par}
+\newcounter{Lemma}[section]
+\newenvironment{Lemma}[1][]{{\par\normalfont\bfseries \underline{Lemma~\stepcounter{Lemma}\arabic{Lemma}.}~#1~~}}{\par}
+\newcounter{Corollary}[section]
+\newenvironment{Corollary}[1][]{{\par\normalfont\bfseries \underline{Corollary~\stepcounter{Corollary}\arabic{Corollary}.}~#1~~}}{\par}
+\newenvironment{Proof}{{\par~{\normalfont\bfseries $\vartriangleright$}~~}}{\hfill $\square$\par\hfill\par} %\par
+\newcounter{Def}[section]
+\newenvironment{Def}[1][]{{\par\normalfont\bfseries \underline{Definition~\stepcounter{Def}\arabic{Def}.}~#1~~}}{\par}
+
+\allowdisplaybreaks[4] %允许 align 跨页编排
+
+
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+
+
+\begin{document}
+\title{Algebraic Theory of Anyons}
+\author{Xiaodong Hu}
+%\altaffiliation[Also at ]{Boson College}
+\email{xiaodong.hu@bc.edu}
+\affiliation{Department of Physics, Boston College}
+
+\date{\today}
+
+\begin{abstract}
+	This note plays a role as a supplementary material for the hidden but deep demanded mathematical backgrounds of the brilliant paper of Kitaev \cite{kitaev2006anyons}. Personal understanding and comments are inclued as well.\par
+	%\begin{center}
+		\hfill\par
+		{\centering\kaishu 仰之弥高，钻之弥坚，瞻之在前，忽焉在后。\par}
+	%\end{center}
+	\hfill------ 「论语·子罕第九」
+\end{abstract}
+
+\maketitle
+\tableofcontents
+
+\section{Algebraic Theory of Anyons}
+	\subsection{Category Theory: General Preliminaries}
+		See my personal note of category theory. The missing Yoneda Lemma may also be extremely important for understanding the logic of emergentism in condensed matter physics.
+	\subsection{Monoidal Categories}
+		\begin{Def}[(Monoidal Category)]
+			A monoidal category is a quintuple $(\mathcal{C},\otimes,\alpha,\mathds{1},\iota)$ with\par
+			1) a category $\mathcal{C}$,\par
+			2) a \emph{bifunctor} of \emph{product category} $\otimes:\mathcal{C}\times \mathcal{C}\rightarrow\mathcal{C}$ called \emph{tensor product},\par
+			3) a \emph{natural isomorphism} $\alpha$ from the functor $(\bullet\otimes\bullet)\otimes\bullet:\mathcal{C}\times\mathcal{C}\times\mathcal{C}\rightarrow\mathcal{C}$ to the functor $\bullet\otimes(\bullet\otimes\bullet):\mathcal{C}\times\mathcal{C}\times\mathcal{C}\rightarrow\mathcal{C}$
+			\begin{equation*}
+				a_{XYZ}:(X\otimes Y)\otimes Z\mathop{\mapsto}^{\sim}X\otimes(Y\otimes Z)
+			\end{equation*}
+			called \emph{associaticity constraint}.\par
+			4) an object $\mathds{1}\in\mathrm{Obj}(\mathcal{C})$,\par
+			5) a \emph{natural isomorphism} $\iota$ from the functor $\mathds{1}\otimes\bullet:\mathcal{C}\rightarrow\mathcal{C}$ to the identical functor $id_{\mathcal{C}}:\mathcal{C}\rightarrow\mathcal{C}$ 
+			\begin{equation*}
+				\iota_X:\mathds{1}\otimes X\mathop{\mapsto}^\sim X
+			\end{equation*}
+			called \emph{unitality constraint}\footnote{We do not distinguish left and right unitality constraints as \cite{turaev2017monoidal} does.} such that the \emph{pentagon coherence}
+			\begin{equation*}
+				\xymatrix{&(X\otimes Y)\otimes (Z\otimes W)\ar[dr]^{\alpha_{X,Y,Z\otimes W}}&\\ ((X\otimes Y)\otimes Z)\otimes W\ar[ur]^{\alpha_{X\otimes Y,Z,W}}\ar[d]_{\alpha_{X,Y,Z}\otimes id_W}&&X\otimes(Y\otimes(Z\otimes W))\\ (X\otimes (Y\otimes Z))\otimes W\ar[rr]_{\alpha_{X,Y\otimes Z,W}}&&X\otimes((Y\otimes Z)\otimes W)\ar[u]_{id_X\otimes \alpha_{Y,Z,W}}}
+			\end{equation*}
+			and the \emph{triangle coherence}
+			\begin{equation*}
+				\xymatrix{& X\otimes Y\\ (X\otimes\mathds{1})\otimes Y\ar[ur]^{\iota_{X\otimes id_Y}}\ar[rr]_{\alpha_{X,id_{\mathds{1}},Y}} &&X\otimes(\mathds{1}\otimes Y)\ar[ul]_{id_X\otimes\iota_Y}}
+			\end{equation*}
+			commute.
+		\end{Def}
+	\subsection{Graphic Calculus}
+		Drawn by hands.
+	\subsection{Tensor Categories}
+
+	\subsection{$6j$-Symbols}
+
+\bibliography{hxd}
+\bibliographystyle{apsrev} % apsrev is format for PRL of APS
+\end{document}

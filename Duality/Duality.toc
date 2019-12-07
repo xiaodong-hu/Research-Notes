@@ -9,7 +9,7 @@
 \contentsline {section}{\numberline {II}IR Dualities of Continuous Field Theory}{3}{}
 \contentsline {subsection}{\numberline {A}Bosonic Particle/Vortex Duality}{3}{}
 \contentsline {subsection}{\numberline {B}Fermionic Particle/Vortex Duality}{3}{}
-\contentsline {subsection}{\numberline {C}Duality Web}{3}{}
+\contentsline {subsection}{\numberline {C}Boson-Fermion Duality and Duality Web}{3}{}
 \contentsline {section}{\numberline {III}Application of Duality}{3}{}
 \contentsline {section}{\numberline {IV}Subtleties on Duality}{3}{}
 \contentsline {subsection}{\numberline {A}Does Duality Keep Entanglement Entropy?}{3}{}

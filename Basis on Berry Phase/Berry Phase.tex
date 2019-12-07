@@ -1,0 +1,146 @@
+\documentclass[10pt,nofootinbib]{revtex4}
+\usepackage[nocap]{ctex}
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,bm,dsfont}
+\usepackage{enumerate}
+\usepackage{enumitem} % Customize itemize, see https://ctan.org/tex-archive/macros/latex/contrib/enumitem/
+\usepackage[all]{xy}
+\usepackage[normalem]{ulem}	% delete line
+\usepackage{graphics,color}
+\usepackage{tikz}
+	\usetikzlibrary{calc}
+	\usetikzlibrary{decorations.markings}
+	\usetikzlibrary{arrows}
+	\usetikzlibrary{patterns}
+	%\usetikzlibrary{shapes.callouts}
+\tikzset{
+    level/.style = {
+        ultra thick,
+        blue,
+    },
+    connect/.style = {
+        dashed,
+        red
+    },
+    label/.style = {
+        text width=2cm
+    }
+}
+\usepackage{pgfplots}
+%\usepackage[citestyle=authortitle]{biblatex} % able to cite the title, author and year
+%\usepackage{hyperref}
+\usepackage{feynmp} % feymann diagram
+\usepackage{extarrows}
+
+\usepackage[normalem]{ulem} % 文字划掉（横），与 cite 兼容问题，见 https://tex.stackexchange.com/questions/98222/ulem-incompatibility-with-multiple-entries-in-cite
+
+\newcommand*\dd{\mathop{}\!\mathrm{d}}
+\newcounter{Claim}[section]
+\newenvironment{Claim}[1][]{{\par\normalfont\bfseries \underline{Claim~\stepcounter{Claim}\arabic{Claim}.}~#1~~}}{\par}
+\newcounter{Proposition}[section]
+\newenvironment{Proposition}[1][]{{\par\normalfont\bfseries \underline{Proposition~\stepcounter{Proposition}\arabic{Proposition}.}~#1~~}}{\par}
+\newcounter{Note}[section]
+\newenvironment{Note}[1][]{{\par\normalfont\bfseries \underline{Note~\stepcounter{Note}\arabic{Note}.}~#1~~}}{\par}
+\newcounter{Lemma}[section]
+\newenvironment{Lemma}[1][]{{\par\normalfont\bfseries \underline{Lemma~\stepcounter{Lemma}\arabic{Lemma}.}~#1~~}}{\par}
+\newcounter{Corollary}[section]
+\newenvironment{Corollary}[1][]{{\par\normalfont\bfseries \underline{Corollary~\stepcounter{Corollary}\arabic{Corollary}.}~#1~~}}{\par}
+\newenvironment{Proof}{{\par~{\normalfont\bfseries $\vartriangleright$}~~}}{\hfill $\square$\par\hfill\par} %\par
+\newcounter{Def}[section]
+\newenvironment{Def}[1][]{{\par\normalfont\bfseries \underline{Definition~\stepcounter{Def}\arabic{Def}.}~#1~~}}{\par}
+
+\allowdisplaybreaks[4] %允许 align 跨页编排
+
+
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+
+
+\newcommand{\RN}[1]{%
+  \textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+
+
+
+\begin{document}
+\title{Berry Phase}
+\author{Xiaodong Hu}
+%\altaffiliation[Also at ]{Boson College}
+\email{xiaodong.hu@bc.edu}
+\affiliation{Department of Physics, Boston College}
+
+\date{\today}
+
+\begin{abstract}
+	This is a basic note on berry phase. Application of opening a gap for graphene is discussed.\par
+	%\begin{center}
+		\hfill\par
+		{\centering\kaishu 剩水残山无态度，被疏梅料理成风月。两三雁，也萧瑟。\\[0.5em]}
+	%\end{center}
+	\hfill------ 辛弃疾「贺新郎·把酒停长说」
+\end{abstract}
+
+\maketitle
+\tableofcontents
+
+\section{Open a Gap for Graphene}
+	\subsection{Model and General Results}
+		A general two-level Hamiltonian (parameterized by some vectors\footnote{In most situations they are momentum in 2D.} $\bm{k}$) can be written as a two-by-two matrix
+		\begin{equation}\label{1.1.1}
+			H=d_{0}(\bm{k})\mathds{1}+\bm{d}(\bm{k})\cdot\bm{\sigma},
+		\end{equation}
+		with eigenvalues
+		\begin{equation}\label{1.1.2}
+			\varepsilon_{\pm}=d_0(\bm{k})\pm|\bm{d}(\bm{k})|\equiv d_0(\bm{k})\pm\sqrt{d_1^2(\bm{k})+d_2^2(\bm{k})+d_3^2(\bm{k})}.
+		\end{equation}
+		A well-defined insulating phase demands $|\bm{d}(\bm{k})|\neq0$ for all $\bm{k}$. We will take this as an assumption.\par
+		But dispersion relation is far less the end of the story. If we go further considering the (normalized) eigenstates (which seems to be unphysical at the first glance), for example, the one corresponding to the lower band
+		\begin{equation}\label{1.1.3}
+			u_-(\bm{k})=\dfrac{1}{\sqrt{2|\bm{d}|(|\bm{d}|-d_3)}} \left(\begin{array}{c}
+				d_3(\bm{k})-|\bm{d}(\bm{k})|\\d_1(\bm{k})+id_2(\bm{k})
+			\end{array}\right),
+		\end{equation}
+		clearly if there exists some points $\bm{k}$ in Brilloin zone such that $d_1(\bm{k})=d_2(\bm{k})=0$ and $d_3(\bm{k})>0$, then $|\bm{d}(\bm{k})|$ reduces to $d_3(\bm{k})$ and $u_-$ becomes zero vector and ill-defined.\par
+		
+		\textbf{If such singular points of eigenstates do exits, intuitively it means mismatches of the \emph{trivial} adhesion of Hilbert spaces (as fibers). More precisely it indicates the non-trivial curvature on the bundle manifold, which is nothing but \emph{Berry curvature}.} Such singular behavior is rigid in topological sense because one can never eliminate them by gauge transformation. One can only shift the position of such singularity by re-expressing $u_-^{\RN{1}}(\bm{k})\equiv u_-(\bm{k})$ as
+		\begin{equation}\label{1.1.4}
+			u^{\RN{2}}_-(\bm{k})=\dfrac{1}{\mathcal{N}^{\RN{1}}}\left(\begin{array}{c}
+				d_3-|\bm{d}|\\d_1+id_2
+			\end{array}\right)\times\dfrac{\dfrac{d_3+|\bm{d}|}{d_1+id_2}}{\left|\dfrac{d_3+|\bm{d}|}{d_1+id_2}\right|}=\dfrac{1}{\mathcal{N}^{\RN{1}}\left|\dfrac{d_3+|\bm{d}|}{d_1-d_2}\right|}\left(\begin{array}{c}
+				\dfrac{d_3^2-|\bm{d}|^2}{d_1+id_2}\\[1em]
+				d_3+|\bm{d}|
+			\end{array}\right)\equiv\dfrac{1}{\mathcal{N}^{\RN{2}}}\left(\begin{array}{c}
+				d_1-id_2\\d_3+|\bm{d}|
+			\end{array}\right).
+		\end{equation}
+		Clearly this time the previous set of points such that $d_1(\bm{k})=d_2(\bm{k})=0$ and $d_3(\bm{k})>0$ is no longer degenerate. Instead $u_-^{\RN{2}}(\bm{k})$ is degenerate at the points such that $d_1(\bm{k})=d_2(\bm{k})=0$ and $d_3(\bm{k})<0$.\par
+
+	\subsection{Berry Connection, Berry Curvature and Berry Phase}
+		Writting $u_-^{\RN{1}}(\bm{k})\equiv u_-^{\RN{2}}(\bm{k})e^{i\phi(\bm{k})}$, the phase shift can be determined from the fraction given above 
+		\begin{equation}\label{1.2.1}
+			e^{i\phi(\bm{k})}=\dfrac{\dfrac{d_3+|\bm{d}|}{d_1+id_2}}{\left|\dfrac{d_3+|\bm{d}|}{d_1+id_2}\right|},
+		\end{equation}
+		which has different form for different Hamiltonians. Then by definition\footnote{The Lie-algebra-valued connetion one-form is defined as $\mathcal{A}:=i \langle n(\bm{R})|\dd|n(\bm{R})\rangle\equiv \langle n(\bm{R})|\nabla_{\bm{R}}|n(\bm{R})\rangle\dd\bm{\bm{R}}$} Berry connection of such two wave functions are related by
+		\begin{equation}\label{1.2.1}
+			\mathcal{A}^{\RN{2}}=\mathcal{A}^{\RN{1}}+\dd\phi(\bm{k}).
+		\end{equation}
+		Now suppose the entire parameter space (here is Brillouin zone) is covered by the proper domain of $u_-^{\RN{1}}$ and $u_-^{\RN{2}}$, namely,
+		\begin{equation*}
+			\mathrm{BZ}=\mathop{\mathrm{Dom}}(u_-^{\RN{1}})\bigcup\mathop{\mathrm{Dom}}(u_-^{\RN{2}})\equiv D^{\RN{1}}\bigcup D^{\RN{2}},
+		\end{equation*}
+		Then Chern number should be separated as two parts of integration
+		\begin{equation*}
+			C\equiv\dfrac{1}{2\pi}\left(\int_{D^{\RN{1}}}+\int_{D^{\RN{2}}}\right)\mathcal{F}\equiv\dfrac{1}{2\pi}\left(\int_{D^{\RN{1}}}+\int_{D^{\RN{2}}}\right)\dd\mathcal{A}=\dfrac{1}{2\pi}\left(\int_{\partial D^{\RN{1}}}+\int_{\partial D^{\RN{2}}}\right)\mathcal{A}.
+		\end{equation*}
+		Shrink domain $D^{\RN{1}}$ and $D^{\RN{2}}$ such that $\partial D^{\RN{1}}\equiv-\partial D^{\RN{2}}$, and substitute \eqref{1.2.1}, we have
+		\begin{equation}\label{1.2.2}
+			C=\dfrac{1}{2\pi}\int_{\partial D^{\RN{1}}}\mathcal{A}^{\RN{1}}-\mathcal{A}^{\RN{1}}-\dd\phi(\bm{k})=\dfrac{-1}{2\pi}\int_{\partial D^{\RN{1}}}\dd\phi(\bm{k}).
+		\end{equation}
+
+	\subsection{Breaking Inversion Symmetry: Unequal Potential of Sublattice}
+	\subsection{Breaking Time-Reversal Symmetry: Haldane Model}
+
+\section{Nonlinear Thermalelectric Effects}
+
+
+\bibliography{hxd}
+\bibliographystyle{apsrev} % apsrev is format for PRL of APS
+\end{document}

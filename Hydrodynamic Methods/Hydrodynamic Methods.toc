@@ -1,0 +1,16 @@
+\tocdepth@munge 
+\contentsline {section}{\numberline {}Contents}{1}{}
+\tocdepth@restore 
+\contentsline {section}{\numberline {I}Hydrodynamics in Symmetry-breaking Phase --- Spin Waves}{1}{}
+\contentsline {subsection}{\numberline {A}$S=1/2$ XXZ Model and Conservation Law}{1}{}
+\contentsline {subsection}{\numberline {B}Constitutive Equation}{2}{}
+\contentsline {subsection}{\numberline {C}Hydrodynamic Modes}{2}{}
+\contentsline {subsection}{\numberline {D}Linear Response}{2}{}
+\contentsline {section}{\numberline {II}Transport Near Quantum Criticality}{2}{}
+\contentsline {subsection}{\numberline {A}General Setup}{3}{}
+\contentsline {subsection}{\numberline {B}Hydrodynamic Modes and Linear Response}{3}{}
+\contentsline {subsection}{\numberline {C}Perspetive from Holography}{3}{}
+\contentsline {section}{\numberline {III}Non-relativistic Transport --- Fractional Quantum Hall System}{3}{}
+\contentsline {subsection}{\numberline {A}Spacetime Background}{3}{}
+\contentsline {subsection}{\numberline {B}Response}{3}{}
+\contentsline {section}{\numberline {}References}{3}{}

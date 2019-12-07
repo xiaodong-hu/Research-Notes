@@ -1,0 +1,152 @@
+\documentclass[10pt,nofootinbib]{revtex4}
+
+\usepackage[nocap]{ctex}
+
+%\usepackage{xeCJK}
+%\setCJKmainfont{Source Han Sans CN}
+%\setCJKmonofont{Source Han Sans CN}
+%\setCJKsansfont{Source Han Sans CN}
+
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,bm,dsfont}
+\usepackage{enumerate}
+\usepackage{enumitem} % Customize itemize, see https://ctan.org/tex-archive/macros/latex/contrib/enumitem/
+\usepackage[all]{xy}
+\usepackage[normalem]{ulem}	% delete line
+\usepackage{graphics,color}
+\usepackage{tikz}
+	\usetikzlibrary{calc}
+	\usetikzlibrary{decorations.markings}
+	\usetikzlibrary{arrows}
+	\usetikzlibrary{patterns}
+	%\usetikzlibrary{shapes.callouts}
+\tikzset{
+    level/.style = {
+        ultra thick,
+        blue,
+    },
+    connect/.style = {
+        dashed,
+        red
+    },
+    label/.style = {
+        text width=2cm
+    }
+}
+\usepackage{pgfplots}
+%\usepackage[citestyle=authortitle]{biblatex} % able to cite the title, author and year
+%\usepackage{hyperref}
+\usepackage{feynmp} % feymann diagram
+\usepackage{extarrows}
+
+\usepackage[normalem]{ulem} % 文字划掉（横），与 cite 兼容问题，见 https://tex.stackexchange.com/questions/98222/ulem-incompatibility-with-multiple-entries-in-cite
+
+\newcommand*\dd{\mathop{}\!\mathrm{d}}
+\newcounter{Claim}[section]
+\newenvironment{Claim}[1][]{{\par\normalfont\bfseries \underline{Claim~\stepcounter{Claim}\arabic{Claim}.}~#1~~}}{\par}
+\newcounter{Proposition}[section]
+\newenvironment{Proposition}[1][]{{\par\normalfont\bfseries \underline{Proposition~\stepcounter{Proposition}\arabic{Proposition}.}~#1~~}}{\par}
+\newcounter{Note}[section]
+\newenvironment{Note}[1][]{{\par\normalfont\bfseries \underline{Note~\stepcounter{Note}\arabic{Note}.}~#1~~}}{\par}
+\newcounter{Lemma}[section]
+\newenvironment{Lemma}[1][]{{\par\normalfont\bfseries \underline{Lemma~\stepcounter{Lemma}\arabic{Lemma}.}~#1~~}}{\par}
+\newcounter{Corollary}[section]
+\newenvironment{Corollary}[1][]{{\par\normalfont\bfseries \underline{Corollary~\stepcounter{Corollary}\arabic{Corollary}.}~#1~~}}{\par}
+\newenvironment{Proof}{{\par~{\normalfont\bfseries $\vartriangleright$}~~}}{\hfill $\square$\par\hfill\par} %\par
+\newcounter{Def}[section]
+\newenvironment{Def}[1][]{{\par\normalfont\bfseries \underline{Definition~\stepcounter{Def}\arabic{Def}.}~#1~~}}{\par}
+
+\allowdisplaybreaks[4] %允许 align 跨页编排
+
+
+%\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+%\def\G{\mathcal{G}}
+\def\Z{\mathcal{Z}}
+\def\H{\mathcal{H}}
+
+\begin{document}
+\title{Hydrodynamic Methods in Condensed Matter}
+\author{Xiaodong Hu}
+%\altaffiliation[Also at ]{Boson College}
+\email{xiaodong.hu@bc.edu}
+\affiliation{Department of Physics, Boston College}
+
+\date{\today}
+
+\begin{abstract}
+	In this note I will review modern methods of hydrodynamics in condensed matter systems (unlike old one like superfluids and spin waves with orderes phase), from quantum critical Nernst effects to fractional quantum Hall system \par
+	%\begin{center}
+		\hfill\par
+		{\centering\kaishu 云行雨施，品物流形。\\[0.5em]}
+	%\end{center}
+	\hfill------ 「易经·彖」
+\end{abstract}
+
+\maketitle
+\tableofcontents
+
+\section{Hydrodynamics in Symmetry-breaking Phase --- Spin Waves}
+	\subsection{$S=1/2$ XXZ Model and Conservation Law}
+		We will consider $S=1/2$ XXZ model in a uniform magnetic field $H_z$ in this section
+		\begin{equation}\label{1.1.1}
+			\H=\H_{XXZ}-H_z\sum_i S_i^z\equiv-\sum_{\langle ij\rangle}J_\perp(S_i^xS_j^x+S_i^yS_j^y)-\sum_{\langle ij\rangle}J_zS_i^zS_j^z-H_z\sum_i S_i^z.
+		\end{equation}
+		Whatever the phase is (\emph{planar ferromagnetic} $J_\perp>|J_z|>0$, \emph{planar antiferromagnetic} $J_\perp<-|J_z|<0$, or \emph{planar paramagnetic} $T>T_c$ when $M_\perp e^{i\varphi}\equiv\langle S_i^x\rangle+i\langle S_i^y\rangle$ vanishes \cite{halperin1969hydrodynamic,chaikin2000principles}), Hamiltonian \eqref{1.1.1} is clearly invariant under the global spin rotation along $\hat{S}^z$ axis. So we always have a conservation of $S^z$ operator, or coarse-grained $z$-component magnetization $M_z\equiv\langle S_i^z\rangle$ under ensemble average, namely
+		\begin{equation}\label{1.1.2}
+			\partial_t m_z+\nabla\cdot\bm{j}^{m_z}=0,
+		\end{equation}
+		where we introduce the intensive magnetization density $m_z$ and corresponding spin current $\bm{j}^{m_z}$. Apparently total energy density $E\equiv\langle \H_{XXZ}\rangle$, or energy density $\varepsilon$ is also conserved, giving
+		\begin{equation}\label{1.1.3}
+			\partial_t \varepsilon+\nabla\cdot\bm{j}^\varepsilon=0.
+		\end{equation}
+		\indent But given $M_z$ and $E$, one still cannot determine the nonuniform states out of equilibrium like ferromagnetic phase below $T_c$. In fact, one must also specify the direction of alignment of perpendicular magnetization $\varphi$, which is locally defined as
+		\begin{equation*}
+			m_x(\bm{r})+im_y(\bm{r})=m_\perp(\bm{r})e^{i\varphi(\bm{r})}.
+		\end{equation*}
+		\indent {\bf In hydrodynamic regime, relevant hydro-variables are those whose long-wavelength variations vary slowly in time compared with the characteristic microscopic relaxation time of the scattering processes}. In symmetry breaking phase, such variables are of two classes:
+		\begin{itemize}
+			\item densities of conserved variables (here is $m_z(\bm{r})$ and $\varepsilon(\bm{r})$);
+			\item symmetry-breaking elastic variables (here is $\varphi(\bm{r})$).
+		\end{itemize}
+		Thus we \emph{assume} that {\bf each point of the system reaches almost thermodynamic equilibrium at each instant of time, so that the system is \emph{completely} determined by the hydro-variables, even though they vary in time}. Particularly, the above undefined current $\bm{j}^e$ and $\bm{j}^{m_z}$ should be functional of these hydro-variables. Ditto for the symmetry-breaking field if we introduce a scalar valued functional $\psi$ of hydro-variables
+		\begin{equation}\label{1.1.4}
+			\partial_t \varphi(\bm{r})+\psi(\bm{r})=0.
+		\end{equation}
+		Noting that it is the fluctuation of $\nabla\varphi$ rather than $\varphi$ that contributes to physical properties such as entropy like $\varepsilon$ and $m_z$. So they are in the same order of fluctuation and we will take $\bm{v}(\bm{r})\equiv\nabla\varphi(\bm{r})$ as a replacement of fundamental hydro-variables ($\bm{v}$ is in anolagous of superfluid velocity $\bm{v}_s$ in liquid helium), satisfying
+		\begin{equation}\label{1.1.5}
+			\partial_t\bm{v}(\bm{r})+\nabla\psi(\bm{r})=0.
+		\end{equation}
+		Equation \eqref{1.1.2}, \eqref{1.1.3}, and \eqref{1.1.5} consist of the complete conservation law of our system.
+
+	\subsection{Constitutive Equation}
+		In this subsection, we will utilize the fact (also an assumption) that {\bf local entropy current (defined in calculation) never decrease} to confine the form of three ``current operator'' defined above. Such equations relating coarse-grained current with hydro-variables are called \emph{constitutive relations}.\par
+		At equilibrium there is no fluctuation of spin orientation so $\bm{v}=0$, and the local entropy density $s_0\equiv s_0(\varepsilon,m_z)$ reaches its \emph{maximum} by the second law of thermodynamics. So given the slowly varying disturbance, the local entropy density can be expanded around its equilibirum value. Separating the dependence of $\bm{v}(\bm{r})$, we have\footnote{Since equilibirum entropy density always reaches its maximum at each instant of time, there should be not first-order dependence of $\bm{v}$.}
+		\begin{equation}\label{1.2.1}
+			s(\bm{r})\simeq s_0(\varepsilon,m_z)-\dfrac{\rho_s}{2T}v^2,
+		\end{equation}
+		where $s_0$ is the entropy density at equilibrium. Both temperature\footnote{Clearly we define temperature in terms of \emph{eqiuilibrium} thermodynamical quantities.} $T\equiv\partial s_0/\partial\varepsilon$ and coefficient $\rho_s$ may depends on local energy and magnetization. But since we only focus on the second order fluctuation, we can treat them as local constant.
+	\subsection{Hydrodynamic Modes}
+	\subsection{Linear Response}
+
+\section{Transport Near Quantum Criticality}
+	In this section, we focus on \emph{Lorentz-invariant} quantum critical points in the \emph{hydrodynamics region} that external electromagnetic frequencies satisfy $\hbar\omega\ll k_B T$. This condition is widely (actually, almost all) performed in experiments but mismatch the assumption to many theoretical calculation as well as numerical simulation in, for example, DC conductivity near superfluid-insulator phase transition \cite{damle1997nonzero}.\par
+	\textbf{The fundamental ingredients of hydrodynamic analysis are the conserved quantities and their equations of motion}. But before preceeding, let me pause and comment on the old hydrodyamics of Lifshitz superfluids and spin-waves \cite{hohenberg1977theory,halperin1969hydrodynamic}. {\color{red} In hydrodynamics region, $k_BT/\hbar$ naturally plays the role of low-energy frequency characterizing the relation time that we are interested in, while in old prescription the relaxation time just diverges (so the energy scale may not be correct) \cite{hartnoll2007theory}}.
+
+	\subsection{General Setup}
+		Our system subject to external magnetic field for transport study. Invariance of \emph{gauge transformation} $A_\mu\mapsto A_\mu+\partial_\mu f$ and \emph{diffeomorphism transformation} $x^\mu\mapsto x_\mu+\xi_\mu$ of action gives\footnote{See, for example, section II D of \cite{herzog2009lectures}. The result can also be proved holographically, see \cite{lindgren2015holographic}.}
+		\begin{align}\label{2.1.1}
+			\partial_\mu J^\mu&=0,\\
+			\partial_\mu T^{\mu\nu}&=F^{\mu\nu}J_\mu.
+		\end{align}
+		respectively.
+		
+	\subsection{Hydrodynamic Modes and Linear Response}
+	\subsection{Perspetive from Holography}
+
+\section{Non-relativistic Transport --- Fractional Quantum Hall System}
+	\subsection{Spacetime Background}
+	\subsection{Response}
+
+
+\bibliography{hxd}
+\bibliographystyle{apsrev} % apsrev is format for PRL of APS
+\end{document}

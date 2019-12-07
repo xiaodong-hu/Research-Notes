@@ -1,0 +1,77 @@
+\begin{thebibliography}{9}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname bibnamefont\endcsname\relax
+  \def\bibnamefont#1{#1}\fi
+\expandafter\ifx\csname bibfnamefont\endcsname\relax
+  \def\bibfnamefont#1{#1}\fi
+\expandafter\ifx\csname citenamefont\endcsname\relax
+  \def\citenamefont#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{\citenamefont{Sugano}(2012)}]{sugano2012multiplets}
+\bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Sugano}},
+  \emph{\bibinfo{title}{Multiplets of transition-metal ions in crystals}}
+  (\bibinfo{publisher}{Elsevier}, \bibinfo{year}{2012}).
+
+\bibitem[{\citenamefont{Patrik}(1999)}]{patrik1999lecture}
+\bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{Patrik}},
+  \emph{\bibinfo{title}{Lecture notes on electron correlation and magnetism}}
+  (\bibinfo{publisher}{World scientific}, \bibinfo{year}{1999}).
+
+\bibitem[{\citenamefont{Coury et~al.}(2016)\citenamefont{Coury, Dudarev,
+  Foulkes, Horsfield, Ma, and Spencer}}]{coury2016hubbard}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Coury}},
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Dudarev}},
+  \bibinfo{author}{\bibfnamefont{W.}~\bibnamefont{Foulkes}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Horsfield}},
+  \bibinfo{author}{\bibfnamefont{P.-W.} \bibnamefont{Ma}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Spencer}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{93}},
+  \bibinfo{pages}{075101} (\bibinfo{year}{2016}).
+
+\bibitem[{\citenamefont{Castellani et~al.}(1978)\citenamefont{Castellani,
+  Natoli, and Ranninger}}]{castellani1978magnetic}
+\bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Castellani}},
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Natoli}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Ranninger}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{18}},
+  \bibinfo{pages}{4945} (\bibinfo{year}{1978}).
+
+\bibitem[{\citenamefont{Everett}(2015)}]{You-Kitaev}
+\bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Everett}},
+  \emph{\bibinfo{title}{Mathematica notes on the realization of kiteav model}}
+  (\bibinfo{year}{2015}).
+
+\bibitem[{\citenamefont{Rau et~al.}(2014)\citenamefont{Rau, Lee, and
+  Kee}}]{rau2014generic}
+\bibinfo{author}{\bibfnamefont{J.~G.} \bibnamefont{Rau}},
+  \bibinfo{author}{\bibfnamefont{E.~K.-H.} \bibnamefont{Lee}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{H.-Y.} \bibnamefont{Kee}},
+  \bibinfo{journal}{Physical review letters} \textbf{\bibinfo{volume}{112}},
+  \bibinfo{pages}{077204} (\bibinfo{year}{2014}).
+
+\bibitem[{\citenamefont{Liu and Khaliullin}(2018)}]{liu2018pseudospin}
+\bibinfo{author}{\bibfnamefont{H.}~\bibnamefont{Liu}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Khaliullin}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{97}},
+  \bibinfo{pages}{014407} (\bibinfo{year}{2018}).
+
+\bibitem[{\citenamefont{Sano et~al.}(2018)\citenamefont{Sano, Kato, and
+  Motome}}]{sano2018kitaev}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Sano}},
+  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Kato}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Motome}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{97}},
+  \bibinfo{pages}{014408} (\bibinfo{year}{2018}).
+
+\bibitem[{\citenamefont{Slater and Koster}(1954)}]{slater1954simplified}
+\bibinfo{author}{\bibfnamefont{J.~C.} \bibnamefont{Slater}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{G.~F.} \bibnamefont{Koster}},
+  \bibinfo{journal}{Physical Review} \textbf{\bibinfo{volume}{94}},
+  \bibinfo{pages}{1498} (\bibinfo{year}{1954}).
+
+\end{thebibliography}

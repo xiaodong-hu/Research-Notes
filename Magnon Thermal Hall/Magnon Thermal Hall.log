@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.8.25)  6 NOV 2019 23:07
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.10.25)  19 NOV 2019 16:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1325,12 +1325,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 41755 strings out of 494788
- 1004412 string characters out of 6172356
- 1261084 words of memory out of 5000000
- 45063 multiletter control sequences out of 15000+600000
+ 41745 strings out of 494719
+ 1003705 string characters out of 6170196
+ 1261338 words of memory out of 5000000
+ 45065 multiletter control sequences out of 15000+600000
  544333 words of font info for 101 fonts, out of 8000000 for 9000
- 36 hyphenation exceptions out of 8191
+ 62 hyphenation exceptions out of 8191
  62i,14n,96p,754b,689s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Magnon Thermal Hall.xdv (10 pages, 136716 bytes).
+Output written on Magnon Thermal Hall.xdv (10 pages, 137256 bytes).

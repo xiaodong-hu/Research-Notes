@@ -1,0 +1,30 @@
+\tocdepth@munge 
+\contentsline {section}{\numberline {}Contents}{1}{section*.1}
+\tocdepth@restore 
+\contentsline {section}{\numberline {I}Mott Insulator and Hubbard Model}{2}{section*.2}
+\contentsline {subsection}{\numberline {A}How to Geuss the Form of Low-energy Effetive Hamiltonian With Crystalline Symmetry?}{2}{section*.3}
+\contentsline {subsection}{\numberline {B}How to Guess the Low-energy Effective Form of One Operator with Spin Degree of Freedom?}{2}{section*.4}
+\contentsline {subsection}{\numberline {C}Why}{3}{section*.5}
+\contentsline {section}{\numberline {II}Nonlinear Response}{3}{section*.6}
+\contentsline {subsection}{\numberline {A}}{3}{section*.7}
+\contentsline {section}{\numberline {III}SPT and Cohomology}{3}{section*.8}
+\contentsline {subsection}{\numberline {A}Significant Physical Difference in 1D and 2D}{3}{section*.9}
+\contentsline {subsection}{\numberline {B}Work for Continuous Goup?}{3}{section*.10}
+\contentsline {section}{\numberline {IV}SET and Exactly Solvable Model: Projective Symmetry Group Approach}{3}{section*.11}
+\contentsline {subsection}{\numberline {A}Physical State, Anyonic Excitation and Projective Representation}{3}{section*.12}
+\contentsline {subsection}{\numberline {B}Essential Gauge Group/Gauge Group of a Model}{3}{section*.13}
+\contentsline {subsection}{\numberline {C}Why we choose $G_\ell $ to be one?}{3}{section*.14}
+\contentsline {subsection}{\numberline {D}Kramers-Wannier-Wegner Duality: Exact or Not}{3}{section*.15}
+\contentsline {subsection}{\numberline {E}Gauge Symmetry is Not a Symmetry}{4}{section*.16}
+\contentsline {section}{\numberline {V}Tensor Network and Algorithm}{4}{section*.17}
+\contentsline {subsection}{\numberline {A}Short-Range Physics: Symmetry-breaking Clues without Thermodynamic Limit}{4}{section*.18}
+\contentsline {subsection}{\numberline {B}Entanglement Entroy and Area Law}{4}{section*.19}
+\contentsline {subsection}{\numberline {C}SVD of Many-particle Wave Function}{4}{section*.20}
+\contentsline {section}{\numberline {VI}Spin Liquids}{4}{section*.21}
+\contentsline {subsection}{\numberline {A}Is slave boson or slave fermion method just a methematical trick or able to bring in new physics}{4}{section*.22}
+\contentsline {subsection}{\numberline {B}Why is (2+1)D U(1) gauge field confining?}{4}{section*.23}
+\contentsline {subsection}{\numberline {C}How to understand the complexity brought by the SU(2) gauge structure}{5}{section*.24}
+\contentsline {subsection}{\numberline {D}Why is Ground State of Antiferromagnetic Heisenberg Model a Spin-singlet?}{5}{section*.25}
+\contentsline {section}{\numberline {VII}Quantum Phase Transition}{5}{section*.26}
+\contentsline {subsection}{\numberline {A}Why is CFT universal near the region of Quantum Criticality?}{5}{section*.27}
+\contentsline {section}{\numberline {}References}{5}{section*.28}

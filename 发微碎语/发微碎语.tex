@@ -1,0 +1,133 @@
+\documentclass[10pt,nofootinbib]{revtex4}
+\usepackage{ctex}
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,bm,dsfont}
+\usepackage{graphics,color}
+\usepackage{hyperref}
+
+\newcommand*\dd{\mathop{}\!\mathrm{d}}
+\newcounter{Claim}[section]
+\newenvironment{Claim}[1][]{{\par\normalfont\bfseries \underline{Claim~\stepcounter{Claim}\arabic{Claim}.}~#1~~}}{\par}
+\newcounter{Proposition}[section]
+\newenvironment{Proposition}[1][]{{\par\normalfont\bfseries \underline{Proposition~\stepcounter{Proposition}\arabic{Proposition}.}~#1~~}}{\par}
+\newcounter{Note}[section]
+\newenvironment{Note}[1][]{{\par\normalfont\bfseries \underline{Note~\stepcounter{Note}\arabic{Note}.}~#1~~}}{\par}
+\newcounter{Lemma}[section]
+\newenvironment{Lemma}[1][]{{\par\normalfont\bfseries \underline{Lemma~\stepcounter{Lemma}\arabic{Lemma}.}~#1~~}}{\par}
+\newcounter{Corollary}[section]
+\newenvironment{Corollary}[1][]{{\par\normalfont\bfseries \underline{Corollary~\stepcounter{Corollary}\arabic{Corollary}.}~#1~~}}{\par}
+\newenvironment{Proof}{{\par~{\normalfont\bfseries $\vartriangleright$}~~}}{\hfill $\square$\par\hfill\par} %\par
+\newcounter{Def}[section]
+\newenvironment{Def}[1][]{{\par\normalfont\bfseries \underline{Definition~\stepcounter{Def}\arabic{Def}.}~#1~~}}{\par}
+
+
+\def\Re{\mathop{\mathcal{R}e}}
+\def\Im{\mathop{\mathcal{I}m}}
+
+
+\begin{document}
+\title{发微碎语}% Force line breaks with \\
+%\thanks{This is a reminiscent note for Hubbard-Stratonovich Transformation.}%
+
+\author{Xiaodong Hu}
+%\altaffiliation[Also at ]{Boson College}
+\email{xiaodong.hu@bc.edu}
+\affiliation{Department of Physics, Boston College, MA 02135, USA}
+
+\date{始記於己亥除夕}
+
+
+\begin{abstract}
+	This is a research note documenting the progress paces of me in theoretical condensed matter physics. Materials will be mainly selected from weekly group meeting, journal club, and seminars with Ying Ran and Xu Yang. Talented ideas and heuristic treatments in research papers will also be documented, plus my personal thoughts and understandings. 
+\end{abstract}
+\maketitle
+\tableofcontents
+
+\section{Mott Insulator and Hubbard Model}
+	\subsection{How to Geuss the Form of Low-energy Effetive Hamiltonian With Crystalline Symmetry?}
+		For \emph{pure} Hubbard model, Hamiltonian
+		\begin{equation*}
+			H=-t\sum_{\langle ij \rangle,\alpha}c_{i \alpha}^\dagger c_{j \alpha}+U\sum_i n_{i\uparrow}n_{i\downarrow}
+		\end{equation*}
+		is invariant under \emph{global} $SU(2)$ spin-rotation symmetry $c_{i \alpha}\mapsto U_{\alpha \beta}c_{i \beta}$ as well as \emph{time-reversal}, \emph{parity}, and \emph{all cystalline symmetry}. Or in mathematical words, given an arbitrary group element  $\bm{S}\in SU(2)$, representation over Hilbert space $\rho:SU(2)\rightarrow GL(H)$, $\rho(\bm{S})=e^{-\frac i\hbar\bm{\phi}\cdot\bm{S}}$ always makes Hamiltonian invariant under \emph{adjoint representation}\footnote{Let $|\phi\rangle\equiv H|\psi\rangle$, then under spin-ratation $S$, this equality gives $\rho(S)|\phi\rangle\equiv\rho(S)H\rho^{-1}(S)\rho(S)|\psi\rangle$, showing that operator is transformed under adjoint representation.}
+		\begin{equation*}
+			\rho(\bm{S})H\rho(\bm{S})^{-1}=H,
+		\end{equation*}
+		implying that such representation is \emph{trivial}. This fundamental property will not be disturbed by perturbation or canonical transformation. Therefore, \textbf{no matter which order of perturbation we are working with, after decomposition and projection of many-body Hilbert space \cite{macdonald1988t,chernyshev2004higher}, we must end up with the combinations of terms holding such symmetry}, like Heisenberg term $\sum_{\langle ij \rangle }J_{ij}\bm{S}_i\cdot\bm{S}_j$. Other possible assymbly of two spin operators $\bm{S}_i$ and $\bm{S}_j$ on \emph{distinct} sites like $\bm{S}_i\times\bm{S}_j$ are forbidden. In fact, \textbf{Heisenberg Hamiltonian is the only possible form of two spin operators} due to strong dependence of the identity $\bm{\sigma}_{\alpha \beta}\cdot\bm{\sigma}_{\mu\nu}=2\delta_{\alpha\nu}\delta_{\beta\mu}-\delta_{\alpha \beta}\delta_{\mu\nu}$, which ensures
+		\begin{equation*}
+			\bm{S}_i\cdot\bm{S}_j=\sum_{\alpha \beta \mu \nu}c_{i \alpha}^\dagger\dfrac{\bm{\sigma}_{\alpha \beta}}{2}c_{i \beta}\cdot c_{j \mu}^\dagger\dfrac{\bm{\sigma}_{\mu\nu}}{2}c_{j \mu}=\text{some combination of four fermionic operators}
+		\end{equation*}
+		to be invariant under spin rotations. All the other assemblies will break such relation.
+	
+	\subsection{How to Guess the Low-energy Effective Form of One Operator with Spin Degree of Freedom?}
+		Let us take electric dipole moment $\bm{P}\equiv e\bm{r}$ as example. In the language of second quantization, $\bm{P}=\sum_\sigma\int\dd\bm{r}\,e\bm{r}\psi_\sigma^\dagger(\bm{r})\psi_\sigma(\bm{r})$
+	\subsection{Why}
+
+\section{Nonlinear Response}
+	\subsection{}
+
+\section{SPT and Cohomology}
+	\subsection{Significant Physical Difference in 1D and 2D}
+
+	\subsection{Work for Continuous Goup?}
+		That does not work, since the classification of continuous group demands another cohomology techniques beyond the discussion of \cite{chen2013symmetry}.
+
+\section{SET and Exactly Solvable Model: Projective Symmetry Group Approach}
+	\subsection{Physical State, Anyonic Excitation and Projective Representation}
+	\subsection{Essential Gauge Group/Gauge Group of a Model}
+	Essential gauge group (GG) Like Haldane Chain is NOT $\mathrm{SU}(2)$ but $\mathrm{SU}(2){\color{red}/\mathbb{Z}_2}=\mathrm{SO}(3)$. Similarly, symmetric group (SG) of bosonic Hubbard Model (with charge one and spin one half, theoretically)
+	\begin{equation*}
+		H=-t\sum_i b_{i \alpha}^\dagger b_{i \alpha}+U\sum_i n_{i\uparrow}n_{i\downarrow}	
+	\end{equation*}
+	is not naively direct product of groups $\mathrm{SU}_{s}(2)\times\mathrm{U}_{c}(1)$, but $\mathrm{SU}_{s}(2)\times\mathrm{U}_{c}(1){\color{red}/\mathbb{Z}_2}=\mathrm{U}(3)$ instead, where $s$ represents spin and $c$ represents charge. This is because the degree of freedom of charge and spin are NOT decoupled (like Luttinger liquid). Irrep of $\mathrm{SU}_s(2)$ on each site tells us that the spin chain forms either odd or even multiple of $\frac{1}{2}$. However, since each bosonic particle carries spin one half with charge one, system of odd (even) charge always have odd (even) multiple of $\frac12$. This simple constraint leads to redundancy of our previous naive guess of direct product group.\par
+	In fact, one can enlarge physical SG recklessly, as long as the representation for the redundant part of group is trivial. Taking spin system as an example, experiments only tells us that the physical observable forms an anologous commutative relation as Pauli matrics, so we choose representation of $\mathrm{SU}_s(2)$ as a proper language of description. But certainly we cannot say that $\mathrm{SU}_s(2)$ is the SG for any spin lattice system.
+
+	\subsection{Why we choose $G_\ell$ to be one?}
+		$\mathbb{Z}_2$ gauge field is a pure gauge field without massive charges. So flux cannot condense 
+
+
+	\subsection{Kramers-Wannier-Wegner Duality: Exact or Not}
+		The Kramers-Wannier-Wegner duality
+		\begin{equation*}
+			H_{\mathbb{Z}_2}=-K\sum_{\square}\prod_{\ell\in\square}\sigma_\ell^z-g\sum_\ell\sigma_\ell^x\Longleftrightarrow H_{\text{Ising}}=-g\sum_{\langle ij \rangle}\mu_i^z\mu_j^z-K\sum_i\mu_i^x
+		\end{equation*}
+		is exact in the sense of operators (canonical transformation), but NOT exact in the sense of physical ground states. The size of ground state Hilbert space is not the same!\par
+		First thing first, domain walls of $\mathbb{Z}_2$ gauge theory corresponds to () of Qauntum Ising model
+
+	\subsection{Gauge Symmetry is Not a Symmetry}
+
+
+\section{Tensor Network and Algorithm}
+	\subsection{Short-Range Physics: Symmetry-breaking Clues without Thermodynamic Limit}
+		As is widely known, one decisive characteristic of symmetry-breaking is the behavior of correlation function divergence at thermodynamic limits. But what if the system size is finite? Can we tell the difference between two phases from some sharp clues that do not involve thermodynamic limits \cite{jiang2015symmetric} ?\par
+		In many cases, the answer is yes. Taking 1D rotor model (Wess-Zumino term)
+		\begin{equation*}
+			H=-J\sum_{\left\langle ij\right\rangle}\bm{n}_i\cdot\bm{n}_j
+		\end{equation*}
+		with $|\bm{n}_i|\equiv1$ for example. Clearly rotor model has $\mathrm{O}(N)$ symmetry. So the ground state of ferromagnetic phase, where all spins align parallelly, can be either one of the irrep of $\mathrm{O}(N)$ with the heighest weight. In contrast, the ground state of anti-ferromagnetic phase, where all spins aligh oppositely, can only be the irrep of $\mathrm{O}(N)$ with zero weight. The sharp difference of the Hilbert space of ground states between two phases preludes the symmetry-breaking behavior at thermodynamic limit.\par
+		But when long-range correlation start to play the role, the answer is no. If we try to distinguish antiferromagnetic phase from spin liquids, we cannot tell anything from their Hilbert space as well as energy spectrum, since their eneregy can be as close as possible.\par
+		The point here is, in many cases, without thermodynamic limit, short-range physics is enough to classify phases. That's also why we use the language of tensor network rather than original many-body wave functions. One cannot tell what is the short-range part from many-body wave functions.
+
+	\subsection{Entanglement Entroy and Area Law}
+	\subsection{SVD of Many-particle Wave Function}
+
+\section{Spin Liquids}
+	\subsection{Is slave boson or slave fermion method just a methematical trick or able to bring in new physics}
+		Procedure of enlargement and projection Hilbert space is highly nontrivial since originally we cannot study mean field theory of spin liquids (since the magnetic order $\langle \bm{S}_i\cdot\bm{S}_j\rangle\equiv0$), let alone have any idea abour the ground state wave function about spin liquids. 
+	\subsection{Why is (2+1)D U(1) gauge field confining?}
+		\emph{Compactness} of (2+1)D $U(1)$ gauge field	enable the existence of instanton, which leads $U(1)$ gauge theory be an interacting theory and endows mass for gauge bosons (Polyakov's famous work \cite{polyakov1977quark}). Low-energy properties can be obtained by considering the dual theory of XY model, or sine-Gordon model \cite{kogut1979introduction,wen2004quantum}
+		\begin{equation*}
+			\mathcal{L}_{U(1)}=\dfrac{1}{2g^2}(\bm{E}^2+\bm{B}^2)\Longleftrightarrow\mathcal{L}_{XY}=\int\dd\bm{x}\,\frac{\chi}{2}\left(\dot{\theta}^2-(\nabla\theta)^2\right),
+		\end{equation*}
+		Showing that in (2+1)D, compact $U(1)$ gauge theory is always confined (while in (3+1)D confined and deconfined (Coulomb) phase co-exist).
+	\subsection{How to understand the complexity brought by the SU(2) gauge structure}
+
+	\subsection{Why is Ground State of Antiferromagnetic Heisenberg Model a Spin-singlet?}
+
+\section{Quantum Phase Transition}
+	\subsection{Why is CFT universal near the region of Quantum Criticality?}
+		The answer demands knowledge of examples of \emph{continuous} phase transition, both classical (Ginzberg-Landau) and modern (SPT or even SET). Whatever a phase a system belongs to, the correlation function $G(\bm{r},\bm{0})\equiv\langle\psi(\bm{r})\psi(\bm{0})\rangle$ always tends to zero at thermodynamic limit\footnote{My instinct tells that this assertion depends on the \emph{locality} of Hamiltonian, which is guranteed by the universal low-energy behavior (simplicity) under RG flow.} (although may decay in different behaviors), where only in that extreme can we well-define a phase. So theoretically, CFT is 
+
+
+\bibliography{hxd}
+\bibliographystyle{apsrev} % apsrev is format for PRL of APS
+\end{document}

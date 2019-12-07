@@ -1,0 +1,120 @@
+\documentclass[10pt,nofootinbib]{revtex4}
+\usepackage[nocap]{ctex}
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,bm,dsfont}
+\usepackage{enumerate}
+\usepackage{enumitem} % Customize itemize, see https://ctan.org/tex-archive/macros/latex/contrib/enumitem/
+\usepackage[all]{xy}
+\usepackage[normalem]{ulem}	% delete line
+\usepackage{graphics,color}
+\usepackage{tikz}
+	\usetikzlibrary{calc}
+	\usetikzlibrary{decorations.markings}
+	\usetikzlibrary{arrows}
+	\usetikzlibrary{patterns}
+\usepackage{pgfplots}
+%\usepackage[citestyle=authortitle]{biblatex} % able to cite the title, author and year
+%\usepackage{hyperref}
+\usepackage{feynmp} % feymann diagram
+\usepackage{extarrows}
+
+\usepackage[normalem]{ulem} % 文字划掉（横），与 cite 兼容问题，见 https://tex.stackexchange.com/questions/98222/ulem-incompatibility-with-multiple-entries-in-cite
+
+
+
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+
+\begin{document}
+\title{2019 Boston College Summer School of Theoretical Condensed Matter Physics}
+\author{Xiaodong Hu}
+%\altaffiliation[Also at ]{Boson College}
+\email{xiaodong.hu@bc.edu}
+\affiliation{Department of Physics, Boston College}
+
+\date{\today}
+
+\begin{abstract}
+	In this paper I list a group of topics I am interested in and summarize related materials worth reading (still under construction). It plays a role of summer study plan to prevent myself from deviation of the main thread. Hopefully I can cover most of them after three months's study.\par
+	%\begin{center}
+		\hfill\par
+		{\centering\kaishu 山无数，乱红如雨，不记来时路。\par}
+	%\end{center}
+	\hfill------ 秦观「点绛唇·桃源」
+\end{abstract}
+
+\maketitle
+
+\begin{itemize}[label=$\circ$]
+	\item {\bf 2D CFT}
+		\begin{itemize}[label=$\star$]
+			\item OPE to Renormalization Group (Wilson-Fisher and XY Model) \cite{FradkinRG,sachdev2011quantum}
+			\item Anomaly and Central Charge \cite{affleck1986universal,kapustin2019absence,FradkinCFT}
+			\item Kac-Moody Algebra and Edge Modes of FQHE \cite{hansson2017quantum}
+		\end{itemize}
+	\item {\bf Quantum Transport Theory}
+		\begin{itemize}[label=$\star$]
+			\item \sout{Bloch Theorem \mbox{\cite{watanabe2019proof,bohm1949note,kapustin2019absence}}}
+			\item Luttinger's Gravitational Formulation on Thermal Transports \cite{luttinger1964theory,cooper1997thermoelectric}
+			\item Low-energy Newton Cartan theory of Quantum Transports \cite{gromov2015thermal,stone2012gravitational,dubovsky2012effective,bradlyn2015low}
+			\item \sout{{\color{red}Lattice Theory of Quantum Transport \cite{kapustin2019thermal}}}
+			\item {\color{red}Topological Origin of Thermal Hall Effects \cite{kane1997quantized,bradlyn2015low,kapustin2019thermal}}
+			\item {\color{red}Discussion on Energy Magnetization \cite{xiao2006berry,qin2011energy,cooper1997thermoelectric}}
+			\item \sout{Semi-classical Treatment of Nonlinear Hall Response \mbox{\cite{sodemann2015quantum}}}
+			\item {Magnon Thermal Hall Effect \cite{murakami2016thermal,matsumoto2014thermal}}
+		\end{itemize}
+	\item {\bf Lieb-Schulz-Mattis Theorem}
+		\begin{itemize}[label=$\star$]
+			\item \sout{LSM theorem in (1+1)D \mbox{\cite{lieb1961two}}}
+			\item LSM theorem in higher dimensions \cite{oshikawa2000commensurability,hastings2004lieb,nachtergaele2007multi}
+		\end{itemize}
+	\item {\bf Realization of Kitaev Model}
+		\begin{itemize}[label=$\star$]
+			\item \sout{{\color{red}Kitaev's Honeycomb Model \mbox{\cite{kitaev2006anyons}}}}
+			\item \sout{Honeycomb Iridates \mbox{\cite{jackeli2009mott,rau2014generic}}}
+			\item \sout{Anyons and Unitary Modular Tensor Categories \mbox{\cite{kitaev2006anyons,beer2018categories}}}
+		\end{itemize}
+	\item {\bf Advanced FQHE}
+		\begin{itemize}[label=$\star$]
+			\item Dirac Theory of Composite Fermions \cite{son2015composite}
+			\item Hall Viscosity \cite{hoyos2012hall}
+			\item Low-energy Newton Cartan theory of FQHE \cite{dubovsky2012effective,geracie2015spacetime}
+		\end{itemize}
+	\item {\bf Duality}
+		\begin{itemize}[label=$\star$]
+			\item Kramers-Wannier Duality and XY Duality \cite{kogut1979introduction,savit1980duality,Sachdev-Z2Duality,Sachdev-Z2Gauge,Sachdev-XYDuality}
+			\item Bosonic Particle-Vortex Duality \cite{lee1989anyon,senthil2004deconfined}
+			\item Fermionic Particle-Vortex Duality \cite{son2015composite,wang2015dual,seiberg2016duality,karch2016particle,Senthilslides}
+		\end{itemize}
+	\item {\bf Topological Insulators and Topological Superconductors}
+		\begin{itemize}[label=$\star$]
+			\item Haldane Model \cite{fruchart2013introduction,bernevig2013topological,witten2015three}
+			\item Chern Insulators in Higher Dimensions \cite{bernevig2013topological}
+			\item $\mathbb{Z}_2$ Invariant and Kane-Mele Model \cite{fruchart2013introduction,bernevig2013topological,witten2015three}
+			\item Vortex and Majorana Fermions \cite{kitaev2001unpaired,alicea2012new}
+			\item Topological Periodic Table \cite{kitaev2009periodic,Ashvin-PCCM}
+		\end{itemize}
+	\item {\bf Quantum Evalution}
+		\begin{itemize}[label=$\star$]
+			\item \sout{Lieb-Robinson Bounds \mbox{\cite{lieb1972finite,Halstings2010locality}}}
+			\item Equal-time Correlation \cite{hastings2004locality}
+			\item \sout{Insensitivity to Twisted Boundary Conditions \mbox{\cite{watanabe2018insensitivity}}}
+		\end{itemize}
+	\item {\bf Quantum Phase Transition}
+		\begin{itemize}[label=$\star$]
+			\item Deconfined Quantum Critical Point \cite{senthil2004deconfined,sandvik2007evidence}
+		\end{itemize}
+	\item {\bf TQFT}
+		\begin{itemize}[label=$\star$]
+			\item Chern-Simons Gauge Fields and $K$-matrix Theory of FQHE \cite{FradkinTQFT,wen2004quantum}
+			\item Non-linear Sigma Model and WZW Model \cite{tsvelik2007quantum,fradkin2013field}
+			\item Braiding Statistics \cite{FradkinTQFT,wilczek1990fractional}
+		\end{itemize}
+	\item {\bf Others Topics Discussed in Journal Club}
+		\begin{itemize}[label=$\star$]
+			\item \sout{Paradox in Defining Bulk Quadrupole Moment \mbox{\cite{ono2019difficulties}}}
+			%\item \sout{Diagonalization of the General Bosonic Pairing Hamiltonian \mbox{\cite{colpa1978diagonalization}}}
+		\end{itemize}
+\end{itemize}
+
+\bibliography{hxd}
+\bibliographystyle{apsrev} % apsrev is format for PRL of APS
+\end{document}

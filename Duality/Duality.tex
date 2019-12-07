@@ -44,37 +44,44 @@
 \tableofcontents
 \section{Exact Dualities of Lattice Model}
 	\subsection{Quantum-Classical Mapping}
-		As a warm-up, let us start with the simplest $d=0$ \emph{quantum Ising model}\footnote{Or \emph{transverse field Ising model} if you like. Note that statistical model has \emph{no} time dimensionality.}, namely a quantum spin plased on one site, with the Hamiltonian
+		As a warm-up, let us start with the simplest $d=0$ \emph{quantum Ising model}\footnote{Or \emph{transverse field Ising model} if you like. Note that statistical model has \emph{no} time dimensionality.}, namely only one quantum spin with the Hamiltonian
 		\begin{equation}\label{1.1.1}
 			H_{Q}=-g\sigma^x.
 		\end{equation}
-		One can always express the finite-$T$ partition function in terms of path integral by slicing the temperature (treating temperature as imaginary time) 
-		\begin{equation}\label{1.1.1}
-			H_{Q}=-g\sum_i\sigma_i^x.
-		\end{equation}
-		To compute the partition function of \eqref{1.1.1}, we need to slice the temperature (imaginary time) to $N$ segments and let $N$ tends to infinity. Namely,
+		The partition function of \eqref{1.1.1} can be evaluated in path integral formalism by slicing the temperature (imaginary time) into $N$ segments, inserting intermediate states, and {\color{red}let $N$ goes to infinity}
 		\begin{align}\label{1.1.2}
-			\mathcal{Z}_{q}&=\mathop{\mathrm{tr}}e^{-\beta H_q}=\lim_{N\rightarrow\infty}\sum_{s_1,\cdots,s_N}\langle s_N|e^{+\Delta\tau g\sigma^x_1}|s_1\rangle \langle s_1|e^{+\Delta\tau g\sigma_2^x}|s_2\rangle\cdots \langle s_{N-1}|e^{+\Delta\tau g\sigma^x_N}|s_N\rangle\nonumber\\
-			&=\lim_{N\rightarrow\infty}\sum_{s_1,\cdots,s_N}\prod_{i=0}^N\langle s_i|1+\Delta\tau g\sigma_j^x|s_j\rangle,
+			\mathcal{Z}_{Q}&\equiv\mathop{\mathrm{tr}}e^{-\beta H_Q}\equiv\lim_{N\rightarrow\infty}\sum_{s_1,\cdots,s_N}\langle s_N|e^{\Delta\tau g\sigma^x}|s_1\rangle \langle s_1|e^{\Delta\tau g\sigma^x}|s_2\rangle\cdots \langle s_{N-1}|e^{\Delta\tau g\sigma^x}|s_N\rangle\nonumber\\
+			&=\lim_{N\rightarrow\infty}\sum_{s_1,\cdots,s_N}\prod_{i=0}^N\langle s_i|1+\Delta\tau g\sigma^x|s_{i+1}\rangle,
 		\end{align}
-		where $s_0\equiv s_N$ (PBC is applied naturally). Equation \eqref{1.1.2} shares the same structure as \emph{transferring matrix} methods in $1$-d \emph{classical} Ising model. In fact, ansatzing
+		where $s_0\equiv s_N$ (PBC is applied) and $\Delta\tau\equiv\beta/N\rightarrow0$ such that $\beta$ is fixed.\par
+		Equation \eqref{1.1.2} is an reminiscent of the structure of \emph{transferring matrix} in $1$-d \emph{classical} Ising model. In fact, by identifying each intermediate \emph{quantum} state (which is adding by hand in path integral formalism) with \emph{classical} degree of freedom $s_i=\{\pm1\}$ on the physical $N$-site lattice (still with PBC), and ansatzing
 		\begin{equation*}
-			\langle s_i|1+\Delta\tau g\sigma_j^x|s_j\rangle= \langle s_i|Ae^{B\sigma_i^z\sigma_j^z}|s_j\rangle
+			\langle s_i|1+\Delta\tau g\sigma^x|s_{i+1}\rangle\equiv\langle s_i|Ae^{Bs_i s_{i+1}}|s_{i+1}\rangle,
 		\end{equation*}
-		and let $s_i=s_j=1$ and $s_i=-s_j=1$, one can immediately show that
+		or in $\hat{\sigma}^z$ eigenstates
+		\begin{equation*}
+			\left(\begin{array}{cc}
+				1&-ig\Delta\tau\\
+				ig\Delta\tau&1
+			\end{array}\right)\equiv \left(\begin{array}{cc}
+				Ae^B&Ae^{-B}\\Ae^{-B}&Ae^B
+			\end{array}\right),
+		\end{equation*}
+		one immediately have
 		\begin{equation}\label{1.1.3}
-			A^2=\Delta \tau g,\quad e^{-2B}=\Delta\tau g.
+			A=\sqrt{\Delta \tau g},\quad B=-\dfrac{1}{2}\ln(\Delta\tau g)\rightarrow\infty.
 		\end{equation}
-		Therefore, partition function of $0d$-quantum Ising Model can be re-written as
+		Therefore, the partition function of quantum Ising model can be re-written as
 		\begin{equation}\label{1.1.4}
-			\mathcal{Z}_{q}=A^N\mathop{\mathrm{tr}\exp \left(-\beta H_{c}\right) },
+			\mathcal{Z}_{Q}=\lim_{N\rightarrow\infty}A^N\mathop{\mathrm{tr}\exp \left(-\beta H_{c}\right) },
 		\end{equation}
 		where
 		\begin{equation}\label{1.1.5}
-			H_{c}=B\sum_{\langle ij\rangle}\sigma_i^z\sigma_j^z
+			-\beta H_{c}=B\sum_{\langle ij\rangle}\sigma_i^z\sigma_j^z
 		\end{equation}
-		is the Hamiltonian of $1d$ classical Ising model.\par
-		The above result can be easily generalized to higher orders. Hamiltonian of $d>1$ Quantum Ising Model is
+		is exactly the Hamiltonian of $d=1$ classical Ising model.\par
+
+		The above result can be easily generalized to higher dimensions. Hamiltonian of $d>1$ Quantum Ising Model is
 		\begin{equation}\label{1.2.1}
 			H_q=-J\sum_{\langle ij\rangle}\sigma_i^z\sigma_j^z-g\sum_i\sigma_i^x.
 		\end{equation}
@@ -99,7 +106,7 @@
 \section{IR Dualities of Continuous Field Theory}
 	\subsection{Bosonic Particle/Vortex Duality}
 	\subsection{Fermionic Particle/Vortex Duality}
-	\subsection{Duality Web}
+	\subsection{Boson-Fermion Duality and Duality Web}
 
 \section{Application of Duality}
 

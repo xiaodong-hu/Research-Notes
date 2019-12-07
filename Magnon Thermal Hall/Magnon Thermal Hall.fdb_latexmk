@@ -1,17 +1,17 @@
 # Fdb version 3
-["bibtex Magnon Thermal Hall"] 1572934541 "Magnon Thermal Hall.aux" "Magnon Thermal Hall.bbl" "Magnon Thermal Hall" 1573099636
+["bibtex Magnon Thermal Hall"] 1572934541 "Magnon Thermal Hall.aux" "Magnon Thermal Hall.bbl" "Magnon Thermal Hall" 1574197318
   "/usr/local/texlive/2019/texmf-dist/bibtex/bst/revtex4/apsrev.bst" 1261594643 44155 dc7233506a001aedcd59cfd90f9fe8d7 ""
-  "Magnon Thermal Hall.aux" 1573099635 3843 1f3dd55cec194ef4036d7689d4a33d77 "xelatex"
+  "Magnon Thermal Hall.aux" 1574197318 3843 1f3dd55cec194ef4036d7689d4a33d77 "xelatex"
   "hxd.bib" 1572932445 17972 b5165e737b0bb7b79f1998e57e1f589f ""
   (generated)
-  "Magnon Thermal Hall.blg"
   "Magnon Thermal Hall.bbl"
-["xdvipdfmx"] 1573099636 "Magnon Thermal Hall.xdv" "Magnon Thermal Hall.pdf" "Magnon Thermal Hall" 1573099636
-  "Magnon Thermal Hall.xdv" 1573099635 136716 a56f5a5c2cce06cfa42261dfbf318523 "xelatex"
+  "Magnon Thermal Hall.blg"
+["xdvipdfmx"] 1574197318 "Magnon Thermal Hall.xdv" "Magnon Thermal Hall.pdf" "Magnon Thermal Hall" 1574197318
+  "Magnon Thermal Hall.xdv" 1574197318 137256 d5fc093ba83c8e09126872fc3f15d41a "xelatex"
   (generated)
   "Magnon Thermal Hall.pdf"
-["xelatex"] 1573099633 "Magnon Thermal Hall.tex" "Magnon Thermal Hall.xdv" "Magnon Thermal Hall" 1573099636
-  "/dev/null" 1572713612 0 d41d8cd98f00b204e9800998ecf8427e ""
+["xelatex"] 1574197316 "Magnon Thermal Hall.tex" "Magnon Thermal Hall.xdv" "Magnon Thermal Hall" 1574197318
+  "/dev/null" 1574193275 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1246382020 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -248,14 +248,14 @@
   "/usr/local/texlive/2019/texmf-dist/tex/xelatex/xecjk/xeCJK.sty" 1554672516 180441 fa86e381940e64b11773e2733af7bed3 ""
   "/usr/local/texlive/2019/texmf-dist/tex/xelatex/xecjk/xeCJKfntef.sty" 1554672516 40060 61fc5f56f90a1db39d048fef8334701c ""
   "/usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf" 1553552136 35430 ca24fb44b873d21ac4c63d01600decd4 ""
-  "/usr/local/texlive/2019/texmf-var/web2c/xetex/xelatex.fmt" 1566787664 2796618 63853b5f7c2f42b2d090e88e5e8ba730 ""
-  "/usr/local/texlive/2019/texmf.cnf" 1566787648 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "Magnon Thermal Hall.aux" 1573099635 3843 1f3dd55cec194ef4036d7689d4a33d77 "xelatex"
+  "/usr/local/texlive/2019/texmf-var/web2c/xetex/xelatex.fmt" 1571979336 2818500 330a1a4029c7dda78c336be8b5c6dc24 ""
+  "/usr/local/texlive/2019/texmf.cnf" 1571979303 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
+  "Magnon Thermal Hall.aux" 1574197318 3843 1f3dd55cec194ef4036d7689d4a33d77 "xelatex"
   "Magnon Thermal Hall.bbl" 1572934541 3835 b77b43edd7461a8b55abccf152baa0bb "bibtex Magnon Thermal Hall"
-  "Magnon Thermal Hall.tex" 1573099633 46840 b8603c5bc97553c639a6ca42261700ce ""
-  "Magnon Thermal Hall.toc" 1573099635 734 4d5e6f029186791413a6938bb06547aa "xelatex"
+  "Magnon Thermal Hall.tex" 1574197316 46920 73a083c75a3b380f55163fdc0b427230 ""
+  "Magnon Thermal Hall.toc" 1574197318 734 4d5e6f029186791413a6938bb06547aa "xelatex"
   (generated)
   "Magnon Thermal Hall.xdv"
-  "Magnon Thermal Hall.log"
-  "Magnon Thermal Hall.toc"
   "Magnon Thermal Hall.aux"
+  "Magnon Thermal Hall.toc"
+  "Magnon Thermal Hall.log"

@@ -1,0 +1,10 @@
+\tocdepth@munge 
+\contentsline {section}{\numberline {}Contents}{1}{}
+\tocdepth@restore 
+\contentsline {section}{\numberline {I}Algebraic Theory of Anyons}{1}{}
+\contentsline {subsection}{\numberline {A}Category Theory: General Preliminaries}{1}{}
+\contentsline {subsection}{\numberline {B}Monoidal Categories}{1}{}
+\contentsline {subsection}{\numberline {C}Graphic Calculus}{2}{}
+\contentsline {subsection}{\numberline {D}Tensor Categories}{2}{}
+\contentsline {subsection}{\numberline {E}$6j$-Symbols}{2}{}
+\contentsline {section}{\numberline {}References}{2}{}

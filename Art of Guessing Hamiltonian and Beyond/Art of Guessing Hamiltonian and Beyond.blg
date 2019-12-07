@@ -1,0 +1,58 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: Art of Guessing Hamiltonian and Beyond.aux
+The style file: apsrev.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: hxd.bib
+Repeated entry---line 77 of file hxd.bib
+ : @article{kitaev2006anyons
+ :                          ,
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 1023 of file hxd.bib
+ : @article{Kitaev-topological 
+ :                             entanglement entropy,
+I'm skipping whatever remains of this entry
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 9 entries,
+            3411 wiz_defined-function locations,
+            1213 strings with 11713 characters,
+and the built_in function-call counts, 6873 in all, are:
+= -- 363
+> -- 268
+< -- 35
++ -- 228
+- -- 66
+* -- 944
+:= -- 728
+add.period$ -- 9
+call.type$ -- 9
+change.case$ -- 36
+chr.to.int$ -- 9
+cite$ -- 9
+duplicate$ -- 610
+empty$ -- 566
+format.name$ -- 157
+if$ -- 1284
+int.to.chr$ -- 1
+int.to.str$ -- 10
+missing$ -- 94
+newline$ -- 42
+num.names$ -- 27
+pop$ -- 168
+preamble$ -- 1
+purify$ -- 36
+quote$ -- 0
+skip$ -- 262
+stack$ -- 0
+substring$ -- 211
+swap$ -- 489
+text.length$ -- 32
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 52
+warning$ -- 0
+while$ -- 25
+width$ -- 0
+write$ -- 102
+(There were 2 error messages)

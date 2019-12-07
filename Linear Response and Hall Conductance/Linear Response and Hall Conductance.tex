@@ -1,0 +1,89 @@
+\documentclass[10pt,nofootinbib]{revtex4}
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,bm,dsfont}
+\usepackage[all]{xy}
+\usepackage[normalem]{ulem}	% delete line
+\usepackage{graphics,color}
+\usepackage{tikz}
+%\usepackage{hyperref}
+
+\newcommand*\dd{\mathop{}\!\mathrm{d}}
+\newcounter{Claim}[section]
+\newenvironment{Claim}[1][]{{\par\normalfont\bfseries \underline{Claim~\stepcounter{Claim}\arabic{Claim}.}~#1~~}}{\par}
+\newcounter{Proposition}[section]
+\newenvironment{Proposition}[1][]{{\par\normalfont\bfseries \underline{Proposition~\stepcounter{Proposition}\arabic{Proposition}.}~#1~~}}{\par}
+\newcounter{Note}[section]
+\newenvironment{Note}[1][]{{\par\normalfont\bfseries \underline{Note~\stepcounter{Note}\arabic{Note}.}~#1~~}}{\par}
+\newcounter{Lemma}[section]
+\newenvironment{Lemma}[1][]{{\par\normalfont\bfseries \underline{Lemma~\stepcounter{Lemma}\arabic{Lemma}.}~#1~~}}{\par}
+\newcounter{Corollary}[section]
+\newenvironment{Corollary}[1][]{{\par\normalfont\bfseries \underline{Corollary~\stepcounter{Corollary}\arabic{Corollary}.}~#1~~}}{\par}
+\newenvironment{Proof}{{\par~{\normalfont\bfseries $\vartriangleright$}~~}}{\hfill $\square$\par\hfill\par} %\par
+\newcounter{Def}[section]
+\newenvironment{Def}[1][]{{\par\normalfont\bfseries \underline{Definition~\stepcounter{Def}\arabic{Def}.}~#1~~}}{\par}
+
+\allowdisplaybreaks[4] %允许 align 跨页编排
+
+\def\Re{\mathop{\mathcal{R}e}}
+\def\Im{\mathop{\mathcal{I}m}}
+
+
+
+\begin{document}
+\title{Linear Response and Hall Conductance}% Force line breaks with \\
+%\thanks{This is a reminiscent note for Hubbard-Stratonovich Transformation.}%
+
+\author{Xiaodong Hu}
+%\altaffiliation[Also at ]{Boson College}
+\email{xiaodong.hu@bc.edu}
+\affiliation{Department of Physics, Boston College}
+
+\date{\today}
+
+
+\begin{abstract}
+	This is a short note of the formal condstruction of linear response theory. We will focus on electric conductance and apply our theory to integer quantum Hall effect (IQHE), reviewing the famous work of Laughlin, TKNN(Thouless-Kohmoto-Nightingale-deNijs) and Niu \textit{et al.} and proving that conductance is indeed Chern number, a topological invariant.
+\end{abstract}
+\maketitle
+\tableofcontents
+
+\section{Linear Response Theory}
+	In light of the wide usage of second quantization language in research, linear reponse theory in operator formalism will be first introduced. But to keep the link with our previous knowledge, path integral formalism will also be deduced. Though it is trivial to jump between these two equivalent formalisms, what we do here is kind of training of interpretation between two languages.
+	\subsection{Perturbative Driven}
+		Suppose our system is domintated by a Hamiltonian $H$ (either free or interactive) at first, i.e., many-body wave function is at one the eigenstate $|\psi_n\rangle$ of $H$, and at time $t=0$ one perturbative \emph{external field} (driven force) $f_\mu(\bm{r},t)$ is applied, coupling with the system through current operators $\hat{X}_\mu$ of spin, heat, charge \textit{etc.} (which is well-defined before existence of perturbation) such that
+		\begin{equation}\label{1.1.1}
+			H(t)\equiv H+H_1=H+\int\dd^{d-1}x\,\hat{X}^\mu(\bm{r},t)f_\mu(\bm{r},t),
+		\end{equation}
+		then the difference of the thermal and quantum average of current operators, which by definition of QM is experimentally measurable, with and without the exisitence of perturbation at time $t>0$, are capable of reflecting thoroughly the \emph{intrinsic} properties of our system. Expanding to the lowest order of external fields, we have the so-called \emph{linear-response} of the average
+		\begin{equation}\label{1.1.2}
+			\delta I(\bm{r},t)\equiv\langle \hat{X}^\mu(\bm{r},t)\rangle_f-\langle \hat{X}^\mu(\bm{r},t)\rangle=\int\dd x\,\chi^{\mu\nu}(\bm{r},t;\bm{r'},t')\hat{f}_\nu(\bm{r'},t')+\mathcal{O}(|f|^2).
+		\end{equation}
+	\subsection{Operator Formalism}
+		Interactive picture is appropriate in treating the perturbation. Switch to interactive picture, we have
+		\begin{align}
+			\delta I(\bm{r},t)&\equiv\langle \hat{X}^\mu(\bm{r},t)\rangle_f-\langle \hat{X}^\mu(\bm{r},t)\rangle\equiv\langle \psi_n| U^\dagger(t,-\infty)\hat{X}^\mu(\bm{r},t) U(t,-\infty)|\psi_n\rangle-\langle\psi_n|\hat{X}^\mu(\bm{r},t)|\psi_n\rangle\\
+			&=\langle \psi_n| U_I^\dagger(t,-\infty)\bigg(U^\dagger_0(t,-\infty)\hat{X}^\mu(\bm{r},t) U_0(t,-\infty)\bigg)U_I(t,-\infty)|\psi_n\rangle-\langle\psi_n|U^\dagger_0(t,-\infty)\hat{X}^\mu(\bm{r},t) U_0(t,-\infty)|\psi_n\rangle\\
+			&=\langle\psi_n|\left(1+i\int_{-\infty}^0\dd t'\int\dd^{d-1}x'\,\hat{X}^\mu(\bm{r'},t')f_\mu(\bm{r'},t')+\mathcal{O}(|f|^2)\right)\hat{X}^\mu(\bm{r},t)\\
+			&\qquad\qquad\times\left(1-i\int_{-\infty}^0\dd t'\int\dd^{d-1}x'\,\hat{X}^\mu(\bm{r'},t')f_\mu(\bm{r'},t')+\mathcal{O}(|f|^2)\right)-\langle\psi_n|\hat{X}^\mu(\bm{r},t)|\psi\rangle\\
+			&=-i\int_{-\infty}^0\dd t'\int\dd^{d-1}x'\,[\hat{X}^\mu(\bm{r'},t'),\hat{X}^\mu(\bm{r},t)]f_\mu(\bm{r'},t')+\mathcal{O}(|f|^2)\\
+			&\equiv\int\dd^d x'\,G_R^{\mu\nu}(\bm{r'},t';\bm{r},t)f_\nu(\bm{r'},t')+\mathcal{O}(|f|^2)
+		\end{align}
+		where we introduced the \emph{retard Green function} of the field operator of $\hat{X}^\mu$
+		\begin{equation}\label{1.1.4}
+			iG^{\mu\nu}_R(\bm{r'},t';\bm{r},t):=\theta(t-t')\langle\psi_n|[\hat{X}^\mu(\bm{r'},t'),\hat{X}^\mu(\bm{r},t)]|\psi_n\rangle
+		\end{equation}
+
+	\subsection{Path Integral Formalism}
+		We start with a interactive fermionic system with the presence of gauge field $\bm{A}$
+		\begin{equation}\label{1.2.1}
+			
+		\end{equation}
+\section{Integer Quantum Hall Effect}
+	\subsection{Laughlin's Argument}
+		
+	\subsection{Kubo Formula}
+	\subsection{Conductance in Green Function}
+	\subsection{Topological Invariance of Hall Conductance}
+
+\bibliography{hxd}
+\bibliographystyle{apsrev} % apsrev is format for PRL of APS
+\end{document}

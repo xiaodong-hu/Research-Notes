@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.10.25)  6 DEC 2019 18:14
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.8.25)  9 DEC 2019 03:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1300,15 +1300,15 @@ Package fontspec Info: Font family 'FandolFang-Regular(0)' created for font
 \tf@toc=\write6
 \openout6 = `"Hydrodynamic Methods.toc"'.
 
- [1] [2] (./Hydrodynamic Methods.bbl) [3]
-(./Hydrodynamic Methods.aux) ) 
+ [1] [2] [3] (./Hydrodynamic Methods.bbl [4])
+[5] (./Hydrodynamic Methods.aux) ) 
 Here is how much of TeX's memory you used:
- 41691 strings out of 494719
- 1003766 string characters out of 6170196
- 1253340 words of memory out of 5000000
- 45010 multiletter control sequences out of 15000+600000
- 546948 words of font info for 109 fonts, out of 8000000 for 9000
- 62 hyphenation exceptions out of 8191
- 62i,8n,96p,755b,500s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41698 strings out of 494788
+ 1003765 string characters out of 6172356
+ 1255085 words of memory out of 5000000
+ 45007 multiletter control sequences out of 15000+600000
+ 546940 words of font info for 108 fonts, out of 8000000 for 9000
+ 36 hyphenation exceptions out of 8191
+ 62i,12n,96p,755b,500s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Hydrodynamic Methods.xdv (3 pages, 67812 bytes).
+Output written on Hydrodynamic Methods.xdv (5 pages, 92688 bytes).

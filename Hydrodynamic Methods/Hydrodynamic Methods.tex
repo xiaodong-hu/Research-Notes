@@ -117,13 +117,75 @@
 		\end{equation}
 		Equation \eqref{1.1.2}, \eqref{1.1.3}, and \eqref{1.1.5} consist of the complete conservation law of our system.
 
-	\subsection{Constitutive Equation}
-		In this subsection, we will utilize the fact (also an assumption) that {\bf local entropy current (defined in calculation) never decrease} to confine the form of three ``current operator'' defined above. Such equations relating coarse-grained current with hydro-variables are called \emph{constitutive relations}.\par
-		At equilibrium there is no fluctuation of spin orientation so $\bm{v}=0$, and the local entropy density $s_0\equiv s_0(\varepsilon,m_z)$ reaches its \emph{maximum} by the second law of thermodynamics. So given the slowly varying disturbance, the local entropy density can be expanded around its equilibirum value. Separating the dependence of $\bm{v}(\bm{r})$, we have\footnote{Since equilibirum entropy density always reaches its maximum at each instant of time, there should be not first-order dependence of $\bm{v}$.}
-		\begin{equation}\label{1.2.1}
-			s(\bm{r})\simeq s_0(\varepsilon,m_z)-\dfrac{\rho_s}{2T}v^2,
+	\subsection{Constitutive Relations}
+		Equations relating coarse-grained current with hydro-variables are called \emph{constitutive relations}. Introducing the conjugate field $\bm{x}$ of $\bm{v}$, and $h$ of $m_z$, the first law of thermodynamics (in true thermodynamic eqiuilibrium) tells us
+		\begin{equation}\label{2.0.1}
+			T\dd s\equiv\dd \varepsilon-h\dd m_z-\bm{x}\cdot\dd\bm{v},
 		\end{equation}
-		where $s_0$ is the entropy density at equilibrium. Both temperature\footnote{Clearly we define temperature in terms of \emph{eqiuilibrium} thermodynamical quantities.} $T\equiv\partial s_0/\partial\varepsilon$ and coefficient $\rho_s$ may depends on local energy and magnetization. But since we only focus on the second order fluctuation, we can treat them as local constant.
+		where $h\equiv-T \partial s/\partial m_z|_S$ and $\bm{x}\equiv-T\partial s/\partial \bm{v}|_S$. 
+
+		\subsubsection{Zeroth Order (Non-dissipative)}
+			In this subsection, we will {\bf use (assume) the conservation of local entropy to constrain the \emph{non-dissipative} part of ``current operators'' defined above}. \par
+			To the zeroth order of fluctuations, i.e., spatial derivatives of hydro-variables, the most general form of current operator we can write is
+			\begin{equation}\label{2.1.1}
+				\bm{j}^\varepsilon\equiv A(\bm{r})\bm{v}(\bm{r}),\quad \bm{j}^{m_z}\equiv B(\bm{r})\bm{v}(\bm{r}),\quad \psi\equiv C(\bm{r}),
+			\end{equation}
+			where coefficients $A,B$ and $C$ are scalar functional of $\varepsilon(\bm{r})$ and $m_z(\bm{r})$ waiting to be determined. Fortunately, as we will see below, $C(\bm{r})$ can be obtained in advance without entropy argument \cite{chaikin2000principles,halperin1969hydrodynamic}.\par
+			Given $\varepsilon,m_z$ and $\bm{v}=0$, we know from \eqref{1.1.5} that the equilibrium state \emph{without} external magnetic field allows a constant precession rate $\dd\varphi/\dd t=-\psi_0(\varepsilon,m_z)$. Let us prepare such stationary state and turn on $H_z$. The time evolution of $M_\perp$ is now dominated by the Hamiltonian $\mathcal{H}\equiv\mathcal{H}_{XXZ}+\mathcal{H}_{ext}$. Since $\mathcal{H}_{ext}\equiv-H_z\sum_i S_i^z$ commutes with $\mathcal{H}_{XXZ}$, time evolution of $m_\perp(t)\equiv\langle S_i^+(t)\rangle$ gives
+			\begin{equation*}
+				\dfrac{\dd\varphi}{\dd t}=-(\psi_0(\varepsilon,m)+H_z).
+			\end{equation*}
+			However, in \emph{true} thermodynamic equilibrium (with non-vanishing $H_z$), where the system energy $E-M_z H_z$ is minimized so that
+			\begin{equation}\label{2.1.2}
+				\dfrac{\partial E}{\partial M_z}=\dfrac{\partial \varepsilon}{\partial m_z}=H_z,
+			\end{equation}
+			the procession rate $\dd\varphi/\dd t$ must be zero, otherwise the rotating $m_\perp$ will radiate and lose energy \cite{halperin1969hydrodynamic}. Thus $\psi_0$ coincides with $H_z$ in \emph{true} equilibrium. On the other hand, the fisrt law of thermodynamics \eqref{2.0.1} tells us the left hand side of \eqref{2.1.2} is nothing but conjugate field $h(\varepsilon,m_z)\equiv\frac{\partial \varepsilon}{\partial m_z}$. Therefore, we conclude for general \emph{non-dissipative} stationary state 
+			\begin{equation}\label{2.1.3}
+				\dfrac{\dd\varphi}{\dd t}=-(h-H_z),
+			\end{equation}
+			or
+			\begin{equation}\label{2.1.4}
+				C(\bm{r})=H_z-h(\varepsilon(\bm{r}),m_z(\bm{r})).
+			\end{equation}
+			\indent The left work is to determine $A(\bm{r})$ and $B(\bm{r})$ in \eqref{2.1.1} with the help of entropy conservation (at zeroth order).\par
+			Hydrodynamic assumption ensures local entropy density to be the functional of hydro-variables $s=s(\varepsilon,m_z,\bm{v})$. And at each slice of time, each point of the system is assumed to reach local thermodynamic eqiuilibrium. Therefore we can expand entropy density around its equilibrium value $s_0$ (which must be the maximum of $s$ due to the second law of thermodynamics) that 
+			\begin{equation}\label{2.1.5}
+				s\simeq s_0(\varepsilon)-\dfrac{1}{2T}\chi_s^{-1}m_z^2-\dfrac{\rho_s}{2T}v^2,
+			\end{equation}
+			where temperature $T^{-1}\equiv\partial s_0/\partial\varepsilon$ is well-defined in equilibrium and inserted by convention. Magnetic suseptibility $\chi_s$ and the magnetic version of ``superfluid density'' $\rho_s$ may also be functional of hydro-variables, but up to the second order of disturbance, we can safely treat them as constants\footnote{Apparently $\chi_s$ and $\rho_s$ must be nonnegative for stability of the system.}. Therefore the two conjugate fields we introduce above takes the form of $h\equiv-T \partial s/\partial m_z=\chi_s^{-1}m_z$ and $\bm{x}\equiv-T\partial s/\partial \bm{v}=\rho_s\bm{v}$.\par
+			Taking time derivative of the first law of thermodynamics and substituting conservation laws \eqref{1.1.3}, \eqref{1.1.4}, \eqref{1.1.5} and the zeroth order of non-dissipative currents \eqref{2.1.1} and \eqref{2.1.4}, we have
+			\begin{align}\label{2.1.6}
+				T\dfrac{\partial s}{\partial t}&=\dfrac{\partial \varepsilon}{\partial t}-h\dfrac{\partial m_z}{\partial t}-\bm{x}\cdot\dfrac{\partial \bm{v}}{\partial t}=-\nabla\cdot\bm{j}^\varepsilon+h\nabla\cdot\bm{j}^{m_z}-\bm{x}\cdot\nabla(h-H_z)\nonumber\\
+				&=-\nabla\cdot(A\bm{v})-h\nabla\cdot(B\bm{v})-\bm{x}\cdot\nabla h\nonumber\\
+				&=-\nabla\cdot\bigg((A+Bh)\bm{v}\bigg)+(B\bm{v}-\bm{x})\cdot\nabla h.
+			\end{align}
+			Writing $\bm{Q}\equiv (A+Bh)\bm{v}$ and use the identity
+			\begin{equation*}
+				\nabla\cdot\bm{Q}\equiv T\nabla\cdot \left(\dfrac{\bm{Q}}{T}\right)+\bm{Q}\cdot \left(\dfrac{\nabla T}{T}\right),  
+			\end{equation*}
+			Equation \eqref{2.1.6} becomes
+			\begin{equation}\label{2.1.7}
+				T\dfrac{\dd s}{\dd t}\equiv T \left(\dfrac{\partial s}{\partial t}+\nabla\cdot \left(\dfrac{\bm{Q}}{T}\right) \right)=-\bm{Q}\cdot \left(\dfrac{\nabla T}{T}\right)-(B\bm{v}-\bm{x})\cdot\nabla h
+			\end{equation}
+			if we identify $\bm{Q}$ as the \emph{entropy current density}. In the absence of dissipation, as is assumed to the zeroth order disturbance, entropy is conserved. Thus
+			\begin{equation}\label{2.1.8}
+				\begin{cases}
+					\bm{Q}\equiv (A+Bh)\bm{v}=0,\\
+					B\bm{v}-\bm{x}=0
+				\end{cases}\implies
+				\begin{cases}
+					A=-\frac{\rho_s}{\chi_s}m_z,\\
+					B=-\rho_s
+				\end{cases},
+			\end{equation}
+			where the expression of $h$ and $\bm{v}$ is used.\par
+			Finally we obtain the \emph{non-dissipative} linearized equation of motion up to the zeroth order of gradients of hydro-variables
+			\begin{align}
+				\partial_t\varepsilon&=
+			\end{align}
+
+		\subsubsection{First Order (Dissipative)}
+			To the first order, howevere, we will use {\bf the positivity of local entropy production} to constrain further the dissipative part of
 	\subsection{Hydrodynamic Modes}
 	\subsection{Linear Response}
 
@@ -133,7 +195,7 @@
 
 	\subsection{General Setup}
 		Our system subject to external magnetic field for transport study. Invariance of \emph{gauge transformation} $A_\mu\mapsto A_\mu+\partial_\mu f$ and \emph{diffeomorphism transformation} $x^\mu\mapsto x_\mu+\xi_\mu$ of action gives\footnote{See, for example, section II D of \cite{herzog2009lectures}. The result can also be proved holographically, see \cite{lindgren2015holographic}.}
-		\begin{align}\label{2.1.1}
+		\begin{align}\label{5.1.1}
 			\partial_\mu J^\mu&=0,\\
 			\partial_\mu T^{\mu\nu}&=F^{\mu\nu}J_\mu.
 		\end{align}

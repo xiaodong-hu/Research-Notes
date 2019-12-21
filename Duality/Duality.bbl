@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{19}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname bibnamefont\endcsname\relax
   \def\bibnamefont#1{#1}\fi
@@ -12,9 +12,128 @@
 \providecommand{\bibinfo}[2]{#2}
 \providecommand{\eprint}[2][]{\url{#2}}
 
-\bibitem[{\citenamefont{Hsieh}(2016)}]{hsieh2016d}
-\bibinfo{author}{\bibfnamefont{T.~H.} \bibnamefont{Hsieh}},
-  \bibinfo{journal}{Student review,(2)} pp. \bibinfo{pages}{1--4}
-  (\bibinfo{year}{2016}).
+\bibitem[{\citenamefont{Son}(2015)}]{son2015composite}
+\bibinfo{author}{\bibfnamefont{D.~T.} \bibnamefont{Son}},
+  \bibinfo{journal}{Physical Review X} \textbf{\bibinfo{volume}{5}},
+  \bibinfo{pages}{031027} (\bibinfo{year}{2015}).
+
+\bibitem[{\citenamefont{Senthil et~al.}(2004)\citenamefont{Senthil, Vishwanath,
+  Balents, Sachdev, and Fisher}}]{senthil2004deconfined}
+\bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Senthil}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Vishwanath}},
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Balents}},
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Sachdev}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.~P.} \bibnamefont{Fisher}},
+  \bibinfo{journal}{Science} \textbf{\bibinfo{volume}{303}},
+  \bibinfo{pages}{1490} (\bibinfo{year}{2004}).
+
+\bibitem[{\citenamefont{Murugan and Nastase}(2017)}]{murugan2017particle}
+\bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Murugan}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{H.}~\bibnamefont{Nastase}},
+  \bibinfo{journal}{Journal of High Energy Physics}
+  \textbf{\bibinfo{volume}{2017}}, \bibinfo{pages}{159} (\bibinfo{year}{2017}).
+
+\bibitem[{\citenamefont{Seiberg et~al.}(2016)\citenamefont{Seiberg, Senthil,
+  Wang, and Witten}}]{seiberg2016duality}
+\bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Seiberg}},
+  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Senthil}},
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Wang}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{Witten}},
+  \bibinfo{journal}{Annals of Physics} \textbf{\bibinfo{volume}{374}},
+  \bibinfo{pages}{395} (\bibinfo{year}{2016}).
+
+\bibitem[{\citenamefont{Senthil et~al.}(2019)\citenamefont{Senthil, Son, Wang,
+  and Xu}}]{senthil2019duality}
+\bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Senthil}},
+  \bibinfo{author}{\bibfnamefont{D.~T.} \bibnamefont{Son}},
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Wang}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Xu}},
+  \bibinfo{journal}{Physics Reports}  (\bibinfo{year}{2019}).
+
+\bibitem[{\citenamefont{Sachdev}(2011)}]{sachdev2011quantum}
+\bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Sachdev}},
+  \emph{\bibinfo{title}{Quantum Phase Transitions}}
+  (\bibinfo{publisher}{Cambridge University Press}, \bibinfo{year}{2011}).
+
+\bibitem[{\citenamefont{Fradkin and Susskind}(1978)}]{fradkin1978order}
+\bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{Fradkin}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Susskind}},
+  \bibinfo{journal}{Physical Review D} \textbf{\bibinfo{volume}{17}},
+  \bibinfo{pages}{2637} (\bibinfo{year}{1978}).
+
+\bibitem[{\citenamefont{Kogut}(1979)}]{kogut1979introduction}
+\bibinfo{author}{\bibfnamefont{J.~B.} \bibnamefont{Kogut}},
+  \bibinfo{journal}{Reviews of Modern Physics} \textbf{\bibinfo{volume}{51}},
+  \bibinfo{pages}{659} (\bibinfo{year}{1979}).
+
+\bibitem[{\citenamefont{Suzuki}(1976)}]{suzuki1976relationship}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Suzuki}},
+  \bibinfo{journal}{Progress of theoretical physics}
+  \textbf{\bibinfo{volume}{56}}, \bibinfo{pages}{1454} (\bibinfo{year}{1976}).
+
+\bibitem[{\citenamefont{Kramers and Wannier}(1941)}]{kramers1941statistics}
+\bibinfo{author}{\bibfnamefont{H.~A.} \bibnamefont{Kramers}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{G.~H.} \bibnamefont{Wannier}},
+  \bibinfo{journal}{Physical Review} \textbf{\bibinfo{volume}{60}},
+  \bibinfo{pages}{252} (\bibinfo{year}{1941}).
+
+\bibitem[{\citenamefont{Savit}(1980)}]{savit1980duality}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Savit}},
+  \bibinfo{journal}{Reviews of Modern Physics} \textbf{\bibinfo{volume}{52}},
+  \bibinfo{pages}{453} (\bibinfo{year}{1980}).
+
+\bibitem[{\citenamefont{Fisher et~al.}(1989)\citenamefont{Fisher, Weichman,
+  Grinstein, and Fisher}}]{fisher1989boson}
+\bibinfo{author}{\bibfnamefont{M.~P.} \bibnamefont{Fisher}},
+  \bibinfo{author}{\bibfnamefont{P.~B.} \bibnamefont{Weichman}},
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Grinstein}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{D.~S.}
+  \bibnamefont{Fisher}}, \bibinfo{journal}{Physical Review B}
+  \textbf{\bibinfo{volume}{40}}, \bibinfo{pages}{546} (\bibinfo{year}{1989}).
+
+\bibitem[{\citenamefont{Peskin}(1978)}]{peskin1978mandelstam}
+\bibinfo{author}{\bibfnamefont{M.~E.} \bibnamefont{Peskin}},
+  \bibinfo{journal}{Annals of Physics} \textbf{\bibinfo{volume}{113}},
+  \bibinfo{pages}{122} (\bibinfo{year}{1978}).
+
+\bibitem[{\citenamefont{Dasgupta and Halperin}(1981)}]{dasgupta1981phase}
+\bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Dasgupta}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Halperin}},
+  \bibinfo{journal}{Physical Review Letters} \textbf{\bibinfo{volume}{47}},
+  \bibinfo{pages}{1556} (\bibinfo{year}{1981}).
+
+\bibitem[{\citenamefont{Nagaosa}(2013)}]{nagaosa2013quantum}
+\bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Nagaosa}},
+  \emph{\bibinfo{title}{Quantum Field Theory in Condensed Matter physics}}
+  (\bibinfo{publisher}{Springer Science \& Business Media},
+  \bibinfo{year}{2013}).
+
+\bibitem[{\citenamefont{Wen}(2004)}]{Wen-QFT}
+\bibinfo{author}{\bibfnamefont{X.-G.} \bibnamefont{Wen}},
+  \emph{\bibinfo{title}{Quantum field theory of many-body systems: from the
+  origin of sound to an origin of light and electrons}}
+  (\bibinfo{publisher}{Oxford University Press}, \bibinfo{year}{2004}).
+
+\bibitem[{\citenamefont{Banks et~al.}(1977)\citenamefont{Banks, Myerson, and
+  Kogut}}]{banks1977phase}
+\bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Banks}},
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Myerson}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Kogut}},
+  \bibinfo{journal}{Nuclear Physics B} \textbf{\bibinfo{volume}{129}},
+  \bibinfo{pages}{493} (\bibinfo{year}{1977}).
+
+\bibitem[{\citenamefont{Stone and Thomas}(1978)}]{stone1978condensed}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Stone}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{P.~R.} \bibnamefont{Thomas}},
+  \bibinfo{journal}{Physical Review Letters} \textbf{\bibinfo{volume}{41}},
+  \bibinfo{pages}{351} (\bibinfo{year}{1978}).
+
+\bibitem[{\citenamefont{Itzykson and Drouffe}(1989)}]{itzykson1991statistical}
+\bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Itzykson}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{J.-M.} \bibnamefont{Drouffe}},
+  \emph{\bibinfo{title}{Statistical field theory: Volume 1, from brownian
+  motion to renormalization and lattice gauge theory}},
+  vol.~\bibinfo{volume}{1} (\bibinfo{publisher}{Cambridge University Press},
+  \bibinfo{year}{1989}).
 
 \end{thebibliography}

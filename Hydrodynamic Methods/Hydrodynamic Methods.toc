@@ -6,13 +6,12 @@
 \contentsline {subsection}{\numberline {B}Constitutive Relations}{2}{}
 \contentsline {subsubsection}{\numberline {1}Zeroth Order (Non-dissipative)}{2}{}
 \contentsline {subsubsection}{\numberline {2}First Order (Dissipative)}{4}{}
-\contentsline {subsection}{\numberline {C}Hydrodynamic Modes}{4}{}
-\contentsline {subsection}{\numberline {D}Linear Response}{4}{}
-\contentsline {section}{\numberline {II}Transport Near Quantum Criticality}{4}{}
-\contentsline {subsection}{\numberline {A}General Setup}{4}{}
-\contentsline {subsection}{\numberline {B}Hydrodynamic Modes and Linear Response}{4}{}
-\contentsline {subsection}{\numberline {C}Perspetive from Holography}{4}{}
-\contentsline {section}{\numberline {III}Non-relativistic Transport --- Fractional Quantum Hall System}{4}{}
-\contentsline {subsection}{\numberline {A}Spacetime Background}{4}{}
-\contentsline {subsection}{\numberline {B}Response}{4}{}
-\contentsline {section}{\numberline {}References}{4}{}
+\contentsline {subsection}{\numberline {C}Linear Response}{5}{}
+\contentsline {section}{\numberline {II}Transport Near Quantum Criticality}{5}{}
+\contentsline {subsection}{\numberline {A}General Setup}{5}{}
+\contentsline {subsection}{\numberline {B}Hydrodynamic Modes and Linear Response}{5}{}
+\contentsline {subsection}{\numberline {C}Perspetive from Holography}{5}{}
+\contentsline {section}{\numberline {III}Non-relativistic Transport --- Fractional Quantum Hall System}{5}{}
+\contentsline {subsection}{\numberline {A}Spacetime Background}{5}{}
+\contentsline {subsection}{\numberline {B}Response}{5}{}
+\contentsline {section}{\numberline {}References}{5}{}

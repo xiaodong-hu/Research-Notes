@@ -1,5 +1,4 @@
 \documentclass[10pt,nofootinbib]{revtex4}
-
 \usepackage[nocap]{ctex}
 
 %\usepackage{xeCJK}
@@ -130,7 +129,9 @@
 			\begin{equation}\label{2.1.1}
 				\bm{j}^\varepsilon\equiv A(\bm{r})\bm{v}(\bm{r}),\quad \bm{j}^{m_z}\equiv B(\bm{r})\bm{v}(\bm{r}),\quad \psi\equiv C(\bm{r}),
 			\end{equation}
-			where coefficients $A,B$ and $C$ are scalar functional of $\varepsilon(\bm{r})$ and $m_z(\bm{r})$ waiting to be determined. Fortunately, as we will see below, $C(\bm{r})$ can be obtained in advance without entropy argument \cite{chaikin2000principles,halperin1969hydrodynamic}.\par
+			where coefficients $A,B$ and $C$ are scalar functional of $\varepsilon(\bm{r})$ and $m_z(\bm{r})$ waiting to be determined. In general, coefficients $A$ and $B$ may be chosen as rank-$2$ tensors of functionals of $\varepsilon$ and $m_z$, such that the two vector-valued current operators $\bm{j}^\varepsilon$ and $\bm{j}^{m_z}$ are not in the same direction as $\bm{v}$. {\color{red}But here we shall assume lattice \emph{cubic symmetry} \cite{halperin1969hydrodynamic} to forbid such possibility}. Simiarly, one can contract vector $\bm{v}$ with a rank-2 tensor to form a scalar legal in the expression of $\psi$. {\color{red}But we shall assume \emph{reflection symmetry} to forbid such terms for convenience}.\par
+
+			Fortunately, as we will see below, $C(\bm{r})$ can be obtained in advance without entropy argument \cite{chaikin2000principles,halperin1969hydrodynamic}.\par
 			Given $\varepsilon,m_z$ and $\bm{v}=0$, we know from \eqref{1.1.5} that the equilibrium state \emph{without} external magnetic field allows a constant precession rate $\dd\varphi/\dd t=-\psi_0(\varepsilon,m_z)$. Let us prepare such stationary state and turn on $H_z$. The time evolution of $M_\perp$ is now dominated by the Hamiltonian $\mathcal{H}\equiv\mathcal{H}_{XXZ}+\mathcal{H}_{ext}$. Since $\mathcal{H}_{ext}\equiv-H_z\sum_i S_i^z$ commutes with $\mathcal{H}_{XXZ}$, time evolution of $m_\perp(t)\equiv\langle S_i^+(t)\rangle$ gives
 			\begin{equation*}
 				\dfrac{\dd\varphi}{\dd t}=-(\psi_0(\varepsilon,m)+H_z).
@@ -156,37 +157,78 @@
 			Taking time derivative of the first law of thermodynamics and substituting conservation laws \eqref{1.1.3}, \eqref{1.1.4}, \eqref{1.1.5} and the zeroth order of non-dissipative currents \eqref{2.1.1} and \eqref{2.1.4}, we have
 			\begin{align}\label{2.1.6}
 				T\dfrac{\partial s}{\partial t}&=\dfrac{\partial \varepsilon}{\partial t}-h\dfrac{\partial m_z}{\partial t}-\bm{x}\cdot\dfrac{\partial \bm{v}}{\partial t}=-\nabla\cdot\bm{j}^\varepsilon+h\nabla\cdot\bm{j}^{m_z}-\bm{x}\cdot\nabla(h-H_z)\nonumber\\
-				&=-\nabla\cdot(A\bm{v})-h\nabla\cdot(B\bm{v})-\bm{x}\cdot\nabla h\nonumber\\
-				&=-\nabla\cdot\bigg((A+Bh)\bm{v}\bigg)+(B\bm{v}-\bm{x})\cdot\nabla h.
+				&=-\nabla\cdot(A\bm{v})+h\nabla\cdot(B\bm{v})-\bm{x}\cdot\nabla h\nonumber\\
+				&=-\nabla\cdot\bigg((A-Bh)\bm{v}\bigg)-(B\bm{v}+\bm{x})\cdot\nabla h.
 			\end{align}
-			Writing $\bm{Q}\equiv (A+Bh)\bm{v}$ and use the identity
+			Writing the \emph{heat current} $\bm{Q}\equiv (A-Bh)\bm{v}$ and using the identity
 			\begin{equation*}
 				\nabla\cdot\bm{Q}\equiv T\nabla\cdot \left(\dfrac{\bm{Q}}{T}\right)+\bm{Q}\cdot \left(\dfrac{\nabla T}{T}\right),  
 			\end{equation*}
 			Equation \eqref{2.1.6} becomes
 			\begin{equation}\label{2.1.7}
-				T\dfrac{\dd s}{\dd t}\equiv T \left(\dfrac{\partial s}{\partial t}+\nabla\cdot \left(\dfrac{\bm{Q}}{T}\right) \right)=-\bm{Q}\cdot \left(\dfrac{\nabla T}{T}\right)-(B\bm{v}-\bm{x})\cdot\nabla h
+				T\dfrac{\dd s}{\dd t}\equiv T \left(\dfrac{\partial s}{\partial t}+\nabla\cdot \left(\dfrac{\bm{Q}}{T}\right) \right)=-\bm{Q}\cdot \left(\dfrac{\nabla T}{T}\right)-(B\bm{v}+\bm{x})\cdot\nabla h
 			\end{equation}
 			if we identify $\bm{Q}$ as the \emph{entropy current density}. In the absence of dissipation, as is assumed to the zeroth order disturbance, entropy is conserved. Thus
 			\begin{equation}\label{2.1.8}
 				\begin{cases}
-					\bm{Q}\equiv (A+Bh)\bm{v}=0,\\
-					B\bm{v}-\bm{x}=0
+					\bm{Q}\equiv (A-Bh)\bm{v}=0\\
+					B\bm{v}+\bm{x}=0
 				\end{cases}\implies
 				\begin{cases}
-					A=-\frac{\rho_s}{\chi_s}m_z,\\
-					B=-\rho_s
-				\end{cases},
+					A\bm{v}=-\rho_s\bm{x}\\
+					B\bm{v}=-\bm{x}
+				\end{cases}.
 			\end{equation}
-			where the expression of $h$ and $\bm{v}$ is used.\par
-			Finally we obtain the \emph{non-dissipative} linearized equation of motion up to the zeroth order of gradients of hydro-variables
+			Inserting the expression of $h$ and $\bm{v}$, finally we come to the \emph{non-dissipative} linearized equation of motion up to the zeroth order of gradients of hydro-variables
 			\begin{align}
-				\partial_t\varepsilon&=
+				\partial_t\varepsilon&=\dfrac{\rho_s}{\chi_s}\nabla\cdot(m_z\bm{v})\label{2.1.9}\\
+				\partial_t m_z&=\rho_s\nabla\cdot\bm{v}\label{2.1.10}\\
+				\partial_t \bm{v}&=\dfrac{1}{\chi_s}\nabla m_z\label{2.1.11}.
 			\end{align}
+			Taking the time derivative of \eqref{2.1.10} and substituting \eqref{2.1.11}, one immediately have
+			\begin{equation}\label{2.1.12}
+				\dfrac{\partial^2 m_z}{\partial t^2}=-\dfrac{\rho_s}{\chi_s}\nabla^2m_z,
+			\end{equation}
+			which predicts a \emph{undamped spin-wave mode} $\omega=\pm ck$ with $c\equiv(\rho_s/\chi_s)^{1/2}$.
 
 		\subsubsection{First Order (Dissipative)}
-			To the first order, howevere, we will use {\bf the positivity of local entropy production} to constrain further the dissipative part of
-	\subsection{Hydrodynamic Modes}
+			To the first order of gradients of hydro-variables, howevere, we will use {\bf the positivity of local entropy production} to constrain further the \emph{dissipative} part of currents
+			\begin{equation}\label{2.2.1}
+				\bm{j}^\varepsilon\equiv-\rho_s\bm{x}+{\bm{j}^\varepsilon}',\quad\bm{j}^{m_z}\equiv-\bm{x}+{\bm{j}^{m_z}}',\quad \psi\equiv H_z-h+\psi'.
+			\end{equation}
+			Here the zeroth-order result has been used.	Similar to the precedure we have done above, introducing the first-order \emph{heat current} $\bm{Q'}\equiv{\bm{j}^\varepsilon}'-h{\bm{j}^{m_z}}'+\rho_s\bm{v}\psi'$, the local entropy production now takes the form of
+			\begin{equation}\label{2.2.2}
+				T\dfrac{\dd s}{\dd t}\equiv T \left(\dfrac{\partial s}{\partial t}+\nabla\cdot\bm{Q'}\right)=-\bm{Q'}\cdot\left(\dfrac{\nabla T}{T}\right)-{\bm{j}^{m_z}}'\cdot\nabla h-\psi'\nabla\cdot\bm{x}.
+			\end{equation}
+			The most general constitutive relation up to the \emph{first order} we can construct are
+			\begin{align*}
+				\bm{Q}'&=-K_{11}\nabla T-K_{12}\nabla h\\
+				{\bm{j}^{m_z}}&=-K_{21}\nabla T-K_{22}\nabla h\\
+				\psi'&=K_{33}\rho_s\nabla\cdot\bm{v}.
+			\end{align*}
+			In general both $\bm{Q}'$ and ${\bm{j}^{m_z}}'$ may contain terms proportional to gradients of $\bm{v}$ like $\nabla\times\bm{v}$. But definition $\bm{v}\equiv\nabla\varphi$ forbids such terms. Also, {\color{red}\bf because \emph{dissipative} motion is related to \emph{irreversible} thermodynamic processes, dissipative currents of one sign under time reversal must be proportional to variables of the opposite sign}. Namely, off-diagonal couplings $K_{12}$ and $K_{21}$ must be zero as well. So we are left with
+			\begin{equation}\label{2.2.3}
+				\bm{Q}'=-\kappa\nabla T,\quad {\bm{j}^{m_z}}'=-K_{22}\nabla h,\quad \psi'=-K_{33}\rho_s\nabla\cdot\bm{v},
+			\end{equation}
+			where we interprete $K_{11}$ as the \emph{thermal conductivity} $\kappa$.\par
+			To make equations \eqref{2.2.3} close, let us restrict ourselves to the case where magnetization $M_z=0$. This is appropriate for fluctuations about true thermodynamic equilibrium without external magnetic fields. In this case, we have
+			\begin{equation*}
+				\dd T=C^{-1}\dd\varepsilon
+			\end{equation*}
+			if we introduce specific heat $C$. Inserting back the expression of dissipative currents to conservation laws, we come to the \emph{dissipative} linearized\footnote{By linear, we mean equation of motion is expanded to the first power of hydro-variables.} equation of motion up to the first-order fluctuation of hydro-variables
+			\begin{align}
+				\partial_t \varepsilon&=\nabla\cdot\bigg(\kappa\nabla T+K_{22}h\nabla h-K_{33}\rho_s^2\bm{v}\nabla\cdot\bm{v}\bigg)\simeq\kappa C^{-1}\nabla^2\varepsilon\label{2.2.4}\\
+				\partial_t m_z&=\rho_s\nabla\cdot\bm{v}+\chi_s^{-1}K_{22}\nabla^2m_z\label{2.2.5}\\
+				\partial_t\bm{v}&=\chi_s^{-1}\nabla m_z+K_{33}\rho_s\nabla(\nabla\cdot\bm{v})\label{2.2.6}.
+			\end{align}
+			Clearly solution of \eqref{2.2.4} yields a heat \emph{diffusion mode}
+			\begin{equation}\label{2.2.7}
+				\omega_\varepsilon(\bm{k})=-i\kappa C^{-1}k^2=:-iD_Tk^2.
+			\end{equation}
+			Another \emph{damped spin-wave mode} from coupled equations \eqref{2.2.5} and \eqref{2.2.6} can be obtained by diagnolizing the coefficients matrix in momentum space and expanding up to $k^2$, giving
+			\begin{equation}\label{2.2.8}
+				\omega_{\pm}(\bm{k})=\pm ck-\dfrac{1}{2}iDk^2,
+			\end{equation}
 	\subsection{Linear Response}
 
 \section{Transport Near Quantum Criticality}

@@ -1,16 +1,14 @@
 \tocdepth@munge 
 \contentsline {section}{\numberline {}Contents}{1}{}
 \tocdepth@restore 
-\contentsline {section}{\numberline {I}Exact Dualities of Lattice Model}{1}{}
+\contentsline {section}{\numberline {I}Dualities of Statistical Models}{1}{}
 \contentsline {subsection}{\numberline {A}Quantum-Classical Mapping}{1}{}
-\contentsline {subsection}{\numberline {B}Kramers-Wannier Duality}{2}{}
-\contentsline {subsection}{\numberline {C}$\mathbb {Z}_2$ Gauge Theory}{2}{}
-\contentsline {subsection}{\numberline {D}Jordan-Wigner Transformation to Anyons}{2}{}
-\contentsline {section}{\numberline {II}IR Dualities of Continuous Field Theory}{3}{}
-\contentsline {subsection}{\numberline {A}Bosonic Particle/Vortex Duality}{3}{}
-\contentsline {subsection}{\numberline {B}Fermionic Particle/Vortex Duality}{3}{}
-\contentsline {subsection}{\numberline {C}Boson-Fermion Duality and Duality Web}{3}{}
-\contentsline {section}{\numberline {III}Application of Duality}{3}{}
-\contentsline {section}{\numberline {IV}Subtleties on Duality}{3}{}
-\contentsline {subsection}{\numberline {A}Does Duality Keep Entanglement Entropy?}{3}{}
-\contentsline {section}{\numberline {}References}{3}{}
+\contentsline {subsection}{\numberline {B}Kramers-Wannier Duality}{3}{}
+\contentsline {subsection}{\numberline {C}$\mathbb {Z}_2$ Gauge Theory}{4}{}
+\contentsline {section}{\numberline {II}IR Dualities of Continuous Field Theory}{5}{}
+\contentsline {subsection}{\numberline {A}Superfluid-Insulator Transition and Bose-Hubbard Model}{5}{}
+\contentsline {subsection}{\numberline {B}Bosonic Particle/Vortex Duality}{7}{}
+\contentsline {subsubsection}{\numberline {1}Duality for Classical Vortex}{7}{}
+\contentsline {subsubsection}{\numberline {2}Quantization of Vortex Loops --- Random Walk}{8}{}
+\contentsline {subsubsection}{\numberline {3}Physical Meaning of Particle/Vortex Duality}{10}{}
+\contentsline {section}{\numberline {}References}{10}{}

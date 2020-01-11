@@ -12,19 +12,19 @@
 \providecommand{\bibinfo}[2]{#2}
 \providecommand{\eprint}[2][]{\url{#2}}
 
-\bibitem[{\citenamefont{Halperin and
-  Hohenberg}(1969)}]{halperin1969hydrodynamic}
-\bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Halperin}} \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Hohenberg}},
-  \bibinfo{journal}{Physical Review} \textbf{\bibinfo{volume}{188}},
-  \bibinfo{pages}{898} (\bibinfo{year}{1969}).
-
 \bibitem[{\citenamefont{Chaikin and Lubensky}(2000)}]{chaikin2000principles}
 \bibinfo{author}{\bibfnamefont{P.~M.} \bibnamefont{Chaikin}} \bibnamefont{and}
   \bibinfo{author}{\bibfnamefont{T.~C.} \bibnamefont{Lubensky}},
   \emph{\bibinfo{title}{Principles of condensed matter physics}},
   vol.~\bibinfo{volume}{1} (\bibinfo{publisher}{Cambridge university press
   Cambridge}, \bibinfo{year}{2000}).
+
+\bibitem[{\citenamefont{Halperin and
+  Hohenberg}(1969)}]{halperin1969hydrodynamic}
+\bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Halperin}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Hohenberg}},
+  \bibinfo{journal}{Physical Review} \textbf{\bibinfo{volume}{188}},
+  \bibinfo{pages}{898} (\bibinfo{year}{1969}).
 
 \bibitem[{\citenamefont{Damle and Sachdev}(1997)}]{damle1997nonzero}
 \bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Damle}} \bibnamefont{and}

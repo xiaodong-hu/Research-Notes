@@ -2,16 +2,17 @@
 \contentsline {section}{\numberline {}Contents}{1}{}
 \tocdepth@restore 
 \contentsline {section}{\numberline {I}Hydrodynamics in Symmetry-breaking Phase --- Spin Waves}{1}{}
-\contentsline {subsection}{\numberline {A}$S=1/2$ XXZ Model and Conservation Law}{1}{}
-\contentsline {subsection}{\numberline {B}Constitutive Relations}{2}{}
-\contentsline {subsubsection}{\numberline {1}Zeroth Order (Non-dissipative)}{2}{}
+\contentsline {subsection}{\numberline {A}$S=1/2$ XXZ Model}{1}{}
+\contentsline {subsection}{\numberline {B}Planar Ferromagnets}{2}{}
+\contentsline {subsection}{\numberline {C}Constitutive Relations}{2}{}
+\contentsline {subsubsection}{\numberline {1}Zeroth Order (Non-dissipative)}{3}{}
 \contentsline {subsubsection}{\numberline {2}First Order (Dissipative)}{4}{}
-\contentsline {subsection}{\numberline {C}Linear Response}{5}{}
+\contentsline {subsection}{\numberline {D}Linear Response}{5}{}
 \contentsline {section}{\numberline {II}Transport Near Quantum Criticality}{5}{}
-\contentsline {subsection}{\numberline {A}General Setup}{5}{}
-\contentsline {subsection}{\numberline {B}Hydrodynamic Modes and Linear Response}{5}{}
-\contentsline {subsection}{\numberline {C}Perspetive from Holography}{5}{}
-\contentsline {section}{\numberline {III}Non-relativistic Transport --- Fractional Quantum Hall System}{5}{}
-\contentsline {subsection}{\numberline {A}Spacetime Background}{5}{}
-\contentsline {subsection}{\numberline {B}Response}{5}{}
-\contentsline {section}{\numberline {}References}{5}{}
+\contentsline {subsection}{\numberline {A}General Setup}{6}{}
+\contentsline {subsection}{\numberline {B}Hydrodynamic Modes and Linear Response}{6}{}
+\contentsline {subsection}{\numberline {C}Perspetive from Holography}{6}{}
+\contentsline {section}{\numberline {III}Non-relativistic Transport --- Fractional Quantum Hall System}{6}{}
+\contentsline {subsection}{\numberline {A}Spacetime Background}{6}{}
+\contentsline {subsection}{\numberline {B}Response}{6}{}
+\contentsline {section}{\numberline {}References}{6}{}

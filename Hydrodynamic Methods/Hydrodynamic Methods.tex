@@ -84,55 +84,71 @@
 \tableofcontents
 
 \section{Hydrodynamics in Symmetry-breaking Phase --- Spin Waves}
-	\subsection{$S=1/2$ XXZ Model and Conservation Law}
-		We will consider $S=1/2$ XXZ model in a uniform magnetic field $H_z$ in this section
+	\subsection{$S=1/2$ XXZ Model}
+		As a practice, let us consider the $S=1/2$ XXZ model in a uniform magnetic field $H_z$
 		\begin{equation}\label{1.1.1}
 			\H=\H_{XXZ}-H_z\sum_i S_i^z\equiv-\sum_{\langle ij\rangle}J_\perp(S_i^xS_j^x+S_i^yS_j^y)-\sum_{\langle ij\rangle}J_zS_i^zS_j^z-H_z\sum_i S_i^z.
 		\end{equation}
-		Whatever the phase is (\emph{planar ferromagnetic} $J_\perp>|J_z|>0$, \emph{planar antiferromagnetic} $J_\perp<-|J_z|<0$, or \emph{planar paramagnetic} $T>T_c$ when $M_\perp e^{i\varphi}\equiv\langle S_i^x\rangle+i\langle S_i^y\rangle$ vanishes \cite{halperin1969hydrodynamic,chaikin2000principles}), Hamiltonian \eqref{1.1.1} is clearly invariant under the global spin rotation along $\hat{S}^z$ axis. So we always have a conservation of $S^z$ operator, or coarse-grained $z$-component magnetization $M_z\equiv\langle S_i^z\rangle$ under ensemble average, namely
+		The nature of the ordered phases are determined by the sign and relative magnitude of $J_\perp$ and $J_z$. Let me list as following \cite{chaikin2000principles}:
+		\begin{enumerate}[label=\arabic*)]
+			\item \emph{Ferromagnetic Heisenberg Model} $J_\perp=J_z=J>0$. The order parameter is a uniform magnetization $\bm{m}$.
+			\item \emph{Antiferromagnetic Heisenberg Model} $J_\perp=J_z=J<0$. The order parameter (N\'{e}el oder) is a staggered magnetization $\bm{N}$.
+			\item \emph{Planar ferromagnet} $J_\perp>|J_z|>0$. The energy is minimized by parallel alignment of spins in the $xy$-plane. So the order parameter is $\bm{m}=(m_x,m_y)$, or equivalently the complex field $m_\perp(\bm{r})e^{i\varphi(\bm{r})}\equiv m_x(\bm{r})+im_y(\bm{r})$.
+			\item \emph{Planar antiferromagnet} $J_\perp<-|J_z|<0$. The energy is minimized by anti-parallel alignment of spins in the $xy$-plane. So the order parameter is the two-component staggered magnetization $\bm{N}\equiv(N_x,N_y)$.
+			\item \emph{Ferromagnetic/Antiferromagnetic Ising model} $|J_z|<|J_\perp|$.
+		\end{enumerate}
+		Clearly for isotropic models 1) and 2), the entire spin operator $S\equiv\sum_i\bm{S}_i$ commutes with the Hamiltonian so is conserved. While for anisotropic models 3), 4), and 5), only $S^z\equiv\sum_i S_i^z$ is conserved. Let us start with the spin wave theory in planar ferromagnets.
+
+	\subsection{Planar Ferromagnets}
+		Operator $S^z$ is conserved in planar ferromagnets, so for the coarse-grained $z$-component magnetization $M_z\equiv\langle S_i^z\rangle$, or magnetization density $m_z(\bm{r})\equiv M_z/V$, we have
 		\begin{equation}\label{1.1.2}
 			\partial_t m_z+\nabla\cdot\bm{j}^{m_z}=0,
 		\end{equation}
-		where we introduce the intensive magnetization density $m_z$ and corresponding spin current $\bm{j}^{m_z}$. Apparently total energy density $E\equiv\langle \H_{XXZ}\rangle$, or energy density $\varepsilon$ is also conserved, giving
+		where we introduce the spin current density $\bm{j}^{m_z}$. Another conserved quantity is the total energy density $E\equiv\langle \H_{XXZ}\rangle$, or energy density $\varepsilon$, satisfying
 		\begin{equation}\label{1.1.3}
 			\partial_t \varepsilon+\nabla\cdot\bm{j}^\varepsilon=0.
 		\end{equation}
-		\indent But given $M_z$ and $E$, one still cannot determine the nonuniform states out of equilibrium like ferromagnetic phase below $T_c$. In fact, one must also specify the direction of alignment of perpendicular magnetization $\varphi$, which is locally defined as
+		\indent But given $M_z$ and $E$, one still cannot determine the spin configuration of ordered states in planar ferromagnets. In fact, as is mentioned above, one must also specify the direction of alignment of perpendicular magnetization (labeled by $\varphi(\bm{r})$), which is locally defined as
 		\begin{equation*}
 			m_x(\bm{r})+im_y(\bm{r})=m_\perp(\bm{r})e^{i\varphi(\bm{r})}.
 		\end{equation*}
-		\indent {\bf In hydrodynamic regime, relevant hydro-variables are those whose long-wavelength variations vary slowly in time compared with the characteristic microscopic relaxation time of the scattering processes}. In symmetry breaking phase, such variables are of two classes:
+		\indent {\bf\color{red} In hydrodynamic regime, relevant hydro-variables are those whose long-wavelength variations vary slowly in time compared with the characteristic microscopic relaxation time of the scattering processes}. In symmetry breaking phase, such variables are of two classes:
 		\begin{itemize}
 			\item densities of conserved variables (here is $m_z(\bm{r})$ and $\varepsilon(\bm{r})$);
 			\item symmetry-breaking elastic variables (here is $\varphi(\bm{r})$).
 		\end{itemize}
-		Thus we \emph{assume} that {\bf each point of the system reaches almost thermodynamic equilibrium at each instant of time, so that the system is \emph{completely} determined by the hydro-variables, even though they vary in time}. Particularly, the above undefined current $\bm{j}^e$ and $\bm{j}^{m_z}$ should be functional of these hydro-variables. Ditto for the symmetry-breaking field if we introduce a scalar valued functional $\psi$ of hydro-variables
+		Thus we \emph{assume} that {\bf each point of the system reaches almost thermodynamic equilibrium at each instant of time, so that the system is \emph{completely} determined by the hydro-variables, even though they vary in time}. Particularly, the above unspecified current $\bm{j}^e$ and $\bm{j}^{m_z}$ should be functional of these hydro-variables. Ditto for the symmetry-breaking field if we introduce a scalar valued functional $\psi$ of hydro-variables
 		\begin{equation}\label{1.1.4}
 			\partial_t \varphi(\bm{r})+\psi(\bm{r})=0.
 		\end{equation}
-		Noting that it is the fluctuation of $\nabla\varphi$ rather than $\varphi$ that contributes to physical properties such as entropy like $\varepsilon$ and $m_z$. So they are in the same order of fluctuation and we will take $\bm{v}(\bm{r})\equiv\nabla\varphi(\bm{r})$ as a replacement of fundamental hydro-variables ($\bm{v}$ is in anolagous of superfluid velocity $\bm{v}_s$ in liquid helium), satisfying
+		Noting that it is the fluctuation of $\nabla\varphi$ rather than $\varphi$ that contributes to physical observables in the same order as $\varepsilon$ and $m_z$. So we will take $\bm{v}(\bm{r})\equiv\nabla\varphi(\bm{r})$ as a replacement of fundamental hydro-variables ($\bm{v}$ is in anolagous of superfluid velocity $\bm{v}_s$ in liquid helium), satisfying
 		\begin{equation}\label{1.1.5}
 			\partial_t\bm{v}(\bm{r})+\nabla\psi(\bm{r})=0.
 		\end{equation}
-		Equation \eqref{1.1.2}, \eqref{1.1.3}, and \eqref{1.1.5} consist of the complete conservation law of our system.
+		Equation \eqref{1.1.2}, \eqref{1.1.3}, and \eqref{1.1.5} consist of the complete ``conservation law'' of our system.
 
 	\subsection{Constitutive Relations}
-		Equations relating coarse-grained current with hydro-variables are called \emph{constitutive relations}. Introducing the conjugate field $\bm{x}$ of $\bm{v}$, and $h$ of $m_z$, the first law of thermodynamics (in true thermodynamic eqiuilibrium) tells us
+		Equations relating coarse-grained current densities with hydro-variables are called \emph{constitutive relations}. Introducing the conjugate field $\bm{x}$ of $\bm{v}$, and $h$ of $m_z$, as generalized forces, the first law of thermodynamics (in true thermodynamic eqiuilibrium) tells
 		\begin{equation}\label{2.0.1}
 			T\dd s\equiv\dd \varepsilon-h\dd m_z-\bm{x}\cdot\dd\bm{v},
 		\end{equation}
 		where $h\equiv-T \partial s/\partial m_z|_S$ and $\bm{x}\equiv-T\partial s/\partial \bm{v}|_S$. 
 
 		\subsubsection{Zeroth Order (Non-dissipative)}
-			In this subsection, we will {\bf use (assume) the conservation of local entropy to constrain the \emph{non-dissipative} part of ``current operators'' defined above}. \par
-			To the zeroth order of fluctuations, i.e., spatial derivatives of hydro-variables, the most general form of current operator we can write is
+			In this subsection, we will {\bf use (assume) the conservation of local entropy to obtain the \emph{non-dissipative} part of ``current operators'' introduced above}. \par
+			To the zeroth order of fluctuations, i.e., no spatial derivatives of hydro-variables, the most general form of current operator we can write is
 			\begin{equation}\label{2.1.1}
 				\bm{j}^\varepsilon\equiv A(\bm{r})\bm{v}(\bm{r}),\quad \bm{j}^{m_z}\equiv B(\bm{r})\bm{v}(\bm{r}),\quad \psi\equiv C(\bm{r}),
 			\end{equation}
-			where coefficients $A,B$ and $C$ are scalar functional of $\varepsilon(\bm{r})$ and $m_z(\bm{r})$ waiting to be determined. In general, coefficients $A$ and $B$ may be chosen as rank-$2$ tensors of functionals of $\varepsilon$ and $m_z$, such that the two vector-valued current operators $\bm{j}^\varepsilon$ and $\bm{j}^{m_z}$ are not in the same direction as $\bm{v}$. {\color{red}But here we shall assume lattice \emph{cubic symmetry} \cite{halperin1969hydrodynamic} to forbid such possibility}. Simiarly, one can contract vector $\bm{v}$ with a rank-2 tensor to form a scalar legal in the expression of $\psi$. {\color{red}But we shall assume \emph{reflection symmetry} to forbid such terms for convenience}.\par
+			where coefficients $A,B$ and $C$ are scalar functional of $\varepsilon(\bm{r})$ and $m_z(\bm{r})$ waiting to be determined. In general, coefficients $A$ and $B$ may be even chosen as rank-$2$ tensors of functionals of $\varepsilon$ and $m_z$, such that the two vector-valued current operators $\bm{j}^\varepsilon$ and $\bm{j}^{m_z}$ are not in the same direction as $\bm{v}$. {\color{red}But here we shall assume lattice \emph{cubic symmetry} \cite{halperin1969hydrodynamic} to forbid such possibility}. Simiarly, one can contract vector $\bm{v}$ with a rank-2 tensor to form a scalar functional allowed in the expression of $\psi$. {\color{red}But we shall assume \emph{reflection symmetry} to forbid such terms for convenience}.\par
 
 			Fortunately, as we will see below, $C(\bm{r})$ can be obtained in advance without entropy argument \cite{chaikin2000principles,halperin1969hydrodynamic}.\par
-			Given $\varepsilon,m_z$ and $\bm{v}=0$, we know from \eqref{1.1.5} that the equilibrium state \emph{without} external magnetic field allows a constant precession rate $\dd\varphi/\dd t=-\psi_0(\varepsilon,m_z)$. Let us prepare such stationary state and turn on $H_z$. The time evolution of $M_\perp$ is now dominated by the Hamiltonian $\mathcal{H}\equiv\mathcal{H}_{XXZ}+\mathcal{H}_{ext}$. Since $\mathcal{H}_{ext}\equiv-H_z\sum_i S_i^z$ commutes with $\mathcal{H}_{XXZ}$, time evolution of $m_\perp(t)\equiv\langle S_i^+(t)\rangle$ gives
+			Our aim (spin wave mode) is to find a \emph{stationary state} (in comparison with true thermodynamic equilibrium) with a non-vanishing constant precession rate from \eqref{1.1.4} that $\dd\varphi/\dd t=-\psi_0$, which is determined by conserved hydro-variables $\varepsilon,m_z$, and $\bm{v}$ if it is nonzero.\par
+			Let us assume the existence of such stationary state \emph{without} external magnetic field, and turn on $H_z$. The time evolution of $m_\perp(t,H_z)\equiv\langle S_i^+(t)\rangle/V$ is now dominated by the Hamiltonian $\mathcal{H}\equiv\mathcal{H}_{XXZ}+\mathcal{H}_{ext}$. And because $\mathcal{H}_{ext}\equiv-H_z\sum_i S_i^z$ commutes with $\mathcal{H}_{XXZ}$,
+			\begin{equation*}
+				m_z(t,H_z)=\dfrac{1}{V}\bigg\langle e^{i\mathcal{H}t}S_i^+(0)e^{-i\mathcal{H}t}\bigg\rangle=\dfrac{1}{V}\bigg\langle e^{i\mathcal{H}_{XXZ}t}e^{-iH_z\sum_iS_i^zt}S_i^+(0)e^{iH_z\sum_iS_i^zt}e^{-i\mathcal{H}_{XXZ}t}\bigg\rangle=e^{-iH_zt}m_z(t,0)
+			\end{equation*}
+			gives
 			\begin{equation*}
 				\dfrac{\dd\varphi}{\dd t}=-(\psi_0(\varepsilon,m)+H_z).
 			\end{equation*}
@@ -168,7 +184,7 @@
 			\begin{equation}\label{2.1.7}
 				T\dfrac{\dd s}{\dd t}\equiv T \left(\dfrac{\partial s}{\partial t}+\nabla\cdot \left(\dfrac{\bm{Q}}{T}\right) \right)=-\bm{Q}\cdot \left(\dfrac{\nabla T}{T}\right)-(B\bm{v}+\bm{x})\cdot\nabla h
 			\end{equation}
-			if we identify $\bm{Q}$ as the \emph{entropy current density}. In the absence of dissipation, as is assumed to the zeroth order disturbance, entropy is conserved. Thus
+			if we identify $\bm{Q}$ as the \emph{entropy current density}. In the absence of dissipation, as is assumed to the zeroth order disturbance, entropy is conserved $\frac{\dd s}{\dd t}=0$. Thus
 			\begin{equation}\label{2.1.8}
 				\begin{cases}
 					\bm{Q}\equiv (A-Bh)\bm{v}=0\\
@@ -192,7 +208,7 @@
 			which predicts a \emph{undamped spin-wave mode} $\omega=\pm ck$ with $c\equiv(\rho_s/\chi_s)^{1/2}$.
 
 		\subsubsection{First Order (Dissipative)}
-			To the first order of gradients of hydro-variables, howevere, we will use {\bf the positivity of local entropy production} to constrain further the \emph{dissipative} part of currents
+			To the first order gradients of hydro-variables, howevere, we will use {\bf the positivity of local entropy production} to constrain the form of \emph{dissipative} part of currents
 			\begin{equation}\label{2.2.1}
 				\bm{j}^\varepsilon\equiv-\rho_s\bm{x}+{\bm{j}^\varepsilon}',\quad\bm{j}^{m_z}\equiv-\bm{x}+{\bm{j}^{m_z}}',\quad \psi\equiv H_z-h+\psi'.
 			\end{equation}
@@ -200,13 +216,14 @@
 			\begin{equation}\label{2.2.2}
 				T\dfrac{\dd s}{\dd t}\equiv T \left(\dfrac{\partial s}{\partial t}+\nabla\cdot\bm{Q'}\right)=-\bm{Q'}\cdot\left(\dfrac{\nabla T}{T}\right)-{\bm{j}^{m_z}}'\cdot\nabla h-\psi'\nabla\cdot\bm{x}.
 			\end{equation}
-			The most general constitutive relation up to the \emph{first order} we can construct are
+			The most general constitutive relations up to the \emph{first order} we can construct are
 			\begin{align*}
 				\bm{Q}'&=-K_{11}\nabla T-K_{12}\nabla h\\
-				{\bm{j}^{m_z}}&=-K_{21}\nabla T-K_{22}\nabla h\\
+				{\bm{j}^{m_z}}'&=-K_{21}\nabla T-K_{22}\nabla h\\
 				\psi'&=K_{33}\rho_s\nabla\cdot\bm{v}.
 			\end{align*}
-			In general both $\bm{Q}'$ and ${\bm{j}^{m_z}}'$ may contain terms proportional to gradients of $\bm{v}$ like $\nabla\times\bm{v}$. But definition $\bm{v}\equiv\nabla\varphi$ forbids such terms. Also, {\color{red}\bf because \emph{dissipative} motion is related to \emph{irreversible} thermodynamic processes, dissipative currents of one sign under time reversal must be proportional to variables of the opposite sign}. Namely, off-diagonal couplings $K_{12}$ and $K_{21}$ must be zero as well. So we are left with
+			In general both $\bm{Q}'$ and ${\bm{j}^{m_z}}'$ may also contain terms proportional to spacial fluctuation of $\bm{v}$ like $\nabla\times\bm{v}$. But the definition $\bm{v}\equiv\nabla\varphi$ forbids such terms. There may also be possibility that $\bm{Q'},{\bm{j}^{m_z}}'$ be propotional to the contraction of the gradient of $T$ and $h$ with a rank-$2$ tensor, but the {\color{red}\textbf{cubic symmetry}} prohibit such terms. In addition, $\psi'$ may also be propotional to terms like $\bm{n}\cdot\nabla T$ and $\bm{n}\cdot\nabla h$ with some specific vector, but again the {\color{red}\textbf{cubic symmetry}} prohibit them.\par
+			Moreover, since we are interested in the fluctuation near true thermodynamic equilibrium where $M_z=0$, \textbf{\color{red} whatever the direction of time arrow is, the entropy production $\frac{\dd s}{\dd t}$ by assumption, will never alters its sign but keep positive}. Therefore \textbf{all term on the RHS of \eqref{2.2.2} must be even under time-reversal transformation}. In light of the fact that $T$ is time-reversal even and $h$ is time-reversal odd, both off-diagonal couplings $K_{12}$ and $K_{21}$ should be zero, leaving
 			\begin{equation}\label{2.2.3}
 				\bm{Q}'=-\kappa\nabla T,\quad {\bm{j}^{m_z}}'=-K_{22}\nabla h,\quad \psi'=-K_{33}\rho_s\nabla\cdot\bm{v},
 			\end{equation}
@@ -215,7 +232,7 @@
 			\begin{equation*}
 				\dd T=C^{-1}\dd\varepsilon
 			\end{equation*}
-			if we introduce specific heat $C$. Inserting back the expression of dissipative currents to conservation laws, we come to the \emph{dissipative} linearized\footnote{By linear, we mean equation of motion is expanded to the first power of hydro-variables.} equation of motion up to the first-order fluctuation of hydro-variables
+			if we introduce specific heat $C$. Inserting back the expression of dissipative currents to conservation laws, we come to the \emph{dissipative} linearized\footnote{By linearity, we mean the equation of motion is expanded to the first order of hydro-variables.} equation of motion up to the first-order fluctuation of hydro-variables
 			\begin{align}
 				\partial_t \varepsilon&=\nabla\cdot\bigg(\kappa\nabla T+K_{22}h\nabla h-K_{33}\rho_s^2\bm{v}\nabla\cdot\bm{v}\bigg)\simeq\kappa C^{-1}\nabla^2\varepsilon\label{2.2.4}\\
 				\partial_t m_z&=\rho_s\nabla\cdot\bm{v}+\chi_s^{-1}K_{22}\nabla^2m_z\label{2.2.5}\\
@@ -229,6 +246,7 @@
 			\begin{equation}\label{2.2.8}
 				\omega_{\pm}(\bm{k})=\pm ck-\dfrac{1}{2}iDk^2,
 			\end{equation}
+			where $D\equiv\chi_s^{-1}K_{22}+\rho_s K_{33}$.
 	\subsection{Linear Response}
 
 \section{Transport Near Quantum Criticality}

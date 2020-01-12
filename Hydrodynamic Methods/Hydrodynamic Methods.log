@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.8.25)  10 JAN 2020 15:26
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.10.25)  12 JAN 2020 03:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1300,15 +1300,21 @@ Package fontspec Info: Font family 'FandolFang-Regular(0)' created for font
 \tf@toc=\write6
 \openout6 = `"Hydrodynamic Methods.toc"'.
 
- [1] [2] [3] [4] [5] (./Hydrodynamic Methods.bbl)
-[6] (./Hydrodynamic Methods.aux) ) 
-Here is how much of TeX's memory you used:
- 41714 strings out of 494788
- 1003938 string characters out of 6172356
- 1258086 words of memory out of 5000000
- 45023 multiletter control sequences out of 15000+600000
- 546940 words of font info for 108 fonts, out of 8000000 for 9000
- 36 hyphenation exceptions out of 8191
- 62i,12n,96p,798b,500s stack positions out of 5000i,500n,10000p,200000b,80000s
+ [1] [2] [3] [4] [5]
+LaTeX Font Info:    Try loading font information for U+dsrom on input line 295.
 
-Output written on Hydrodynamic Methods.xdv (6 pages, 132232 bytes).
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/doublestroke/Udsrom.fd
+File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
+) [6]
+[7] [8] (./Hydrodynamic Methods.bbl [9]) [10] (./Hydrodynamic Methods.aux) ) 
+Here is how much of TeX's memory you used:
+ 41770 strings out of 494719
+ 1004734 string characters out of 6170196
+ 1259339 words of memory out of 5000000
+ 45085 multiletter control sequences out of 15000+600000
+ 547420 words of font info for 113 fonts, out of 8000000 for 9000
+ 62 hyphenation exceptions out of 8191
+ 62i,18n,96p,812b,500s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on Hydrodynamic Methods.xdv (10 pages, 206840 bytes).

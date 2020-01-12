@@ -72,7 +72,7 @@
 \date{\today}
 
 \begin{abstract}
-	In this note I will review modern methods of hydrodynamics in condensed matter systems (unlike old one like superfluids and spin waves with orderes phase), from quantum critical Nernst effects to fractional quantum Hall system \par
+	In this note I will review the hydrodynamic methods in condensed matter systems, ranging from non-relativistic symmetry breaking systems like spin waves, to relativistic quantum critical system where symmetry-breaking field (if exists) is not well-defined, and non-relativistic fractional quantum Hall system where the background spacetime is belived to be non-trivial.\par
 	%\begin{center}
 		\hfill\par
 		{\centering\kaishu 云行雨施，品物流形。\\[0.5em]}
@@ -87,15 +87,15 @@
 	\subsection{$S=1/2$ XXZ Model}
 		As a practice, let us consider the $S=1/2$ XXZ model in a uniform magnetic field $H_z$
 		\begin{equation}\label{1.1.1}
-			\H=\H_{XXZ}-H_z\sum_i S_i^z\equiv-\sum_{\langle ij\rangle}J_\perp(S_i^xS_j^x+S_i^yS_j^y)-\sum_{\langle ij\rangle}J_zS_i^zS_j^z-H_z\sum_i S_i^z.
+			\H=\H_{XXZ}-H_z\sum_i S_i^z\equiv-\sum_{\langle ij\rangle}J_{ij}^\perp(S_i^xS_j^x+S_i^yS_j^y)-\sum_{\langle ij\rangle}J_{ij}^zS_i^zS_j^z-H_z\sum_i S_i^z.
 		\end{equation}
-		The nature of the ordered phases are determined by the sign and relative magnitude of $J_\perp$ and $J_z$. Let me list as following \cite{chaikin2000principles}:
+		For simplicity let us narrow our discussion in translation invariant case $J_{ij}^\perp\equiv J_\perp$ and $J_{ij}^z=J_z$. The nature of the ordered phases are determined by the sign and relative magnitude of $J_\perp$ and $J_z$. They are listed as following \cite{chaikin2000principles}:
 		\begin{enumerate}[label=\arabic*)]
 			\item \emph{Ferromagnetic Heisenberg Model} $J_\perp=J_z=J>0$. The order parameter is a uniform magnetization $\bm{m}$.
 			\item \emph{Antiferromagnetic Heisenberg Model} $J_\perp=J_z=J<0$. The order parameter (N\'{e}el oder) is a staggered magnetization $\bm{N}$.
 			\item \emph{Planar ferromagnet} $J_\perp>|J_z|>0$. The energy is minimized by parallel alignment of spins in the $xy$-plane. So the order parameter is $\bm{m}=(m_x,m_y)$, or equivalently the complex field $m_\perp(\bm{r})e^{i\varphi(\bm{r})}\equiv m_x(\bm{r})+im_y(\bm{r})$.
 			\item \emph{Planar antiferromagnet} $J_\perp<-|J_z|<0$. The energy is minimized by anti-parallel alignment of spins in the $xy$-plane. So the order parameter is the two-component staggered magnetization $\bm{N}\equiv(N_x,N_y)$.
-			\item \emph{Ferromagnetic/Antiferromagnetic Ising model} $|J_z|<|J_\perp|$.
+			\item \emph{Ferromagnetic/Antiferromagnetic Ising model} $|J_z|<|J_\perp|$. Since it breaks discrete symmetry for ordered phase, we are not interested in it.
 		\end{enumerate}
 		Clearly for isotropic models 1) and 2), the entire spin operator $S\equiv\sum_i\bm{S}_i$ commutes with the Hamiltonian so is conserved. While for anisotropic models 3), 4), and 5), only $S^z\equiv\sum_i S_i^z$ is conserved. Let us start with the spin wave theory in planar ferromagnets.
 
@@ -169,7 +169,7 @@
 			\begin{equation}\label{2.1.5}
 				s\simeq s_0(\varepsilon)-\dfrac{1}{2T}\chi_s^{-1}m_z^2-\dfrac{\rho_s}{2T}v^2,
 			\end{equation}
-			where temperature $T^{-1}\equiv\partial s_0/\partial\varepsilon$ is well-defined in equilibrium and inserted by convention. Magnetic suseptibility $\chi_s$ and the magnetic version of ``superfluid density'' $\rho_s$ may also be functional of hydro-variables, but up to the second order of disturbance, we can safely treat them as constants\footnote{Apparently $\chi_s$ and $\rho_s$ must be nonnegative for stability of the system.}. Therefore the two conjugate fields we introduce above takes the form of $h\equiv-T \partial s/\partial m_z=\chi_s^{-1}m_z$ and $\bm{x}\equiv-T\partial s/\partial \bm{v}=\rho_s\bm{v}$.\par
+			where temperature $T^{-1}\equiv\partial s_0/\partial\varepsilon$ is well-defined in equilibrium and inserted by convention. Magnetic \emph{static} suseptibility $\chi_s$ (we will see latter why such coefficient is the suseptibility) and the magnetic version of ``superfluid density'' $\rho_s$ may also be functional of hydro-variables, but up to the second order of disturbance, we can safely treat them as constants\footnote{Apparently $\chi_s$ and $\rho_s$ must be nonnegative for stability of the system.}. Therefore the two conjugate fields we introduce above takes the form of $h\equiv-T \partial s/\partial m_z=\chi_s^{-1}m_z$ and $\bm{x}\equiv-T\partial s/\partial \bm{v}=\rho_s\bm{v}$.\par
 			Taking time derivative of the first law of thermodynamics and substituting conservation laws \eqref{1.1.3}, \eqref{1.1.4}, \eqref{1.1.5} and the zeroth order of non-dissipative currents \eqref{2.1.1} and \eqref{2.1.4}, we have
 			\begin{align}\label{2.1.6}
 				T\dfrac{\partial s}{\partial t}&=\dfrac{\partial \varepsilon}{\partial t}-h\dfrac{\partial m_z}{\partial t}-\bm{x}\cdot\dfrac{\partial \bm{v}}{\partial t}=-\nabla\cdot\bm{j}^\varepsilon+h\nabla\cdot\bm{j}^{m_z}-\bm{x}\cdot\nabla(h-H_z)\nonumber\\
@@ -222,13 +222,13 @@
 				{\bm{j}^{m_z}}'&=-K_{21}\nabla T-K_{22}\nabla h\\
 				\psi'&=K_{33}\rho_s\nabla\cdot\bm{v}.
 			\end{align*}
-			In general both $\bm{Q}'$ and ${\bm{j}^{m_z}}'$ may also contain terms proportional to spacial fluctuation of $\bm{v}$ like $\nabla\times\bm{v}$. But the definition $\bm{v}\equiv\nabla\varphi$ forbids such terms. There may also be possibility that $\bm{Q'},{\bm{j}^{m_z}}'$ be propotional to the contraction of the gradient of $T$ and $h$ with a rank-$2$ tensor, but the {\color{red}\textbf{cubic symmetry}} prohibit such terms. In addition, $\psi'$ may also be propotional to terms like $\bm{n}\cdot\nabla T$ and $\bm{n}\cdot\nabla h$ with some specific vector, but again the {\color{red}\textbf{cubic symmetry}} prohibit them.\par
-			Moreover, since we are interested in the fluctuation near true thermodynamic equilibrium where $M_z=0$, \textbf{\color{red} whatever the direction of time arrow is, the entropy production $\frac{\dd s}{\dd t}$ by assumption, will never alters its sign but keep positive}. Therefore \textbf{all term on the RHS of \eqref{2.2.2} must be even under time-reversal transformation}. In light of the fact that $T$ is time-reversal even and $h$ is time-reversal odd, both off-diagonal couplings $K_{12}$ and $K_{21}$ should be zero, leaving
+			In general both $\bm{Q}'$ and ${\bm{j}^{m_z}}'$ may also contain terms proportional to spacial fluctuation of $\bm{v}$ like $\nabla\times\bm{v}$. But the definition $\bm{v}\equiv\nabla\varphi$ forbids such terms. There may also be possibility that $\bm{Q'},{\bm{j}^{m_z}}'$ be propotional to the contraction of the gradient of $T$ and $h$ with a rank-$2$ tensor, but the {\color{red}\textbf{cubic symmetry}} prohibits such terms. In addition, $\psi'$ may also be propotional to terms like $\bm{n}\cdot\nabla T$ and $\bm{n}\cdot\nabla h$ with some specific direction vector $\bm{n}$, but again the {\color{red}\textbf{cubic symmetry}} prohibits them.\par
+			Moreover, since we are interested in the fluctuation near true thermodynamic equilibrium \emph{without}\footnote{This will no do harm with our previous discussion to the zeroth order.} external magnetic fields $H_z$ (so that the magnetization $M_z=0$ and time-reversal symmetry is kept), \textbf{\color{red} whatever the direction of time arrow is, the entropy production $\frac{\dd s}{\dd t}$ by assumption, will always keep positive}. Therefore \textbf{all term on the RHS of \eqref{2.2.2} must be even under time-reversal transformation}. In light of the fact that $T$ is time-reversal even and $h$ is time-reversal odd, both off-diagonal couplings $K_{12}$ and $K_{21}$ should be zero, leaving
 			\begin{equation}\label{2.2.3}
 				\bm{Q}'=-\kappa\nabla T,\quad {\bm{j}^{m_z}}'=-K_{22}\nabla h,\quad \psi'=-K_{33}\rho_s\nabla\cdot\bm{v},
 			\end{equation}
 			where we interprete $K_{11}$ as the \emph{thermal conductivity} $\kappa$.\par
-			To make equations \eqref{2.2.3} close, let us restrict ourselves to the case where magnetization $M_z=0$. This is appropriate for fluctuations about true thermodynamic equilibrium without external magnetic fields. In this case, we have
+			Vanishing of $M_z$ helps to make equation \eqref{2.2.3} close. In fact, by the first law of thermodynamics
 			\begin{equation*}
 				\dd T=C^{-1}\dd\varepsilon
 			\end{equation*}
@@ -238,36 +238,187 @@
 				\partial_t m_z&=\rho_s\nabla\cdot\bm{v}+\chi_s^{-1}K_{22}\nabla^2m_z\label{2.2.5}\\
 				\partial_t\bm{v}&=\chi_s^{-1}\nabla m_z+K_{33}\rho_s\nabla(\nabla\cdot\bm{v})\label{2.2.6}.
 			\end{align}
-			Clearly solution of \eqref{2.2.4} yields a heat \emph{diffusion mode}
+			Clearly solution of \eqref{2.2.4} yields a \emph{diffusive heat mode}
 			\begin{equation}\label{2.2.7}
 				\omega_\varepsilon(\bm{k})=-i\kappa C^{-1}k^2=:-iD_Tk^2.
 			\end{equation}
-			Another \emph{damped spin-wave mode} from coupled equations \eqref{2.2.5} and \eqref{2.2.6} can be obtained by diagnolizing the coefficients matrix in momentum space and expanding up to $k^2$, giving
+			Another \emph{damped spin-wave mode} from coupled equations \eqref{2.2.5} and \eqref{2.2.6} can be obtained by diagnolizing the coefficients matrix in momentum space (by choosing $\bm{k}$ along one specific direction)
+			\begin{equation*}
+				\mathcal{M}_{m_z,\bm{v}}=\left(\begin{array}{cc}
+					\chi^{-1}K_{22}k^2 & \rho_s k \\
+					\chi^{-1}k & \rho_s K_{33} k^2
+				\end{array}\right)
+			\end{equation*}
+			and expanding up to $k^2$, giving
 			\begin{equation}\label{2.2.8}
 				\omega_{\pm}(\bm{k})=\pm ck-\dfrac{1}{2}iDk^2,
 			\end{equation}
 			where $D\equiv\chi_s^{-1}K_{22}+\rho_s K_{33}$.
-	\subsection{Linear Response}
+	
+	\subsection{Hydrodynamic Response Functions}
+		In this section, we try to find the dynamic suseptibility/correlation function of hydro-variables from the equation of motion from \eqref{2.2.4} to \eqref{2.2.6}. A good review is given in \cite{kovtun2012lectures}. I just use Kovtun's result.\par
+		Diffusion equation \eqref{2.2.4} is apparently decoupled from the other two hydro-variables. So let us start our discussion with the susceptibility $\chi_{\varepsilon \varepsilon}$. But \textbf{to discuss linear response, one has to specify the source of perturbation in advance}. A disturbance in energy, $\delta \varepsilon$, can be caused by the disturbance of temperature $-\beta\mathcal{H}\mapsto-(\beta+\delta\beta)\mathcal{H}$, or more explicitly,
+		\begin{equation}\label{2.3.1}
+			\delta\mathcal{H}=-\int\dd\bm{x}\,\dfrac{\delta T}{T}\delta\varepsilon(t,\bm{x}).
+		\end{equation}
+		So the \emph{static} susceptibility
+		\begin{equation}\label{2.3.2}
+			\chi_{\varepsilon \varepsilon}\equiv\dfrac{\partial\delta\varepsilon}{\partial\left(\dfrac{\delta T}{T}\right)}=CT.
+		\end{equation}
+		So in the long wavelength limit the retarded Green function \cite{kovtun2012lectures,chaikin2000principles}
+		\begin{equation}\label{2.3.3}
+			G_{\varepsilon\varepsilon}^R(z,\bm{k})\equiv\dfrac{\chi_{\varepsilon \varepsilon}D_T\bm{k}^2}{iz-D_T\bm{k}^2},
+		\end{equation}
+		or in hydrodynamic regime where $\beta\omega\ll1$ so that
+		\begin{equation}\label{2.3.4}
+			G_{\varepsilon \varepsilon}(\omega,\bm{k})=-\dfrac{2k_BT}{\omega}\mathop{\mathrm{Im}}G_{\varepsilon \varepsilon}=2k_BCT^2\dfrac{D_T\bm{k}^2}{\omega^2+(D_T\bm{k}^2)^2}.
+		\end{equation}
+		\indent Things will not change a lot if we include the other two equation of motion \eqref{2.2.5} and \eqref{2.2.6}. In fact, we only need to extend the above formula to matrix form. Clearly the disturbance of source can be read from the first law of thermodynamics \eqref{2.0.1}
+		\begin{equation}\label{2.3.5}
+			\delta\mathcal{H}=-\int\dd\bm{x}\bigg(\delta h\cdot\delta m_z+\delta\bm{x}\cdot\delta\bm{v}\bigg).
+		\end{equation}
+		So correspondingly under the basis of $(m_z,\bm{v})^T$ we have the static susceptibility
+		\begin{equation}\label{2.3.6}
+			\chi\equiv\dfrac{\partial \lambda_a}{\partial \varphi_b}=\left(\begin{array}{cc}
+				\chi_s & \\ & \rho_s
+			\end{array}\right),
+		\end{equation}
+		where $\lambda_a$ is the source and $\varphi_b$ is hydro-variable. (As a contrast, Hohenberg and Halpersin alter the hydro-variable $\bm{v}$ to $m_y$ in their original paper \cite{halperin1969hydrodynamic}). Retarded Green function can also be obtained by Laplace transformation and the connection with dynamic susceptibility \cite{kovtun2012lectures} that
+		\begin{align}
+			G^R(\omega,\bm{k})&=-(\mathds{1}+i\omega K^{-1})\chi,\label{2.3.7}\\
+			&=\dfrac{1}{\chi_s^{-1}K_{22}\rho_s K_{33}k^4-i(\chi_s^{-1}K_{22}+\rho_sK_{33})\omega k^2-\rho_s\chi_s^{-1}k^2-\omega^2}\nonumber\\
+			&\qquad\times \left(\begin{array}{cc}
+				k^2\bigg((k^2 K_{22}
+				K_{33}-1) \rho_s+i K_{22}\omega\bigg) & ik \rho_s^2\omega\\
+				i k\omega & k^2\rho_s\bigg(\chi_s^{-1}\rho_s+i\rho_sK_{33}\omega-\chi_s^{-1}K_{22}\rho_sK_{33} k^2\bigg)\\
+				\end{array}\right).\label{2.3.8}
+		\end{align}
+		where $K_{ab}\equiv -i\omega\delta_{ab}+\mathcal{M}_{ab}$. The physical meaning of denomenator can be seen by solving the singularity up to the second order of $k$, in fact
+		\begin{equation*}
+			\chi_s^{-1}K_{22}\rho_s K_{33}k^4-i(\chi_s^{-1}K_{22}+\rho_sK_{33})\omega k^2-\rho_s\chi_s^{-1}k^2-\omega^2\equiv(\omega-\omega_-)(\omega-\omega_+)+\mathcal{O}(k^3).
+		\end{equation*}
+		And the full Green function can be read from
+		\begin{align}
+			G_{AB}&\equiv-\dfrac{2k_BT}{\omega}\mathop{\mathrm{Im}}G_{AB}.
+		\end{align}
+	\subsection{Planar Antiferromagnets}
+		Ground states of planar antiferromagnets are anti-parallel spin configuration confined in $x$-$y$ plane, altering the sign site by site. Dividing the lattice into two sublattice $A$ and $B$ and defining a new spin-like variable (in $x$-$y$ plane)
+		\begin{equation*}
+			\bm{Q}_i=\eta_{i}\bm{S}_i,
+		\end{equation*}
+		where $\eta_i=+1$ on sublattice $A$ while $-1$ on sublattice $B$, then clearly $\{Q_i^x,Q_i^y,S_i^z\}$ obeys the same commutation relation. More importantly, in terms of the new group of dynamical variables, the XXZ Hamiltonian can be re-written as
+		\begin{equation}\label{2.4.1}
+			\mathcal{H}_{XXZ}=-\sum_{\langle ij\rangle}J_z S_i^z S_j^z-\sum_{\langle ij\rangle}\eta_i\eta_j J_\perp(Q_i^x Q_j^x+Q_i^y Q_j^y)+\mathcal{H}_{ext}.
+		\end{equation}
+		Recognizing $\eta_i\eta_j J_\perp$ with a new \emph{ferromagnetic coupling} $\widetilde{J}_\perp$, then clealy we come back to the same Hamiltonian in \textbf{ferromagnets}. Moreover, defining the \emph{slowly varying} staggered magnetization density $\bm{n}(\bm{r})$ similar to $m(\bm{r})$
+		\begin{equation}\label{2.4.2}
+			\bm{n}(\bm{r})\equiv\left\langle\sum_i\bm{Q}_i\delta(\bm{r}-\bm{r}_i)\right\rangle,
+		\end{equation}
+		whose orientation gives a local symmetry-breaking field $\varphi(\bm{r})$  and corresponding vector field $\widetilde{\bm{v}}\equiv\nabla\varphi$ again
+		\begin{equation}\label{2.4.3}
+			n_x(\bm{r})+in_y(\bm{r})\equiv n_\perp(\bm{r})e^{i\varphi(\bm{r})}.
+		\end{equation}
+		So with a new group of hydro-variables $\{m_z,\varepsilon,\widetilde{\bm{v}}\}$, \textbf{\color{red}all previous hydrodynamic treatments of spin-wave in planar ferromagnets and the equation motion applies here}.
+
+	\subsection{Isotropic Antiferromagnets}
+		However, things changed in isotropic Heisenberg models. For isotropic antiferromagnets, all components (instead of merely $m_z$ in planar magnets) of the magnetization are conserved
+		\begin{equation}\label{2.5.1}
+			\dfrac{\partial m_i}{\partial t}+\nabla\cdot\bm{j}^{m_i}=0.
+		\end{equation}
+		That is, there are four conserved variables $\{m_x,m_y,m_z,\varepsilon\}$ in all.\par
+		The orientation of staggered magnetization $\bm{n}$, as is introduced before, will give rise to the slowly-varying symmetry-breaking variables. Suppose in ordered phase $\bm{n}=\hat{z}$ in equilibrium, then \textbf{small fluctuation of staggered magnetization is obviously in $x$-$y$ plane $\delta\bm{n}\simeq(\delta n_x,\delta n_y,0)=(\delta\theta_y,-\delta\theta_x,0)$ and dominated by \emph{two} independent symmetry-breaking hydrovariables $\theta_x$ and $\theta_y$} (As a comparison, for planar magnets there is only one parameter controlling the orientation of planar $\bm{n}$). And it is the \emph{spatial} flucuation of $\delta\bm{n}$ that contributes to physical observable. So we work in the vector fields for each component one more time,
+		\begin{equation*}
+			\bm{v}_x\equiv\nabla\theta_y,\quad \bm{v}_y\equiv-\nabla\theta_x,
+		\end{equation*}
+		satisfying
+		\begin{equation}\label{2.5.2}
+			\partial_t\bm{v}_i+\nabla\psi_i=0
+		\end{equation}
+		if we introduce a functional $\psi_i$ of hydro-variables.\par
+		Therefore, for antiferromagnets the first law of thermodynamics is
+		\begin{equation}\label{2.5.3}
+			T\dd s=\dd \varepsilon-\bm{h}\cdot\dd\bm{m}-\bm{x}_x\cdot\dd\bm{v}_x-\bm{x}_y\cdot\dd\bm{v}_y,
+		\end{equation}
+		and small fluctuation of entropy takes the form of\footnote{The reason why the coefficients of $m_x$ and $m_y$ are the same comes from the cubic symmetry of our system.}
+		\begin{equation}\label{2.5.4}
+			s=s_0-\dfrac{1}{2T}\bigg[\chi_\parallel^{-1}m_z^2+\chi_\perp^{-1}(m_x^2+m_y^2)\bigg]-\dfrac{\rho_s}{2T}\bigg[\bm{v}_x^2+\bm{v}_y^2\bigg],
+		\end{equation}
+		where
+		\begin{equation}\label{2.5.5}
+			h_i=-T\dfrac{\partial s}{\partial m_i}=\chi_\perp^{-1}m_i,\quad \bm{x}_i\equiv-T\dfrac{\partial s}{\partial \bm{v}_i}=\rho_s\bm{v}_i.
+		\end{equation}
+		Following almost the same analysis on the constraint of constitutive relation with the help of symmetries, one finally gets
+		\begin{align}
+			\dfrac{\partial \varepsilon}{\partial t}&=\kappa\nabla^2T=\kappa C^{-1}\nabla^2 \varepsilon,\label{2.5.6}\\
+			\dfrac{\partial m_z}{\partial t}&=\chi^{-1}K_\parallel\nabla^2 m_z,\label{2.5.7}\\
+			\dfrac{\partial m_i}{\partial t}&=\rho_s\nabla\cdot\bm{v}_i+\chi^{-1}K_\perp\nabla^2 m_i,\quad i=x,y,\label{2.5.8}\\
+			\dfrac{\partial \bm{v}_i}{\partial t}&=\chi^{-1}\nabla m_i+K\rho_s\nabla(\nabla\cdot\bm{v}_i),\quad i=x,y,\label{2.5.9}
+		\end{align}
+		up to first-order dissipative equation of motion, where $\kappa,K_\parallel,K_\perp$, and $K$ are expanding constants for constitutive relations. Clearly, \eqref{2.5.6} and \eqref{2.5.7} give two diffusive modes, while \eqref{2.5.8} and \eqref{2.5.9} give \emph{damped spin-wave modes}
+		\begin{equation}\label{2.5.10}
+			\omega_\pm=\pm(\rho_s/\chi_\perp)^{1/2}k+\dfrac{i}{2}(K_\perp\chi_\perp^{-1}+K\rho_s)k^2.
+		\end{equation}
+		Correlation function can also be obtained from the above four equations of motion.
+
+	\subsection{Isotropic Ferromagnets}
+		Things become more subtle when we come to isotropic ferromagnets. This time, \textbf{$m_z$ plays the role as \emph{both} a slowly-varying conserved variable and broken-symmetry variable}. Since hydro-variables CANNOT be count twice, our first law of thermodynamics reduces to
+		\begin{equation}\label{2.6.1}
+			T\dd s=\dd \varepsilon-\bm{h}\cdot\dd\bm{m}
+		\end{equation}
+		in both disordered and ordered phases.\par
+		Similar to previous analysis in isotropic antiferromagnets, given a equilibrium orientation of uniform magnetization $\bm{m}=\hat{z}$, the deviation of $\bm{m}$ is in $x$-$y$ plane. But in accordance with the first law of thermodynamics \eqref{2.6.1}, we still use $m_x$ and $m_y$ rather than their orientation parameter to characterize the slowly varying symmetry-breaking fields. Thus the entropy for small fluctuation can be expanded as
+		\begin{equation}\label{2.6.2}
+			s=s_0-\dfrac{1}{2T}\chi_\parallel^{-1}m_z^2-\dfrac{\rho_s}{2T M_0^2}\bigg[(\nabla m_x)^2+(\nabla m_y)^2\bigg],
+		\end{equation}
+		where $M_0$ is added just for dimensionality. So we know
+		\begin{equation*}
+			h_z=\chi_\parallel^{-1}m_z,\quad h_i=-\dfrac{\rho_s}{M_0^2}\nabla^2m_i.
+		\end{equation*}
+		Again the non-dissipative part of equation
+		\begin{equation}\label{2.6.3}
+			\partial_t m_i+\nabla\cdot\bm{j}^{m_i}=0
+		\end{equation}
+		can be obtained direct from the evolution of steady state 
+		\begin{equation}\label{2.6.4}
+			\partial_tm_i=-(\bm{m}\times h)_i
+		\end{equation}
+		since the equation of motion for spin is $\partial \bm{S}^\alpha/\partial_t=\bm{S}^\alpha\times H_z$ when there is external magnetic fields. For the full dissipative equation of motion up to the first-order fluctuation of hydro-variables, the equations of motion are given in \cite{chaikin2000principles} that
+		\begin{align}
+			\partial_t \varepsilon&=\kappa C^{-1}\nabla^2 \varepsilon,\label{2.6.5}\\
+			\partial_t m_z&=\Gamma\chi_\parallel^{-1}\nabla^2 m_z,\label{2.6.6}\\
+			\partial_t m_x&=-\dfrac{\rho_s}{M_0^2}\nabla^2 m_y-\Gamma\dfrac{\rho_s}{M_0^2}\nabla^4 m_x,\label{2.6.7}\\
+			\partial_t m_y&=\dfrac{\rho_s}{M_0^2}\nabla^2 m_x-\Gamma\dfrac{\rho_s}{M_0^2}\nabla^4 m_y.\label{2.6.8}
+		\end{align}
+		Clearly \eqref{2.6.5} and \eqref{2.6.6} yield two diffusive modes, while \eqref{2.6.7} and \eqref{2.6.8} give rise to \emph{damped spin waves}
+		\begin{equation}\label{2.6.9}
+			\omega_\pm=\pm(\rho_s/M_0^2)^{1/2}k^2+i \widetilde{D}k^4, 
+		\end{equation}
+		where $\widetilde{D}\equiv\Gamma\rho_s/M_0^2$.
+
 
 \section{Transport Near Quantum Criticality}
-	In this section, we focus on \emph{Lorentz-invariant} quantum critical points in the \emph{hydrodynamics region} that external electromagnetic frequencies satisfy $\hbar\omega\ll k_B T$. This condition is widely (actually, almost all) performed in experiments but mismatch the assumption to many theoretical calculation as well as numerical simulation in, for example, DC conductivity near superfluid-insulator phase transition \cite{damle1997nonzero}.\par
-	\textbf{The fundamental ingredients of hydrodynamic analysis are the conserved quantities and their equations of motion}. But before preceeding, let me pause and comment on the old hydrodyamics of Lifshitz superfluids and spin-waves \cite{hohenberg1977theory,halperin1969hydrodynamic}. {\color{red} In hydrodynamics region, $k_BT/\hbar$ naturally plays the role of low-energy frequency characterizing the relation time that we are interested in, while in old prescription the relaxation time just diverges (so the energy scale may not be correct) \cite{hartnoll2007theory}}.
+	In this section, we focus on \emph{Lorentz-invariant} quantum critical points in the \emph{hydrodynamics region} that external electromagnetic frequencies satisfy $\hbar\omega\ll k_B T$. This condition is widely (actually, almost all) performed in experiments but mismatched in the assumption of many theoretical calculation as well as numerical simulations in, for example, DC conductivity near superfluid-insulator phase transition \cite{damle1997nonzero}.\par
+	Unlike in the theory of classical finite temperature critical points, where $k_bT/\hbar$ constitutes an intrinsic relaxation time for the fluctuation of symmetry-breaking fields (as hydro-variables), we are interested in much lower frequency scales so that the dynamics of order parameter can be ignored \cite{hartnoll2007theory}.
 
 	\subsection{General Setup}
-		Our system subject to external magnetic field for transport study. Invariance of \emph{gauge transformation} $A_\mu\mapsto A_\mu+\partial_\mu f$ and \emph{diffeomorphism transformation} $x^\mu\mapsto x_\mu+\xi_\mu$ of action gives\footnote{See, for example, section II D of \cite{herzog2009lectures}. The result can also be proved holographically, see \cite{lindgren2015holographic}.}
+		For transport study our system subjects to external magnetic field. Invariance of the general action under \emph{gauge transformation} $A_\mu\mapsto A_\mu+\partial_\mu f$ and \emph{diffeomorphism transformation} $x^\mu\mapsto x_\mu+\xi_\mu$ gives\footnote{See, for example, section II D of \cite{herzog2009lectures}. The result can also be proved holographically, see \cite{lindgren2015holographic}.}
 		\begin{align}\label{5.1.1}
 			\partial_\mu J^\mu&=0,\\
-			\partial_\mu T^{\mu\nu}&=F^{\mu\nu}J_\mu.
+			\partial_\mu T^{\mu\nu}&=F^{\mu\nu}J_\mu,
 		\end{align}
 		respectively.
 		
 	\subsection{Hydrodynamic Modes and Linear Response}
-	\subsection{Perspetive from Holography}
+	\subsection{Perspetive from Holographic Duality}
 
-\section{Non-relativistic Transport --- Fractional Quantum Hall System}
-	\subsection{Spacetime Background}
-	\subsection{Response}
+\section{Hydrodynamics in Curved Spacetime --- Fractional Quantum Hall System}
+	\subsection{Motivation: Hall Viscosity}
+		It was observed by Hoyos and Son that Hall viscosity will have a universal impact on electromagnetic response \cite{hoyos2012hall}.
+	\subsection{Spacetime Symmetry in FQHE}
+		Son then discussed the appropriate spacetime background of low-energy effective theory for nonrelativistic intereacting theory in \cite{son2013newton}. Ward identities are next obtained by Geracie {\it et al.} in \cite{geracie2015spacetime}.
 
+	\subsection{Hydrodynamics on the Lowest Landau Level}
+		The main content of this part is to review the work by Son in \cite{geracie2015hydrodynamics}.
 
 \bibliography{hxd}
 \bibliographystyle{apsrev} % apsrev is format for PRL of APS

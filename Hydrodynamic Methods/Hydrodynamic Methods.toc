@@ -7,12 +7,16 @@
 \contentsline {subsection}{\numberline {C}Constitutive Relations}{2}{}
 \contentsline {subsubsection}{\numberline {1}Zeroth Order (Non-dissipative)}{3}{}
 \contentsline {subsubsection}{\numberline {2}First Order (Dissipative)}{4}{}
-\contentsline {subsection}{\numberline {D}Linear Response}{5}{}
-\contentsline {section}{\numberline {II}Transport Near Quantum Criticality}{5}{}
-\contentsline {subsection}{\numberline {A}General Setup}{6}{}
-\contentsline {subsection}{\numberline {B}Hydrodynamic Modes and Linear Response}{6}{}
-\contentsline {subsection}{\numberline {C}Perspetive from Holography}{6}{}
-\contentsline {section}{\numberline {III}Non-relativistic Transport --- Fractional Quantum Hall System}{6}{}
-\contentsline {subsection}{\numberline {A}Spacetime Background}{6}{}
-\contentsline {subsection}{\numberline {B}Response}{6}{}
-\contentsline {section}{\numberline {}References}{6}{}
+\contentsline {subsection}{\numberline {D}Hydrodynamic Response Functions}{5}{}
+\contentsline {subsection}{\numberline {E}Planar Antiferromagnets}{6}{}
+\contentsline {subsection}{\numberline {F}Isotropic Antiferromagnets}{7}{}
+\contentsline {subsection}{\numberline {G}Isotropic Ferromagnets}{8}{}
+\contentsline {section}{\numberline {II}Transport Near Quantum Criticality}{9}{}
+\contentsline {subsection}{\numberline {A}General Setup}{9}{}
+\contentsline {subsection}{\numberline {B}Hydrodynamic Modes and Linear Response}{9}{}
+\contentsline {subsection}{\numberline {C}Perspetive from Holographic Duality}{9}{}
+\contentsline {section}{\numberline {III}Hydrodynamics in Curved Spacetime --- Fractional Quantum Hall System}{9}{}
+\contentsline {subsection}{\numberline {A}Motivation: Hall Viscosity}{9}{}
+\contentsline {subsection}{\numberline {B}Spacetime Symmetry in FQHE}{9}{}
+\contentsline {subsection}{\numberline {C}Hydrodynamics on the Lowest Landau Level}{9}{}
+\contentsline {section}{\numberline {}References}{9}{}

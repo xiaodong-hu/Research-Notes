@@ -1,4 +1,4 @@
-\documentclass[10pt,nofootinbib]{revtex4}
+\documentclass[10pt,nofootinbib,letterpaper]{revtex4}
 \usepackage[nocap]{ctex}
 
 %\usepackage{xeCJK}
@@ -53,6 +53,10 @@
 \newenvironment{Proof}{{\par~{\normalfont\bfseries $\vartriangleright$}~~}}{\hfill $\square$\par\hfill\par} %\par
 \newcounter{Def}[section]
 \newenvironment{Def}[1][]{{\par\normalfont\bfseries \underline{Definition~\stepcounter{Def}\arabic{Def}.}~#1~~}}{\par}
+\newcounter{Assumption}[section]
+\newenvironment{Assumption}[1][]{{\par\normalfont\bfseries \underline{Assumption~\stepcounter{Assumption}\arabic{Assumption}.}~#1~~}}{\par}
+
+
 
 \allowdisplaybreaks[4] %允许 align 跨页编排
 
@@ -89,15 +93,15 @@
 		\begin{equation}\label{1.1.1}
 			\H=\H_{XXZ}-H_z\sum_i S_i^z\equiv-\sum_{\langle ij\rangle}J_{ij}^\perp(S_i^xS_j^x+S_i^yS_j^y)-\sum_{\langle ij\rangle}J_{ij}^zS_i^zS_j^z-H_z\sum_i S_i^z.
 		\end{equation}
-		For simplicity let us narrow our discussion in translation invariant case $J_{ij}^\perp\equiv J_\perp$ and $J_{ij}^z=J_z$. The nature of the ordered phases are determined by the sign and relative magnitude of $J_\perp$ and $J_z$. They are listed as following \cite{chaikin2000principles}:
+		For simplicity let us narrow our discussion in translation invariant case $J_{ij}^\perp\equiv J_\perp$ and $J_{ij}^z=J_z$. The nature of the ordered phases are determined by the sign\footnote{The sign of $J_\perp$ is unimportant because one can connected two Hamiltonian $H(J_\perp,J_z)$ and $H(-J_\perp,J_z)$ by a unitary transformation $U=\prod_{\text{odd }i} U_i(\hat{z},\pi)$.} and relative magnitude of $J_\perp$ and $J_z$. They are listed as following \cite{chaikin2000principles}:
 		\begin{enumerate}[label=\arabic*)]
 			\item \emph{Ferromagnetic Heisenberg Model} $J_\perp=J_z=J>0$. The order parameter is a uniform magnetization $\bm{m}$.
 			\item \emph{Antiferromagnetic Heisenberg Model} $J_\perp=J_z=J<0$. The order parameter (N\'{e}el oder) is a staggered magnetization $\bm{N}$.
 			\item \emph{Planar ferromagnet} $J_\perp>|J_z|>0$. The energy is minimized by parallel alignment of spins in the $xy$-plane. So the order parameter is $\bm{m}=(m_x,m_y)$, or equivalently the complex field $m_\perp(\bm{r})e^{i\varphi(\bm{r})}\equiv m_x(\bm{r})+im_y(\bm{r})$.
 			\item \emph{Planar antiferromagnet} $J_\perp<-|J_z|<0$. The energy is minimized by anti-parallel alignment of spins in the $xy$-plane. So the order parameter is the two-component staggered magnetization $\bm{N}\equiv(N_x,N_y)$.
-			\item \emph{Ferromagnetic/Antiferromagnetic Ising model} $|J_z|<|J_\perp|$. Since it breaks discrete symmetry for ordered phase, we are not interested in it.
+			\item \emph{Ferromagnetic/Antiferromagnetic Ising model} $|J_z|<|J_\perp|$. Since the ground state breaks discrete symmetry for ordered phase, we are not interested in it.
 		\end{enumerate}
-		Clearly for isotropic models 1) and 2), the entire spin operator $S\equiv\sum_i\bm{S}_i$ commutes with the Hamiltonian so is conserved. While for anisotropic models 3), 4), and 5), only $S^z\equiv\sum_i S_i^z$ is conserved. Let us start with the spin wave theory in planar ferromagnets.
+		Clearly for isotropic models 1) and 2), the entire spin operator $S\equiv\sum_i\bm{S}_i$ commutes with the Hamiltonian so is conserved. While for anisotropic models 3), 4), and 5), only $S^z\equiv\sum_i S_i^z$ is conserved. Let us start the discussion of spin wave theory in planar ferromagnets.
 
 	\subsection{Planar Ferromagnets}
 		Operator $S^z$ is conserved in planar ferromagnets, so for the coarse-grained $z$-component magnetization $M_z\equiv\langle S_i^z\rangle$, or magnetization density $m_z(\bm{r})\equiv M_z/V$, we have
@@ -108,16 +112,25 @@
 		\begin{equation}\label{1.1.3}
 			\partial_t \varepsilon+\nabla\cdot\bm{j}^\varepsilon=0.
 		\end{equation}
-		\indent But given $M_z$ and $E$, one still cannot determine the spin configuration of ordered states in planar ferromagnets. In fact, as is mentioned above, one must also specify the direction of alignment of perpendicular magnetization (labeled by $\varphi(\bm{r})$), which is locally defined as
+		\textbf{The conservation of \emph{coarse-grained energy} is definite because it originates from the first component of local diffeomorphism (gauge) transformation on microscopic Hamiltonian, and by Elitzer's theorem gauge symmetry cannot be broken. In constrast, the conservation of \emph{coarse-grained magnetization}, resulting from physical symmetry, may be questionable.}\par
+		On the other hand, given $M_z$ and $E$, one still cannot determine the spin configuration of ordered states in planar ferromagnets. In fact, as is mentioned above, one must also specify the direction of alignment of perpendicular magnetization $m_\perp$ (labeled by $\varphi(\bm{r})$), which is locally defined as
 		\begin{equation*}
 			m_x(\bm{r})+im_y(\bm{r})=m_\perp(\bm{r})e^{i\varphi(\bm{r})}.
 		\end{equation*}
-		\indent {\bf\color{red} In hydrodynamic regime, relevant hydro-variables are those whose long-wavelength variations vary slowly in time compared with the characteristic microscopic relaxation time of the scattering processes}. In symmetry breaking phase, such variables are of two classes:
+		\indent Effective field theory tells us that at physical length scale only countable number of variables are relevant (renormalizable), so in hydrodynamics we have
+		\begin{Def}[(Hydro-variables)]
+			\textbf{\color{red}In hydrodynamic regime, relevant hydro-variables are those whose long-wavelength variations vary slowly in time compared with the characteristic microscopic relaxation time of the scattering processes}.
+		\end{Def}
+		In symmetry breaking phase, such variables are \emph{assumed} to be of two classes:
 		\begin{itemize}
 			\item densities of conserved variables (here is $m_z(\bm{r})$ and $\varepsilon(\bm{r})$);
 			\item symmetry-breaking elastic variables (here is $\varphi(\bm{r})$).
 		\end{itemize}
-		Thus we \emph{assume} that {\bf each point of the system reaches almost thermodynamic equilibrium at each instant of time, so that the system is \emph{completely} determined by the hydro-variables, even though they vary in time}. Particularly, the above unspecified current $\bm{j}^e$ and $\bm{j}^{m_z}$ should be functional of these hydro-variables. Ditto for the symmetry-breaking field if we introduce a scalar valued functional $\psi$ of hydro-variables
+		\par The fundamental assumption of hydrodynamics is
+		\begin{Assumption}
+			\textbf{Each point of the system reaches thermodynamic equilibrium at each instant of time, so that the system is \emph{completely} determined by hydro-variables, even though they vary in time}. 
+		\end{Assumption}
+		\noindent Particularly, the above unspecified current $\bm{j}^e$ and $\bm{j}^{m_z}$ should be functional of these hydro-variables. Ditto for the symmetry-breaking field if we introduce a scalar valued functional $\psi$ of hydro-variables and \emph{force} it to satisfy
 		\begin{equation}\label{1.1.4}
 			\partial_t \varphi(\bm{r})+\psi(\bm{r})=0.
 		\end{equation}
@@ -135,7 +148,7 @@
 		where $h\equiv-T \partial s/\partial m_z|_S$ and $\bm{x}\equiv-T\partial s/\partial \bm{v}|_S$. 
 
 		\subsubsection{Zeroth Order (Non-dissipative)}
-			In this subsection, we will {\bf use (assume) the conservation of local entropy to obtain the \emph{non-dissipative} part of ``current operators'' introduced above}. \par
+			In this subsection, we will \textbf{use the conservation of local entropy to obtain the \emph{non-dissipative} part of ``current operators'' introduced above}. \par
 			To the zeroth order of fluctuations, i.e., no spatial derivatives of hydro-variables, the most general form of current operator we can write is
 			\begin{equation}\label{2.1.1}
 				\bm{j}^\varepsilon\equiv A(\bm{r})\bm{v}(\bm{r}),\quad \bm{j}^{m_z}\equiv B(\bm{r})\bm{v}(\bm{r}),\quad \psi\equiv C(\bm{r}),
@@ -152,7 +165,7 @@
 			\begin{equation*}
 				\dfrac{\dd\varphi}{\dd t}=-(\psi_0(\varepsilon,m)+H_z).
 			\end{equation*}
-			However, in \emph{true} thermodynamic equilibrium (with non-vanishing $H_z$), where the system energy $E-M_z H_z$ is minimized so that
+			However, in \emph{true} thermodynamic equilibrium (with non-vanishing $H_z$), where the system energy $E-M_z H_z$ is minimized so that $M_z$ (now with non-vanishing $H_z$) obeys
 			\begin{equation}\label{2.1.2}
 				\dfrac{\partial E}{\partial M_z}=\dfrac{\partial \varepsilon}{\partial m_z}=H_z,
 			\end{equation}
@@ -170,7 +183,7 @@
 				s\simeq s_0(\varepsilon)-\dfrac{1}{2T}\chi_s^{-1}m_z^2-\dfrac{\rho_s}{2T}v^2,
 			\end{equation}
 			where temperature $T^{-1}\equiv\partial s_0/\partial\varepsilon$ is well-defined in equilibrium and inserted by convention. Magnetic \emph{static} suseptibility $\chi_s$ (we will see latter why such coefficient is the suseptibility) and the magnetic version of ``superfluid density'' $\rho_s$ may also be functional of hydro-variables, but up to the second order of disturbance, we can safely treat them as constants\footnote{Apparently $\chi_s$ and $\rho_s$ must be nonnegative for stability of the system.}. Therefore the two conjugate fields we introduce above takes the form of $h\equiv-T \partial s/\partial m_z=\chi_s^{-1}m_z$ and $\bm{x}\equiv-T\partial s/\partial \bm{v}=\rho_s\bm{v}$.\par
-			Taking time derivative of the first law of thermodynamics and substituting conservation laws \eqref{1.1.3}, \eqref{1.1.4}, \eqref{1.1.5} and the zeroth order of non-dissipative currents \eqref{2.1.1} and \eqref{2.1.4}, we have
+			Taking time derivatives\footnote{Strickly speaking, we are comparing one-forms on distinct points of base space manifold connecting by the vector field $\partial/\partial t$. So it is Lie derivative.} of the first law of thermodynamics and substituting conservation laws \eqref{1.1.3}, \eqref{1.1.4}, \eqref{1.1.5} and the zeroth order of non-dissipative currents \eqref{2.1.1} and \eqref{2.1.4}, we have
 			\begin{align}\label{2.1.6}
 				T\dfrac{\partial s}{\partial t}&=\dfrac{\partial \varepsilon}{\partial t}-h\dfrac{\partial m_z}{\partial t}-\bm{x}\cdot\dfrac{\partial \bm{v}}{\partial t}=-\nabla\cdot\bm{j}^\varepsilon+h\nabla\cdot\bm{j}^{m_z}-\bm{x}\cdot\nabla(h-H_z)\nonumber\\
 				&=-\nabla\cdot(A\bm{v})+h\nabla\cdot(B\bm{v})-\bm{x}\cdot\nabla h\nonumber\\
@@ -184,7 +197,7 @@
 			\begin{equation}\label{2.1.7}
 				T\dfrac{\dd s}{\dd t}\equiv T \left(\dfrac{\partial s}{\partial t}+\nabla\cdot \left(\dfrac{\bm{Q}}{T}\right) \right)=-\bm{Q}\cdot \left(\dfrac{\nabla T}{T}\right)-(B\bm{v}+\bm{x})\cdot\nabla h
 			\end{equation}
-			if we identify $\bm{Q}$ as the \emph{entropy current density}. In the absence of dissipation, as is assumed to the zeroth order disturbance, entropy is conserved $\frac{\dd s}{\dd t}=0$. Thus
+			if we identify $\bm{Q}$ as the \emph{entropy current density}. The entropy production \eqref{2.1.7} must be non-negative. But in the absence of dissipation (reversible processes), the entropy remains constant $\frac{\dd s}{\dd t}=0$. Thus
 			\begin{equation}\label{2.1.8}
 				\begin{cases}
 					\bm{Q}\equiv (A-Bh)\bm{v}=0\\
@@ -271,7 +284,7 @@
 		\end{equation}
 		or in hydrodynamic regime where $\beta\omega\ll1$ so that
 		\begin{equation}\label{2.3.4}
-			G_{\varepsilon \varepsilon}(\omega,\bm{k})=-\dfrac{2k_BT}{\omega}\mathop{\mathrm{Im}}G_{\varepsilon \varepsilon}=2k_BCT^2\dfrac{D_T\bm{k}^2}{\omega^2+(D_T\bm{k}^2)^2}.
+			G_{\varepsilon \varepsilon}(\omega,\bm{k})=-\dfrac{2k_BT}{\omega}\mathop{\mathrm{Im}}G^R_{\varepsilon \varepsilon}=2k_BCT^2\dfrac{D_T\bm{k}^2}{\omega^2+(D_T\bm{k}^2)^2}.
 		\end{equation}
 		\indent Things will not change a lot if we include the other two equation of motion \eqref{2.2.5} and \eqref{2.2.6}. In fact, we only need to extend the above formula to matrix form. Clearly the disturbance of source can be read from the first law of thermodynamics \eqref{2.0.1}
 		\begin{equation}\label{2.3.5}
@@ -299,7 +312,7 @@
 		\end{equation*}
 		And the full Green function can be read from
 		\begin{align}
-			G_{AB}&\equiv-\dfrac{2k_BT}{\omega}\mathop{\mathrm{Im}}G_{AB}.
+			G_{AB}&\equiv-\dfrac{2k_BT}{\omega}\mathop{\mathrm{Im}}G^R_{AB}.
 		\end{align}
 	\subsection{Planar Antiferromagnets}
 		Ground states of planar antiferromagnets are anti-parallel spin configuration confined in $x$-$y$ plane, altering the sign site by site. Dividing the lattice into two sublattice $A$ and $B$ and defining a new spin-like variable (in $x$-$y$ plane)

@@ -4,11 +4,11 @@
 \contentsline {section}{\numberline {I}Hydrodynamics in Symmetry-breaking Phase --- Spin Waves}{1}{}
 \contentsline {subsection}{\numberline {A}$S=1/2$ XXZ Model}{1}{}
 \contentsline {subsection}{\numberline {B}Planar Ferromagnets}{2}{}
-\contentsline {subsection}{\numberline {C}Constitutive Relations}{2}{}
+\contentsline {subsection}{\numberline {C}Constitutive Relations}{3}{}
 \contentsline {subsubsection}{\numberline {1}Zeroth Order (Non-dissipative)}{3}{}
-\contentsline {subsubsection}{\numberline {2}First Order (Dissipative)}{4}{}
-\contentsline {subsection}{\numberline {D}Hydrodynamic Response Functions}{5}{}
-\contentsline {subsection}{\numberline {E}Planar Antiferromagnets}{6}{}
+\contentsline {subsubsection}{\numberline {2}First Order (Dissipative)}{5}{}
+\contentsline {subsection}{\numberline {D}Hydrodynamic Response Functions}{6}{}
+\contentsline {subsection}{\numberline {E}Planar Antiferromagnets}{7}{}
 \contentsline {subsection}{\numberline {F}Isotropic Antiferromagnets}{7}{}
 \contentsline {subsection}{\numberline {G}Isotropic Ferromagnets}{8}{}
 \contentsline {section}{\numberline {II}Transport Near Quantum Criticality}{9}{}
@@ -18,5 +18,5 @@
 \contentsline {section}{\numberline {III}Hydrodynamics in Curved Spacetime --- Fractional Quantum Hall System}{9}{}
 \contentsline {subsection}{\numberline {A}Motivation: Hall Viscosity}{9}{}
 \contentsline {subsection}{\numberline {B}Spacetime Symmetry in FQHE}{9}{}
-\contentsline {subsection}{\numberline {C}Hydrodynamics on the Lowest Landau Level}{9}{}
-\contentsline {section}{\numberline {}References}{9}{}
+\contentsline {subsection}{\numberline {C}Hydrodynamics on the Lowest Landau Level}{10}{}
+\contentsline {section}{\numberline {}References}{10}{}

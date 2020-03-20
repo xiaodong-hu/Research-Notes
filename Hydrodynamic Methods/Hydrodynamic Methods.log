@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.8.25)  20 JAN 2020 12:08
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.10.25)  15 FEB 2020 22:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1297,35 +1297,109 @@ Package fontspec Info: Font family 'FandolFang-Regular(0)' created for font
 (fontspec)             <->"[FandolFang-Regular.otf]/OT"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
-(./Hydrodynamic Methods.toc
-Overfull \hbox (5.0pt too wide) detected at line 21
- \TU/lmr/m/n/10 10
- []
-
-
-Overfull \hbox (5.0pt too wide) detected at line 22
- \TU/lmr/m/n/10 10
- []
-
-)
+(./Hydrodynamic Methods.toc)
 \tf@toc=\write6
 \openout6 = `"Hydrodynamic Methods.toc"'.
 
- [1] [2] [3] [4] [5]
-LaTeX Font Info:    Try loading font information for U+dsrom on input line 308.
 
+
+Package natbib Warning: Citation `chaikin2000principles' on page 1 undefined on
+ input line 96.
+
+[1] [2]
+
+Package natbib Warning: Citation `halperin1969hydrodynamic' on page 3 undefined
+ on input line 156.
+
+
+Package natbib Warning: Citation `chaikin2000principles' on page 3 undefined on
+ input line 158.
+
+
+Package natbib Warning: Citation `halperin1969hydrodynamic' on page 3 undefined
+ on input line 158.
+
+
+Package natbib Warning: Citation `halperin1969hydrodynamic' on page 3 undefined
+ on input line 172.
+
+[3] [4]
+
+Package natbib Warning: Citation `kovtun2012lectures' on page 5 undefined on in
+put line 272.
+
+[5]
+
+Package natbib Warning: Citation `kovtun2012lectures' on page 6 undefined on in
+put line 281.
+
+
+Package natbib Warning: Citation `chaikin2000principles' on page 6 undefined on
+ input line 281.
+
+
+Package natbib Warning: Citation `halperin1969hydrodynamic' on page 6 undefined
+ on input line 299.
+
+
+Package natbib Warning: Citation `kovtun2012lectures' on page 6 undefined on in
+put line 299.
+
+LaTeX Font Info:    Try loading font information for U+dsrom on input line 308.
 
 (/usr/local/texlive/2019/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 ) [6]
-[7] [8] (./Hydrodynamic Methods.bbl [9]) [10] (./Hydrodynamic Methods.aux) ) 
+[7]
+
+Package natbib Warning: Citation `chaikin2000principles' on page 8 undefined on
+ input line 398.
+
+[8]
+
+Package natbib Warning: Citation `damle1997nonzero' on page 9 undefined on inpu
+t line 412.
+
+
+Package natbib Warning: Citation `hartnoll2007theory' on page 9 undefined on in
+put line 413.
+
+
+Package natbib Warning: Citation `herzog2009lectures' on page 9 undefined on in
+put line 417.
+
+
+Package natbib Warning: Citation `lindgren2015holographic' on page 9 undefined 
+on input line 417.
+
+
+Package natbib Warning: Citation `hoyos2012hall' on page 9 undefined on input l
+ine 429.
+
+
+Package natbib Warning: Citation `son2013newton' on page 9 undefined on input l
+ine 431.
+
+
+Package natbib Warning: Citation `geracie2015spacetime' on page 9 undefined on 
+input line 431.
+
+
+Package natbib Warning: Citation `geracie2015hydrodynamics' on page 9 undefined
+ on input line 434.
+
+No file "Hydrodynamic Methods".bbl.
+
+Package natbib Warning: There were undefined citations.
+
+[9] (./Hydrodynamic Methods.aux) ) 
 Here is how much of TeX's memory you used:
- 41777 strings out of 494788
- 1004818 string characters out of 6172356
- 1257110 words of memory out of 5000000
- 45080 multiletter control sequences out of 15000+600000
- 547420 words of font info for 113 fonts, out of 8000000 for 9000
- 36 hyphenation exceptions out of 8191
+ 41734 strings out of 494719
+ 1003807 string characters out of 6170196
+ 1257364 words of memory out of 5000000
+ 45049 multiletter control sequences out of 15000+600000
+ 547428 words of font info for 114 fonts, out of 8000000 for 9000
+ 62 hyphenation exceptions out of 8191
  62i,18n,96p,812b,500s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Hydrodynamic Methods.xdv (10 pages, 217228 bytes).
+Output written on Hydrodynamic Methods.xdv (9 pages, 207532 bytes).

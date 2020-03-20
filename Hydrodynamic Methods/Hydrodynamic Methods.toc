@@ -18,5 +18,4 @@
 \contentsline {section}{\numberline {III}Hydrodynamics in Curved Spacetime --- Fractional Quantum Hall System}{9}{}
 \contentsline {subsection}{\numberline {A}Motivation: Hall Viscosity}{9}{}
 \contentsline {subsection}{\numberline {B}Spacetime Symmetry in FQHE}{9}{}
-\contentsline {subsection}{\numberline {C}Hydrodynamics on the Lowest Landau Level}{10}{}
-\contentsline {section}{\numberline {}References}{10}{}
+\contentsline {subsection}{\numberline {C}Hydrodynamics on the Lowest Landau Level}{9}{}

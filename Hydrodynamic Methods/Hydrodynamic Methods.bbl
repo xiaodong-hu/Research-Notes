@@ -1,0 +1,90 @@
+\begin{thebibliography}{11}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname bibnamefont\endcsname\relax
+  \def\bibnamefont#1{#1}\fi
+\expandafter\ifx\csname bibfnamefont\endcsname\relax
+  \def\bibfnamefont#1{#1}\fi
+\expandafter\ifx\csname citenamefont\endcsname\relax
+  \def\citenamefont#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{\citenamefont{Son}(2013)}]{son2013newton}
+\bibinfo{author}{\bibfnamefont{D.~T.} \bibnamefont{Son}},
+  \bibinfo{journal}{arXiv preprint arXiv:1306.0638}  (\bibinfo{year}{2013}).
+
+\bibitem[{\citenamefont{Chaikin and Lubensky}(2000)}]{chaikin2000principles}
+\bibinfo{author}{\bibfnamefont{P.~M.} \bibnamefont{Chaikin}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{T.~C.} \bibnamefont{Lubensky}},
+  \emph{\bibinfo{title}{Principles of condensed matter physics}},
+  vol.~\bibinfo{volume}{1} (\bibinfo{publisher}{Cambridge university press
+  Cambridge}, \bibinfo{year}{2000}).
+
+\bibitem[{\citenamefont{Halperin and
+  Hohenberg}(1969)}]{halperin1969hydrodynamic}
+\bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Halperin}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Hohenberg}},
+  \bibinfo{journal}{Physical Review} \textbf{\bibinfo{volume}{188}},
+  \bibinfo{pages}{898} (\bibinfo{year}{1969}).
+
+\bibitem[{\citenamefont{Kovtun}(2012)}]{kovtun2012lectures}
+\bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Kovtun}},
+  \bibinfo{journal}{Journal of Physics A: Mathematical and Theoretical}
+  \textbf{\bibinfo{volume}{45}}, \bibinfo{pages}{473001}
+  (\bibinfo{year}{2012}).
+
+\bibitem[{\citenamefont{Damle and Sachdev}(1997)}]{damle1997nonzero}
+\bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Damle}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Sachdev}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{56}},
+  \bibinfo{pages}{8714} (\bibinfo{year}{1997}).
+
+\bibitem[{\citenamefont{Hartnoll et~al.}(2007)\citenamefont{Hartnoll, Kovtun,
+  M{\"u}ller, and Sachdev}}]{hartnoll2007theory}
+\bibinfo{author}{\bibfnamefont{S.~A.} \bibnamefont{Hartnoll}},
+  \bibinfo{author}{\bibfnamefont{P.~K.} \bibnamefont{Kovtun}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{M{\"u}ller}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Sachdev}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{76}},
+  \bibinfo{pages}{144502} (\bibinfo{year}{2007}).
+
+\bibitem[{\citenamefont{Herzog}(2009)}]{herzog2009lectures}
+\bibinfo{author}{\bibfnamefont{C.~P.} \bibnamefont{Herzog}},
+  \bibinfo{journal}{Journal of Physics A: Mathematical and Theoretical}
+  \textbf{\bibinfo{volume}{42}}, \bibinfo{pages}{343001}
+  (\bibinfo{year}{2009}).
+
+\bibitem[{\citenamefont{Lindgren et~al.}(2015)\citenamefont{Lindgren,
+  Papadimitriou, Taliotis, and Vanhoof}}]{lindgren2015holographic}
+\bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Lindgren}},
+  \bibinfo{author}{\bibfnamefont{I.}~\bibnamefont{Papadimitriou}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Taliotis}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Vanhoof}},
+  \bibinfo{journal}{Journal of High Energy Physics}
+  \textbf{\bibinfo{volume}{2015}}, \bibinfo{pages}{94} (\bibinfo{year}{2015}).
+
+\bibitem[{\citenamefont{Hoyos and Son}(2012)}]{hoyos2012hall}
+\bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Hoyos}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{D.~T.} \bibnamefont{Son}},
+  \bibinfo{journal}{Physical review letters} \textbf{\bibinfo{volume}{108}},
+  \bibinfo{pages}{066805} (\bibinfo{year}{2012}).
+
+\bibitem[{\citenamefont{Geracie et~al.}(2015)\citenamefont{Geracie, Son, Wu,
+  and Wu}}]{geracie2015spacetime}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Geracie}},
+  \bibinfo{author}{\bibfnamefont{D.~T.} \bibnamefont{Son}},
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Wu}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{S.-F.} \bibnamefont{Wu}},
+  \bibinfo{journal}{Physical Review D} \textbf{\bibinfo{volume}{91}},
+  \bibinfo{pages}{045030} (\bibinfo{year}{2015}).
+
+\bibitem[{\citenamefont{Geracie and Son}(2015)}]{geracie2015hydrodynamics}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Geracie}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{D.~T.} \bibnamefont{Son}},
+  \bibinfo{journal}{Journal of High Energy Physics}
+  \textbf{\bibinfo{volume}{2015}}, \bibinfo{pages}{44} (\bibinfo{year}{2015}).
+
+\end{thebibliography}

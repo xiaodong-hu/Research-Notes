@@ -11,11 +11,14 @@
 \contentsline {subsection}{\numberline {E}Planar Antiferromagnets}{7}{}
 \contentsline {subsection}{\numberline {F}Isotropic Antiferromagnets}{7}{}
 \contentsline {subsection}{\numberline {G}Isotropic Ferromagnets}{8}{}
-\contentsline {section}{\numberline {II}Transport Near Quantum Criticality}{9}{}
-\contentsline {subsection}{\numberline {A}General Setup}{9}{}
-\contentsline {subsection}{\numberline {B}Hydrodynamic Modes and Linear Response}{9}{}
-\contentsline {subsection}{\numberline {C}Perspetive from Holographic Duality}{9}{}
-\contentsline {section}{\numberline {III}Hydrodynamics in Curved Spacetime --- Fractional Quantum Hall System}{9}{}
-\contentsline {subsection}{\numberline {A}Motivation: Hall Viscosity}{9}{}
-\contentsline {subsection}{\numberline {B}Spacetime Symmetry in FQHE}{9}{}
-\contentsline {subsection}{\numberline {C}Hydrodynamics on the Lowest Landau Level}{9}{}
+\contentsline {section}{\numberline {II}Transport of Weyl Semimetals}{9}{}
+\contentsline {section}{\numberline {III}Transport Near Quantum Criticality}{10}{}
+\contentsline {section}{\numberline {IV}Transport Near Quantum Criticality}{10}{}
+\contentsline {subsection}{\numberline {A}General Setup}{10}{}
+\contentsline {subsection}{\numberline {B}Hydrodynamic Modes and Linear Response}{10}{}
+\contentsline {subsection}{\numberline {C}Perspetive from Holographic Duality}{10}{}
+\contentsline {section}{\numberline {V}Hydrodynamics in Curved Spacetime --- Fractional Quantum Hall System}{10}{}
+\contentsline {subsection}{\numberline {A}Motivation: Hall Viscosity}{10}{}
+\contentsline {subsection}{\numberline {B}Spacetime Symmetry in FQHE}{10}{}
+\contentsline {subsection}{\numberline {C}Hydrodynamics on the Lowest Landau Level}{11}{}
+\contentsline {section}{\numberline {}References}{11}{}

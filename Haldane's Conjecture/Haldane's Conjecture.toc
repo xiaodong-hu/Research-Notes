@@ -1,0 +1,12 @@
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Previous Work}{4}{0}{1}
+\beamer@subsectionintoc {1}{2}{Question We Address}{6}{0}{1}
+\beamer@sectionintoc {2}{Low-energy Effective Field Theory of AFM}{11}{0}{2}
+\beamer@subsectionintoc {2}{1}{Angle-variable Representation}{12}{0}{2}
+\beamer@subsectionintoc {2}{2}{Semi-classical Approximation}{13}{0}{2}
+\beamer@subsectionintoc {2}{3}{Non-linear Sigma Model}{18}{0}{2}
+\beamer@sectionintoc {3}{Haldane's Conjecture}{20}{0}{3}
+\beamer@subsectionintoc {3}{1}{Topological Soliton Solution}{21}{0}{3}
+\beamer@sectionintoc {4}{Summary}{26}{0}{4}
+\beamer@subsectionintoc {4}{1}{Haldane's Conjecture}{27}{0}{4}
+\beamer@subsectionintoc {4}{2}{Acknowledgement}{29}{0}{4}

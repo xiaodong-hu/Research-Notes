@@ -1,0 +1,8 @@
+\tocdepth@munge 
+\contentsline {section}{\numberline {}Contents}{1}{}
+\tocdepth@restore 
+\contentsline {section}{\numberline {I}Correction of Phase Space Volume Element}{1}{}
+\contentsline {subsection}{\numberline {A}Symplectic Manifold}{1}{}
+\contentsline {subsection}{\numberline {B}Hamiltonian Dynamics with Berry Curvature}{2}{}
+\contentsline {section}{\numberline {II}Hydrodynamic EOM from Boltzmann Kinetic Equation}{2}{}
+\contentsline {section}{\numberline {}References}{2}{}

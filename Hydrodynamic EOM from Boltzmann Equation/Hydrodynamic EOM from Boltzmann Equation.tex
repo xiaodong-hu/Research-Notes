@@ -1,0 +1,154 @@
+\documentclass[10pt,nofootinbib,letterpaper]{revtex4}
+\usepackage[nocap]{ctex}
+
+%\usepackage{xeCJK}
+%\setCJKmainfont{Source Han Sans CN}
+%\setCJKmonofont{Source Han Sans CN}
+%\setCJKsansfont{Source Han Sans CN}
+
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,bm,dsfont}
+\usepackage{enumerate}
+\usepackage{enumitem} % Customize itemize, see https://ctan.org/tex-archive/macros/latex/contrib/enumitem/
+\usepackage[all]{xy}
+\usepackage[normalem]{ulem}	% delete line
+\usepackage{graphics,color}
+\usepackage{tikz}
+	\usetikzlibrary{calc}
+	\usetikzlibrary{decorations.markings}
+	\usetikzlibrary{arrows}
+	\usetikzlibrary{patterns}
+	%\usetikzlibrary{shapes.callouts}
+\tikzset{
+    level/.style = {
+        ultra thick,
+        blue,
+    },
+    connect/.style = {
+        dashed,
+        red
+    },
+    label/.style = {
+        text width=2cm
+    }
+}
+\usepackage{pgfplots}
+%\usepackage[citestyle=authortitle]{biblatex} % able to cite the title, author and year
+%\usepackage{hyperref}
+\usepackage{feynmp} % feymann diagram
+\usepackage{extarrows}
+
+\usepackage[normalem]{ulem} % 文字划掉（横），与 cite 兼容问题，见 https://tex.stackexchange.com/questions/98222/ulem-incompatibility-with-multiple-entries-in-cite
+
+\newcommand*\dd{\mathop{}\!\mathrm{d}}
+\newcounter{Claim}[section]
+\newenvironment{Claim}[1][]{{\par\normalfont\bfseries \underline{Claim~\stepcounter{Claim}\arabic{Claim}.}~#1~~}}{\par}
+\newcounter{Proposition}[section]
+\newenvironment{Proposition}[1][]{{\par\normalfont\bfseries \underline{Proposition~\stepcounter{Proposition}\arabic{Proposition}.}~#1~~}}{\par}
+\newcounter{Note}[section]
+\newenvironment{Note}[1][]{{\par\normalfont\bfseries \underline{Note~\stepcounter{Note}\arabic{Note}.}~#1~~}}{\par}
+\newcounter{Lemma}[section]
+\newenvironment{Lemma}[1][]{{\par\normalfont\bfseries \underline{Lemma~\stepcounter{Lemma}\arabic{Lemma}.}~#1~~}}{\par}
+\newcounter{Corollary}[section]
+\newenvironment{Corollary}[1][]{{\par\normalfont\bfseries \underline{Corollary~\stepcounter{Corollary}\arabic{Corollary}.}~#1~~}}{\par}
+\newenvironment{Proof}{{\par~{\normalfont\bfseries $\vartriangleright$}~~}}{\hfill $\square$\par\hfill\par} %\par
+\newcounter{Def}[section]
+\newenvironment{Def}[1][]{{\par\normalfont\bfseries \underline{Definition~\stepcounter{Def}\arabic{Def}.}~#1~~}}{\par}
+\newcounter{Assumption}[section]
+\newenvironment{Assumption}[1][]{{\par\normalfont\bfseries \underline{Assumption~\stepcounter{Assumption}\arabic{Assumption}.}~#1~~}}{\par}
+
+
+
+\allowdisplaybreaks[4] %允许 align 跨页编排
+
+
+%\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+%\def\G{\mathcal{G}}
+\def\Z{\mathcal{Z}}
+\def\H{\mathcal{H}}
+
+\begin{document}
+\title{Hydrodyanmic EOM from Boltzmann Equation}
+\author{Xiaodong Hu}
+%\altaffiliation[Also at ]{Boson College}
+\email{xiaodong.hu@bc.edu}
+\affiliation{Department of Physics, Boston College}
+
+\date{\today}
+
+\begin{abstract}
+	In this note I will first introduce the correction of phase space volume element from Berry curvature term in semi-classic EOM, then combine it with Boltzmann Kinetic equation to obtain both the constitution relation and hydrodynamic equation of motion.\par
+	%\begin{center}
+		\hfill\par
+		{\centering\kaishu 流成笔下春风瓣，吹散弦上秋草声。\\[0.5em]}
+	%\end{center}
+	\hfill------ 雨楼清歌「一瓣河川」
+\end{abstract}
+
+\maketitle
+\tableofcontents
+
+\section{Correction of Phase Space Volume Element}
+	\subsection{Symplectic Manifold}
+		Let us first recall the \emph{symplectic structure} of Hamiltonian dynamics. Physically, a ($6N$-dimensional) phase space is a \emph{symplectic manifold} $(M,\omega)$ consisting of a smooth manifold $M$ and a closed non-degenerate\footnote{By close we mean $\dd\omega\equiv0$, and by non-degenerate we mean for any $\bm{v}$, $\omega(\bm{u},\bm{v})=0\implies \bm{u}=\bm{0}$.} differential $2$-form $\omega$, which in general takes the form of
+		\begin{equation*}
+			\omega=\dfrac{1}{2}\omega_{\alpha \beta}\dd\xi^\alpha\wedge\dd\xi^\beta
+		\end{equation*}
+		in local coordinates $\{\xi^a\}$. Given a simplectic space $V\in T_pM$, we can always define a linear map $\omega^\sharp:V\rightarrow V^*$ by $\bm{v}\mapsto\omega(\cdot,\bm{v})$ since $\omega$ is bilinear. Clearly simplectic $2$-form $\omega$ is non-degenerate iff $\omega^\sharp$ is one-to-one\footnote{For a linear map $\omega^\sharp$, one-to-one is equivalent to $\mathrm{Ker}(\omega^\sharp)=\{\bm{0}\}$, namely $\omega^\sharp(\bm{u})=\bm{0}\implies\bm{u}=\bm{0}$. But $\omega^\sharp(\bm{u})=\bm{0}\implies \forall \bm{v}\in V, \omega^\sharp(\bm{u})(\bm{v})\equiv\omega(\bm{u},\bm{v})=0\implies\bm{u}=\bm{0}$ by the non-degeneracy of $\omega$.}, so $\omega^\sharp$ is an isomorphism and has an inverse $(\omega^\sharp)^{-1}$.\par
+		Equipped with $\omega^\sharp$, we can then define the \emph{Hamiltonian vector field} $X_f$ for any differential function $f\in C^\infty(M)$ by $X_f:=(\omega^\sharp)^{-1}\dd f$. Specifically, in the local coordinates $\{\xi^\alpha\}$, we have
+		\begin{equation*}
+			\omega^\sharp\left(\dfrac{\partial }{\partial \xi^\gamma}\right)\equiv\iota_{\frac{\partial }{\partial \xi^\gamma}}\omega\equiv\dfrac{1}{2}\omega^{\alpha\beta}\dd\xi^\alpha\wedge\dd\xi^\beta\left(\dfrac{\partial }{\partial \xi^\gamma}\right)=\omega_{\gamma\beta}\dd\xi^\beta\implies (\omega^\sharp)^{-1}(\dd\xi^\alpha)=\omega^{\alpha\gamma}\dfrac{\partial }{\partial \xi^\gamma}
+		\end{equation*}
+		(where we introduce the inverse matrix $\omega^{\alpha\gamma}$ such that $\omega^{\alpha\gamma}\omega_{\gamma\beta}\equiv\delta^\alpha_\beta$) and so
+		\begin{equation*}
+			X_f=\partial_\alpha f(\omega^\sharp)^{-1}(\dd\xi^\alpha)=\omega^{\alpha\gamma}\partial_\alpha f\dfrac{\partial }{\partial \xi^\gamma}.
+		\end{equation*}
+		Then Poisson bracket for two function $f,g\in C^\infty(M)$ can be defined through the two corresponding Hamiltonian vector fields
+		\begin{equation}\label{1.1.1}
+			{\color{red}\{f,g\}:=\omega(X_f,X_g).}
+		\end{equation}
+		In the local coordinates, we immediately have
+		\begin{equation}\label{1.1.2}
+			\{f,g\}=\omega^{\alpha \beta}\partial_\alpha f\partial_\beta g.
+		\end{equation}
+		\indent In QM, the eigenvalues of a Hamiltonian operator serves as a differential function of local coordinates $h(\xi)\in C^\infty(M)$, so the semi-classical \emph{Hamiltonian equation} (as the second ingredients of Hamiltonian dynamics) reads
+		\begin{equation}\label{1.1.3}
+			{\color{red}\dot{\xi}^\alpha=\{h,\xi^\alpha\}=\omega^{\alpha\beta}\partial_\beta h,\quad \text{or}\quad\omega_{\alpha\beta}\dot{\xi}^\beta=\partial_\alpha h}.
+		\end{equation}
+
+	\subsection{Hamiltonian Dynamics with Berry Curvature}
+		Semi-classical EOM of electronic wave-packets reads
+		\begin{align}
+			\dot{\bm{r}}&=\dfrac{1}{\hbar}\dfrac{\partial \varepsilon_n}{\partial \bm{k}}-\dot{\bm{k}}\times\Omega(\bm{k}),\label{1.2.1}\\
+			\hbar\dot{\bm{k}}&=-e\bm{E}-e\dot{\bm{r}}\times\bm{B}.\label{1.2.2}
+		\end{align}
+		In the presence of both electric magnetic fields, the Hamiltonian function of such quasiparticle is $h=\varepsilon_n-eV$. We can re-arrange the kinetic EOM in terms of standard Hamiltonian equation \eqref{1.1.3} so that
+		\begin{equation}\label{1.2.3}
+			\omega_{\alpha\beta}\dot{\xi}^\beta\equiv
+			\left(\begin{array}{cc}
+				-e \varepsilon_{ijk}B^k & \delta_{jk} \\
+				-\delta_{jk} & \varepsilon_{ijk}\dfrac{\Omega^{k}}{\hbar}
+			\end{array}\right)
+			\left(\begin{array}{c}
+				\dot{r}_j \\ \dot{p}_j
+			\end{array}\right)=
+			\left(\begin{array}{c}
+				\partial_{p_j}\varepsilon \\ e E_j
+			\end{array}\right)
+			\equiv \partial_\alpha h.
+		\end{equation}
+		The Poisson brackets can be directly obtained from the inverse matrix.\par 
+		As a bonus, we can also get the \emph{invariant volume element} for the symplectic manifold, which is defined to have a similar form on a manifold with metric structure
+		\begin{equation}\label{1.2.4}
+			\dd V:=\sqrt{|\mathrm{det}(\omega_{\alpha\beta})|}\prod_{\alpha=1}^{2d}\dd\xi^\alpha.
+		\end{equation}
+		Form \eqref{1.2.4} is clearly well-defined under local coordinate transformation (Jacobian cancels exactly). However, \textbf{one must be aware of the SHARP differences between symplectic manifolds and Riemannian manifolds. For example, there is no Darboux-like theorem for a Riemann manifold so we cannot locally trivialize a metric tensor by finding out the canonical variables, and there are infinite torsion-free metric compatible connection on symplectic manifolds (while on Riemannian manifold such connection is unique). See \url{https://physics.stackexchange.com/questions/136182} for more details}.\par
+		Particularly in our cases, up to the first order of magnetic fields, the volume element takes the form of
+		\begin{equation}\label{1.2.5}
+			\dd V=\sqrt{1+\dfrac{2e}{\hbar}\bm{B}\cdot\bm{\Omega}}\,\dd\bm{r}\dd\bm{p}\simeq{\color{red}\left(1+\dfrac{e}{\hbar}\bm{B}\cdot\bm{\Omega}\right)}\dd\bm{r}\dd\bm{p}.
+		\end{equation}
+
+\section{Hydrodynamic EOM from Boltzmann Kinetic Equation}
+
+\bibliography{hxd}
+\bibliographystyle{apsrev} % apsrev is format for PRL of APS
+\end{document}

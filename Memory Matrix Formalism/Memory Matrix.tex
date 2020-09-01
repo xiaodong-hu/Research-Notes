@@ -1,0 +1,238 @@
+\documentclass[10pt,nofootinbib,letterpaper]{revtex4}
+\usepackage[nocap]{ctex}
+
+%\usepackage{xeCJK}
+%\setCJKmainfont{Source Han Sans CN}
+%\setCJKmonofont{Source Han Sans CN}
+%\setCJKsansfont{Source Han Sans CN}
+
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,bm,dsfont}
+\usepackage{enumerate}
+\usepackage{enumitem} % Customize itemize, see https://ctan.org/tex-archive/macros/latex/contrib/enumitem/
+\usepackage[all]{xy}
+\usepackage[normalem]{ulem}	% delete line
+\usepackage{graphics,color}
+\usepackage{tikz}
+	\usetikzlibrary{calc}
+	\usetikzlibrary{decorations.markings}
+	\usetikzlibrary{arrows}
+	\usetikzlibrary{patterns}
+	%\usetikzlibrary{shapes.callouts}
+\tikzset{
+    level/.style = {
+        ultra thick,
+        blue,
+    },
+    connect/.style = {
+        dashed,
+        red
+    },
+    label/.style = {
+        text width=2cm
+    }
+}
+\usepackage{pgfplots}
+%\usepackage[citestyle=authortitle]{biblatex} % able to cite the title, author and year
+%\usepackage{hyperref}
+\usepackage{feynmp} % feymann diagram
+\usepackage{extarrows}
+
+\usepackage[normalem]{ulem} % 文字划掉（横），与 cite 兼容问题，见 https://tex.stackexchange.com/questions/98222/ulem-incompatibility-with-multiple-entries-in-cite
+
+\newcommand*\dd{\mathop{}\!\mathrm{d}}
+\newcounter{Claim}[section]
+\newenvironment{Claim}[1][]{{\par\normalfont\bfseries \underline{Claim~\stepcounter{Claim}\arabic{Claim}.}~#1~~}}{\par}
+\newcounter{Proposition}[section]
+\newenvironment{Proposition}[1][]{{\par\normalfont\bfseries \underline{Proposition~\stepcounter{Proposition}\arabic{Proposition}.}~#1~~}}{\par}
+\newcounter{Note}[section]
+\newenvironment{Note}[1][]{{\par\normalfont\bfseries \underline{Note~\stepcounter{Note}\arabic{Note}.}~#1~~}}{\par}
+\newcounter{Lemma}[section]
+\newenvironment{Lemma}[1][]{{\par\normalfont\bfseries \underline{Lemma~\stepcounter{Lemma}\arabic{Lemma}.}~#1~~}}{\par}
+\newcounter{Corollary}[section]
+\newenvironment{Corollary}[1][]{{\par\normalfont\bfseries \underline{Corollary~\stepcounter{Corollary}\arabic{Corollary}.}~#1~~}}{\par}
+\newenvironment{Proof}{{\par~{\normalfont\bfseries $\vartriangleright$}~~}}{\hfill $\square$\par\hfill\par} %\par
+\newcounter{Def}[section]
+\newenvironment{Def}[1][]{{\par\normalfont\bfseries \underline{Definition~\stepcounter{Def}\arabic{Def}.}~#1~~}}{\par}
+\newcounter{Assumption}[section]
+\newenvironment{Assumption}[1][]{{\par\normalfont\bfseries \underline{Assumption~\stepcounter{Assumption}\arabic{Assumption}.}~#1~~}}{\par}
+
+
+
+\allowdisplaybreaks[4] %允许 align 跨页编排
+
+
+%\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+%\def\G{\mathcal{G}}
+\def\Z{\mathcal{Z}}
+\def\H{\mathcal{H}}
+
+\begin{document}
+\title{Memory Matrix Formalism for Parity-violating Transport}
+\author{Xiaodong Hu}
+%\altaffiliation[Also at ]{Boson College}
+\email{xiaodong.hu@bc.edu}
+\affiliation{Department of Physics, Boston College}
+
+\date{\today}
+
+\begin{abstract}
+	We review the memory matrix formalism with the example of parity-preserving transport, then switching to the parity-violating case (time-reversal symmetry is preserved) where anomalous Hall effect is expected to emerge. Such terms have already been revealed from pure hydrodynamic analysis in high energy physics. As another independent tool, memory matrix formalism is believe to provide the same result for the overlapping regime with hydrodynamics. In this letter, we will show the accodance of them.\par
+	%\begin{center}
+		\hfill\par
+		{\centering\kaishu 流成笔下春风瓣，吹散弦上秋草声。\\[0.5em]}
+	%\end{center}
+	\hfill------ 雨楼清歌「一瓣河川」
+\end{abstract}
+
+\maketitle
+\tableofcontents
+
+\section{Memory Matrix Formalism}
+			The \emph{Kubo pair} \cite{kubo1957statistical} of two operators $A$ and $B$ is defined as ($k_B=\hbar\equiv1$)
+		\subsection{Basic Properties of Kubo Pair}
+			\begin{Def}[(Kubo Pair)]
+				\begin{equation}\label{1.1.1}
+					C_{AB}:=\dfrac{1}{\beta}\int_0^\beta\dd\lambda\,\langle A^\dagger(t)B(i\lambda)\rangle_T\equiv T\int_0^{1/T}\dd\lambda\,\langle A e^{-iLt}B(i\lambda)\rangle_T,
+				\end{equation}
+				where $\langle\cdots\rangle_T$ is the finte-temperature statistical average, $A(t)\equiv e^{iHt}Ae^{-iHt}$ and $L\equiv[H,\circ]$ is the Liouville operator (so that $A(t)\equiv e^{iLt}A$).
+			\end{Def}
+			\begin{Claim}
+				\begin{equation}\label{1.1.2}
+					\partial_t C_{AB}(t)=-iT\langle[A(t),B]\rangle_T
+				\end{equation}
+			\end{Claim}
+			\begin{Proof}
+				Expressing $B(i\lambda)$  in terms of Liouville operator as well, we have
+				\begin{equation*}
+					\partial_t C_{AB}(t)=-iT\int_0^{1/T}\dd\lambda\,\left\langle ALe^{-iLt}B(i\lambda)\right\rangle_T=-iT\int_0^{1/T}\dd\lambda\,\left\langle Ae^{-iLt}L\cdot e^{-L\lambda}B\cdot e^{-H/T}\right\rangle.
+				\end{equation*}
+				After the integration over $\lambda$, we obtain
+				\begin{align*}
+					\partial_t C_{AB}(t)&=-iT \left\langle Ae^{-iLt}L\cdot(-L)^{-1}(e^{-Lt}-1)B\cdot e^{-H/T}\right\rangle\\
+					&=iT \left\langle A e^{-iLt}e^{-Lt}B\cdot e^{-H/T}\right\rangle-iT \left\langle A e^{iLt}\cdot B\cdot e^{-H/T}\right\rangle\\
+					&=iT \left\langle A e^{-Lt}\cdot e^{-iLt}B\cdot e^{-H/T}\right\rangle-iT \left\langle A\cdot e^{-iLt}B\cdot e^{-H/T}\right\rangle\\
+					&=iT \left\langle A\cdot e^{-Lt}B(-t)\cdot e^{-H/T}\right\rangle-iT \left\langle AB(-t) e^{-H/T}\right\rangle\\
+					&\equiv iT \left\langle A\cdot e^{-H/T}B(-t) e^{H/T}\cdot e^{-H/T}\right\rangle-iT \left\langle A B(-t)\right\rangle_T\\
+					&=iT \bigg(\langle B(-t) A\rangle_T-\langle AB(-t)\rangle\bigg)\equiv-iT\langle[A,B(-t)]\rangle_T=-iT\langle[A(t),B]\rangle,
+				\end{align*}
+				where in the line next to the last we explicitly write out the Liouville operator and cycle the trace.
+			\end{Proof}
+			This result connects Kubo pair with the retarded Green function. By definition $iG^R_{AB}(t):=\theta(t)\langle[A(t),B]\rangle$, so we have
+			\begin{equation}\label{1.1.3}
+				\theta(t)\partial_t C_{AB}(t)\equiv -T G_{AB}^R(t).
+			\end{equation}
+			Integrating \eqref{1.1.3} over time, we get
+			\begin{equation*}
+				\dfrac{1}{T}\bigg(C_{AB}(t=\infty)-C_{AB}(t=0)\bigg)=-\int_{-\infty}^\infty\dd t\, G^R_{AB}(t)\equiv-\int_{-\infty}^\infty\dd t\, G^R_{AB}(t)e^{-i\omega t}|_{\omega=0}\equiv G^R_{AB}(\omega=0)\equiv\chi_{AB}.
+			\end{equation*}
+			Assuming operators $A$ and $B$ decay at late time $t\rightarrow\infty$, we then come to a somewhat counterintuitive result,
+			\begin{equation}\label{1.1.4}
+				{\color{red}\dfrac{1}{T}C_{AB}(t=0)=G_{AB}^R(\omega=0)\equiv\chi_{AB}},
+			\end{equation}
+			\textbf{connnecting a fixed time $(t=0)$ quantity on the LHS to a fixed frequency (integral over time axis) quantity on the RHS}.
+		\subsection{Memory Matrix Theory}
+			The essense of memory matrix theory is to
+			\begin{itemize}
+				\item \textbf{assign (freely) a selective set of long-lived operators (as hydrodynamic degree of freedom);}
+				\item \textbf{perform a series of manipulation on $C_{AB}(z)$ to extract the dominating contribution to conductivities ($\sigma_{AB}(z)\equiv\dfrac{1}{T}C_{AB}(z)$).}
+			\end{itemize}
+			Since perturbation theory for quantum mechanics is well-established, defining a ``Hilbert space for operators'' will be helpful. To acheive this, we need to assign a \emph{complete inner product} $(\circ\mid\circ)$ on the linear space of operators. A natural choice is the Kubo pair we defined above
+			\begin{equation}\label{1.2.1}
+				(A(t)|B):=C_{AB}(t),
+			\end{equation}
+			so from equation \eqref{1.1.4}
+			\begin{equation}\label{1.2.2}
+				(A|B)\equiv(A(0)|B)\equiv C_{AB}(t=0)=T G^R_{AB}(\omega=0)=T\chi_{AB}.
+			\end{equation}
+			\begin{Note}
+				The \emph{bilinearity} of $(\circ\mid\circ)$ is obvious. But to show \eqref{1.2.1} indeed define a inner product, we also have to prove the \emph{complex conjugation} $(A(t)|B)^*\equiv(B|A(t))$ and \emph{positive-definiteness} $(A|A)\geq0$. They can all been checked as properties of Kubo pairs \cite{kubo1957statistical,forster2018hydrodynamic}. Besides this, we can even show that such inner product is actually \emph{real} and \emph{symmetric}. Time-translation symmetry also gives $(A(-t)|B)\equiv(e^{-iLt}A,B)=(A|B(t))\equiv(A,e^{iLt}B)$, indicating $(iL)^{\mathrm{adj}}=-iL$ in the operator Hilbert space. But one must be aware that, {\color{red}under the basis of long-lived operators (rather than the basis of complete eigenstates), Liouville operator does not appear as a matrix. So the ``adjoint'' of one operator should not be simply taken as the "conjugate transpose" as in usual Quantum Mechanics}. In fact, by moving the position of $H$ and cyclying the trace,
+				\begin{align*}
+					(A|L|B)&\equiv\dfrac{1}{\beta}\int_0^\beta\dfrac{1}{\mathcal{Z}}\mathop{\mathrm{tr}}\bigg\{e^{-\beta H}Ae^{-\lambda H}(HB-BH)e^{\lambda H}\bigg\}\\
+					&=\dfrac{1}{\beta}\int_0^\beta\dfrac{1}{\mathcal{Z}}\mathop{\mathrm{tr}}\bigg\{e^{-\beta H}(AH-HA)e^{-\lambda H}Be^{\lambda H}\bigg\}\equiv-(LA,B)\equiv-(A|L^{\mathrm{adj}}|B),
+				\end{align*}
+				we get ${\color{red}L^{\mathrm{adj}}=-L}$ (and clearly $i^{\mathrm{adj}}=i$). For the full proof of the properties, please refer to my Xournal++ writting notes.
+			\end{Note}
+			\begin{Note}
+				Strickly speaking, to define a useful Hilbert space, we also demand such inner product to be \emph{complete} and the Hilbert space to be \emph{separable}\footnote{As a reminder, a Hilbert space is separable provided it contains a dense countable subset. Along with Zorn's lemma, this means a Hilbert space is \emph{separable} if and only if it admits a countable orthonormal basis.}. But they have little to do with our main derivation so we just assume they are true and leave the work to mathematicians. 
+			\end{Note}
+			\hfill\\
+			With the help of this inner product, the laplace transformation of Kubo pair $C_{AB}(t)$ can now be written as
+			\begin{align*}
+				C_{AB}(z)&\equiv\int_0^\infty\dd t\, e^{izt}C_{AB}(t)\equiv\int_0^\infty\dd t\, e^{izt}(A|e^{-iLt}|B)=(A|i(z-L)^{-1}|B).
+			\end{align*}
+			\indent In quantum mechanics, perturbation theory is done by splitting the ground state and excited states, or splitting the Hilbert space into low-energy and high-energy sectors. In the same spirit, we can split the operator Hilbert space into fast-decaying and long-lived sectors by introducing the projection operator
+			\begin{equation*}
+				q\equiv\mathds{1}-p\equiv\mathds{1}-\sum_{A,B}|A)\left((A|B)\right)^{-1}|B)\equiv\mathds{1}-\dfrac{1}{T}\sum_{AB}|A)\chi_{AB}^{-1}(B|.
+			\end{equation*}
+			Using the operator identity
+			\begin{equation}\label{1.2.3}
+				(U-V)^{-1}\equiv U^{-1}+U^{-1}V(U-V)^{-1},
+			\end{equation}
+			we have
+			\begin{equation*}
+				(z-L)^{-1}\equiv((z-Lq)-Lp)^{-1}\equiv(z-Lq)^{-1}+(z-Lq)^{-1}Lp(z-L)^{-1}
+			\end{equation*}
+			and the correlation function can be evaluated through
+			\begin{equation*}
+				C_{AB}(z)=i(A|(z-Lq)^{-1}|B)+i\sum_C(A|(z-Lq)^{-1}L|C)(C|p(z-L)^{-1}|B).
+			\end{equation*}
+			Note that by definition $q|A)\equiv 0$ for all long-lived operators $A$, so
+			\begin{equation*}
+				(A|(z-Lq)^{-1}|B)\equiv \left(A\middle|\dfrac{1}{z}+\dfrac{Lq}{z^2}+\cdots\middle| B\right)=\dfrac{1}{z}(A|B)\equiv\dfrac{T}{z}\chi_{AB}. 
+			\end{equation*}
+			For the other part, inputing the definition of $p$, 
+			\begin{equation*}
+				p(z-L)^{-1}|B)\equiv\dfrac{1}{T}\sum_{CD}|C)\chi_{CD}^{-1}(D|(z-L)^{-1}|B)\equiv\dfrac{1}{iT}\sum_{CD}|C)\chi_{CD}^{-1} C_{DB}(z).
+			\end{equation*}
+			Thus we have
+			\begin{align*}
+				C_{AB}(z)-\dfrac{iT}{z}\chi_{AB}&=\dfrac{1}{T}\sum_{CD} (A|(z-Lq)^{-1}|C)\chi_{CD}^{-1}C_{DB}(z)\\
+				&=\dfrac{1}{T}\sum_{CD} \left(A\middle|\bigg(z^{-1}+z^{-1}Lq(z-Lq)^{-1}\bigg)L\middle|C\right)\chi_{CD}^{-1}C_{DB}(z), 
+			\end{align*}
+			where identity \eqref{1.2.3} is again utilized. Expanding the parenthesis and using the property of projection operator $q^2\equiv q$ such that
+			\begin{equation*}
+				q(z-Lq)^{-1}\equiv\dfrac{q}{z}+\dfrac{qLq}{z^2}+\dfrac{qLqLq}{z^3}+\cdots=\dfrac{q}{z}+\dfrac{q(qLq)q}{z^2}+\dfrac{q(qLq)(qLq)q}{z^3}+\cdots=q(z-qLq)^{-1}q,
+			\end{equation*}
+			we get
+			\begin{align*}
+				C_{AB}(z)-\dfrac{iT}{z}\chi_{AB}&=\dfrac{1}{Tz}\sum_{CD}(A|L|C)\chi_{CD}^{-1}C_{DB}(z)+\dfrac{1}{Tz}\sum_{CD}(A|Lq(z-qLq)^{-1}L|C)\chi_{CD}^{-1}C_{DB}(t).
+			\end{align*}
+			Denoting $iL|A)\equiv|\dot{A})$ (since $|A(t))\equiv e^{iLt}|A)$), and introducing the \emph{memory function}\footnote{\textbf{Memory function $M(z)$ is freqency-dependent. $N$ is antisymmetric from the property we have proven in \underline{\bfseries{Note 1.}} 
+			\begin{equation*}
+				(A|L|B)=-(A,L^{\mathrm{adj}}B)=-(B|L|A).
+			\end{equation*}
+			And clearly it vanishes in a time-reversal invariant theory (since the ``operator state'' $|\dot{A})$ switch its sign under $t\mapsto-t$).}}
+			\begin{equation}\label{1.2.4}
+				{\color{red}
+				\begin{cases}
+					M_{AC}(z):=\dfrac{i}{T}(\dot{A}|q(z-qLq)^{-1}q|\dot{C}),\\[1em]
+					N_{AB}:=\dfrac{1}{T}(A|L|B)\equiv\dfrac{1}{T}(A|\dot{B})=\chi_{A\dot{B}}\equiv\dfrac{-1}{T}(\dot{A}|B)=-\chi_{\dot{A}B},
+				\end{cases}}
+			\end{equation}
+			we finally arrive at a close equation for correlation function
+			\begin{equation*}
+				C_{AB}(z)\equiv\dfrac{1}{z}\bigg\{iT\chi_{AB}-i\sum_{CD}N_{AC}\chi_{CD}^{-1}C_{DB}(z)-i\sum_{CD}M_{AC}(z)\chi_{CD}^{-1}C_{DB}(z)\bigg\},
+			\end{equation*}
+			or in a long-lived-operator-basis-independent form
+			\begin{equation}\label{1.2.5}
+				C\equiv\dfrac{1}{z}\bigg(iT\chi-i(M+N)\chi^{-1}C\bigg)\implies {\color{red}C\equiv\chi\dfrac{1}{M(z)+N-iz\chi}\chi}.
+			\end{equation}
+			So the generalized conductivities for operators $A$ and $B$ reads
+			\begin{equation}\label{1.2.6}
+				{\color{red}\sigma_{AB}(\omega)\equiv\dfrac{1}{T}C_{AB}(\omega)\sum_{CD}\chi_{AC}\left(\dfrac{1}{M(\omega)+N-i\omega\chi}\right)_{CD}\chi_{DB}}.
+			\end{equation}
+			Namely, $\sigma_{AB}$ is know as we have evaluated all static susceptibilities and memory matrices for long-lived operators.
+
+		
+
+	\subsection{Incoherent Conductivities}
+
+	\subsection{Magnetotransport}
+
+\section{Parity-violation Transport}
+
+
+
+\bibliography{hxd}
+\bibliographystyle{apsrev} % apsrev is format for PRL of APS
+\end{document}

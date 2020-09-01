@@ -1,0 +1,12 @@
+\beamer@sectionintoc {1}{Nernst Experiments in Superconductors}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Nernst Effect}{4}{0}{1}
+\beamer@subsectionintoc {1}{2}{Experimental Results}{6}{0}{1}
+\beamer@sectionintoc {2}{Relativistic Field Theory of Vortex Liquid}{9}{0}{2}
+\beamer@subsectionintoc {2}{1}{Bose-Hubbard Model}{10}{0}{2}
+\beamer@sectionintoc {3}{Relativistic Hydrodynamics}{13}{0}{3}
+\beamer@subsectionintoc {3}{1}{Constitutive Relation}{14}{0}{3}
+\beamer@subsectionintoc {3}{2}{Linear Response}{21}{0}{3}
+\beamer@sectionintoc {4}{Results}{26}{0}{4}
+\beamer@subsectionintoc {4}{1}{Self Duality}{27}{0}{4}
+\beamer@subsectionintoc {4}{2}{Comparison with Experiments}{28}{0}{4}
+\beamer@sectionintoc {5}{Summary}{31}{0}{5}

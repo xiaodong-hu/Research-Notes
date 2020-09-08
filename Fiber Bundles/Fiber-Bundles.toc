@@ -3,5 +3,5 @@
 \tocdepth@restore 
 \contentsline {section}{\numberline {I}A Rush Course on Fiber Bundles}{1}{}
 \contentsline {subsection}{\numberline {A}Fiber Bundles, Principal Bundles, and Associated Bundles}{1}{}
-\contentsline {subsection}{\numberline {B}Connection and Curvature on Fiber Bundles}{3}{}
+\contentsline {subsection}{\numberline {B}Connection and Characteristic Class}{3}{}
 \contentsline {section}{\numberline {II}Chern-Simons Field}{3}{}

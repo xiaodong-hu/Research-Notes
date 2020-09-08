@@ -1,9 +1,9 @@
 # Fdb version 3
-["xdvipdfmx"] 1599490546 "Fiber-Bundles.xdv" "Fiber-Bundles.pdf" "Fiber-Bundles" 1599490546
-  "Fiber-Bundles.xdv" 1599490545 89376 accbbb3e3ea963c23f77cfbef5a2f002 "xelatex"
+["xdvipdfmx"] 1599595734 "Fiber-Bundles.xdv" "Fiber-Bundles.pdf" "Fiber-Bundles" 1599595734
+  "Fiber-Bundles.xdv" 1599595734 91384 921cf9e48b0f84ae44747c61e27692c0 "xelatex"
   (generated)
   "Fiber-Bundles.pdf"
-["xelatex"] 1599490544 "Fiber-Bundles.tex" "Fiber-Bundles.xdv" "Fiber-Bundles" 1599490546
+["xelatex"] 1599595732 "Fiber-Bundles.tex" "Fiber-Bundles.xdv" "Fiber-Bundles" 1599595734
   "/dev/null" 1599488932 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -243,11 +243,11 @@
   "/usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf" 1553552136 35430 ca24fb44b873d21ac4c63d01600decd4 ""
   "/usr/local/texlive/2019/texmf-var/web2c/xetex/xelatex.fmt" 1566787664 2796618 63853b5f7c2f42b2d090e88e5e8ba730 ""
   "/usr/local/texlive/2019/texmf.cnf" 1566787648 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "Fiber-Bundles.aux" 1599490545 826 0f0509267edc7190beb723453ca3ff1e "xelatex"
-  "Fiber-Bundles.tex" 1599490541 13997 791030145d97b0de69bb942bae309b66 ""
-  "Fiber-Bundles.toc" 1599490545 425 d6cd32ca057509a43e391118147b266a "xelatex"
+  "Fiber-Bundles.aux" 1599595734 820 9fe1941dabd08c4523d89b3d27870be4 "xelatex"
+  "Fiber-Bundles.tex" 1599595731 13494 ba73206745dbe48224ec67b2a34d1f26 ""
+  "Fiber-Bundles.toc" 1599595734 419 84473644f318427ff73e7e11d7c635b8 "xelatex"
   (generated)
   "Fiber-Bundles.xdv"
+  "Fiber-Bundles.toc"
   "Fiber-Bundles.log"
   "Fiber-Bundles.aux"
-  "Fiber-Bundles.toc"

@@ -67,58 +67,60 @@
 \end{abstract}
 \maketitle
 \tableofcontents
-\section{General Conformal Transformation}
-	Let us consider a local field theory defined on a $D$-dimensional spacetime with \emph{Euclidean} metric $g_{\mu\mu}\equiv\eta_{\mu\nu}$ and signature $(p,q)$. A general diffeomorphism transforms the metric to 
-	\begin{equation*}
-		g_{\mu\nu}\mapsto \widetilde{g}_{\mu\nu}(\widetilde{x} )\equiv\dfrac{\partial x_\mu }{\partial \widetilde{x}_\alpha }\dfrac{\partial x_\alpha}{\partial \widetilde{x}_\beta }g_{\alpha\beta}.
-	\end{equation*}
-	\begin{Def}[(Conformal Group)]
-		Conformal group is the subgroup of diffeomorphism group leaving the metric tensor unchcanged up to a scaling factor
-		\begin{equation}\label{1.1.1}
-			\widetilde{g}_{\mu\nu}(\widetilde{x})=\Omega(x)g_{\mu\nu}(x). 
+\section{Conformal Field Theory in $D>2$}
+	\subsection{General Conformal Transformation}
+		Let us consider a local field theory defined on a $D$-dimensional spacetime with \emph{Euclidean} metric $g_{\mu\mu}\equiv\eta_{\mu\nu}$ and signature $(p,q)$. A general diffeomorphism transforms the metric to 
+		\begin{equation*}
+			g_{\mu\nu}\mapsto \widetilde{g}_{\mu\nu}(\widetilde{x} )\equiv\dfrac{\partial x_\mu }{\partial \widetilde{x}_\alpha }\dfrac{\partial x_\alpha}{\partial \widetilde{x}_\beta }g_{\alpha\beta}.
+		\end{equation*}
+		\begin{Def}[(Conformal Group)]
+			Conformal group is the subgroup of diffeomorphism group leaving the metric tensor unchcanged up to a scaling factor
+			\begin{equation}\label{1.1.1}
+				\widetilde{g}_{\mu\nu}(\widetilde{x})=\Omega(x)g_{\mu\nu}(x). 
+			\end{equation}
+			Clearly Poincar\'{e} group ($\Omega\equiv1$) is the subgroup of confromal group.
+		\end{Def}
+		\hfill\par
+		The full generators of conformal transformation is obtained by solving the allowed infinitesimal transformation $\widetilde{x}_\mu\equiv x_\mu+\varepsilon_\mu+\mathcal{O}(\varepsilon^2) $ such that
+		\begin{align*}
+			\widetilde{g}_{\mu\nu} &\equiv(\delta^\alpha_\mu+\partial_\mu \varepsilon^\alpha)(\delta^\beta_\nu+\partial_\nu \varepsilon^\beta)g_{\alpha \beta}=g_{\mu\nu}+\partial_\mu \varepsilon^\alpha g_{\alpha\nu}+\partial_\nu \varepsilon^\beta g_{\mu \beta}+\mathcal{O}(\varepsilon^2)\\
+			&=g_{\mu\nu}+(\partial_\mu \varepsilon_\nu+\partial_\nu \varepsilon_\mu)+\mathcal{O}(\varepsilon^2)
+		\end{align*}
+		from the constriant \eqref{1.1.1}
+		\begin{equation}\label{1.1.2}
+			(\partial_\mu \varepsilon_\nu+\partial_\nu \varepsilon_\mu)=(\Omega(x)-1)g_{\mu\nu}\equiv f(x)g_{\mu\nu}.
 		\end{equation}
-		Clearly Poincar\'{e} group ($\Omega\equiv1$) is the subgroup of confromal group.
-	\end{Def}
-	\hfill\par
-	The full generators of conformal transformation is obtained by solving the allowed infinitesimal transformation $\widetilde{x}_\mu\equiv x_\mu+\varepsilon_\mu+\mathcal{O}(\varepsilon^2) $ such that
-	\begin{align*}
-		\widetilde{g}_{\mu\nu} &\equiv(\delta^\alpha_\mu+\partial_\mu \varepsilon^\alpha)(\delta^\beta_\nu+\partial_\nu \varepsilon^\beta)g_{\alpha \beta}=g_{\mu\nu}+\partial_\mu \varepsilon^\alpha g_{\alpha\nu}+\partial_\nu \varepsilon^\beta g_{\mu \beta}+\mathcal{O}(\varepsilon^2)\\
-		&=g_{\mu\nu}+(\partial_\mu \varepsilon_\nu+\partial_\nu \varepsilon_\mu)+\mathcal{O}(\varepsilon^2)
-	\end{align*}
-	from the constriant \eqref{1.1.1}
-	\begin{equation}\label{1.1.2}
-		(\partial_\mu \varepsilon_\nu+\partial_\nu \varepsilon_\mu)=(\Omega(x)-1)g_{\mu\nu}\equiv f(x)g_{\mu\nu}.
-	\end{equation}
-	Tracing both sides with $g^{\mu\nu}$ 
-	\begin{equation*}
-		2\partial^\mu \varepsilon_\mu=f(x)D,
-	\end{equation*}
-	we then can eliminate the newly defined scaling factor $f(x)$ by inserting back to equation \eqref{1.1.2}
-	\begin{equation}\label{1.1.3}
-		\boxed{(\partial_\mu \varepsilon_\nu+\partial_\nu \varepsilon_\mu)=\dfrac{2}{D}(\partial \cdot \varepsilon)g_{\mu\nu}.}
-	\end{equation}
-	Since equation \eqref{1.1.3} degenerates for 1d spacetime (so the theory is trivial), we will focus on the case when $D\geq2$.
-	\begin{itemize}
-		\item For $D=2$, equation \eqref{1.1.3} gives the celebrated \emph{Cauchy-Riemann equation}
-		\begin{equation}\label{1.1.4}
-			\partial_1 \varepsilon_2\equiv-\partial_2 \varepsilon_1,\quad \partial_1 \varepsilon_1\equiv \partial_2 \varepsilon_2.
+		Tracing both sides with $g^{\mu\nu}$ we get
+		\begin{equation*}
+			2\partial^\mu \varepsilon_\mu=f(x)D.
+		\end{equation*}
+		Then can eliminate the newly defined scaling factor $f(x)$ by inserting back to equation \eqref{1.1.2}
+		\begin{equation}\label{1.1.3}
+			\boxed{(\partial_\mu \varepsilon_\nu+\partial_\nu \varepsilon_\mu)=\dfrac{2}{D}(\partial \cdot \varepsilon)g_{\mu\nu}.}
 		\end{equation}
-		\item But for $D>2$, we have to to re-arrange \eqref{1.1.3} into a more explicit form. Applying $\partial^\nu$ with $\partial_\nu$ on \eqref{1.1.3} gives
-		\begin{equation}\label{1.1.5}
-			\partial_\mu\partial_\nu(\partial \cdot \varepsilon)+\partial^2\partial_\nu\varepsilon_\mu=\dfrac{2}{D}\partial_\mu \partial_\nu(\partial\cdot\varepsilon).
-		\end{equation}
-		Similarly for the twice derivatives of $\partial_\mu$ and $\partial^\mu$
-		\begin{equation}\label{1.1.6}
-			\partial^2\partial_\mu\varepsilon_\nu+\partial_\nu\partial_\mu(\partial \cdot \varepsilon)=\dfrac{2}{D}\partial_\nu \partial_\mu(\partial\cdot\varepsilon).
-		\end{equation}
-		Then by adding up \eqref{1.1.5} and \eqref{1.1.6} and inserting \eqref{1.1.3} to replace $(\partial_\mu \varepsilon_\nu+\partial_\nu \varepsilon_\mu)$, we obtain the simple differential equation of $(\partial\cdot\varepsilon)$
-		\begin{equation}\label{1.1.7}
-			2\partial_\mu \partial_\nu(\partial\cdot\varepsilon)+\partial^2\left(\dfrac{2}{D}(\partial\cdot \varepsilon)g_{\mu\nu}\right)=\dfrac{4}{D}\partial_\mu \partial_\nu(\partial\cdot\varepsilon)\implies (g_{\mu\nu}\partial^2+(D-2)\partial_\mu \partial_\nu)(\partial\cdot \varepsilon)=0 \implies (D-1)\partial^2(\partial \cdot \varepsilon)=0.
-		\end{equation}
-	\end{itemize}
-	
+		Since equation \eqref{1.1.3} degenerates for 1d spacetime (so the theory is trivial), we will focus on the case when $D\geq2$.
+		\begin{itemize}
+			\item For $D=2$, equation \eqref{1.1.3} gives the celebrated \emph{Cauchy-Riemann equation}
+			\begin{equation}\label{1.1.4}
+				\partial_1 \varepsilon_2\equiv-\partial_2 \varepsilon_1,\quad \partial_1 \varepsilon_1\equiv \partial_2 \varepsilon_2.
+			\end{equation}
+			It is special and we will leave the discuss to the next chapter.
+			\item For $D>2$, it is helpful to re-arrange \eqref{1.1.3} into a more explicit form. Applying $\partial^\nu$ with $\partial_\nu$ on \eqref{1.1.3} gives
+			\begin{equation}\label{1.1.5}
+				\partial_\mu\partial_\nu(\partial \cdot \varepsilon)+\partial^2\partial_\nu\varepsilon_\mu=\dfrac{2}{D}\partial_\mu \partial_\nu(\partial\cdot\varepsilon).
+			\end{equation}
+			Similarly for the twice derivatives of $\partial_\mu$ and $\partial^\mu$
+			\begin{equation}\label{1.1.6}
+				\partial^2\partial_\mu\varepsilon_\nu+\partial_\nu\partial_\mu(\partial \cdot \varepsilon)=\dfrac{2}{D}\partial_\nu \partial_\mu(\partial\cdot\varepsilon).
+			\end{equation}
+			Then by adding up \eqref{1.1.5} and \eqref{1.1.6} and inserting \eqref{1.1.3} to replace $(\partial_\mu \varepsilon_\nu+\partial_\nu \varepsilon_\mu)$, we come to the simple differential equation of $(\partial\cdot\varepsilon)$
+			\begin{equation}\label{1.1.7}
+				2\partial_\mu \partial_\nu(\partial\cdot\varepsilon)+\partial^2\left(\dfrac{2}{D}(\partial\cdot \varepsilon)g_{\mu\nu}\right)=\dfrac{4}{D}\partial_\mu \partial_\nu(\partial\cdot\varepsilon)\implies (g_{\mu\nu}\partial^2+(D-2)\partial_\mu \partial_\nu)(\partial\cdot \varepsilon)=0 \implies (D-1)\partial^2(\partial \cdot \varepsilon)=0.
+			\end{equation}
+		\end{itemize}
+		
 	\subsection{Conformal Transformation in $D>2$}
-		For $D>2$ the constraint \eqref{1.1.7} implies the infinitesimal $\varepsilon_\mu$ to be at most \emph{quadratic} in coordinate
+		For $D>2$ the constraint \eqref{1.1.7} implies that the infinitesimal $\varepsilon_\mu$ must be at most \emph{quadratic} in coordinate
 		\begin{equation*}
 			\varepsilon_\mu=a_\mu+b_{\mu\nu}x^\nu+c_{\mu\nu\rho}x^\nu x^\rho
 		\end{equation*}
@@ -147,7 +149,7 @@
 				\end{equation*}
 		\end{enumerate}
 		\hfill\par
-		The full four generators for these \emph{infinitesimal} conformal transformations can be directly read out as in table \ref{tab:1} because on the one side, the infinitesimal transformation parameterized by $\omega_a$ can be written as $x'_\mu(x)\simeq x_\mu+\dfrac{\delta x_\mu}{\delta \omega_a}\omega_a=\left(1+\dfrac{\delta x^\nu}{\delta \omega_a}\omega_a\partial_\nu\right)x_\mu $, on the other side by definition of the generator $x'_\mu(x)\equiv e^{iG^a\omega_a}x_\mu\simeq(1+iG^a\omega_a)x_\mu$.
+		The full four generators corresponding to these \emph{infinitesimal} conformal transformations can be directly read out as in table \ref{tab:1} because on the one side, the infinitesimal transformation parameterized by $\omega_a$ can be written as $x'_\mu(x)\simeq x_\mu+\dfrac{\delta x_\mu}{\delta \omega_a}\omega_a=\left(1+\dfrac{\delta x^\nu}{\delta \omega_a}\omega_a\partial_\nu\right)x_\mu $, on the other side by definition of the generator $x'_\mu(x)\equiv e^{iG^a\omega_a}x_\mu\simeq(1+iG^a\omega_a)x_\mu$.
 		\begin{table}
 			\begin{tabular}{p{2cm}p{12cm}}
 				\hline\\[-1em]
@@ -195,14 +197,25 @@
 			\caption{Four finite conformal transformations.}
 			\label{tab:2}
 		\end{table}
-		
+
+
+	\subsection{Representation of Conformal Group}
+		The Lie algebra of conformal group in $d>2$ is already obtained in \eqref{1.1.8}. But to investigate their action on quantum fields, we also need the information of the representation of such Lie algebra on the Hilbert space. A similar problem is encountered in $d=4$ Lorentz invariant QFT, where we solve it by fixing the standard momentum and constructing the \emph{little group representation} \cite{weinberg1995quantum}. The full representation is recovered by spacetime boosting.\par
+		Let us start with the conformal transformation leaving the origin of field unchanged. The full transformation can be obtained by spatial translation. A familiar transformation is 
+
+
+	\subsection{Energy Momentum Tensor}
+
+
+
+\section{2D Conformal Field theory}
 	\subsection{Conformal Transformation in $D=2$}
 		For $D=2$, the constraint equation for infinitesimal conformal transformation reduces to beautiful \emph{Cauchy-Riemann equation} \eqref{1.1.4} appearing in complex analysis. So it is natural to introduce the complex variable $z\equiv x_1+ix_2$ and $\bar z\equiv x_1-i x_2$ with the assignment (such that $\partial z=\bar\partial\bar z=1$)
 		\begin{equation*}
 			\partial\equiv\partial_z=\dfrac{1}{2}(\partial_1-i \partial_2),\quad \bar\partial\equiv\partial_{\bar z}=\dfrac{1}{2}(\partial_1+i \partial_2)
 		\end{equation*}
 		and also the complex function $\varepsilon(z,\bar z)\equiv(\varepsilon_1+i \varepsilon_2)$, $\bar \varepsilon(z,\bar z)=(\varepsilon_1-i \varepsilon_2)$, to decouple the Cauchy-Riemann equation into \emph{holomorphic} and \emph{anti-holomorphic} modes (or \emph{left-movers} and \emph{right-movers})
-		\begin{align*}\label{1.2.1}
+		\begin{align*}\label{2.1.1}
 			\bar \partial \varepsilon&=0\implies \varepsilon(z,\bar z)=\varepsilon(z),\\
 			\partial\bar \varepsilon&=0\implies\bar\varepsilon(z,\bar z)=\bar\varepsilon(\bar z).
 		\end{align*}
@@ -215,14 +228,14 @@
 			\varepsilon(z)=\sum_{n=-\infty}^\infty \alpha_n z^{n+1},\quad \bar\varepsilon(\bar z)=\sum_{m=-\infty}^\infty \beta_m \bar{z}^{m+1}
 		\end{equation*}
 		with \emph{infinite} number of infinitesimal generators
-		\begin{equation}\label{1.2.2}
+		\begin{equation}\label{2.1.2}
 			\ell_n\equiv-i\dfrac{\delta \varepsilon_n}{\delta \alpha_n}\partial_z=-iz^{n+1}\partial_z,\quad\bar\ell_m\equiv-i\dfrac{\delta\bar\varepsilon_m}{\delta \beta_m}\partial_{\bar z}=-i\bar z^{n+1}\partial_{\bar z}.
 		\end{equation}
 		They can be easily shown to satisfy the \emph{Witt algebra} $\mathcal{W}$
-		\begin{equation}\label{1.2.3}
+		\begin{equation}\label{2.1.3}
 			[\ell_m,\ell_n]=(m-n)\ell_{m+n},\quad[\bar\ell_m,\bar\ell_n]=(m-n)\ell_n,\quad[\ell_m,\bar\ell_n]=0,
 		\end{equation}
-		which is clearly the direct sum of two independent subalgebras $\mathcal{W}=\mathcal{A}\bigoplus\bar{\mathcal{A}}$. So let us narrow our discusion to one branch of it.\par
+		which is clearly the direct sum of two independent subalgebras ${\color{red}\mathcal{W}=\mathcal{A}\bigoplus\bar{\mathcal{A}}}$. So let us narrow our discusion to one branch of it.\par
 		\begin{Claim}
 			\textbf{{\color{red} Although the dimension of $\mathcal{A}$ is infinite, not all the generators are \emph{globally} well defined.}}
 		\end{Claim}
@@ -241,14 +254,12 @@
 			\end{equation*}
 			This time the non-singularity of $\widetilde{X}$ as $w\rightarrow\infty$ requires $n\leq1$. Plus the similar argument from another branch, we conclude that \textbf{\color{red}only the conformal transformations generated by $\{\ell_{-1},\ell_0,\ell_1\}\bigcup\{\bar\ell_{-1},\bar\ell_0,\bar\ell_1\}$ are globally well-defined}. 
 		\end{Proof}
-		
+	
+	\subsection{Radial Quantization}
 
 
 
-\section{Energy Momentum Tensor}
 
-\section{Radial Quantization}
-	\subsection{Virasora Algebra}
 
 \section{Trace Anomaly}
 
@@ -260,27 +271,28 @@
 
 \section{Appendix}
 	\subsection{Infinitesimal Symmetric Transformation}
-		Geometrically, a classical tensor field $\bm{\Phi}(x)$ is an element of tensor bundle. Positive transformation on the base space-time manifold\footnote{Here without loss of generality we take this transformation to be a mapping between two distinct manifolds. This way of looking is called \emph{positive}. In constrast if one takes such transformation as just a coordinate transformation between two patches of the same manifold, then we call such viewpoint \emph{negative}.} $f:M\rightarrow N, \bm{x}\mapsto \bm{x'}$ will be lifted to the fibers as well
+		Geometrically, a classical tensor field $\bm{\Phi}(\bm{x})$ is a section of tensor bundle $\xymatrix{E\ar[r]^\pi & M}$. And because the base space $M$ is assumed to be Euclidean (so \emph{contractible}), the bundle is trivial and the \emph{Eular class} is zero\footnote{The Eular class of $2l$-dimensional manifold $M$ is defined as (it vanishes for odd dimensions) \begin{equation*}
+			e(M):=\mathop{\mathrm{Pf}}\left(\dfrac{\mathcal{R}}{2\pi}\right)\equiv\dfrac{(-1)^l}{(4\pi)^l l!}\sum_{\text{Perm }P}\mathop{\mathrm{sgn}}(P)\mathcal{R}_{P(1)P(2)}\cdots\mathcal{R}_{P(2l-1)P(2l)},
+		\end{equation*}
+		where $\mathcal{R}$ is the curvature $2$-form. $\mathbb{R}^4$ admits a flat connection, so $\mathcal{R}=0$ and $e(\mathbb{R}^4)=0$.}. So section $\bm{\Phi}:M\rightarrow E$ can be safely extended to a global one\footnote{Eular class is the only obstruction for a vector bundle to define a non-trivial global sections}. \par
+		\textbf{A physical symmetry transformation is a coordinate transformation leaving the (global) section unchanged}. Denoting such group action on the two copies of base manifolds as $g:M\rightarrow M$, $\bm{x}\mapsto g\cdot\bm{x}$, we can naturally induce a lifted group action on the bundle space as well
 		\begin{equation}\label{A.1.1}
-			\bm{\Phi'}(\bm{x'})\equiv \mathscr{F}(\Phi(\bm{x})),
+			\bm{\Phi'}(\bm{x'})\equiv \mathscr{F}(\bm{\Phi}(\bm{x})).
 		\end{equation}
-		or more clearly in the commutative diagram FIG. \ref{fig: transformation}.\par
-		\begin{figure}[!htp]
-			\centering
-			\includegraphics[scale=0.8]{transformation.pdf}
-			\caption{{\bf General Transformation}}
-			\label{fig: transformation}
-		\end{figure}
-		For infinitesimal transformation parameterized by some vector $\{\omega_a\}$
+		But since the global section is not affected, in the view point of the new charts, up to a transformation on the typical fiber (writing explicitly as a representation $\rho:G\rightarrow GL(n,\mathbb{R})$), each point on the bundle looks exactly as that of the original charts, but with an \emph{inverse} coordinate transformation, i.e., 
+		\begin{equation}\label{A.1.2}
+			\bm{\Phi'}(\bm{x'})=\rho(g)\bm{\Phi}({\color{red}g^{-1}}\cdot\bm{x}).
+		\end{equation}
+		\indent For infinitesimal transformation parameterized by some vector $\{\omega_a\}$
 		\begin{equation*}
-			x'^\mu=x^\mu+\dfrac{\delta x^\mu}{\delta\omega_a}\omega_a+\mathcal{O}(\omega^2),
+			\widetilde{x} ^\mu=x^\mu+\dfrac{\delta x^\mu}{\delta\omega_a}\omega_a+\mathcal{O}(\omega^2),
 		\end{equation*}
 		identity \eqref{A.1.1} tells
 		\begin{equation}\label{A.1.2}
-			\bm{\Phi'}(\bm{x'})=\mathscr{F}(\bm{\Phi}(\bm{x}))=\bm{\Phi}(\bm{x})+\dfrac{\delta\mathscr{F}}{\delta\omega_a}\omega_a+\mathcal{O}(\omega^2)
+			\bm{\Phi'}(\widetilde{\bm{x'}})\equiv\mathscr{F}(\bm{\Phi}(\widetilde{\bm{x}}))=\bm{\Phi}(\bm{x})+\dfrac{\delta\mathscr{F}}{\delta\omega_a}\omega_a+\mathcal{O}(\omega^2)
 		\end{equation}
 		
-	\subsection{Noether Theorem and Energy-momentum Tensor}
+	
 \bibliography{hxd}
 \bibliographystyle{apsrev} % apsrev is format for PRL of APS
 \end{document}

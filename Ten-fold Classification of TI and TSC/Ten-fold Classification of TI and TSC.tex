@@ -1,0 +1,196 @@
+\documentclass[10pt,nofootinbib,letterpaper]{revtex4}
+\usepackage[nocap]{ctex}
+
+%\usepackage{xeCJK}
+%\setCJKmainfont{Source Han Sans CN}
+%\setCJKmonofont{Source Han Sans CN}
+%\setCJKsansfont{Source Han Sans CN}
+
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,bm,dsfont}
+\usepackage{enumerate}
+\usepackage{enumitem} % Customize itemize, see https://ctan.org/tex-archive/macros/latex/contrib/enumitem/
+\usepackage[all]{xy}
+\usepackage[normalem]{ulem}	% delete line
+\usepackage{graphics,color}
+\usepackage{tikz}
+	\usetikzlibrary{calc}
+	\usetikzlibrary{decorations.markings}
+	\usetikzlibrary{arrows}
+	\usetikzlibrary{patterns}
+	%\usetikzlibrary{shapes.callouts}
+\tikzset{
+    level/.style = {
+        ultra thick,
+        blue,
+    },
+    connect/.style = {
+        dashed,
+        red
+    },
+    label/.style = {
+        text width=2cm
+    }
+}
+\usepackage{pgfplots}
+%\usepackage[citestyle=authortitle]{biblatex} % able to cite the title, author and year
+%\usepackage{hyperref}
+\usepackage{feynmp} % feymann diagram
+\usepackage{extarrows}
+
+\usepackage[normalem]{ulem} % 文字划掉（横），与 cite 兼容问题，见 https://tex.stackexchange.com/questions/98222/ulem-incompatibility-with-multiple-entries-in-cite
+
+\newcommand*\dd{\mathop{}\!\mathrm{d}}
+\newcounter{Claim}[section]
+\newenvironment{Claim}[1][]{{\par\normalfont\bfseries \underline{Claim~\stepcounter{Claim}\arabic{Claim}.}~#1~~}}{\par}
+\newcounter{Proposition}[section]
+\newenvironment{Proposition}[1][]{{\par\normalfont\bfseries \underline{Proposition~\stepcounter{Proposition}\arabic{Proposition}.}~#1~~}}{\par}
+\newcounter{Note}[section]
+\newenvironment{Note}[1][]{{\par\normalfont\bfseries \underline{Note~\stepcounter{Note}\arabic{Note}.}~#1~~}}{\par}
+\newcounter{Lemma}[section]
+\newenvironment{Lemma}[1][]{{\par\normalfont\bfseries \underline{Lemma~\stepcounter{Lemma}\arabic{Lemma}.}~#1~~}}{\par}
+\newcounter{Corollary}[section]
+\newenvironment{Corollary}[1][]{{\par\normalfont\bfseries \underline{Corollary~\stepcounter{Corollary}\arabic{Corollary}.}~#1~~}}{\par}
+\newenvironment{Proof}{{\par~{\normalfont\bfseries $\vartriangleright$}~~}}{\hfill $\square$\par\hfill\par} %\par
+\newcounter{Def}[section]
+\newenvironment{Def}[1][]{{\par\normalfont\bfseries \underline{Definition~\stepcounter{Def}\arabic{Def}.}~#1~~}}{\par}
+\newcounter{Assumption}[section]
+\newenvironment{Assumption}[1][]{{\par\normalfont\bfseries \underline{Assumption~\stepcounter{Assumption}\arabic{Assumption}.}~#1~~}}{\par}
+
+
+
+\allowdisplaybreaks[4] %允许 align 跨页编排
+
+
+%\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+%\def\G{\mathcal{G}}
+\def\Z{\mathcal{Z}}
+\def\H{\mathcal{H}}
+\def\D{\mathcal{D}}
+
+\begin{document}
+\title{Ten-fold Classification of Fermionic Topological Insulators and Topological Superconductors}
+\author{Xiaodong Hu}
+%\altaffiliation[Also at ]{Boson College}
+\email{xiaodong.hu@bc.edu}
+\affiliation{Department of Physics, Boston College}
+
+\date{\today}
+
+\begin{abstract}
+	In this note, we will review the ten-fold classfication theory of non-interaction fermionic systems, where the non-intrinsic topological orders are protected simply by non-unitary representation of groups. This is the note of the 2016 PCCM summer school by A. Ludwig\footnote{See \url{https://www.youtube.com/watch?v=i0WGo1ZHTGQ&t=2128s}.}.\par
+	%\begin{center}
+		\hfill\par
+		{\centering\kaishu 流成笔下春风瓣，吹散弦上秋草声。\\[0.5em]}
+	%\end{center}
+	\hfill------ 雨楼清歌「一瓣河川」
+\end{abstract}
+
+\maketitle
+\tableofcontents
+
+\section{Classification Based on Random Matrix Theory}
+\section{Classification Based on NL$\sigma$M}
+	\subsection{Replica Field Theory and Anderson Localization}
+		Let us with a general action $S\equiv S_0+S_\text{int}+S_J$ where $S_\text{int}$ is the electron-electron interacting part, $S_J$ is the terms coupling with external source field $J$, and
+		\begin{equation}\label{2.1.1}
+			S_0=\sum_n\int\dd\bm{r}\,\bar{\psi}\left(-i\omega_n+\dfrac{\nabla^2}{2m}-\mu_F+V(\bm{r})\right) \psi.
+		\end{equation}
+		(Random) impurity potential $V_{\text{imp}}(\bm{r})$ enters in $V(\bm{r})$ in the action \eqref{2.1.1}. We want to take the average of them among the enire sample, which, in path integral formalism, is represented as a weight $P[V]$ such that
+		\begin{equation*}
+			\langle\cdots\rangle_{\text{dis}}\equiv\int\D V\,P[V](\cdots).
+		\end{equation*}
+		Under theomodynamic limit, we can safely consider the Gaussian distribution of impurity potentials
+		\begin{equation*}
+			P[V]\equiv\exp \left[-\dfrac{1}{2\gamma^2}\int\dd\bm{r}\dd\bm{r'}\,V(\bm{r})K(\bm{r}-\bm{r'})V(\bm{r'})\right],
+		\end{equation*}
+		where $K$ describe the spatial correlation
+		\begin{equation*}
+			\langle V(\bm{r})V(\bm{r'})\rangle_{\text{dis}}=\gamma^2 K(\bm{r}-\bm{r'}).
+		\end{equation*}
+		In most cases we can simply set $K(\bm{r})\equiv\delta(\bm{r})$. So the disorder weight reduces to
+		\begin{equation}\label{2.1.2}
+			P[V]\equiv\exp \left[-\dfrac{1}{2\gamma^2}\int\dd\bm{r}\,V^2(\bm{r})\right].
+		\end{equation}
+		\indent However, the disorder average of an arbitrary operator
+		\begin{equation*}
+			\langle\langle\mathcal{O}\rangle\rangle_{\text{dis}}\equiv-\left\langle\left.\dfrac{\delta}{\delta J}\right|_{J=0}\ln\Z\right\rangle=-\int\D V\,P[V]\dfrac{1}{\Z[V,J=0]}\left.\dfrac{\delta}{\delta J}\right|_{J=0}\Z[V,J]
+		\end{equation*}
+		becomes largely intractable due to the appearance of $V$ on \emph{both} denomenator and numerator (in comparison with the auxilary field $J$). The only way to circumvent such difficulty is to try to find another tractable object in replacement of the annoying logarithm. It is so-called \emph{replica trick} \cite{edwards1975theory} that achieve this 
+		\begin{equation*}
+			\langle\mathcal{O}\rangle\equiv-\dfrac{\delta}{\delta J}\ln\Z[J]=-\dfrac{\delta}{\delta J}\lim_{R\rightarrow0}\dfrac{1}{R}(e^{R\ln\Z}-1)=-\dfrac{\delta}{\delta J}\lim_{R\rightarrow0}\dfrac{1}{R}\Z^R.
+		\end{equation*}
+		To understand the above identity, one must be aware that we first consider the $n$-th copy of the system ($n$ an integer), then recover the original disorder average by analytical continuation (like dimensional regularization). Therefore, the disoder average now becomes simply
+		\begin{equation}\label{2.1.3}
+			\langle\langle\mathcal{O}\rangle\rangle_{\text{dis}}=-\dfrac{\delta}{\delta J}\lim_{R\rightarrow0}\dfrac{1}{R}\int\D V\,P[V]\Z^R[V,J].
+		\end{equation}
+		\indent Input the action we give at the very beginning, and perform the path integral over impurity potentials, we get
+		\begin{equation*}
+			\langle \Z^R[J]\rangle_{\text{dis}}=\int\D(\bar\psi,\psi)\,\exp \left[-\sum_{a=1}^R S_{\text{clean}}[\bar\psi^a,\psi^a]-\sum_{a,b=1}^R S_{\text{dis}}^{\text{eff}}[\bar\psi^a,\psi^a,\bar\psi^b,\psi^b]\right],
+		\end{equation*}
+		where $S_{\text{clean}}$ is the action of non-disorder system (containing both free and electron-electron interacting parts), and
+		\begin{equation}\label{2.1.4}
+			S_{\text{dis}}^{\text{eff}}=-\dfrac{\gamma^2}{2}\sum_{m,n}\int\dd\bm{r}\,\bar\psi^a_m(\bm{r})\psi^a_m(\bm{r})\bar\psi^b_n(\bm{r})\psi_n(\bm{r})
+		\end{equation}
+		the effective short-range contact interaction. In comparison with the usual four-fermion interacting term, \eqref{2.1.4} mixes different replicas (or species) of fermions. It is such behavior that brings in complexities.\par
+		The standard tool to obtain the low-energy degree of freedom of the four-fermion interacting system is Hubbard-Stratonovich transformation. Usually there are three channels of contribution: \emph{direct (density) channel}, \emph{cooper channel}, and \emph{exchange (diffusive) channel}. But since replica trick requirs the limit $R\rightarrow0$ after path integral, the direct channel (introducing the density field $\rho_m(\bm{r})\equiv\sum_a\bar\psi^a_m(\bm{r})\psi^a_m(\bm{r})=R\bar\psi^a_m(\bm{r})\psi^a_m(\bm{r})$) will not contribute. For the left two channels of contribution, we will reveal an emergent symmetry that enable us to combine them into one single matrix-valued field.\par
+		To see this, let us introduce two infinite (but countable)-dimensional matrix-valued fields $\bm{\rho}_d(\bm{r})\equiv\bm{\psi}(\bm{r})\bm{\bar{\psi}}(\bm{r})$ and $\bm{\rho}_c(\bm{r})\equiv\bm{\psi}(\bm{r})\bm{\psi}(\bm{r})$, where $\bm{\psi}(\bm{r})\equiv\{\psi_m^a(\bm{r})\}$, and split \eqref{2.1.4} into two channels explicitly
+		\begin{equation*}
+			S_{\text{dis}}^{\text{eff}}=-\dfrac{\gamma^2}{4}\int\dd\bm{r}\,\mathop{\mathrm{tr}}\bigg\{\bm{\rho}_d^2+\bm{\rho}_c^\dagger\bm{\rho}_c\bigg\},
+		\end{equation*}
+		where the trace runs over both replica copies and Matsubara frequencies, then Hubbard-Stratonovich transformation gives
+		\begin{align}\label{2.1.5}
+			e^{-S_{\text{dis}}^{\text{eff}}}&=\int\D\bm{d}\,\exp\left\{-\int\dd\bm{r}\left[\dfrac{1}{2\gamma^2}\mathop{\mathrm{tr}}\bm{d}^2-i\mathop{\mathrm{tr}}(\bm{d}\bm{\rho}_d)\right]\right\}\times\int\D\bm{c}\exp\left\{-\int\dd\bm{r}\left[\dfrac{1}{2\gamma^2}\mathop{\mathrm{tr}}(\bm{c}\bm{c}^\dagger)-\dfrac{i}{2}\mathop{\mathrm{tr}}(\bm{\rho}_c^\dagger\bm{c}+\bm{\rho}_c\bm{c}^\dagger)\right]\right\}\nonumber\\
+			&\equiv\int\D\bm{d}\,\exp\left\{-\int\dd\bm{r}\left[\dfrac{1}{2\gamma^2}\mathop{\mathrm{tr}}\bm{d}^2-i\bm{\bar\psi}^T\bm{d}\bm{\psi}\right]\right\}\nonumber\\
+			&\qquad\times\int\D\bm{c}\exp\left\{-\int\dd\bm{r}\left[\dfrac{1}{2\gamma^2}\mathop{\mathrm{tr}}(\bm{c}\bm{c}^\dagger)-\dfrac{i}{2}(\bm{\bar\psi}^T\bm{c}\bm{\bar\psi}{\color{red}-}\bm{\psi}^T\bm{c}^\dagger\bm{\psi})\right]\right\}.
+		\end{align}
+		Here we write the trace of coupling term in terms of matrix multiplication\footnote{For example, $\mathop{\mathrm{tr}}(\bm{\rho}_c\bm{c})\equiv\sum_{a,b}(\bm{\psi}\bm{\psi})_{ab}(\bm{c}^\dagger)_{ba}=-\sum_{a,b}\bm{\psi}_b(\bm{c}^\dagger)_{ba}\bm{\psi}_a$.}, so an extra minus sign arises in the last term due to the transposition of two fermionic operators. The newly-involved \emph{diffuson field} $\bm{d}$ and \emph{cooperon field} $\bm{c}$ must shares the same symmetry as $\bm{\rho}_d$ and $\bm{\rho}_c$ (otherwise the two quadratic terms in each square bracket become inconsistent). Namely,
+		\begin{equation}\label{2.1.6}
+			\bm{d}^\dagger=\bm{d},\quad \bm{c}^T=-\bm{c}.
+		\end{equation}
+		Noting that
+		\begin{equation*}
+			\mathop{\mathrm{tr}}\bm{\sigma}^2\equiv\mathop{\mathrm{tr}}\left\{\left(\begin{array}{cc}
+				\bm{d} & \bm{c}\\\bm{c}^\dagger & \bm{d}^T
+			\end{array}\right)^2\right\}=2\mathop{\mathrm{tr}}\bm{d}^2+2\mathop{\mathrm{tr}}(\bm{c}\bm{c}^\dagger).
+		\end{equation*}
+		Then by defining
+		\begin{equation}\label{2.1.7}
+			\bm{\Psi}\equiv\dfrac{1}{\sqrt{2}}\left(\begin{array}{c}
+				\bm{\psi}\\\bm{\bar\psi}
+			\end{array}\right),\quad \bm{\bar\Psi}\equiv\dfrac{1}{\sqrt{2}}\left(\begin{array}{cc}
+				\bm{\bar\psi}^T & {\color{red}-}\bm{\psi}^T
+			\end{array}\right), 
+		\end{equation}
+		we have simply
+		\begin{equation*}
+			\bm{\bar\psi}^T\bm{d}\bm{\psi}+\dfrac{1}{2}(\bm{\bar\psi}^T\bm{c}\bm{\bar\psi}+\bm{\psi}^T\bm{c}^\dagger\bm{\psi})\equiv\bm{\bar\Psi\sigma\Psi}.
+		\end{equation*}
+		One should be aware that trick \eqref{2.1.7} is just a rewriting of the effective action. {\color{red}\textbf{In fact, we have NEVER doubled the underlying physical degree of freedom. So in sharp comparison of the original fields $\bm{\psi}$ and $\bm{\bar\psi}$, the ``doubled'' fields $\bm{\Psi}$ and $\bm{\bar\Psi}$ cannot be independent}}
+		\begin{equation}\label{2.1.7}
+			\bm{\Psi}\equiv i\sigma_2\bm{\bar\Psi}^T.
+		\end{equation}
+		The above operation also do not affect the symmetry of the action. But with the help of \eqref{2.1.6}, we can observe an emergent \emph{time-reversal symmetry}\footnote{Recall that a system possesses time-reversal symmetry if its Hamiltonian matrix satisfies $U_T^\dagger H^*U_T=H$.} on the newly-defined space
+		\begin{equation}\label{2.1.8}
+			{\color{red}\sigma_2\bm{\sigma}^*\sigma_2}=\sigma_2 \left(\begin{array}{cc}
+				\bm{d}^T & -\bm{c}^\dagger \\ -\bm{c} & \bm{d}
+			\end{array}\right)\sigma_2={\color{red}\bm{\sigma}}.
+		\end{equation}
+		\textbf{This discovery is not surprising because our microscopic interacting term \eqref{2.1.4} does not include the self-dynamics of disorders. It only describes the static scattering off impurities where there is no frequency transfer process (no term like $\psi_{m-n}$) but only momentum transfer processes, so is energy conserved (and equivalently time-reversal symmetric)}.\par
+		Go back to the partition function (we omit the electron-electron interaction for simplicity)
+		\begin{align}\label{2.1.9}
+			\langle \Z^R\rangle_{\text{dis}}&=\int\D\bm{\Psi}\D\bm{\sigma}\,\exp \left\{-\int\dd\bm{r}\left[\dfrac{1}{4\gamma^2}\mathop{\mathrm{tr}}\bm{\sigma}^2-\dfrac{1}{2}\bm{\bar\Psi}\left(-i\hat{\omega}-\dfrac{\nabla^2}{2m}-\mu_F-2i\bm{\sigma}\right)\bm{\Psi}\right]\right\}\nonumber\\
+			&=\int\D\bm{\sigma}\exp\left[-\dfrac{1}{4\gamma^2}\int\dd\bm{r}\,\mathop{\mathrm{tr}}\bm{\sigma}^2+\dfrac{1}{2}\mathop{\mathrm{tr}}\ln\hat{G}^{-1}[\bm{\sigma}]\right].
+		\end{align}
+
+
+
+
+
+\section{Classification Based on Anomalies}
+	
+\section{Classification Based on K-thoery}
+
+
+\bibliography{hxd}
+\bibliographystyle{apsrev} % apsrev is format for PRL of APS
+\end{document}

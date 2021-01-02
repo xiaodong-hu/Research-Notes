@@ -1,0 +1,14 @@
+\tocdepth@munge 
+\contentsline {section}{\numberline {}Contents}{1}{}
+\tocdepth@restore 
+\contentsline {section}{\numberline {I}Adiabatic Deformation of the Strain Tensor}{1}{}
+\contentsline {subsection}{\numberline {A}Motivation: Adiabatic Response Theory}{1}{}
+\contentsline {subsection}{\numberline {B}Dissipative/Dissipationless Viscosity}{2}{}
+\contentsline {section}{\numberline {II}Example: Free Quantum Hall Fluids on the Torus}{3}{}
+\contentsline {subsection}{\numberline {A}Landau Level on the Torus}{3}{}
+\contentsline {subsection}{\numberline {B}Teichm\"{u}ller Parameterization}{4}{}
+\contentsline {subsection}{\numberline {C}Inclined Coordinates and $\mathfrak {so}(2,1)$ Symmetry}{4}{}
+\contentsline {section}{\numberline {III}Geometrical and Physical Meaning of Hall Viscosity}{6}{}
+\contentsline {subsection}{\numberline {A}Adiabatic Equations of Motion}{6}{}
+\contentsline {subsection}{\numberline {B}Parameter Space of the Deformation}{8}{}
+\contentsline {section}{\numberline {}References}{9}{}

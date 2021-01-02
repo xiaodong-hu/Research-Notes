@@ -1,0 +1,58 @@
+\begin{thebibliography}{7}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname bibnamefont\endcsname\relax
+  \def\bibnamefont#1{#1}\fi
+\expandafter\ifx\csname bibfnamefont\endcsname\relax
+  \def\bibfnamefont#1{#1}\fi
+\expandafter\ifx\csname citenamefont\endcsname\relax
+  \def\citenamefont#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{\citenamefont{Avron et~al.}(1995)\citenamefont{Avron, Seiler, and
+  Zograf}}]{avron1995viscosity}
+\bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Avron}},
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Seiler}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{P.~G.} \bibnamefont{Zograf}},
+  \bibinfo{journal}{Physical review letters} \textbf{\bibinfo{volume}{75}},
+  \bibinfo{pages}{697} (\bibinfo{year}{1995}).
+
+\bibitem[{\citenamefont{Read and Rezayi}(2011)}]{read2011hall}
+\bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Read}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{Rezayi}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{84}},
+  \bibinfo{pages}{085316} (\bibinfo{year}{2011}).
+
+\bibitem[{\citenamefont{Landau and Lifshitz}(1995)}]{landau1995fluid}
+\bibinfo{author}{\bibfnamefont{L.~D.} \bibnamefont{Landau}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{E.~M.} \bibnamefont{Lifshitz}},
+  \emph{\bibinfo{title}{Fluid dynamics}}
+  (\bibinfo{publisher}{Butterworth-Heinemann}, \bibinfo{year}{1995}).
+
+\bibitem[{\citenamefont{L{\'e}vay}(1995)}]{levay1995berry}
+\bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{L{\'e}vay}},
+  \bibinfo{journal}{Journal of Mathematical Physics}
+  \textbf{\bibinfo{volume}{36}}, \bibinfo{pages}{2792} (\bibinfo{year}{1995}).
+
+\bibitem[{\citenamefont{Wen}(2012)}]{wen2012modular}
+\bibinfo{author}{\bibfnamefont{X.-G.} \bibnamefont{Wen}},
+  \bibinfo{journal}{arXiv preprint arXiv:1212.5121}  (\bibinfo{year}{2012}).
+
+\bibitem[{\citenamefont{L{\'e}vay and Apagyi}(1993)}]{levay1993algebraic}
+\bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{L{\'e}vay}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Apagyi}},
+  \bibinfo{journal}{Physical Review A} \textbf{\bibinfo{volume}{47}},
+  \bibinfo{pages}{823} (\bibinfo{year}{1993}).
+
+\bibitem[{\citenamefont{Niu et~al.}(1985)\citenamefont{Niu, Thouless, and
+  Wu}}]{niu1985quantized}
+\bibinfo{author}{\bibfnamefont{Q.}~\bibnamefont{Niu}},
+  \bibinfo{author}{\bibfnamefont{D.~J.} \bibnamefont{Thouless}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{Y.-S.} \bibnamefont{Wu}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{31}},
+  \bibinfo{pages}{3372} (\bibinfo{year}{1985}).
+
+\end{thebibliography}

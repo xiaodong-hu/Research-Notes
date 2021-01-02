@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.8.25)  8 SEP 2020 16:08
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2020.9.27)  19 NOV 2020 00:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1306,10 +1306,10 @@ Package fontspec Info: Font family 'FandolFang-Regular(0)' created for font
 Here is how much of TeX's memory you used:
  41690 strings out of 494788
  1003815 string characters out of 6172356
- 1297094 words of memory out of 5000000
+ 1297092 words of memory out of 5000000
  45005 multiletter control sequences out of 15000+600000
  544317 words of font info for 99 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  62i,13n,96p,789b,733s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Fiber-Bundles.xdv (3 pages, 91384 bytes).
+Output written on Fiber-Bundles.xdv (3 pages, 91556 bytes).

@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2019)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: Dijkgraaf-Witten Theory.aux
+The style file: apsrev.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: hxd.bib
+Repeated entry---line 384 of file hxd.bib
+ : @article{chen2013symmetry
+ :                          ,
+I'm skipping whatever remains of this entry
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 4 entries,
+            3411 wiz_defined-function locations,
+            1186 strings with 10841 characters,
+and the built_in function-call counts, 2629 in all, are:
+= -- 155
+> -- 74
+< -- 12
++ -- 58
+- -- 18
+* -- 343
+:= -- 295
+add.period$ -- 4
+call.type$ -- 4
+change.case$ -- 16
+chr.to.int$ -- 4
+cite$ -- 4
+duplicate$ -- 236
+empty$ -- 224
+format.name$ -- 50
+if$ -- 495
+int.to.chr$ -- 1
+int.to.str$ -- 5
+missing$ -- 37
+newline$ -- 27
+num.names$ -- 12
+pop$ -- 63
+preamble$ -- 1
+purify$ -- 16
+quote$ -- 0
+skip$ -- 98
+stack$ -- 0
+substring$ -- 95
+swap$ -- 183
+text.length$ -- 9
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 24
+warning$ -- 0
+while$ -- 12
+width$ -- 0
+write$ -- 54
+(There was 1 error message)

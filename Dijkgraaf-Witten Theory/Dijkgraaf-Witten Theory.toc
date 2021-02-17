@@ -1,0 +1,9 @@
+\tocdepth@munge 
+\contentsline {section}{\numberline {}Contents}{1}{}
+\tocdepth@restore 
+\contentsline {section}{\numberline {I}Dijkgraaf-Witten Invariant}{1}{}
+\contentsline {subsection}{\numberline {A}Motivation from the Chern-Simons Action}{1}{}
+\contentsline {subsection}{\numberline {B}Path Integral on the Moduli Space}{2}{}
+\contentsline {subsection}{\numberline {C}Classifying Space and Topological Action}{2}{}
+\contentsline {subsection}{\numberline {D}Geometric Interpretation of Group Cohomology Theory and Lattice Field Theory Realization}{3}{}
+\contentsline {section}{\numberline {}References}{5}{}

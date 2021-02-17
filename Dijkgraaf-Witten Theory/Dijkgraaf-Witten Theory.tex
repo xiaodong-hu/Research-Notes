@@ -1,0 +1,243 @@
+\documentclass[10pt,nofootinbib,letterpaper]{revtex4}
+%\usepackage[nocap]{ctex}
+
+\usepackage{xeCJK}
+% if \usrpackage{xetex} it will invoke the open source Fandol Song Font by default, which lack many Chinese characters
+% Linux Requires TrueType Fonts from Windows (locating at C:\Windows\Fonts), and Simlink 
+% ln -s blablabla /usr/share/fonts/WindowsFonts 
+\setCJKmainfont[BoldFont={SimHei},ItalicFont={KaiTi}]{SimSun}
+\setCJKfamilyfont{kaishu}{KaiTi} 
+\newcommand*{\kaishu}{\CJKfamily{kaishu}}
+
+
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,bm,dsfont}
+\usepackage{slashed}
+\usepackage{enumerate}
+\usepackage{enumitem} % Customize itemize, see https://ctan.org/tex-archive/macros/latex/contrib/enumitem/
+\usepackage[all]{xy}
+\usepackage[noabbrev]{cleveref} % multiple equation ref, see https://tex.stackexchange.com/questions/314217/how-i-can-refer-multiple-equation-in-latex?rq=1
+\usepackage[normalem]{ulem}	% delete line
+\usepackage{array}
+\usepackage{graphics,color}
+\usepackage{tikz}
+	\usetikzlibrary{calc}
+	\usetikzlibrary{decorations.markings}
+	\usetikzlibrary{arrows}
+	\usetikzlibrary{patterns}
+	%\usetikzlibrary{shapes.callouts}
+\tikzset{
+    level/.style = {
+        ultra thick,
+        blue,
+    },
+    connect/.style = {
+        dashed,
+        red
+    },
+    label/.style = {
+        text width=2cm
+    }
+}
+\usepackage{pgfplots}
+%\usepackage[citestyle=authortitle]{biblatex} % able to cite the title, author and year
+%\usepackage{hyperref}
+\usepackage{feynmp} % feymann diagram
+\usepackage{extarrows}
+\usepackage[normalem]{ulem} % 文字划掉（横），与 cite 兼容问题，见 https://tex.stackexchange.com/questions/98222/ulem-incompatibility-with-multiple-entries-in-cite
+
+\newcommand*\dd{\mathop{}\!\mathrm{d}}
+\newcounter{Claim}[section]
+\newenvironment{Claim}[1][]{{\par\normalfont\bfseries \underline{Claim~\stepcounter{Claim}\arabic{Claim}.}~#1~~}}{\par}
+\newcounter{Proposition}[section]
+\newenvironment{Proposition}[1][]{{\par\normalfont\bfseries \underline{Proposition~\stepcounter{Proposition}\arabic{Proposition}.}~#1~~}}{\par}
+\newcounter{Theorem}[section]
+\newenvironment{Theorem}[1][]{{\par\normalfont\bfseries \underline{Theorem~\stepcounter{Theorem}\arabic{Theorem}.}~#1~~}}{\par}
+\newcounter{Note}[section]
+\newenvironment{Note}[1][]{{\par\normalfont\bfseries \underline{Note~\stepcounter{Note}\arabic{Note}.}~#1~~}}{\par}
+\newcounter{Lemma}[section]
+\newenvironment{Lemma}[1][]{{\par\normalfont\bfseries \underline{Lemma~\stepcounter{Lemma}\arabic{Lemma}.}~#1~~}}{\par}
+\newcounter{Corollary}[section]
+\newenvironment{Corollary}[1][]{{\par\normalfont\bfseries \underline{Corollary~\stepcounter{Corollary}\arabic{Corollary}.}~#1~~}}{\par}
+\newenvironment{Proof}{{\par~{\normalfont\bfseries $\vartriangleright$}~~}}{\hfill $\square$\par\hfill\par} %\par
+\newcounter{Def}[section]
+\newenvironment{Def}[1][]{{\par\normalfont\bfseries \underline{Definition~\stepcounter{Def}\arabic{Def}.}~#1~~}}{\par}
+\newcounter{Assumption}[section]
+\newenvironment{Assumption}[1][]{{\par\normalfont\bfseries \underline{Assumption~\stepcounter{Assumption}\arabic{Assumption}.}~#1~~}}{\par}
+
+
+
+\allowdisplaybreaks[4] %允许 align 跨页编排
+
+%\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+%\def\G{\mathcal{G}}
+\def\Z{\mathcal{Z}}
+\def\H{\mathcal{H}}
+\def\D{\mathcal{D}}
+
+\begin{document}
+\title{Dijkgraaf-Witten Theory and Group Cohomology}
+\author{Xiaodong Hu}
+%\altaffiliation[Also at ]{Boson College}
+\email{xiaodong.hu@bc.edu}
+\affiliation{Department of Physics, Boston College}
+
+\date{January 23, 2021}
+
+\begin{abstract}
+	Chern-Simons action is only well-defined on the flat bundle. Starting with the naive idea of manifold extension, Dijkgraaf and Witten \cite{dijkgraaf1990topological} constructed an appropriate topological action for a general $G$-bundle by pulling back the cohomology classes of the classifying space $H^3(BG,U(1))$. In this note, I will not concentrate on the mathematical detail of their construction, but try to explain their motivation of construction, why their construction corresponds to a Chen-Simons action, and how to related their abstract topological action with the physical picture of lattice gauge theory with zero flux, as is widely used in the classification of symmetry topological phases (SPT) \cite{chen2013symmetry}.\par
+	%\begin{center}
+		\hfill\par
+		{\centering\kaishu 微云淡河汉，疏雨滴梧桐。\\[0.5em]}
+	%\end{center}
+	\hfill------ 孟浩然「断句」
+\end{abstract}
+
+\maketitle
+\tableofcontents
+
+\section{Dijkgraaf-Witten Invariant}
+	\subsection{Motivation from the Chern-Simons Action}
+		It is well-known that the topological\footnote{In the sense that it does not depends on the metric.} Chern-Simons action on a three-dimensional \emph{flat G-bundle} $E\rightarrow M$ (on which the curvature is always zero, which is case for usual example like $SU(N)$-bundle) , takes the form of
+		\begin{equation}\label{A.1.1}
+			S_{\text{CS}}=\dfrac{k}{8\pi^2}\int_M\mathop{\mathrm{Tr}}\bigg(A\wedge\dd A+\dfrac{2}{3}A\wedge A\wedge A\bigg).
+		\end{equation}
+		We emphasize the flatness of the bundle for \eqref{A.1.1} because the Lie-algebra-valued one-form of the connection\footnote{Recall the standard definition of the connection is the orthogonal decomposition of the tagent space of the bundle space $T_uE=V_u\oplus H_u$ such that $V_u=T_uG$, $H_u=\pi_* T_{\pi(u)}M$, and $H_u$ is right action invariant.} $A\equiv A^a_\mu T_a\dd x^\mu$ is merely a \emph{local} expression. If, however, the curvature $F\equiv\dd A+A\wedge A$ is non-vanishing on the bundle, then the above integral \eqref{A.1.1} is not well-defined.
+		\par What Dijkgraaf and Witten did in \cite{dijkgraaf1990topological} is to generalize the definition of Chern-Simons form on a general bundle with any compact structure group. Their basic idea is to extend the three-manifold $M$ to a four-manifold $B$ such that $\partial B=M$. If the extension of bundle space exists as well, then the Chern-Simons action on $M$ can be obtained by confining the integration
+		\begin{equation}\label{A.1.2}
+			S[A]=\dfrac{k}{8\pi^2}\int_B\mathop{\mathrm{Tr}}(F\wedge F)
+		\end{equation}
+		on the boundary. However, {\color{red}in general it will be impossible to extend the bundle space to $E'$ such that the diagram commutes and $\partial E'=E$. So \eqref{A.1.2} is still not a complete definition of the topological action}. Thus a top-down consideration on the general properties of the action of TQFT is required (taking the partition function as the symmetric monoidal functor $\Z:(\mathbf{Bord},\sqcup)\to(\mathbf{Hilb},\otimes)$).\par
+		
+		We do not bother to review the mathematical treatment on the most general case, but limiting ourself to the situation {\color{blue}when the structure group is \emph{finite}}. Although this time the bundle $E$ is still \emph{flat} (recall that curvature can be viewed as an infinitesimal holonomy. So for an element of the discrete gauge group $g\in G$, the infinitesimal transport will not change its value), we have no idea on the local expression of the topological action $e^{iS_{\text{CS}}}$, let alone the meaning for the path integral $\int\D A$. Therefore, the problem will be divided into two parts: finding out an appropriate form of the path-integral measure, and an appropriate form of the topological action.
+
+	\subsection{Path Integral on the Moduli Space}
+		Since we are still working on the flat bundle, all local expression of the characteristic class (invariant polynomial of the curvature by Chern-Weil homomorphism) is vanishing. In analogue of the lattice gauge theory where the only non-vanishing observables are the \emph{Wilson loops}, {\color{red}all topological information that classify the bundle is now contained in the \emph{holonomy}\footnote{Recall the definition of holonomy: the connection $A$ on the principal G-bundle determine the horizental lift of any closed curve on the manifold $\gamma:[0,1]\rightarrow M$ to the bundle space, with the starting and ending point living on the same fibre $F$. Such horizental lift $\varphi(A,\gamma)$ can be regared as a representation action of the closed curve on $F$. In fact, the group structure of $\pi_1(M)$ (with multiplication of loops) naturally induce the multiplicative action on the fibre. So the collection $\mathrm{Hol}_A=\{\varphi(A,\gamma)\}\subset\mathrm{Diff}(F)$ forms a subgroup of the diffeomorphism group, and is named as the holonomy group of connection $A$.} of the flat connection $A$ on the bundle}.\par
+		Recall that in the definition of the honolomy group, it is the \emph{holonomy homomorphism} $\mathrm{Hom}(\pi_1(M),\mathrm{Aut}(F))$ that maps the multiplication of closed loops of the fundamental group to the multiplicative action on the fibre. Particularly for the principal G-bundle $E\rightarrow M$, where the holonomy group differing by a conjugate action originates from the closed loops of the same homotopy class, {\color{red}given one connection $A$, the holonomy group is bijectively determined by such honolomy homomorphism up to the conjugate action}\footnote{The honolomy group of the principal G-bundle with the base point $u\in E$ can be defined in compatible with the \emph{right group action} as $\mathrm{Hol}_{A,u}:=\{g\in G,u\sim ug\}$, where $a\sim b$ if they are the two ends the lifted loop. Then clearly we have $\mathrm{Hol}_{A,uh}\equiv h\mathrm{Hol}_{A,u}h^{-1}$ for all $h\in G$.}. To put it conversely, {\color{red}given one holonomy group up to conjugate action, or equivalently given one honolomy homomorphism, the connection of the bundle is determined}.\par
+		Therefore, the space of all distinguished flat connection $\mathcal{M}$ (as the moduli space of the flat connection modulo gauge equivalence) is \cite{atiyah1983yang}
+		\begin{equation}\label{A.2.1}
+			\mathcal{M}=\dfrac{\mathrm{Hom}(\pi_1(M),G)}{G},
+		\end{equation}
+		which is \emph{finite} for finite gauge groups.\par
+		Comparing with the fact that the path integral measure of TQFT $\int\D A$ is the summation of all configuration of gauge fields, we can safely re-write the discrete version of the path integral as
+		\begin{equation}\label{A.2.2}
+			\int\D A\, e^{iS}\mapsto\dfrac{1}{|G|}\sum_{\gamma\in\mathrm{Hom}(\pi_1(M),G)} W(\gamma),
+		\end{equation}
+		with the functional action $W(\gamma)$ to be determined latter.
+
+	\subsection{Classifying Space and Topological Action}
+		The left part is to give an explicit (and natural) expression for the functional action $W(\gamma)$. The idea originate from the celebrated classification theorem on CW-complexes:
+		\begin{Theorem}[(Homotopy Classification Theoreom)]
+			The equivalent classes of principal-G bundle is in bijective correspondence with with homotopy classes of the classifying map
+			\begin{equation}\label{A.3.1}
+				\mathrm{Prin}_G(M)\simeq[M,BG].
+			\end{equation}
+		\end{Theorem}
+		On the other hand, for the flat bundle we are interested in, since all charateristic classes are vanishing, it can also be classified by the classes of honolomy group (up to conjugate action). Thus {\color{red}the  homotopy classes of the classifying map must coincides with the equivalent classes of the honolomy homomorphism of the flat bundle}
+		\begin{equation}\label{A.3.2}
+			\mathrm{Hom}(\pi_1(M),G)/G\simeq[M,BG].
+		\end{equation}
+		Thus the homomorphism $\gamma\in\mathrm{Hom}(\pi_1(M),G)$ can also be viewed as a classifying map $\gamma:M\to BG$. Namely, the functional action $W(\gamma)$ can also be interpreted as an functional of the classifying map.\par
+		
+		Recall that \textbf{the only difficulty we have for the above construction of extension \eqref{A.1.2} is the existence of the extended bundle space $E'$}. So with help of the \emph{cellular approximation theorem}\footnote{Any continuous map between two CW-complexes $f:X\to Y$ is homotopic to a \emph{cellular map}: taking the $n$-skeleton of $X$ to the $n$-skeleton of $Y$ for all $n$.}, the construction of the functional action, or the construction of the extended bundle $E'$ now becomes clear:\par
+		\begin{itemize}
+			\item The restriction of the \emph{universal bundle space} $EG$, on the $\gamma$-image of the extended four-manifold $B$ (or more strickly, the four-chain\footnote{Subtleties arises for smooth case, where the cobordism group $\Omega^k(BG,\mathbb{Z})$ will take place of the cohomology group $H^k(BG,\mathbb{Z})$.}), gives the extended bundle. 
+			\item Given $\Omega(F)\equiv\dfrac{k}{8\pi^2}\mathop{\mathrm{Tr}}F\wedge F\in H^4(BG,\mathbb{R})$, or its natural\footnote{Induced by the natural inclusion $\mathbb{Z}\rightarrow\mathbb{R}$.} homological pair $\omega\in H^4(BG,\mathbb{Z})$, we can pullback it to the cohomology classes of the extended manifold $\gamma^*\omega\in H^4(B,\mathbb{Z})$. Then the scalar topological action of $B$ reads
+			\begin{equation*}
+				\widetilde{W}(\gamma)=\langle\gamma^*\omega,[B]\rangle.
+			\end{equation*}
+			And the topological action $W(\gamma)$ is nothing but the restriction of $\widetilde{W}(\gamma)$ on the boundary.
+		\end{itemize}
+		Although the final step of restriction seems to be mathematically vague and untractable, we will show in the following that the above proposal can be upgraded with the help of the relation between the cohomology of groups with coefficients in $\mathbb{Z}$ and $U(1)$.\par
+		In fact, from the short exact sequence
+		\begin{equation*}
+			\xymatrix{0\ar[r]&\mathbb{Z}\ar[r]&\mathbb{R}\ar[r]&\mathbb{R}/\mathbb{Z}=U(1)\ar[r]&0},
+		\end{equation*}
+		we have the long exact sequnce with the homomorphism $\bar{\Delta}:H^k(BG,U(1))\to H^{k+1}(BG,\mathbb{Z})$ under the action of the derived functor
+		\begin{equation*} % see xymatrix user guide
+			\xymatrix{\cdots\ar[r] & H^{k-1}(BG,U(1))\ar[r]^-{\bar{\Delta}} & H^k(BG,\mathbb{Z})\ar[r] & H^k(BG,\mathbb{R})\ar[r] & H^k(BG,U(1))\ar[r]^-{\bar{\Delta}} & H^{k+1}(BG,\mathbb{Z})\ar[r]&\cdots}.
+		\end{equation*}
+		Using the result\footnote{Dijkgraaf and Witten do not provide the reason here. Maybe it is a well-known result.} for \emph{finite groups} that $H^k(BG,\mathbb{R})=0$, the homomorphism $\bar\Delta$ is known to be an isomorphism, or
+		\begin{equation}\label{A.3.4}
+			{\color{red}H^k(BG,U(1))\simeq H^{k+1}(BG,\mathbb{Z})}.
+		\end{equation}
+		\indent Therefore, the final step of the restriction on the boundary of the extended manifold we proposed above, now can be fortunately circumvented by pulling back directly one element $\alpha\in H^3(BG,U(1))=H^4(BG,\mathbb{Z})$ to $\gamma^*\alpha\in H^3(M,U(1))$. Namely, the topological action on $M$ takes the form of
+		\begin{equation}\label{A.3.3}
+			{\color{red}W(\gamma)=\langle\gamma^*\alpha,[M]\rangle,\quad \alpha\in H^k(BG,U(1))}.
+		\end{equation}
+		The fact that $|W(\gamma)|=1$ is consistent with the physical expectation that path-integral is the coherent superposition of quantum phases.
+
+	\subsection{Geometric Interpretation of Group Cohomology Theory and Lattice Field Theory Realization}
+		Although we have constructed the appropriate partition function for the Chern-Simons action of \emph{discrete} groups
+		\begin{equation}\label{A.4.1}
+			\Z=\dfrac{1}{|G|}\sum_{\gamma\in\mathrm{Hom}(\pi_1(M),G)}\langle\gamma^* \alpha,[M]\rangle,
+		\end{equation}
+		it still seems to be abstract and unable to evaluate. So in this subsection, we will try to \textbf{give \eqref{A.4.1} a physical meaning by realizing it as a \emph{lattice gauge field theory} and a geometric interpretation by realizing it on some combinatorial simplexes}.\par
+		In fact, the recipe of evaluation is naturally emerging after a triangulation of the three-manifold $M$ to $3$-simplexes $M=\bigcup_I T_I$ and the classifying mapping $\gamma$ is given:
+		\begin{itemize}
+			\item Since $BG$ is path-connected (for the existence\footnote{More strickly, this requires the base space $BG$ to be path-connected, locally-path-connected, and semi-locally simply connected.} of the universal bundle $EG$), the classifying map $\gamma:M\to BG$ can always be continuously deformed to send every $0$-simplex (vertices $v_i$) of $M$ to \emph{one} base point $\star$ of $BG$.
+			\item So every $1$-simplex $\sigma_{ij}\equiv[v_i,v_j]$ of $M$ is sent to an element of $\gamma(\sigma_{ij})\in\pi_1(BG)$ with the base point $\star$. 
+			\item On the other hand, the short exact sequence of the fiberation
+			\begin{equation*}
+				\xymatrix{0\ar[r]&G\ar[r]&EG\ar[r]&BG\ar[r]&0}
+			\end{equation*}
+			gives rise to the long exact sequence of the homotopy groups (\emph{Puppe sequence})
+			\begin{equation*}
+				\xymatrix{\cdots\ar[r] & \pi_{n+1}(BG)\ar[r] & \pi_n(G)\ar[r] & \pi_n(EG)\ar[r] & \pi_n(BG)\ar[r] & \pi_{n-1}(G)\ar[r] &\cdots}.
+			\end{equation*}
+			While by definition $EG$ is contractable $\pi_n(EG)\equiv0$ for $n>0$, so
+			\begin{equation*}
+				{\color{red}\pi_{n+1}(BG)\simeq\pi_n(G)}.
+			\end{equation*}
+			Particularly for our case when $G$ is \emph{discrete}, we have $\pi_n(G)=0$ for $n>0$ and\footnote{Recall that the zero-sphere $S^0$ is just two end points of a segment. So the first one is mapped to the base point of $G$, while the second one will be mapped to disconnected parts of $G$. For discrete group, it is exectly isomorphic to $G$ itself.} $\pi_0(G)=G$, so $\pi_n(BG)=0$ for $n>1$ (from the above relation) and $n=0$ (since $BG$ is path-connected), leaving only nontrivial
+			\begin{equation*}
+				{\color{red}\pi_1(BG)\simeq G}.
+			\end{equation*}
+			In the language of mathematics, we say $BG$ is the \emph{Eilenberg–MacLane space}\footnote{A connected topological space $X$ is called Eilenberg–MacLane space of type $K(G,n)$ if it has only $\pi_n(X)\simeq G$ while all the other homotopy groups trivial.} $K(G,1)$. Anyway, now $\gamma(\sigma_{ij})\equiv g_{ij}$ is also an element of $G$.
+			\item However, the assignment of $g_{ij}$ on each edge of the (induced) triangulation of $BG$ is not arbitrary. \textbf{Since the original bundle $E\to M$ is required to be \emph{flat}, the local curvature, as the holonomy of the \emph{local infinitesimal} loops, must be vanishing}. Namely, given three $1$-simplexes as the boundary of a $2$-simplex
+			\begin{equation*}
+				\partial([v_0,v_1,v_2])=[v_1,v_2]+{\color{red}(-1)}[v_0,v_2]+[v_0,v_1],
+			\end{equation*}
+			the image after the classifying mapping, or equivalently the holonomy homomorphism $\gamma\in\mathrm{Hom}(\pi_1(M),G)$, is required to be
+			\begin{equation*}
+				\gamma\bigg(\partial([v_0,v_1,v_2])\bigg)=g_{12}\cdot g_{02}^{-1}\cdot g_{01}=1.
+			\end{equation*}
+			So only two edges of a $2$-simplex is independent. Similarly, only $k$ edges of a $k$-simplex is independent. \textbf{Physically, we can understand such constraint as a lattice gauge field theory with vanishing flux (flat connection)}. 
+			\item The above discussion can be easily generalized to the three-manifold $M$ as the union of $3$-simplexes $M=\bigcup_IT_I$ by ordering all vertices of $M$ as $0,1,2,3,\cdots,N$, and assigning the edge in ascending order\footnote{Then the zero-flux condition is naturally satisfied.} with the group element $g_{ij}\in G$ for each $3$-simplex (we call such procudure as \emph{coloring} $\varphi$. This is done by the classifying mapping $\gamma$). However, since we are working with multiple simplexes, there will be an ambiguity arised between each mirror pair of simplexes. We call it chirality\footnote{The chirality of $2$-simplex is defined as clockwise or counterclockwise ordering of vertices. The chirality of $3$-simplex can be defined as the chirality of $2$-simplex that is opposite to (or equivalently, after removing) the lowest vertex (so see if the flux is pointing towards or outwards of the removed vertex). Similarly, the chirality $n$-simplex can be determined by the chirality of $(n-1)$-simplex that is opposite to $v_0$.} and denote it as $\varepsilon_I(\gamma)$.
+			\item So the extensivity of the partition function requires
+			\begin{equation*}
+				W(\gamma)=\prod_{I}W(T_I)^{\varepsilon_I(\gamma)}
+			\end{equation*}
+			and we are left to discuss the topological action of a $3$-simplex $W(T_I)$.
+			\item Denote the image of each $3$-simplex $T_I$ as $\gamma(T_I)=[g,h,k]$, then the cohomology class $\alpha\in H^3(BG,U(1))$ in the abstract topological action \eqref{A.4.1} can now be incoporated in $W(T_I)$ in the standard way: starting with a cocycle $\alpha\in Z^3(BG,U(1))\subset C^3(BG,U(1))$, where the \emph{singular} chain complex is defined by the classifying mapping $\gamma$ itself\footnote{For each $3$-simplex $T_I$, the classifying map itself $\gamma:T_I\mapsto[g,h,k]$ determines one \emph{singular} $3$-simplex (the mapping rather than its image) of $BG$. Then the \emph{singular} chain complex $C_3(BG,\mathbb{Z})$ is just the free abelian group generated by all possible $\gamma$.}, i.e., 
+			\begin{equation}\label{A.4.2}
+				\delta_3\alpha([g,h,k,\ell])\equiv\dfrac{\alpha([g,h,k])\alpha([g,hk,\ell])\alpha([h,k,\ell])}{\alpha([gh,k,\ell])\alpha([g,h,k\ell])}=1,
+			\end{equation}
+			which can be visualized by the product of all \emph{five} $3$-sub-simplex of a $4$-simplex with orientations (one three-dimensional projection of such $4$-simplex looks like the barycentric subdivision of a $3$-simplex, but with the fifth $3$-simplex itself\footnote{See \url{https://en.wikipedia.org/wiki/5-cell} for geometric intuition.}), and identifying its coboundaries for those $\alpha\in B^3(BG,U(1))$
+			\begin{equation}\label{A.4.3}
+				\alpha([g,h,k])=\delta_2 \alpha([g,h,k])\equiv\dfrac{\alpha([g,h])\alpha([g,hk])}{\alpha([h,k])\alpha([gh,k])},
+			\end{equation}
+			clearly there exists a \emph{natural isomorphism} \cite{wakui1992dijkgraaf} $\psi:C^n(BG,U(1))=\mathrm{Hom}(C_n(BG,\mathbb{Z}),U(1))\to C^n(G,U(1))$ by
+			\begin{equation*}
+				{\color{red}\psi(\alpha)(g_1,\cdots,g_n)\equiv \omega(g_1,\cdots,g_n)\mapsto \alpha([g_1,\cdots,g_n])},
+			\end{equation*}
+			which induce an isomorphism
+			\begin{equation*}
+				{\color{red}H^n(BG,U(1))\simeq H^n(G,U(1))}.
+			\end{equation*}
+			For simplicity we will denote $\alpha([g_1,\cdots,g_n])\equiv\alpha(g_1,\cdots,g_n)$ with $\alpha\in H^n(G,U(1))$.
+			\item Since $W(\gamma)\equiv\langle\gamma^* \alpha,[M]\rangle\in U(1)$, it is canonical to identify
+			\begin{equation}\label{A.4.4}
+				{\color{red}W(T_I,\varphi)\equiv\alpha(g,h,k)}.
+			\end{equation}
+			Now the summation over classifying map is transformed into the summation of coloring on the $3$-simplex, giving
+			\begin{equation}\label{A.4.5}
+				\Z=\dfrac{1}{|G|}\sum_{\text{all coloring }\varphi}\prod_I W(T_I,\varphi)^{\varepsilon_I(\varphi)}.
+			\end{equation}
+		\end{itemize}
+		Clearly all above discussion can be generalized to the topological action on the flat bundle over $n$-manifold.
+
+
+	
+\bibliography{hxd}
+\bibliographystyle{apsrev} % apsrev is format for PRL of APS
+\end{document}

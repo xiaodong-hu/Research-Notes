@@ -1,0 +1,42 @@
+\begin{thebibliography}{4}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname bibnamefont\endcsname\relax
+  \def\bibnamefont#1{#1}\fi
+\expandafter\ifx\csname bibfnamefont\endcsname\relax
+  \def\bibfnamefont#1{#1}\fi
+\expandafter\ifx\csname citenamefont\endcsname\relax
+  \def\citenamefont#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{\citenamefont{Dijkgraaf and Witten}(1990)}]{dijkgraaf1990topological}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Dijkgraaf}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{E.}~\bibnamefont{Witten}},
+  \bibinfo{journal}{Communications in Mathematical Physics}
+  \textbf{\bibinfo{volume}{129}}, \bibinfo{pages}{393} (\bibinfo{year}{1990}).
+
+\bibitem[{\citenamefont{Chen et~al.}(2013)\citenamefont{Chen, Gu, Liu, and
+  Wen}}]{chen2013symmetry}
+\bibinfo{author}{\bibfnamefont{X.}~\bibnamefont{Chen}},
+  \bibinfo{author}{\bibfnamefont{Z.-C.} \bibnamefont{Gu}},
+  \bibinfo{author}{\bibfnamefont{Z.-X.} \bibnamefont{Liu}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{X.-G.} \bibnamefont{Wen}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{87}},
+  \bibinfo{pages}{155114} (\bibinfo{year}{2013}).
+
+\bibitem[{\citenamefont{Atiyah and Bott}(1983)}]{atiyah1983yang}
+\bibinfo{author}{\bibfnamefont{M.~F.} \bibnamefont{Atiyah}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Bott}},
+  \bibinfo{journal}{Philosophical Transactions of the Royal Society of London.
+  Series A, Mathematical and Physical Sciences} \textbf{\bibinfo{volume}{308}},
+  \bibinfo{pages}{523} (\bibinfo{year}{1983}).
+
+\bibitem[{\citenamefont{Wakui}(1992)}]{wakui1992dijkgraaf}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Wakui}},
+  \bibinfo{journal}{Osaka Journal of Mathematics}
+  \textbf{\bibinfo{volume}{29}}, \bibinfo{pages}{675} (\bibinfo{year}{1992}).
+
+\end{thebibliography}

@@ -1,0 +1,9 @@
+\tocdepth@munge 
+\contentsline {section}{\numberline {}Contents}{1}{}
+\tocdepth@restore 
+\contentsline {section}{\numberline {I}Motivation: Physical Argument}{1}{}
+\contentsline {section}{\numberline {II}Effective Field Theory of Quantum Hall Fluids}{3}{}
+\contentsline {subsection}{\numberline {A}Non-relativistic General Coordinate Transformation}{3}{}
+\contentsline {subsection}{\numberline {B}Wen-Zee Term of Quantum Hall Fluids}{4}{}
+\contentsline {subsection}{\numberline {C}Hall Viscosity}{6}{}
+\contentsline {section}{\numberline {}References}{6}{}

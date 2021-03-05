@@ -1,0 +1,388 @@
+\documentclass[10pt,nofootinbib,letterpaper]{revtex4}
+%\usepackage[nocap]{ctex}
+
+\usepackage{xeCJK}
+% if \usrpackage{xetex} it will invoke the open source Fandol Song Font by default, which lack many Chinese characters
+% Linux Requires TrueType Fonts from Windows (locating at C:\Windows\Fonts), and Simlink 
+% ln -s blablabla /usr/share/fonts/WindowsFonts 
+\setCJKmainfont[BoldFont={SimHei},ItalicFont={KaiTi}]{SimSun}
+\setCJKfamilyfont{kaishu}{KaiTi} 
+\newcommand*{\kaishu}{\CJKfamily{kaishu}}
+
+
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,bm,dsfont}
+\usepackage{slashed}
+\usepackage{enumerate}
+\usepackage{enumitem} % Customize itemize, see https://ctan.org/tex-archive/macros/latex/contrib/enumitem/
+\usepackage[all]{xy}
+\usepackage[noabbrev]{cleveref} % multiple equation ref, see https://tex.stackexchange.com/questions/314217/how-i-can-refer-multiple-equation-in-latex?rq=1
+\usepackage[normalem]{ulem}	% delete line
+\usepackage{array}
+\usepackage{graphics,color}
+\usepackage{tikz}
+	\usetikzlibrary{calc}
+	\usetikzlibrary{decorations.markings}
+	\usetikzlibrary{arrows}
+	\usetikzlibrary{patterns}
+	%\usetikzlibrary{shapes.callouts}
+\tikzset{
+    level/.style = {
+        ultra thick,
+        blue,
+    },
+    connect/.style = {
+        dashed,
+        red
+    },
+    label/.style = {
+        text width=2cm
+    }
+}
+\usepackage{pgfplots}
+%\usepackage[citestyle=authortitle]{biblatex} % able to cite the title, author and year
+%\usepackage{hyperref}
+\usepackage{feynmp} % feymann diagram
+\usepackage{extarrows}
+\usepackage[normalem]{ulem} % 文字划掉（横），与 cite 兼容问题，见 https://tex.stackexchange.com/questions/98222/ulem-incompatibility-with-multiple-entries-in-cite
+
+\newcommand*\dd{\mathop{}\!\mathrm{d}}
+\newcounter{Claim}[section]
+\newenvironment{Claim}[1][]{{\par\normalfont\bfseries \underline{Claim~\stepcounter{Claim}\arabic{Claim}.}~#1~~}}{\par}
+\newcounter{Proposition}[section]
+\newenvironment{Proposition}[1][]{{\par\normalfont\bfseries \underline{Proposition~\stepcounter{Proposition}\arabic{Proposition}.}~#1~~}}{\par}
+\newcounter{Theorem}[section]
+\newenvironment{Theorem}[1][]{{\par\normalfont\bfseries \underline{Theorem~\stepcounter{Theorem}\arabic{Theorem}.}~#1~~}}{\par}
+\newcounter{Note}[section]
+\newenvironment{Note}[1][]{{\par\normalfont\bfseries \underline{Note~\stepcounter{Note}\arabic{Note}.}~#1~~}}{\par}
+\newcounter{Lemma}[section]
+\newenvironment{Lemma}[1][]{{\par\normalfont\bfseries \underline{Lemma~\stepcounter{Lemma}\arabic{Lemma}.}~#1~~}}{\par}
+\newcounter{Corollary}[section]
+\newenvironment{Corollary}[1][]{{\par\normalfont\bfseries \underline{Corollary~\stepcounter{Corollary}\arabic{Corollary}.}~#1~~}}{\par}
+\newenvironment{Proof}{{\par~{\normalfont\bfseries $\vartriangleright$}~~}}{\hfill $\square$\par\hfill\par} %\par
+\newcounter{Def}[section]
+\newenvironment{Def}[1][]{{\par\normalfont\bfseries \underline{Definition~\stepcounter{Def}\arabic{Def}.}~#1~~}}{\par}
+\newcounter{Assumption}[section]
+\newenvironment{Assumption}[1][]{{\par\normalfont\bfseries \underline{Assumption~\stepcounter{Assumption}\arabic{Assumption}.}~#1~~}}{\par}
+
+
+
+\allowdisplaybreaks[4] %允许 align 跨页编排
+
+%\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+%\def\G{\mathcal{G}}
+\def\Z{\mathcal{Z}}
+\def\H{\mathcal{H}}
+\def\D{\mathcal{D}}
+
+\begin{document}
+\title{Luttinger's Formulation of Thermal Transport}
+\author{Xiaodong Hu}
+%\altaffiliation[Also at ]{Boson College}
+\email{xiaodong.hu@bc.edu}
+\affiliation{Department of Physics, Boston College}
+
+\date{\today}
+
+\begin{abstract}
+	In this note, we will review Luttinger's mechanical derivation of thermal transport \cite{luttinger1964theory}. Luttinger takes the charge diffusion and Einstein relation as two limits of the phenomelogical relation of charge transport. By introducing the scalar gravitation field as a thermal potential and taking such two limits properly, Luttinger shows that thermoelectric transport coefficients can be determined by that of the terms proportional to electrical and gravitational potential gradients, which are described by Kubo-like formula as well.\par
+	%\begin{center}
+		\hfill\par
+		{\centering\kaishu 微云淡河汉，疏雨滴梧桐。\\[0.5em]}
+	%\end{center}
+	\hfill------ 孟浩然「断句」
+\end{abstract}
+
+\maketitle
+\tableofcontents
+
+\section{Introduction}
+	The ``mechanical derivation'' of the Kubo formula for electrical conductivity --- by perturbing the Hamiltonian with well-defined external fields ($\hbar=c=1$)
+	\begin{equation*}
+		\hat H\mapsto\hat H+\delta\hat H,\quad\hat H=\int\dd^{d+1}x\,\bm{A}\cdot\bm{J},\quad \bm{E}=\partial_t\bm{A},
+	\end{equation*}
+	has no ambiguity. However, {\color{red}since temperature enters in condensed matter physics as a conjugate fields in density matrix $\hat\rho=e^{-\beta\hat H}$, there exists no such prescription of perturbative Hamiltonian. So without modification there cannot be any mechanical way of derivation for the thermal transport}.\par
+
+	In the second section, we will revisit the derivation of Kubo formula for charge transport in detail. The idea of fast limit and slow limit will be used in thermal transport. In the third section, we will introduce the potential of thermal gradient to derive all thermal transport coefficients.
+
+\section{Revisit on Charge Diffusion and Einstein Relation}
+	\subsection{Perturbative Density Matrix}
+		Let us turn on an \emph{arbitrary} electro-static ($s\ll1$) potential from $t=-\infty$ in the profile of (for explicitness of the power of time-dependence)
+		\begin{equation*}
+			\varphi(\bm{r},t)=\varphi(\bm{r})e^{st},
+		\end{equation*}
+		then the Hamiltonian of such charged system with the density distribution $\hat\rho(\bm{r})$ at $t=-\infty$ (without other emphasis {\color{red}we choose to work in Schr\"{o}dinger picture}) becomes explicit time-dependent
+		\begin{equation}\label{1.1.1}
+			\hat H\mapsto\hat{H}_T(t)\equiv\hat H+\int\dd\bm{r}\,\hat\rho(\bm{r})\varphi(\bm{r},t)\equiv\hat H+\hat F e^{st},
+		\end{equation}
+		with the operator $\hat{F}\equiv\int\dd\bm{r}\,\hat\rho(\bm{r})\varphi(\bm{r})$ of NO time-dependence.\par
+		\indent In Schr\"{o}dinger picture all information of time-evolution is contained in states, so the density matrix satisfies
+		\begin{equation}\label{1.1.2}
+			i\partial_t\hat{\varrho}_T=[\hat{H}_T,\hat\varrho_T].
+		\end{equation}
+		Since all time-dependence is brought by the source field $\varphi(\bm{r},t)=\varphi(\bm{r})e^{st}$, so up to linear response we can separate $\hat{\varrho}_T\equiv\hat{\varrho}+\hat{f}e^{st}$ with the operator $\hat{f}$ of NO time-dependence $i\partial_t\hat f=0$ and $i\partial_t\hat\varrho=[\hat H,\hat \varrho]=0$ by assumption of thermodynamic equilibrium at $t=-\infty$. Inserting all components back into the equation \eqref{1.1.2}, the coefficient $\hat{f}$ satisfies (up to $\varphi(\bm{r},t)$, or $e^{st}$)
+		\begin{equation}\label{1.1.3}
+			[\hat H,\hat f]-is\hat{f}=[\hat\varrho,\hat F]\equiv\hat C.
+		\end{equation}
+		\begin{Claim}
+			The solution of operator equation \eqref{1.1.3} is
+			\begin{equation}\label{1.1.4}
+				\hat{f}=i\int_0^\infty\dd t\, e^{-st}\hat{C}(-t),
+			\end{equation}
+			where the Heisenberg operator $\hat{C}(t)\equiv e^{i\hat Ht}\hat Ce^{-i\hat H t}$. I have to emphasize here that \textbf{the notation $\hat{C}(t)$ is introduced just for convenience, which originate from the commutator $[\hat H,\hat f]$ when we take the linear approximation in \eqref{1.1.3}. In fact, the dynamics is still fully-contained in quantum states rather than operators (Schr\"{o}rdinger picture)}. And from now on, without ambiguity the special notation $\mathcal{O}(t)$ always indicates the time-evolved operator under the unperturbed Hamiltonian $\hat{H}$. 
+		\end{Claim}
+		\begin{Proof}
+			Direct check:
+			\begin{align*}
+				[\hat H,\hat f]-is\hat f&=i\int_0^\infty\dd t\,e^{-st}\bigg([\hat H,\hat C(-t)]-is\hat C(-t)\bigg)=\int_0^\infty\dd t\,e^{-st}\bigg(i\partial_{-t}\hat C(-t)+s\hat{C}(-t)\bigg)\\
+				&=-\int_0^\infty\dd(-t)\dfrac{\dd}{\dd(-t)}\bigg(e^{-st}\hat{C}(-t)\bigg)=\hat{C}(0)\equiv C.
+			\end{align*}
+		\end{Proof}
+		\noindent The following identity is useful:
+		\begin{Lemma}
+			For Gibbis density matrix $\hat\varrho=e^{-\beta\hat H}$ and any operator $\hat{\mathcal{O}}(t)=e^{i\hat Ht}\hat{\mathcal{O}}e^{-i\hat Ht}$, we have the identity \cite{kubo1957statistical}
+			\begin{equation}\label{1.1.5}
+				[\hat\varrho,\hat{\mathcal{O}}(t)]\equiv i\hat\varrho\int_0^\beta\dd\lambda\dfrac{\dd}{\dd t}\hat{\mathcal{O}}(t-i\lambda).
+			\end{equation}
+		\end{Lemma}
+		\begin{Proof}
+			The integral can be construced as following:
+			\begin{equation*}
+				\text{LHS}\equiv-e^{-\beta\hat H}\bigg(e^{\beta\hat H}\hat{\mathcal{O}}(t)e^{-\beta\hat H}-\hat{\mathcal{O}}(0)\bigg)=-e^{-\beta\hat H}\bigg(\hat{\mathcal{O}}(t-i\lambda)-\hat{\mathcal{O}}(0)\bigg)\equiv e^{-\beta H}\int\dd\lambda\dfrac{\dd}{\dd\lambda}\hat{\mathcal{O}}(t-i\lambda)=\text{RHS}.
+			\end{equation*}
+		\end{Proof}
+		\noindent Therefore, the solution of \eqref{1.1.3} can be expressed as
+		\begin{equation}\label{1.1.6}
+			{\color{red}\hat{f}=-\hat\varrho\int_0^\infty\dd t\,e^{-st}\int_0^\beta\dd\lambda\,\dot{\hat F}(-t-i\lambda)},
+		\end{equation}
+		where
+		\begin{equation*}
+			\dfrac{\dd}{\dd t}\hat F(t)\equiv\dfrac{\dd}{\dd t}\left(e^{i\hat Ht}\hat Fe^{-i\hat Ht}\right)=i[\hat H,\hat F]=i\int\dd\bm{r}\,[\hat H,\hat\rho(\bm{r})]\varphi(\bm{r}).
+		\end{equation*}
+
+	\subsection{Kubo Formula}
+		Let us review the rigorous construction of the lattice-level conservation laws from Kapustin and Spodyneiko in \cite{kapustin2020thermal}. Given the \emph{uniformly bounded} Hamiltonian $H=\sum_{p\in\Lambda}H_p$ in the finite region $\Lambda\subset\mathbb{R}^n$, and a $U(1)$ symmetry action on each Hilbert space of site $q$ with the generator $Q_q$, the local current operator $\hat{J}_{pq}$ from site $p$ to $q$ is is defined to satisfy the operator identity
+		\begin{equation*}
+			\dfrac{\dd Q_q}{\dd t}+\sum_{p\in\Lambda}J_{pq}=0
+		\end{equation*}
+		with $\dd Q_q/\dd t\equiv i[H,Q_q]$. An appropriate definition for skew-symmetric 1-chain $J_{pq}\equiv-J_{qp}$ is
+		\begin{equation}\label{1.2.0}
+			J_{pq}:=i[H_q,Q_p]-i[H_p,Q_q].
+		\end{equation}
+		\indent Similarly, \textbf{in the smooth limit where current operator is \emph{believed} to be able to expressed by a single spatial argument (like $J^\mu(\bm{r}):=\delta S/\delta A_\mu(\bm{r})$), we will \emph{defined} (or more precisely, \emph{constrained}) the local current operator $\hat{\bm{j}}(\bm{r},t)$ by the local charge conservation}
+		\begin{equation}\label{1.2.1}
+			i[\hat H_T,\hat\rho(\bm{r})]+\nabla\cdot\hat{\bm{j}}(\bm{r})\equiv0.
+		\end{equation}
+\iffalse
+		But the question is, whether the current defined above satisfy the continuity equation for our perturbative Hamiltonian $H_T$
+		\begin{equation*}
+			\partial_t\langle\hat\rho(\bm{r})\rangle+\nabla\cdot\langle\hat{\bm{j}}(\bm{r})\rangle\equiv0.
+		\end{equation*}
+		Since we are working in Schr\"{o}dinger picture,
+		\begin{equation*}
+			\partial_t\langle\hat\rho(\bm{r})\rangle\equiv\partial_t\mathop{\mathrm{Tr}}(\hat\varrho_T(t)\hat{\rho}(\bm{r}))=\mathop{\mathrm{Tr}}\bigg((\partial_t\hat\varrho_T(t))\hat{\rho}(\bm{r})\bigg)=\mathop{\mathrm{Tr}}\bigg(i[\hat\varrho(t),\hat H_T(t)]\hat\rho(\bm{r})\bigg)=\mathop{\mathrm{Tr}}\bigg(i\hat\varrho(t)[\hat H_T(t),\hat\rho(\bm{r})]\bigg).
+		\end{equation*}
+		Similarly, the energy current is defined by
+		\begin{equation}\label{1.2.2}
+			\partial_t\hat{h}(\bm{r},t)+\nabla\cdot\hat{\bm{j}}^E(\bm{r},t)=i[\hat H,\hat{h}(\bm{r})]+\nabla\cdot\hat{\bm{j}}^E(\bm{r},t)=0.
+		\end{equation}
+\fi
+		\noindent Using the fact that
+		\begin{equation*}
+			[\hat\rho(x),\hat\rho(y)]=\psi^\dagger(x)\delta(x-y)\psi(y)-\psi^\dagger(y)\delta(x-y)\psi(x),
+		\end{equation*}
+		we have
+		\begin{equation*}
+			[\hat F,\hat\rho(\bm{r})]\equiv\int\dd\bm{x}[\hat{\rho}(\bm{x})\varphi(\bm{x}),\hat\rho(\bm{r})]=0.
+		\end{equation*}
+		So the operator identity for chrage current becomes simply
+		\begin{equation}\label{1.2.2}
+			{\color{red}i[\hat H,\hat\rho(\bm{r})]+\nabla\cdot\hat{\bm{j}}(\bm{r})\equiv0}.
+		\end{equation}
+		\indent Now the time-derivative in \eqref{1.1.1} can be switched into
+		\begin{equation*}
+			\dot{\hat F}(t)=\int\dd\bm{r}\,i[\hat H,\hat\rho(\bm{r})]\varphi(\bm{r})=\int\dd\bm{r}(-\nabla\cdot\hat{\bm{j}}(\bm{r},t))\varphi(\bm{r})=-\int\dd\bm{r}\,\hat{\bm{j}}(\bm{r},t)\cdot(-\nabla\varphi)=\int\dd\bm{r}\,\hat{\bm{j}}(\bm{r},t)\cdot\bm{E}(\bm{r}).
+		\end{equation*}
+		And the average charge current (at time $t=0$, for example) is
+		\begin{align}
+			{\color{red}\langle\hat j_a(\bm{r},0)\rangle_T}&=\langle\hat j_a(\bm{r},0)\rangle_0+\mathrm{Tr}[\hat{f}\hat j(\bm{r},0)]e^{st}|_{t=0}\nonumber\\
+			&{\color{red}=\int_0^\infty\dd t\,e^{-st}\int_0^\beta\dd\lambda\int\dd\bm{r'}\langle\hat j_b(\bm{r'},-t-i\lambda)\hat j_a(\bm{r},0)\rangle_0 E_b(\bm{r'})},\label{1.2.3}
+		\end{align}
+		where we drop the equilibrium charge current by \emph{Bloch theorem} (For a modern proof, see \cite{watanabe2019proof}) and the thermodynamic average $\langle\cdots\rangle_0$ is taken with the $t=-\infty$ density matrix $\hat{\varrho}$. As a reminescence of \emph{Kubo pair} \cite{kubo1957statistical}, the time argument in the first current operator can be safely moved to the second current operator with opposite sign by cycling the trace.\par
+		\textbf{The general formula \eqref{1.2.3} gives the response current of an \emph{arbitrary} spatially varying electric field. But in experiments, or phenomelogically, we are only concerned with the case when external fields vary slowly. Namely, only component with zero momentum will be left after Fourier transformation}. One simple and appropriate\footnote{We prefer the form of plane wave just for mathematical reason. It is infinitely differentiable, and we hope it can make the integral uniformly converge so we can safely discuss the order of two limits.} prescription of such limit is to, first, set the form of the elecro-static potential
+		\begin{equation}\label{1.2.4}
+			\varphi(\bm{r})\sim\varphi(\bm{q})e^{i\bm{q\cdot r}},
+		\end{equation}
+		then discuss the order of two limits $s\rightarrow0$ and $|\bm{q}|\rightarrow0$.\par
+		If the system is \emph{homogeneous}, the current density as reponse should also take form of \eqref{1.2.4} as the source fields do, i.e., $\hat{j}_a(\bm{r})\sim\hat{j}_a(\bm{q})e^{i\bm{q\cdot r}}$. In this case we get the familiar result
+		\begin{equation}\label{1.2.5}
+			{\color{red}\langle j_a(\bm{q},0)\rangle=\int_0^\infty\dd t\,e^{-st}\int_0^\beta\dd\lambda\,\langle j_b(\bm{-q},-t-i\lambda)j_a(\bm{q},0)\rangle_0 E_b(\bm{q})}.
+		\end{equation}
+	
+	\subsection{Fast/Slow Limit}
+		\textbf{The average currents have two physical origins --- driven by external electrical fields, or induced from the diffusion of the gradient of charge concentration}. So \emph{phenomelogically} we can write
+		\begin{equation}\label{1.3.1}
+			\langle\hat j_a(\bm{r},0)\rangle=\sigma_{ab}E_b(\bm{r},0)-D_{ab}\nabla_b \langle\hat \rho(\bm{r},0)\rangle.
+		\end{equation}
+		Combining with the quantum average of the charge conservation equation \eqref{1.2.1}, we get, in momentum space
+		\begin{align}
+			\langle\hat\rho(\bm{q})\rangle&=\dfrac{iq_c\sigma_{bc}E_b(\bm{q})}{s+q_bq_cD_{cb}}=\dfrac{q_c q_b\sigma_{cb}}{s+q_c q_bD_{cb}}\varphi(\bm{q}),\label{1.3.2}\\
+			\langle\hat j_a(\bm{q})\rangle&=\left(\sigma_{ab}+D_{ab}\dfrac{q_cq_b\sigma_{cb}}{s+q_c q_bD_{cb}}\right)E_b(\bm{q}).\label{1.3.3}
+		\end{align}
+		As is mentioned above, depending on the order of two limits $s\rightarrow0$ and $|\bm{q}|\rightarrow0$, we are separated into two regimes:
+		\begin{itemize}
+			\item {\color{red}\textbf{Fast (Rapid) Limit} $s\gg D_{ab}q_aq_b$: the time-scale determined by $s$ is so small that the system does not have time to adjust to the external fields so stays to be homogeneous}. Under this limit we have
+			\begin{equation*}
+				\langle\hat\rho(\bm{q})\rangle=0,\quad \langle\hat{j}_a(\bm{q})\rangle=V\sigma_{ab}E_b(\bm{q}).
+			\end{equation*}
+			So comparing with \eqref{1.2.5} we get the \emph{Kubo formula} for charge conductivity
+			\begin{equation}\label{1.3.4}
+				\sigma_{ab}=\lim_{s\rightarrow0}\dfrac{1}{V}\int_0^\infty\dd t\,e^{-st}\int_0^\beta\dd\lambda\,\langle \hat{j}_b(\bm{0},-t-i\lambda)\hat{j}_a(\bm{0},0)\rangle.
+			\end{equation}
+			\item {\color{red}\textbf{Slow Limit} $s\ll D_{ab}q_aq_b$: the system now has enough time to evolve into the new steady state (determined by the static external potential) so is in a \emph{new} equilibrium}. Under this limit we must have, from Bloch's theorem
+			\begin{equation*}
+				\langle\hat{j}_a(\bm{q})\rangle=0.
+			\end{equation*}
+			This is true only if the RHS of \eqref{1.3.3} is zero, giving the \emph{Einstein relation}:
+			\begin{equation}\label{1.3.5}
+				\sigma_{ab}=\dfrac{q_cq_b\sigma_{cb}}{s+q_cq_bD_{cb}}\cdot D_{ab}\equiv aD_{ab}.
+			\end{equation}
+			The charge density of the new equilibrium $\langle\hat{\rho}(\bm{q})\rangle=-Va\varphi(\bm{q})$ can now be determined by thermodynamics. Luttinger shows that $a=e^1/(\partial\mu/\partial n)_T$.
+		\end{itemize}
+		\begin{Note}
+			The second part of the phenomelogical equation \eqref{1.3.1} is \emph{diffusive} since in combination with the conservation equation \eqref{1.2.1}, it gives the diffusive equation
+			\begin{equation*}
+				\partial_t\langle\hat\rho(\bm{r},t)\rangle+\partial_a(D_{ab}\partial_b \langle\hat\rho\rangle)=0.
+			\end{equation*}
+			So the two time scale we are comparing here are $\tau_\omega\sim 1/\omega$ and $\tau_k\sim1/(Dk^2)$. If $\tau_\omega\ll\tau_k$, then we are in the fast limit; If $\tau_\omega\gg\tau_k$, then we are in the slow limit.
+		\end{Note}
+		\begin{Note}
+			Another way to understand these two limits is to construct the most general linear expansion of charge \emph{transport current}\footnote{We distinguish currents into transport one and total one for further consideration of magnetization.} (instead of working in $n(\bm{r})\equiv\langle\hat{\rho}\rangle$, we prefer to work with dual thermodynamic variable $\mu(\bm{r})$)
+			\begin{equation}\label{1.3.6}
+				\bm{j}(\bm{r})=-L_1\nabla\varphi-L_2\nabla\mu.
+			\end{equation}
+			In the fast limit, there is no time for chemical potential to evolve, so $\nabla\mu=0$. Comparing with \eqref{1.2.5} we get the Kubo formula for transport coefficient $L_1$. {\color{red}The crucial idea of Luttinger is that, although there is no direct way of calculation for the (constant) transport coefficient $L_2$, we can let the system evolve into the \emph{new equilibrium} (slow limit) such that there is no long a transport current $\bm{j}=0$. In that limit we have $\nabla\mu=\nabla\varphi$ (see equation \eqref{1.3.2}, or the next section for a more general discussion). So we can safely identify $L_1$ with $L_2$ even in non-equilibrium as long as we are considering linear response}.
+		\end{Note}
+
+
+
+\section{Thermalelectric Transport via Scalar Gravitational Potential}
+	\subsection{Correction to Local Charge/Energy Currents}
+		In analogy with the prescription of charge transport (see the phenomelogical equation \eqref{1.3.1}), where charge density fluctuation $\nabla\langle\hat{\rho}\rangle$ and charge current $\langle\hat{j}_a\rangle$ are induced by the space- and time-varying external fields (gradient of external potentials), we can also introduce a space- and time-varying potential $\psi$ to induce the energy density fluctuation $\langle\hat h\rangle$ and energy flows $\langle\hat{j}_a^E\rangle$. Namely, the coupling with external fields read
+		\begin{equation}\label{2.1.1}
+			\hat{H}\mapsto\hat H_T\equiv\int\dd\bm{r}\,\bigg(\hat h(\bm{r})+\hat\rho(\bm{r})\varphi(\bm{r})+\hat{h}(\bm{r})\psi(\bm{r})\bigg)e^{st}.
+		\end{equation}
+		The scalar potential $\psi$ is named as \emph{gravitational potential} by Luttinger simply because the dimension of $\hat{h}/c^2$ is mass density.\par
+		What is different this time is that, \textbf{external source fields $\varphi$ and $\psi$ will alter the definition of charge current and energy currents}. In fact, the correct charge current density $\hat{\bm{J}}$ and energy current density $\hat{\bm{J}}^E$ satisfies (or, are \emph{constrained} by)
+		\begin{equation}\label{2.1.2}
+			i[\hat H_T,\hat\rho(\bm{r})]+\nabla\cdot\hat{\bm{J}}(\bm{r})\equiv0,\quad i[\hat H_T,\hat h_T(\bm{r})]+\nabla\cdot\hat{\bm{J}}^E(\bm{r})\equiv0.
+		\end{equation}
+		Let us still denote the charge currents and energy currents for $\varphi=\psi=0$ as
+		\begin{equation}\label{2.1.3}
+			i[\hat H,\hat\rho(\bm{r})]+\nabla\cdot\hat{\bm{j}}(\bm{r})\equiv0,\quad i[\hat H,\hat h(\bm{r})]+\nabla\cdot\hat{\bm{j}}^E(\bm{r})\equiv0.
+		\end{equation}
+		Then after inputing the full Hamiltonian density in \eqref{2.1.2}, we get
+		\begin{align*}
+			\nabla\cdot\hat{\bm{J}}(\bm{r})&=-i\int\dd\bm{x}\,[\hat{h}(\bm{x})+\hat{\rho}(\bm{x})\varphi(\bm{x})+\hat{h}(\bm{x})\psi(\bm{x}),\hat{\rho}(\bm{r})]\\
+			&=-i\int\dd\bm{x}\,[\hat{h}(\bm{x}),\hat{\rho}(\bm{r})](1+\psi(\bm{x}))\simeq-i\int\dd\bm{x}\,[\hat{h}(\bm{x}),\hat{\rho}(\bm{r})]\times(1+\psi(\bm{r}))=\nabla\cdot\hat{\bm{j}}(\bm{r})\times(1+\psi(\bm{r})),
+		\end{align*}
+		where in the second line we use the fact that the integral of the density-density commutator $[\hat{\rho}(\bm{x}),\hat{\rho}(\bm{r})]$ is vanishing, and that the commutator $[\hat{h}(\bm{x}),\hat{\rho}(\bm{r})]$ is locally bounded around $\bm{r}$ such that the slowly-varying field $\psi(\bm{x})$ can be approximated as $\psi(\bm{r})$ when performing the integral. In the same sense, we have
+		\begin{align*}
+			\nabla\cdot\hat{\bm{J}}^E(\bm{r})&=-i\int\dd\bm{x}\,\bigg[(1+\psi(\bm{x}))\hat{h}(\bm{x})+\hat{\rho}(\bm{x})\varphi(\bm{x}),(1+\psi(\bm{r}))\hat{h}(\bm{r})+\hat{\rho}(\bm{r})\varphi(\bm{r})\bigg]\\
+			&=-i\int\dd\bm{x}\,[\hat{h}(\bm{x}),\hat{h}(\bm{r})](1+\psi(\bm{x}))(1+\psi(\bm{r}))-i\int\dd\bm{x}\,[\hat{h}(\bm{x}),\hat{\rho}(\bm{x})](1+\psi(\bm{x}))\varphi(\bm{r})\\
+			&\qquad-i\int\dd\bm{x}\,[\hat{\rho}(\bm{x}),\hat{h}(\bm{r})]\varphi(\bm{x})(1+\psi(\bm{r}))\\
+			&\simeq\nabla\cdot\hat{\bm{j}}^E\times(1+2\psi(\bm{r}))+\nabla\cdot\hat{\bm{j}}(\bm{r})\times\varphi(\bm{r}),
+		\end{align*}
+		where the third line is dropped because the total charge commute with the Hamiltonian density $[\hat{Q},h(\bm{r})]\equiv0$.\par
+		Therefore, up to divergence-free corrections (and up to linear response) the currents operator correction are
+		\begin{equation}\label{2.1.4}
+			{\color{red}\hat{\bm{J}}(\bm{r})=(1+\psi(\bm{r}))\hat{\bm{j}}(\bm{r}),\quad \hat{\bm{J}}^E(\bm{r})=\hat{\bm{j}}^E+\varphi(\bm{r})\hat{\bm{j}}(\bm{r})+2\psi(\bm{r})\hat{\bm{j}}^E(\bm{r})}.
+		\end{equation}
+		\begin{Note}
+			It seems strange to have \emph{different} coefficients of $\varphi(\bm{r})$ and $\psi(\bm{r})$ in the correction of currents in \eqref{2.1.4} at the first glance, since at the very beginning they couple in the same way in the Hamiltonian. But such discrepancy can be explained perfectly at the lattice level \cite{kapustin2020thermal,Priv_Comm_Person_Xu}.\par
+			As is shown in \eqref{1.2.0}, the naive construction of charge currents are modified to satisfy the skew-symmetric condition $J_{pq}\equiv- J_{qp}$. However, for energy currents
+			\begin{equation*}
+				\dfrac{\dd H_q}{\dd t}+\sum_{p\in\Lambda}J^E_{pq}=0,
+			\end{equation*}
+			we can simply construct it as $J^E_{pq}:=-i[H_p,H_q]$ to meet the skew-symmetric condiction $J^E_{pq}\equiv-J^E_{qp}$. Therefore, for perturbed Hamiltonian we have
+			\begin{align}
+				J_{pq}^{\varphi,\psi}&\equiv i[(1+\psi_q)H_q+\varphi_qQ_q,Q_p]-i[(1+\psi_p)H_p+\varphi_pQ_p,Q_q]=J_{pq}-i\psi_q[H_q,Q_p]-i\psi_p[H_p,Q_q]\nonumber\\
+				&=\left(1+\dfrac{\psi_p+\psi_q}{2}\right)(i[H_q,Q_p]-i[H_p,Q_q])+i\dfrac{\psi_q-\psi_p}{2}([H_q,Q_p]+[H_p,Q_q])\nonumber\\
+				&=\left(1+\dfrac{\psi_p+\psi_q}{2}\right)J_{pq}+i\dfrac{\psi_q-\psi_p}{2}([H_q,Q_p]+[H_p,Q_q])\label{2.1.5}
+			\end{align}
+			and
+			\begin{align}
+				J^{E,\varphi,\psi}_{pq}&\equiv-i[(1+\psi_p)H_p+\varphi_pQ_p,(1+\psi_q)H_q+\varphi_qQ_q]=-i(1+\psi_p+\psi_q)[H_p,H_q]-i\varphi_p[Q_p,H_q]-i\varphi_q[H_p,Q_q]\nonumber\\
+				&=(1+\psi_p+\psi_q)J^E_{pq}+\dfrac{\varphi_p+\varphi_q}{2}J_{pq}\label{2.1.6}.
+			\end{align}
+			In the smooth limit where current operator is writen in single spatial argument (so $\mathrm{dist}(p,q)<\delta$), the second term in \eqref{2.1.5} is vanishing and we are left with exactly \eqref{2.1.4}.
+		\end{Note}
+		
+	\subsection{Transport Coefficients Under Fast/Slow Limits}
+		Still writing $\hat{H}_T\equiv\hat H+\hat F e^{st}$ where now
+		\begin{equation*}
+			\hat F\equiv\int\dd\bm{r}\,\bigg(\hat\rho(\bm{r})\varphi(\bm{r})+\hat h\psi(\bm{r})\bigg)
+		\end{equation*}
+		and $\hat\varrho_T\equiv\hat\varrho+\hat{f}e^{st}$, then nothing will change when we solve $\hat f$ up to linear order:
+		\begin{equation*}
+			\hat f=-\hat\varrho\int\dd t\,e^{-st}\int_0^\beta\dd\lambda\dot{\hat F}(-t-i\lambda).
+		\end{equation*}
+		Althogh now we have to make a correction to the current operator as in \eqref{2.1.4}, it can be easily seen that up to linear response we are still left with the original expression
+		\begin{equation*}
+			\langle\hat{\bm{J}}\rangle\equiv\mathop{\mathrm{Tr}}\bigg\{(\hat\varrho+\hat fe^{st})\hat{\bm{j}}(1+\psi)\bigg\}\simeq\mathop{\mathrm{Tr}}(\hat\varrho\hat{\bm{j}})(1+\psi)+\mathop{\mathrm{Tr}}(\hat f\hat{\bm{j}})e^{st}=\mathop{\mathrm{Tr}}(\hat f\hat{\bm{j}})e^{st}.
+		\end{equation*}
+		Ditto for the energy current
+		\begin{equation*}
+			\langle\hat{\bm{J}}^E\rangle\equiv\mathop{\mathrm{Tr}}\bigg\{(\hat\varrho+\hat fe^{st})\times\bigg[\hat{\bm{j}}^E+\varphi(\bm{r})\hat{\bm{j}}(\bm{r})+2\psi(\bm{r})\hat{\bm{j}}^E(\bm{r})\bigg]\bigg\}\simeq\mathop{\mathrm{Tr}}(\hat\varrho\hat{\bm{j}}^E).
+		\end{equation*}
+		Therefore, inserting the expression of $\hat F$, we get, similar to \eqref{1.2.3}, that
+		\begin{align}
+			\langle\hat J_a(\bm{r})\rangle&\simeq\langle\hat j_a(\bm{r})\rangle=\int_0^\infty\dd t\,e^{-st}\int_0^\beta\dd\lambda\int\dd\bm{r'}\bigg[\langle\hat j_b(\bm{r'},-t-i\lambda)\hat j_a(\bm{r},0)\rangle_0\times(-\partial_b\varphi)+\langle\hat j_b^E(\bm{r'},-t-i\lambda)\hat j_a(\bm{r},0)\rangle_0\times(-\partial_b\psi)\bigg],\label{2.2.1}\\
+			\langle\hat J_a^E(\bm{r})\rangle&\simeq\langle\hat j_a^E(\bm{r})\rangle=\int_0^\infty\dd t\,e^{-st}\int_0^\beta\dd\lambda\int\dd\bm{r'}\bigg[\langle\hat j_b(\bm{r'},-t-i\lambda)\hat j_a^E(\bm{r},0)\rangle_0\times(-\partial_b\varphi)+\langle\hat j_b^E(\bm{r'},-t-i\lambda)\hat j_a^E(\bm{r},0)\rangle_0\times(-\partial_b\psi)\bigg],\label{2.2.2}
+		\end{align}
+		where \emph{Bloch theorem} for energy currents is also used \cite{kapustin2019absence}.\par
+		Similar to the discussion of equation \eqref{1.3.6}, phenomelogically both charge current and energy currents are linear combination of $\{\nabla\mu,\nabla T,\nabla\varphi,\nabla\psi\}$. In the fast limit (transport limit), local chemical potential and temperature will have not enough time to evolve so can be taken as constant (in the origianl equilibrium). So the most general forms we can write are
+		\begin{equation}\label{2.2.3}
+			\langle\hat J_a\rangle=-L_{ab}^{(1)}\partial_b\varphi-L^{(2)}_{ab}\partial_b\psi,\quad\langle\hat J_a^E\rangle=-L^{(3)}_{ab}\partial_b\varphi-L^{(4)}_{ab}\partial_b\psi.
+		\end{equation}
+		Comparing with \eqref{2.2.1} and \eqref{2.2.2}, one immediately gets
+		\begin{align*}
+			L_{ab}^{(1)}&=\int_0^\infty\dd t\,e^{-st}\int_0^\beta\dd\lambda\int\dd\bm{r'}\langle\hat j_b(\bm{r'},-t-i\lambda)\hat j_a(\bm{r},0)\rangle_0,\\
+			L_{ab}^{(2)}&=\int_0^\infty\dd t\,e^{-st}\int_0^\beta\dd\lambda\int\dd\bm{r'}\langle\hat j_b^E(\bm{r'},-t-i\lambda)\hat j_a(\bm{r},0)\rangle_0,\\
+			L_{ab}^{(3)}&=\int_0^\infty\dd t\,e^{-st}\int_0^\beta\dd\lambda\int\dd\bm{r'}\langle\hat j_b(\bm{r'},-t-i\lambda)\hat j_a^E(\bm{r},0)\rangle_0,\\
+			L_{ab}^{(4)}&=\int_0^\infty\dd t\,e^{-st}\int_0^\beta\dd\lambda\int\dd\bm{r'}\langle\hat j_b^E(\bm{r'},-t-i\lambda)\hat j_a^E(\bm{r},0)\rangle_0.
+		\end{align*}
+		\indent But this is not the end of the story. The most general constitutive relation of currents also contain terms proportional to gradients of local chemical potential $\nabla\mu$ and local temperature $\nabla T$. To obtain the transport coefficients for these terms, we can borrow the idea we have developed in pure electrical transport. {\color{red}We first consider the slow limit when the system has enough time to evolve to the \emph{new eqiulibrium}, from which we can obtain some constraints on the transport coefficients. Then going back to non-equilibrium state, with these constraint keeping unchanged (up to linear response)}.\par
+		But what makes the theory tricky this time is that, in the \emph{new equilibrium} (slow limit) determined by the perturbed Hamiltonian $H_T$, the definition of local chemical potential and local temperature will change. In fact, we have
+		\begin{Proposition}[(Equilibrium condition)]
+			The local temperature and local chemical potential become
+			\begin{equation}\label{2.2.4}
+				{\color{red}T(\bm{r})^{-1}=\beta_0(1+\psi(\bm{r})),\quad\mu(\bm{r})=(\mu_0-\varphi(\bm{r}))(1+\psi(\bm{r}))}
+			\end{equation}
+			in the new equilibrium (slow limit) determined by $H_T$. Euivalently, we have \cite{cooper1997thermoelectric}
+			\begin{equation}\label{2.2.5}
+				\delta \left(\dfrac{\mu}{T}\right)=-\dfrac{\varphi(\bm{r})}{T_0},\quad \delta \left(\dfrac{1}{T}\right)=\dfrac{\psi(\bm{r})}{T_0},
+			\end{equation}
+		\end{Proposition}
+		\begin{Proof}
+			One important thing is that, \textbf{in contrast with the conceptual thermodynamic variables $\{T,\mu\}$, only local charge density $n(\bm{r})\equiv\langle\hat\rho\rangle$ and local energy density $\varepsilon(\bm{r})\equiv\langle\hat{h}\rangle$ is experimentally measurable!} In fact, we first \emph{assume} the expression of the local entropy density $s(\varepsilon(\bm{r}),n(\bm{r}))$ keeps the same when we switch from the original thermodynamic eqiulibrium to the new equilibrium (\textbf{the accuracy is of $\mathcal{O}((\nabla\varphi)^2,\nabla\varphi\nabla\psi,(\nabla\psi)^2)$}), then we \emph{define} the local temperature and chemical potential in the usual sense:
+			\begin{equation}\label{2.2.6}
+				T^{-1}(\bm{r}):=\left.\dfrac{\partial s}{\partial \varepsilon}\right|_n,\quad\mu(\bm{r}):=-T(\bm{r})\left.\dfrac{\partial s}{\partial n}\right|_\varepsilon.
+			\end{equation}
+			The prescription of Luttinger tells that the new equilibrium density matrix takes the form of
+			\begin{equation*}
+				\hat\varrho_T\propto\exp\bigg\{-\beta_0\int\dd\bm{r}\,\bigg[(1+\psi(\bm{r})\hat{h}(\bm{r})+\varphi(\bm{r})\hat\rho(\bm{r})-\mu_0\hat\rho(\bm{r})\bigg]\bigg\}.
+			\end{equation*}
+			In thermodynamic equilibrium, the functional $\Phi\equiv S-\beta_0(E_T-\mu_0N)$ reaches its maximized, where $S=\int\dd\bm{r}\,s[\varepsilon(\bm{r}),n(\bm{r})]$, $E_T=\langle\hat H_T\rangle$, and $N=\langle\hat N\rangle$. So $\delta\Phi/\delta \varepsilon=\delta\Phi/\delta n=0$ and the definition \eqref{2.2.6} give exactly the identities \eqref{2.2.4}, respectively.
+		\end{Proof}
+		\begin{Corollary}
+			Since the local temperature and local chemical potential satisfy the identities \eqref{2.2.5} in new equilibrium, the gradient expansion of the charge current and energy current must also match rule in slow limit. Namely, the most general expansions\footnote{Any extra terms like $L_{ab}^{(5)}\nabla\varphi$ and $L_{ab}^{(6)}\nabla\psi$ will violate the requirement that transport charge/energy currents vanish in (new) equilibrium.} we can write in slow limit are,
+			\begin{align}
+				\langle\hat J_a\rangle&=L_{ab}^{(1)}\bigg[-\nabla\varphi-T\nabla \left(\dfrac{\mu}{T}\right)\bigg]+L_{ab}^{(2)}\bigg[-\nabla\psi+T\nabla\left(\dfrac{1}{T}\right)\bigg],\label{2.2.7}\\
+				\langle\hat J_a^E\rangle&=L_{ab}^{(3)}\bigg[-\nabla\varphi-T\nabla \left(\dfrac{\mu}{T}\right)\bigg]+L_{ab}^{(4)}\bigg[-\nabla\psi+T\nabla\left(\dfrac{1}{T}\right)\bigg].\label{2.2.8}
+			\end{align}
+		\end{Corollary}
+		Up to linear response, the slow-limit expansion \eqref{2.2.7} and \eqref{2.2.8} is kept even in \emph{non-equilibrium} states. Therefore \textbf{the thermalelectric transport coefficients can be determined by that of the terms proportional to $\nabla\varphi$ and $\nabla\psi$}, which is expressed in Kubo formula in \eqref{2.2.3}.
+
+\bibliography{hxd}
+\bibliographystyle{apsrev} % apsrev is format for PRL of APS
+\end{document}

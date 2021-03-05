@@ -1,0 +1,12 @@
+\tocdepth@munge 
+\contentsline {section}{\numberline {}Contents}{1}{}
+\tocdepth@restore 
+\contentsline {section}{\numberline {I}Introduction}{1}{}
+\contentsline {section}{\numberline {II}Revisit on Charge Diffusion and Einstein Relation}{2}{}
+\contentsline {subsection}{\numberline {A}Perturbative Density Matrix}{2}{}
+\contentsline {subsection}{\numberline {B}Kubo Formula}{3}{}
+\contentsline {subsection}{\numberline {C}Fast/Slow Limit}{4}{}
+\contentsline {section}{\numberline {III}Thermalelectric Transport via Scalar Gravitational Potential}{5}{}
+\contentsline {subsection}{\numberline {A}Correction to Local Charge/Energy Currents}{5}{}
+\contentsline {subsection}{\numberline {B}Transport Coefficients Under Fast/Slow Limits}{6}{}
+\contentsline {section}{\numberline {}References}{8}{}

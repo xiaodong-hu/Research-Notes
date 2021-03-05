@@ -1,0 +1,54 @@
+\begin{thebibliography}{7}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname bibnamefont\endcsname\relax
+  \def\bibnamefont#1{#1}\fi
+\expandafter\ifx\csname bibfnamefont\endcsname\relax
+  \def\bibfnamefont#1{#1}\fi
+\expandafter\ifx\csname citenamefont\endcsname\relax
+  \def\citenamefont#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{\citenamefont{Luttinger}(1964)}]{luttinger1964theory}
+\bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Luttinger}},
+  \bibinfo{journal}{Physical Review} \textbf{\bibinfo{volume}{135}},
+  \bibinfo{pages}{A1505} (\bibinfo{year}{1964}).
+
+\bibitem[{\citenamefont{Kubo}(1957)}]{kubo1957statistical}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Kubo}},
+  \bibinfo{journal}{Journal of the Physical Society of Japan}
+  \textbf{\bibinfo{volume}{12}}, \bibinfo{pages}{570} (\bibinfo{year}{1957}).
+
+\bibitem[{\citenamefont{Kapustin and Spodyneiko}(2020)}]{kapustin2020thermal}
+\bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Kapustin}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Spodyneiko}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{101}},
+  \bibinfo{pages}{045137} (\bibinfo{year}{2020}).
+
+\bibitem[{\citenamefont{Watanabe}(2019)}]{watanabe2019proof}
+\bibinfo{author}{\bibfnamefont{H.}~\bibnamefont{Watanabe}},
+  \bibinfo{journal}{Journal of Statistical Physics}
+  \textbf{\bibinfo{volume}{177}}, \bibinfo{pages}{717} (\bibinfo{year}{2019}).
+
+\bibitem[{\citenamefont{Xu}(2021)}]{Priv_Comm_Person_Xu}
+\bibinfo{author}{\bibfnamefont{Y.}~\bibnamefont{Xu}},
+  \bibinfo{howpublished}{(private communication)} (\bibinfo{year}{2021}).
+
+\bibitem[{\citenamefont{Kapustin and Spodyneiko}(2019)}]{kapustin2019absence}
+\bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Kapustin}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Spodyneiko}},
+  \bibinfo{journal}{Physical review letters} \textbf{\bibinfo{volume}{123}},
+  \bibinfo{pages}{060601} (\bibinfo{year}{2019}).
+
+\bibitem[{\citenamefont{Cooper et~al.}(1997)\citenamefont{Cooper, Halperin, and
+  Ruzin}}]{cooper1997thermoelectric}
+\bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Cooper}},
+  \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Halperin}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{I.}~\bibnamefont{Ruzin}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{55}},
+  \bibinfo{pages}{2344} (\bibinfo{year}{1997}).
+
+\end{thebibliography}

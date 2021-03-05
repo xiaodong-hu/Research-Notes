@@ -1,16 +1,16 @@
 # Fdb version 3
-["bibtex Luttinger's Formulation of Diffusion Transport"] 1614902523 "Luttinger's Formulation of Diffusion Transport.aux" "Luttinger's Formulation of Diffusion Transport.bbl" "Luttinger's Formulation of Diffusion Transport" 1614903319
+["bibtex Luttinger's Formulation of Diffusion Transport"] 1614902523 "Luttinger's Formulation of Diffusion Transport.aux" "Luttinger's Formulation of Diffusion Transport.bbl" "Luttinger's Formulation of Diffusion Transport" 1614904218
   "/usr/local/texlive/2019/texmf-dist/bibtex/bst/revtex4/apsrev.bst" 1261594643 44155 dc7233506a001aedcd59cfd90f9fe8d7 ""
-  "Luttinger's Formulation of Diffusion Transport.aux" 1614903318 4998 d5a044690b07365e34577a8aaef73cba "xelatex"
+  "Luttinger's Formulation of Diffusion Transport.aux" 1614904218 4998 d5a044690b07365e34577a8aaef73cba "xelatex"
   "hxd.bib" 1614902518 19637 f3bac5a7c34fdfd7923d1f69004fc828 ""
   (generated)
-  "Luttinger's Formulation of Diffusion Transport.bbl"
   "Luttinger's Formulation of Diffusion Transport.blg"
-["xdvipdfmx"] 1614903318 "Luttinger's Formulation of Diffusion Transport.xdv" "Luttinger's Formulation of Diffusion Transport.pdf" "Luttinger's Formulation of Diffusion Transport" 1614903319
-  "Luttinger's Formulation of Diffusion Transport.xdv" 1614903318 166348 e9ae41e7c697c76d626dced766a3aacd "xelatex"
+  "Luttinger's Formulation of Diffusion Transport.bbl"
+["xdvipdfmx"] 1614904218 "Luttinger's Formulation of Diffusion Transport.xdv" "Luttinger's Formulation of Diffusion Transport.pdf" "Luttinger's Formulation of Diffusion Transport" 1614904218
+  "Luttinger's Formulation of Diffusion Transport.xdv" 1614904218 166428 599c2dadd6ec7e0bbd313d5fd37e8e0a "xelatex"
   (generated)
   "Luttinger's Formulation of Diffusion Transport.pdf"
-["xelatex"] 1614903316 "Luttinger's Formulation of Diffusion Transport.tex" "Luttinger's Formulation of Diffusion Transport.xdv" "Luttinger's Formulation of Diffusion Transport" 1614903319
+["xelatex"] 1614904216 "Luttinger's Formulation of Diffusion Transport.tex" "Luttinger's Formulation of Diffusion Transport.xdv" "Luttinger's Formulation of Diffusion Transport" 1614904218
   "/dev/null" 1614482153 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -244,12 +244,12 @@
   "/usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf" 1553552136 35430 ca24fb44b873d21ac4c63d01600decd4 ""
   "/usr/local/texlive/2019/texmf-var/web2c/xetex/xelatex.fmt" 1601182958 2796624 d3482a8c65e01d0b736893525c2b13b4 ""
   "/usr/local/texlive/2019/texmf.cnf" 1566787648 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "Luttinger's Formulation of Diffusion Transport.aux" 1614903318 4998 d5a044690b07365e34577a8aaef73cba "xelatex"
+  "Luttinger's Formulation of Diffusion Transport.aux" 1614904218 4998 d5a044690b07365e34577a8aaef73cba "xelatex"
   "Luttinger's Formulation of Diffusion Transport.bbl" 1614902523 2644 787b9997ba488c7c7c748fb66cb3331a "bibtex Luttinger's Formulation of Diffusion Transport"
-  "Luttinger's Formulation of Diffusion Transport.tex" 1614903316 32395 1bc02d2713bf3d2d0499eb1c4df70395 ""
-  "Luttinger's Formulation of Diffusion Transport.toc" 1614903318 792 c32c658d862b2abdb360e6d897cef552 "xelatex"
+  "Luttinger's Formulation of Diffusion Transport.tex" 1614904215 32405 66d01699d67501ede40fa8ae8ef5105b ""
+  "Luttinger's Formulation of Diffusion Transport.toc" 1614904218 792 c32c658d862b2abdb360e6d897cef552 "xelatex"
   (generated)
-  "Luttinger's Formulation of Diffusion Transport.aux"
-  "Luttinger's Formulation of Diffusion Transport.xdv"
   "Luttinger's Formulation of Diffusion Transport.log"
+  "Luttinger's Formulation of Diffusion Transport.xdv"
   "Luttinger's Formulation of Diffusion Transport.toc"
+  "Luttinger's Formulation of Diffusion Transport.aux"

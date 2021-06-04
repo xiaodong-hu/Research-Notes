@@ -1,4 +1,4 @@
-\begin{thebibliography}{4}
+\begin{thebibliography}{5}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname bibnamefont\endcsname\relax
   \def\bibnamefont#1{#1}\fi
@@ -33,5 +33,11 @@
 \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Kitaev}},
   \bibinfo{journal}{Annals of Physics} \textbf{\bibinfo{volume}{321}},
   \bibinfo{pages}{2} (\bibinfo{year}{2006}).
+
+\bibitem[{\citenamefont{Landron and Lepetit}(2008)}]{landron2008importance}
+\bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Landron}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.-B.} \bibnamefont{Lepetit}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{77}},
+  \bibinfo{pages}{125106} (\bibinfo{year}{2008}).
 
 \end{thebibliography}

@@ -1,0 +1,12 @@
+\tocdepth@munge 
+\contentsline {section}{\numberline {}Contents}{1}{}
+\tocdepth@restore 
+\contentsline {section}{\numberline {I}Low-energy Effective Hamiltonian}{1}{}
+\contentsline {subsection}{\numberline {A}Octehedral Crystal Field}{1}{}
+\contentsline {subsection}{\numberline {B}Spin-Orbital Coupling}{3}{}
+\contentsline {subsection}{\numberline {C}Trigonal Distortion with SOC}{3}{}
+\contentsline {subsection}{\numberline {D}Extra Distortion}{4}{}
+\contentsline {section}{\numberline {II}Long-Range Order}{5}{}
+\contentsline {subsection}{\numberline {A}LRO}{5}{}
+\contentsline {subsection}{\numberline {B}ALRO}{5}{}
+\contentsline {section}{\numberline {}References}{5}{}

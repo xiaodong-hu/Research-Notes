@@ -191,7 +191,7 @@
 		\end{equation}
 		This can be seen more clearly by rotating the aforementioned basis of $t_{2g}$-subspace to
 		\begin{equation*}
-			|+1\rangle\equiv\dfrac{1}{\sqrt 2}(|d_{zx}\rangle-i|d_{yz}\rangle)=Y_2^{-1},\quad |0\rangle\equiv|d_{xy}\rangle=\dfrac{1}{\sqrt{2}}(Y_2^2-Y_2^{-2}),\quad|-1\rangle\equiv\dfrac{1}{\sqrt 2}(|d_{zx}\rangle-i|d_{yz}\rangle)=-Y_2^1.
+			|+1\rangle\equiv\dfrac{1}{\sqrt 2}(|d_{zx}\rangle-i|d_{yz}\rangle)=Y_2^{-1},\quad |0\rangle\equiv i|d_{xy}\rangle=\dfrac{1}{\sqrt{2}}(Y_2^2-Y_2^{-2}),\quad|-1\rangle\equiv\dfrac{1}{\sqrt 2}(|d_{zx}\rangle-i|d_{yz}\rangle)=-Y_2^1.
 		\end{equation*}
 		and express the $5\times 5$ matrix of angular-momentum operator in the basis of $\{|+1\rangle,|0\rangle,|-1\rangle,|d_{3z^2-y^2}\rangle,|d_{x^2-y^2}\rangle\}$
 		\begin{align*}
@@ -274,13 +274,13 @@
 
 
 	\subsection{Trigonal Distortion with SOC}
-		In reality, chances are the $\mathrm{RhO}_6$ octahedra to be compressed or streched along $\hat{z}$ axis. Such trigonal crystal field breaks the $t_{2g}$ triplet into an $a_{1g}$ singlet
+		In reality, chances are the $\mathrm{RhO}_6$ octahedra to be compressed or streched along $\hat{z}$ axis. Such trigonal crystal field breaks the $t_{2g}$ triplet into an $a_{1g}$ singlet \cite{landron2008importance}
 		\begin{equation*}
-			|a_{1g}\rangle\equiv|d_{z^2}\rangle,
+			|a_{1g}\rangle\equiv|d_{3z^2-r^2}\rangle,
 		\end{equation*}
 		and $e_g'$ doublet
 		\begin{equation*}
-			|e'_{g1}\rangle\equiv-\dfrac{1}{\sqrt 6}|d_{xy}\rangle+\dfrac{1}{\sqrt 3}|d_{yz}\rangle,\quad |e'_{g2}\rangle\equiv\dfrac{2}{\sqrt 6}|d_{x^2-y^2}\rangle+\dfrac{1}{\sqrt 3}|d_{xy}\rangle,
+			|e'_{g1}\rangle\equiv\dfrac{2}{\sqrt 6}|d_{xy}\rangle-\dfrac{1}{\sqrt 3}|d_{zx}\rangle,\quad |e'_{g2}\rangle\equiv\dfrac{2}{\sqrt 6}|d_{x^2-y^2}\rangle-\dfrac{1}{\sqrt 3}|d_{yz}\rangle,
 		\end{equation*}
 		which is the case for our ALRO, as is show in FIG. \ref{fig:a1g-eg'}.
 		\begin{figure}[!htp]
@@ -335,7 +335,7 @@
 				\vdots & 0 & 0\\
 				 & 0& 0
 			\end{array}\right),\quad
-			l_{\text{eff},z}=\left(\begin{array}{c|cc}
+			l_{\text{eff},z}=\dfrac{1}{3}\left(\begin{array}{c|cc}
 				0 & \cdots &\\
 				\hline
 				\vdots & 0 & -i\\

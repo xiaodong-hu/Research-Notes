@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2020.9.27)  4 JUN 2021 15:53
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2020.9.27)  5 JUN 2021 05:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1264,20 +1264,26 @@ Package xeCJK Warning: Unknown CJK family `\CJKttdefault' is being ignored.
 \tf@toc=\write6
 \openout6 = `"LRO and ALRO.toc"'.
 
- [1] [2] [3]
+ [1] [2] [3] [4]
+LaTeX Font Info:    Try loading font information for U+dsrom on input line 361.
+
+
+(/usr/local/texlive/2019/texmf-dist/tex/latex/doublestroke/Udsrom.fd
+File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
+)
 File: LRO.pdf Graphic file (type pdf)
 <use LRO.pdf>
 File: ALRO.pdf Graphic file (type pdf)
 <use ALRO.pdf>
- (./LRO and ALRO.bbl [4]) [5]
-(./LRO and ALRO.aux) ) 
-Here is how much of TeX's memory you used:
- 42034 strings out of 494788
- 1008597 string characters out of 6172356
- 1261772 words of memory out of 5000000
- 45359 multiletter control sequences out of 15000+600000
- 549607 words of font info for 122 fonts, out of 8000000 for 9000
- 36 hyphenation exceptions out of 8191
- 62i,14n,96p,810b,728s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on LRO and ALRO.xdv (5 pages, 126292 bytes).
+(./LRO and ALRO.bbl [5]) [6] (./LRO and ALRO.aux) ) 
+Here is how much of TeX's memory you used:
+ 42059 strings out of 494788
+ 1009111 string characters out of 6172356
+ 1258771 words of memory out of 5000000
+ 45378 multiletter control sequences out of 15000+600000
+ 550087 words of font info for 127 fonts, out of 8000000 for 9000
+ 36 hyphenation exceptions out of 8191
+ 62i,14n,96p,1058b,728s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on LRO and ALRO.xdv (6 pages, 165352 bytes).

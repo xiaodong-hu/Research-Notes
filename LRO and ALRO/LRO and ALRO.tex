@@ -87,7 +87,7 @@
 \date{\today}
 
 \begin{abstract}
-	In this note, with the help of density-functional calculation and Hatree-Fock mean-field data, we build the low-energy effective Hamiltonians for two generation of Kitaev materials $\mathrm{Li}_2\mathrm{RhO}_3$ (LRO) and $\mathrm{Ag}_3\mathrm{Li}\mathrm{Rh}_2\mathrm{O}_6$ (ALRO). Particularly, we show that ALRO is controlled by the Kramers doublet, and the Ising-anisotropy exchange is the only possible one can write down. Furthermore, except for the common effects comming from spin-orbital coupling (SOC) and trigonal distortion, we notice that there is another geometric distortion that breaks the $\mathrm{RhO}_4$ coplane condition. Such distortion is neglegible for ALRO but commensurable in LRO.\par
+	In this note, with the help of density-functional calculation and Hartree-Fock mean-field data, we build the low-energy effective Hamiltonians for two generation of Kitaev materials $\mathrm{Li}_2\mathrm{RhO}_3$ (LRO) and $\mathrm{Ag}_3\mathrm{Li}\mathrm{Rh}_2\mathrm{O}_6$ (ALRO). We show that LRO is controlled by the physics of strong spin-orbital coupling while ALRO is dominant by a trigonal distortion. Particularly, taking SOC as perturbation, we argue that the low-energy manifold of ALRO is Kramers doublet, and the low-energy Hamiltonian will contain exchanges of Ising-anisotropy. Furthermore, except for the common effects originating from spin-orbital coupling (SOC) and trigonal distortion, we notice that there is another geometric distortion that breaks the $\mathrm{RhO}_4$ coplane condition. Such distortion is neglegible for ALRO but commensurable in LRO, leading the low-energy exchange of LRO deviating from the Kitaev Hamiltonian.\par
 	%\begin{center}
 		\hfill\par
 		{\centering\kaishu 尽挹西江，细斟北斗，万象为宾客。扣舷独啸，不知今夕何夕。\\[0.5em]}
@@ -105,8 +105,8 @@
 	\end{equation}
 	\indent Since there may be anisotropic terms for the orbital part of exchange like $\tau_i^z\tau_j^z,\tau_i^x\tau_j^x,\tau_i^x\tau_i^y$, etc., the general Hamiltonian \eqref{1.0.1} is really intractable for theoretical analysis. However, with the help of crystalline symmetry, in real materials many terms turn out to be vanishing. Particularly, we will show at the end of this section that, for ALRO, the allowed low-energy Hamiltonian can only be composed of Ising-like exchanges.
 
-	\subsection{Octehedral Crystal Field}
-		It is well-known in crystal field theory \cite{fazekas1999lecture} that the spherical symemtric $3d$-orbitals will split into two-fold $e_g$ orbitals (omitting the irrelevant radial part)
+	\subsection{Octahedral Crystal Field}
+		It is well-known in crystal field theory \cite{fazekas1999lecture} that the spherical symmetric $3d$-orbitals will split into two-fold $e_g$ orbitals (omitting the irrelevant radial part)
 		\begin{equation*}
 			|d_{x^2-y^2}\rangle=\dfrac{1}{\sqrt 2}(Y_2^{-2}+Y_2^2),\quad|d_{3z^2-r^2}\rangle=Y^0_2,
 		\end{equation*}
@@ -145,9 +145,14 @@
 			\label{fig:t2g-eg}
 		\end{figure}
 		
-		Depending on the energy scale between such $e_g$-$t_{2g}$ splitting $\Delta_O$ and spin-orbital coupling (SOC) $\Delta_{\text{SOC}}$, we will fall into high-spin and low-spin states with the electrons of $3d^5$ configuration on $\mathrm{Rh}^{3+}$. If $\Delta_{\text{SOC}}>\Delta_O$, by Hunds rule each orbital of $e_g$ and $t_{2g}$ will be half-filled to maximize the total spins, and we are in the high-spin state. In contrast, if the energy scale of $e_g$-$t_{2g}$ splitting is prominent (or at least comparable) $\Delta_O\geq\Delta_{\text{SOC}}$, then we are able to say that the five electrons occupy six degenerate (including spin degeneracy) $t_{2g}$ orbitals first, leaving only one empty hole so we are in the low-spin state.\par
+		Depending on the energy scale between such $e_g$-$t_{2g}$ splitting $\Delta_O$ and Hubbard $U$ and Hund's coupling $J_H$ (with a realistic relation $U>J_H$), we will fall into either high-spin or low-spin states with the electron configuration $3d^5$ of $\mathrm{Rh}^{3+}$. When $U>J_H\gg\Delta_O$, the interplay of onsite electron-electron repulsion and Hund's rule will lead to a configuration of half-filling of \emph{both} $t_{2g}$ and $e_g$ orbitals at the first place. And the last one electron will be placed on the four-fold degenerate $t_{2g}$ orbitals, leaving us in the high-spin state. In contrast, if the energy scale of $e_g$-$t_{2g}$ splitting is prominent (or at least comparable with Hubbard $U$ and Hund's $J_H$) $\Delta_O\gtrsim U>J_H$, then these five electrons will try to occupy the six-fold degenerate (including spin degeneracy) $t_{2g}$ orbitals first, leaving only one empty hole. So we are in the low-spin state.\par
 
-		To determine which is the case, we can simply take a look at the numerical energy spectrum of relevant ten orbitals. The trick is to first turn off the SOC in the DFT calculation (It can be added back by hand in the analysis of our wannierized tight-binding model). The results are listed in TABLE. \ref{tab:LRO}.\par
+		To determine which one is the case, we can simply take a look at the numerical energy spectrum of relevant ten orbitals. Based on the DFT calculation of LRO and ALRO, we extract a wannierized tight-binding model with the input (by-hand) interactions (containing Hubbard $U$ and Hund's $J$) and SOC. Although there is no pre-knowledge on these parameters, as an energy scale estimation it is enough to take their values from $\mathrm{Rh}$'s atomic properties of $3d$-orbitals. For example, we can simply use the experimental results \cite{blume1963theory} to add SOC with the coupling constant $\lambda_d=0.114$. And Hund's $J_H$ can be determined with the $\mathrm{Rh}$'s atomic slater-condon interaction parameters ({\color{red} I have no idea about this}) \cite{slater1929theory}
+		\begin{equation*}
+			J_H\equiv\dfrac{S}{14}(F^2(3d;3d)+F^4(3d;3d)),\quad F^2(3d;3d)=0.282\times27.2,\quad F^4(3d;3d)=0.182\times27.2,
+		\end{equation*}
+		with some material screening factor $S\sim0.8$. For Hubbard $U$ representing the e-e Coulomb interaction, however, we cannot ignore the many-body effect anymore, but can only determine it with the comparison of the optical gap observed in experiments. Given a Hubbard $U$, the numerical optical gap can be obtained by self-consistent running of Hartree-Fork approximation. After a serials of trials, we will take the $U\sim3.0$ for both LRO and ALRO, matching the optical gap to be around $650\mathrm{mV}$.\par
+		With all parameters set, now the energy spectrum can be obtained by diagonalization of the quadratic tight-binding Hamiltonian (obtained with Hartree-Fork mean-field method). The relevant results (with SOC on and off) are listed in TABLE. \ref{tab:LRO}.\par
 		\begin{table}[!htp]
 			\begin{tabular}{|c|c|c|}
 				 & LRO without SOC & LRO with SOC\\
@@ -183,15 +188,15 @@
 			\caption{Energy Spectrum of $3d$ Orbitals for both LRO and ALRO with/without SOC.}
 			\label{tab:LRO}
 		\end{table}
-		Although the existence of SOC slightly shift both ten energy levels, the $e_g$-$t_{2g}$ splitting gap $\Delta_O^{\text{LRO}}\simeq2.94756\mathrm{eV}$ and $\Delta_O^{\text{ALRO}}\simeq3.0345\mathrm{eV}$ are large enough so that we can safely conclude that the discussion of low-energy physics can be confined in the subspace of $t_{2g}$ orbitals only. The name of orbitals can also be checked by their eigenstates and ???\par
+		Although the existence of SOC slightly shift both ten energy levels, the $e_g$-$t_{2g}$ splitting gap $\Delta_O^{\text{LRO}}\simeq2.94756\mathrm{eV}$ and $\Delta_O^{\text{ALRO}}\simeq3.0345\mathrm{eV}$ are in commensurate with Hubbard $U\sim 3.0$. So we can safely conclude that the discussion of low-energy physics can be confined in the subspace of $t_{2g}$ orbitals only.\par
 
-		There is a well-known phenomena called \emph{$t_{2g}$-$p$ equivalence} \cite{sugano2012multiplets} stating that the \emph{effective} angular momentum within $t_{2g}$ subspace quench to have a similar form of that on $p$-orbitals
+		There is a well-known phenomena called \emph{$t_{2g}$-$p$ equivalence} \cite{sugano2012multiplets} stating that the \emph{effective} angular momentum within $t_{2g}$ subspace quenches to have a similar form of that on $p$-orbitals
 		\begin{equation}\label{1.1.1}
 			\mathbf{L}|_{t_{2g}}=-\mathbf{L}|_{p}.
 		\end{equation}
 		This can be seen more clearly by rotating the aforementioned basis of $t_{2g}$-subspace to
 		\begin{equation*}
-			|+1\rangle\equiv\dfrac{1}{\sqrt 2}(|d_{zx}\rangle-i|d_{yz}\rangle)=Y_2^{-1},\quad |0\rangle\equiv i|d_{xy}\rangle=\dfrac{1}{\sqrt{2}}(Y_2^2-Y_2^{-2}),\quad|-1\rangle\equiv\dfrac{1}{\sqrt 2}(|d_{zx}\rangle-i|d_{yz}\rangle)=-Y_2^1.
+			|+1\rangle\equiv\dfrac{1}{\sqrt 2}(|d_{zx}\rangle-i|d_{yz}\rangle)=Y_2^{-1},\quad |0\rangle\equiv i|d_{xy}\rangle=\dfrac{1}{\sqrt{2}}(Y_2^2-Y_2^{-2}),\quad|-1\rangle\equiv\dfrac{1}{\sqrt 2}(|d_{zx}\rangle+i|d_{yz}\rangle)=-Y_2^1.
 		\end{equation*}
 		and express the $5\times 5$ matrix of angular-momentum operator in the basis of $\{|+1\rangle,|0\rangle,|-1\rangle,|d_{3z^2-y^2}\rangle,|d_{x^2-y^2}\rangle\}$
 		\begin{align*}
@@ -220,13 +225,13 @@
 				0 & -2 & 0 & 0 & 0
 			\end{array} \right).
 		\end{align*}
-		Clearly within the subspace of $t_{2g}$ ($3\times3$ block), the angular mometum operator takes exactly the form of that on the $\ell=1$ $p$-orbitals (off-diagonal compoents can be igonored due to the large gap $\Delta_O)$. While within the subspace of $e_g$ ($2\times2$ block), $\mathbf{L}|_{e_g}\equiv0$ and the further SOC are \emph{quenched}.\par
-		But this is not the end of the story. Due to the competition between SOC and geometric distortion (here is trigonal distortion), we will end up with more fine structure of energy splitting on the $t_{2g}$ orbitals, as may be already noticed in TABLE \ref{tab:LRO}.
+		Clearly within the subspace of $t_{2g}$ ($3\times3$ block), the angular mometum operator takes exactly the form of that on the $\ell=1$ $p$-orbitals (off-diagonal components can be ignored due to the large gap $\Delta_O)$. While within the subspace of $e_g$ ($2\times2$ block), $\mathbf{L}|_{e_g}\equiv0$ and the further SOC are \emph{quenched}.\par
+		But this is not the end of the story. Due to the competition between SOC and geometric distortion (here is trigonal distortion), we will end up with more fine structure of energy splitting within $t_{2g}$ orbitals, as may be already noticed in TABLE \ref{tab:LRO}. In fact, we will see below that \textbf{LRO and ALRO fall exactly into the two regimes of such competition: for LRO the SOC is dominant (with trigonal distortion negligible), while for ALRO the trigonal distortion is dominant (with SOC taken as perturbations).} We will see that extra quenching of the effective angular momentum operator with $t_{2g}$ subspace (as well as extra splitting) occurs if we further take into account the SOC (as perturbation) in ALRO.
 	
-	\subsection{Spin-Orbital Coupling}
+	\subsection{Strong Spin-Orbital Coupling}
 		When spin-orbital coupling (we denote $\bm{L}|_{t_{2g}}\equiv\bm{l}_{\text{eff}}$)
 		\begin{equation}\label{1.2.1}
-			H_{\text{SOC}}=\lambda\bm{l}_{\text{eff}}\cdot\bm{S}
+			H_{\text{SOC}}=\lambda\sum_{\langle i,j\rangle}\bm{l}_{\text{eff},i}\cdot\bm{S}_j
 		\end{equation}
 		is dominant, which is the case for LRO, clearly the $t_{2g}$ triplet $l_{\text{eff}}=1$ and $S=1/2$ gives the $j=1/2$ doublet as the ground state, as is shown in FIG. \ref{fig:t2g-SOC}.
 		\begin{figure}[!htp]
@@ -266,15 +271,15 @@
 			\label{fig:t2g-SOC}
 		\end{figure}
 		The small splitting energy $\Delta_{\text{SOC}}\simeq0.0816\mathrm{eV}$ can be read from TABLE \ref{tab:LRO}.\par
-		The superexchange can then be projected to such subspace through a $\tau=1/2$ pseoduspin operator. The effective Hamiltonian for strongly localized electrons ($U>J_H\gg t$) has already been well-studied for perovskites with $180^\circ$ exchange, e.g., $\mathrm{Sr}_2\mathrm{IrO}_4$, and $90^\circ$ exchange, i.e., $\mathrm{Na}_2\mathrm{IrO}_3$, in \cite{jackeli2009mott}. Since in LRO the $\mathrm{RhO}_6$ octahedra is edge-sharing, Jackeli and Khaliullin's result shows that the effective Hamiltonian is Kitaev-like \cite{kitaev2006anyons}
+		The superexchange can then be projected to such subspace through a $\tau=1/2$ pseudospin operator. The effective Hamiltonian for strongly localized electrons ($U>J_H\gg t$) has already been well-studied for perovskites with $180^\circ$ exchange, e.g., $\mathrm{Sr}_2\mathrm{IrO}_4$, and $90^\circ$ exchange, i.e., $\mathrm{Na}_2\mathrm{IrO}_3$, in \cite{jackeli2009mott}. Since in LRO the $\mathrm{RhO}_6$ octahedra is edge-sharing, Jackeli and Khaliullin's result shows that the effective Hamiltonian is Kitaev-like \cite{kitaev2006anyons}
 		\begin{equation}\label{1.2.2}
 			H=-J\sum_{\langle ij \rangle }\mathcal{H}^{(\gamma)}_{ij}=-J\sum_{\langle ij \rangle}S_i^\gamma S_j^\gamma,
 		\end{equation}
 		where $\gamma=\{x,y,z\}$ labeling the types of $ij$-bonds.
 
 
-	\subsection{Trigonal Distortion with SOC}
-		In reality, chances are the $\mathrm{RhO}_6$ octahedra to be compressed or streched along $\hat{z}$ axis. Such trigonal crystal field breaks the $t_{2g}$ triplet into an $a_{1g}$ singlet \cite{landron2008importance}
+	\subsection{Strong Trigonal Distortion with SOC as Perturbation}
+		In reality, chances are the $\mathrm{RhO}_6$ octahedra to be compressed or stretched along $\hat{z}$ axis. Such trigonal crystal field breaks the $t_{2g}$ triplet into an $a_{1g}$ singlet \cite{landron2008importance}
 		\begin{equation*}
 			|a_{1g}\rangle\equiv|d_{3z^2-r^2}\rangle,
 		\end{equation*}
@@ -321,7 +326,7 @@
 			\label{fig:a1g-eg'}
 		\end{figure}
 		This time the energy splitting is a little bit larger $\Delta_T=0.2630\mathrm{eV}$.\par
-		Although a first glance of the four-fold degenerate $e'_g$ orbitals in FIG. \ref{fig:a1g-eg'} may pop up the idea that the effective orbital momentum to be $l_{\text{eff}}|_{e'_g}=3/2$, a careful representation of $\bm{l}_{\text{eff}}$ in the new basis of $\{|a_{1g}\rangle,|e'_{g1}\rangle,|e'_{g2}\rangle\}$ tells you NOT. In fact, the $t_{2g}$ effective orbital momentum operator now takes a strange form of
+		Although it is tempting to pop up the idea that the effective orbital momentum is $l_{\text{eff}}|_{e'_g}=3/2$ at a first glance of the four-fold degenerate $e'_g$ orbitals in FIG. \ref{fig:a1g-eg'}, a careful representation of $\bm{l}_{\text{eff}}$ in the new basis of $\{|a_{1g}\rangle,|e'_{g1}\rangle,|e'_{g2}\rangle\}$ tells you NOT. In fact, the $t_{2g}$ effective orbital momentum operator now takes a strange form of
 		\begin{equation}\label{1.3.1}
 			l_{\text{eff},x}=\left(\begin{array}{c|cc}
 				0 & \cdots &\\
@@ -346,32 +351,42 @@
 		\begin{equation}\label{1.3.2}
 			l_{\text{eff},z}|_{e'_g}\propto\left(\begin{array}{cc}
 				0 &-i\\i & 0
-			\end{array}\right)\equiv\tau^y.
+			\end{array}\right)\equiv\tau^y,
 		\end{equation}
-		Therefore, the effective Hamiltonian \eqref{1.0.1} drastically simplify to
+		which is \emph{odd} under time-reversal (TR) symmetry (while $\tau^x$ and $\tau^z$ are TR \emph{even}).\par
+		Now since orbital degree of freedom are described by the set of $2\times2$ matrices $\{\tau^x,\tau^y,\tau^z\}$, the requirement of on-site TR symmetry drastically reduces the most general form of the effective Hamiltonian \eqref{1.0.1} into
 		\begin{equation}\label{1.3.3}
-			H_{\text{eff}}=J_1\sum_{\langle ij \rangle}\bm{S}_i\cdot\bm{S}_j+\sum_{\langle ij \rangle}J_{2,ij}\tau_i^y\tau_i^y+\sum_{\langle ij \rangle }J_{3,ij}(\bm{S}_i\cdot\bm{S}_j)(\tau_i^y\tau_j^y)
+			H_{\text{eff}}=J_1\sum_{\langle ij \rangle}\bm{S}_i\cdot\bm{S}_j+\sum_{\langle ij \rangle}\sum_{(\alpha,\beta)\in\mathcal{I}}J_{2,ij}\tau_i^\alpha\tau_i^\beta+\sum_{\langle ij \rangle }\sum_{(\alpha,\beta)\in\mathcal{I}}J_{3,ij}(\bm{S}_i\cdot\bm{S}_j)(\tau_i^\alpha\tau_j^\beta),
 		\end{equation}
-		with Ising-anisotropy.\par
-		The above discussion only consider the effect from trigonal distortion. Now if we take the SOC as a perturbation, by adding \eqref{1.3.3} with (all other components are suppressed in projection into the $e'_g$ subspace)
+		with the allowed index set of orbital exchanges ($\tau^0\equiv\mathds{1}$)
+		\begin{equation*}
+			\mathcal{I}=\{(x,x),(y,y),(z,z),(x,0),(z,0),(x,z)\}.
+		\end{equation*}
+		Here exchanges like $\tau^x_i\tau^y_j$ and $\tau^y_i\tau^z_j$ are excluded since they are all time-reversal \emph{odd}.\par
+		The above discussion only include the effects from trigonal distortion. Now if we take the SOC as a perturbation, which is the case for ALRO, by adding \eqref{1.3.3} with (all other components like $\lambda\tau^xS^x$ are TR odd so suppressed in projection into the $e'_g$ subspace)
 		\begin{equation}\label{1.3.4}
-			H_{\text{SOC}}=\lambda\tau_yS_y,
+			H_{\text{SOC}}=\lambda\sum_{\langle ij \rangle}\tau^y_iS^y_j,
 		\end{equation}
 		then clearly the low-energy state is of \emph{two-fold} degenerate
 		\begin{equation}\label{1.3.5}
-			|\mu_z=1\rangle\equiv|\tau_y=1,S_z=1/2\rangle,\quad |\mu_z=-1\rangle\equiv|\tau_y=-1,S_z=1/2\rangle,
+			|\mu_z=1\rangle\equiv|\tau_y=1,S_z=1/2\rangle,\quad |\mu_z=-1\rangle\equiv|\tau_y=-1,S_z=-1/2\rangle,
 		\end{equation}
-		 forming a Kramers doublet.\par
-		 Within the final low-energy subspace of $\{|\mu_z=\pm1\rangle\}$, the only possible exchange we can write down is of Ising-like
-		 \begin{equation}\label{1.3.6}
-		 	H_{\text{eff}}=\sum_{\langle ij \rangle}\mu_i^z\mu_j^z+\cdots.
-		 \end{equation}
-		 That is why we expect the ground state of ALRO to be in Ising-like phase (at least along one direction), and the $g$-factor will be anisotrpic.
+		forming a Kramers doublet.\par
+		Since such energy choice of Kramers doublet \eqref{1.3.5} is fixed, there would be NO rotation symmetry for the effective Hamiltonian within the final low-energy subspace $\{|\mu_z=\pm1\rangle\}$. The allowed two-body exchange we can write down will manifestly exhibit an \emph{Ising-anisotropy},
+		\begin{equation}\label{1.3.6}
+		 	H_{\text{eff}}=\sum_{\langle ij \rangle }\sum_{\alpha\neq\beta}\mu^\alpha_i\mu^\beta_j+A\sum_{\langle ij \rangle}\mu_i^x\mu_j^x+B\sum_{\langle ij \rangle}\mu_i^y\mu_j^y+C\sum_{\langle ij \rangle}\mu_i^z\mu_j^z+\cdots.
+		\end{equation}
+		That is why we expect the ground state of ALRO will be in Ising-like phase (at least along one direction), e.g., a zigzag stripe phase. Since the low-energy subspace fixes $S_z=\pm1/2$, the spin configuration of ALRO will also be easy-axis along $\hat{z}$ direction.\par
+		Another measurable effect is that, if we apply an external magnetic field $\bm{B}$ coupling with both spin and orbital degrees of freedom
+		\begin{equation}\label{1.3.7}
+			H_{Z}=\mu_B(\bm{\tau}+2\bm{S})\cdot\bm{B},
+		\end{equation}
+		the behavior extra energy splitting from SOC will alter with the direction of $\bm{B}$: for TR \emph{even} external magnetic field $\bm{B}=B_\perp$ perpendicular to the trigonal axis $\hat{z}$, the orbital contribution of Zeeman coupling can only takes the form of $H_Z^{\text{orbital}}\sim B_\perp\tau^{x,z}$, while the spin-orbital coupling \eqref{1.3.4} possesses only $y$-component. So there would be no interplay of $H_{\text{SOC}}$ and $H_Z$ and no extra splitting occurs when $B_\perp$ is applied. However, for the TR \emph{odd} external magnetic field along the trigonal axis $\bm{B}=B_\parallel$, the only possible combination of the orbital-part of the Zeeman couling takes the form of $H_Z^{\text{orbital}}\sim B_\parallel\tau^y$, which does interplay with SOC so further splitting of the energy levels within the $\{|\mu_z=\pm1\rangle\}$ subspace occurs. Similar discussion is applied with $M\mathrm{PS}_3$ ($M=\mathrm{Mn, Fe}$ and $\mathrm{Ni}$) in \cite{joy1992magnetism}.
 
 
 	\subsection{Extra Distortion}
-		As is shown in the numerical TABLE \ref{tab:LRO}, except for the above discussions of SOC and trigonal distortions, the fully-filled $j=3/2$ quadruplet of $t_{2g}$ orbitals are actually not perfectly degenerate. There exists an extra mecahnism splitting them, with a tiny gap about $\Delta_E^{\mathrm{LRO}}\simeq0.03\mathrm{eV}$, which is quite comparable with $\Delta_{\text{SOC}}$ (about $36.7\%$). A similar splitting occurs in ALRO, but the energy scale $\Delta_E^{\text{ALRO}}\simeq0.0146\mathrm{eV}$ is much smaller in comparison with $\Delta_T$ (about merely $5.56\%$).\par
-		This can be ascribed to the extra distortion we find on the wannier centers of $\mathrm{RhO}_6$ octehedron: For the octahedron with merely trigonal distortion, the $\mathrm{RhO}_4$ plane should keep coplane. But a visualization of wannier centers evidently exihibit a violation of such coplane condition, as shown in FIG. \ref{fig:wannier}.\par
+		As is shown in the numerical TABLE \ref{tab:LRO}, except for the above discussions of SOC and trigonal distortions, the fully-filled $j=3/2$ quadruplet of $t_{2g}$ orbitals are actually not perfectly degenerate. There exists an extra mechanism splitting them, with a tiny gap about $\Delta_E^{\mathrm{LRO}}\simeq0.03\mathrm{eV}$, which is quite comparable with $\Delta_{\text{SOC}}$ (about $36.7\%$). A similar splitting occurs in ALRO, but the energy scale $\Delta_E^{\text{ALRO}}\simeq0.0146\mathrm{eV}$ is much smaller in comparison with $\Delta_T$ (about merely $5.56\%$).\par
+		This can be ascribed to the extra distortion we find on the wannier centers of $\mathrm{RhO}_6$ octahedron: For the octahedron with merely trigonal distortion, the $\mathrm{RhO}_4$ plane should keep coplane. But a visualization of wannier centers evidently exhibit a violation of such coplane condition, as shown in FIG. \ref{fig:wannier}.\par
 		\begin{figure}[!htp]
 			\centering
 			\includegraphics[scale=0.3]{LRO.pdf}
@@ -379,7 +394,7 @@
 			\caption{{\bf Wannier Centers of LRO and ALRO}: The left graphics is for LRO, while the right one is for ALRO. We draw the diagonal line to compare with the $\mathrm{O}$-$\mathrm{Rh}$-$\mathrm{O}$ plane. The discrepancy is in accordance with the strength of extra energy splitting we found in numerical results. Thus the extra distortion is much stronger in LRO than that for ALRO.}
 			\label{fig:wannier}
 		\end{figure}
-		In light of this extra distortion, the Khaliullin's requirement of a \emph{strong} SOC may not be satisfied in LRO, and their effective Kitaev Hamiltonian may also not be accurate. While for ALRO we belive that the above low-energy analysis won't be altered.\par
+		In light of this extra distortion, the Khaliullin's requirement of a \emph{strong} SOC may not be satisfied in LRO, and their effective Kitaev Hamiltonian may also not be accurate. While for ALRO we believe that the above low-energy analysis won't be altered.\par
 
 
 \section{Long-Range Order}

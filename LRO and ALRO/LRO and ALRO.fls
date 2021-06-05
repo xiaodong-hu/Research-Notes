@@ -395,8 +395,15 @@ INPUT LRO and ALRO.toc
 INPUT LRO and ALRO.toc
 OUTPUT LRO and ALRO.toc
 OUTPUT LRO and ALRO.xdv
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/doublestroke/Udsrom.fd
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/doublestroke/Udsrom.fd
+INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/doublestroke/dsrom10.tfm
+INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/doublestroke/dsrom8.tfm
+INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/doublestroke/dsrom8.tfm
 INPUT LRO.pdf
 INPUT ALRO.pdf
+INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/doublestroke/dsrom8.tfm
+INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/doublestroke/dsrom8.tfm
 INPUT LRO and ALRO.bbl
 INPUT LRO and ALRO.bbl
 INPUT LRO and ALRO.aux

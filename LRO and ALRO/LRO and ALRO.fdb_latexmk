@@ -1,16 +1,16 @@
 # Fdb version 3
-["bibtex LRO and ALRO"] 1622835941 "LRO and ALRO.aux" "LRO and ALRO.bbl" "LRO and ALRO" 1622836410
+["bibtex LRO and ALRO"] 1622887188 "LRO and ALRO.aux" "LRO and ALRO.bbl" "LRO and ALRO" 1622887191
   "/usr/local/texlive/2019/texmf-dist/bibtex/bst/revtex4/apsrev.bst" 1261594643 44155 dc7233506a001aedcd59cfd90f9fe8d7 ""
-  "LRO and ALRO.aux" 1622836409 4098 53caf302615eca229b9e4b34fdd806bf "xelatex"
-  "hxd.bib" 1622835888 22316 621d03f6603bc6dd210d54a00420fb4e ""
+  "LRO and ALRO.aux" 1622887190 4474 0663b1cc45318bb69a6a09d7b33ad0ed "xelatex"
+  "hxd.bib" 1622886650 23156 bb252e209fca220575704af7adc0f0ca ""
   (generated)
   "LRO and ALRO.blg"
   "LRO and ALRO.bbl"
-["xdvipdfmx"] 1622836410 "LRO and ALRO.xdv" "LRO and ALRO.pdf" "LRO and ALRO" 1622836410
-  "LRO and ALRO.xdv" 1622836409 126292 869896e8fe31297a97298c4c9b4b645f "xelatex"
+["xdvipdfmx"] 1622887191 "LRO and ALRO.xdv" "LRO and ALRO.pdf" "LRO and ALRO" 1622887191
+  "LRO and ALRO.xdv" 1622887190 165352 ae38004ff2c1ed391cd70de7d7a84305 "xelatex"
   (generated)
   "LRO and ALRO.pdf"
-["xelatex"] 1622836408 "LRO and ALRO.tex" "LRO and ALRO.xdv" "LRO and ALRO" 1622836410
+["xelatex"] 1622887188 "LRO and ALRO.tex" "LRO and ALRO.xdv" "LRO and ALRO" 1622887191
   "/dev/null" 1622416384 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -55,6 +55,8 @@
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm" 1136768653 1116 25a7bf822c58caf309a702ef79f4afbb ""
+  "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/doublestroke/dsrom10.tfm" 1136768653 452 168d896d9b2ead965bf08c9db69c947f ""
+  "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/doublestroke/dsrom8.tfm" 1136768653 452 dc44cdd7c88ff2b15557f125edfc277b ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/latex-fonts/lasy6.tfm" 1136768653 520 4889cce2180234b97cad636b6039c722 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm" 1229303445 688 37338d6ab346c2f1466b29e195316aa4 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm" 1229303445 684 3a51bd4fd9600428d5264cf25f04bb9a ""
@@ -205,6 +207,7 @@
   "/usr/local/texlive/2019/texmf-dist/tex/latex/carlisle/slashed.sty" 1137109962 5327 8b3c95b5f71136add36a4a0bb1507594 ""
   "/usr/local/texlive/2019/texmf-dist/tex/latex/cjk/texinput/CJKfntef.sty" 1429482942 12851 a92a26031294f6fa88114f524b3b794a ""
   "/usr/local/texlive/2019/texmf-dist/tex/latex/cleveref/cleveref.sty" 1525128982 329481 7fc6b003158402a4c694bc0a1b729308 ""
+  "/usr/local/texlive/2019/texmf-dist/tex/latex/doublestroke/Udsrom.fd" 1137110062 211 101be7da01334f0b54b41fbe634f1ce4 ""
   "/usr/local/texlive/2019/texmf-dist/tex/latex/doublestroke/dsfont.sty" 1137110062 230 7bc61880b468bfd38aedc173be7c3486 ""
   "/usr/local/texlive/2019/texmf-dist/tex/latex/enumitem/enumitem.sty" 1549316214 51603 ccc7546d1e15809a779ade2c44d54044 ""
   "/usr/local/texlive/2019/texmf-dist/tex/latex/extarrows/extarrows.sty" 1210952645 1596 a31b29df7e23fa280a2c641a251960b3 ""
@@ -257,13 +260,13 @@
   "/usr/local/texlive/2019/texmf-var/web2c/xetex/xelatex.fmt" 1601182958 2796624 d3482a8c65e01d0b736893525c2b13b4 ""
   "/usr/local/texlive/2019/texmf.cnf" 1566787648 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
   "ALRO.pdf" 1622802140 386453 f6199a35fc5760c697ec530b32e291bf ""
-  "LRO and ALRO.aux" 1622836409 4098 53caf302615eca229b9e4b34fdd806bf "xelatex"
-  "LRO and ALRO.bbl" 1622835942 2039 ca5dc4b7ecd6fe92a75fede0ed3f575d "bibtex LRO and ALRO"
-  "LRO and ALRO.tex" 1622836408 21428 54b45e1a7559d213ef3b6d0bb7ab3f3f ""
-  "LRO and ALRO.toc" 1622836409 675 28dc78a2561b33126b0ccc86544c56cb "xelatex"
+  "LRO and ALRO.aux" 1622887190 4474 0663b1cc45318bb69a6a09d7b33ad0ed "xelatex"
+  "LRO and ALRO.bbl" 1622887188 2991 6c7dccde3d2dc3c59e2a7529efd85a2e "bibtex LRO and ALRO"
+  "LRO and ALRO.tex" 1622887186 26162 ee4786474a07994a37f0bb37792f09ae ""
+  "LRO and ALRO.toc" 1622887190 705 bcc79b04423cfc4b0bac0e8dcbfa4446 "xelatex"
   "LRO.pdf" 1622802124 342776 0190e49e57f25bf60fde46cb21a445cc ""
   (generated)
-  "LRO and ALRO.aux"
-  "LRO and ALRO.log"
   "LRO and ALRO.xdv"
+  "LRO and ALRO.aux"
   "LRO and ALRO.toc"
+  "LRO and ALRO.log"

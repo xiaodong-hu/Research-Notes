@@ -6,44 +6,44 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: hxd.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 5 entries,
+You've used 8 entries,
             3411 wiz_defined-function locations,
-            1185 strings with 10679 characters,
-and the built_in function-call counts, 2748 in all, are:
-= -- 161
-> -- 55
-< -- 13
-+ -- 36
-- -- 14
-* -- 339
-:= -- 325
-add.period$ -- 5
-call.type$ -- 5
-change.case$ -- 20
-chr.to.int$ -- 5
-cite$ -- 5
-duplicate$ -- 256
-empty$ -- 258
-format.name$ -- 41
-if$ -- 523
+            1207 strings with 11145 characters,
+and the built_in function-call counts, 4524 in all, are:
+= -- 273
+> -- 96
+< -- 21
++ -- 66
+- -- 24
+* -- 565
+:= -- 528
+add.period$ -- 8
+call.type$ -- 8
+change.case$ -- 32
+chr.to.int$ -- 8
+cite$ -- 8
+duplicate$ -- 420
+empty$ -- 416
+format.name$ -- 72
+if$ -- 866
 int.to.chr$ -- 1
-int.to.str$ -- 6
-missing$ -- 44
-newline$ -- 30
-num.names$ -- 15
-pop$ -- 74
+int.to.str$ -- 9
+missing$ -- 70
+newline$ -- 39
+num.names$ -- 24
+pop$ -- 116
 preamble$ -- 1
-purify$ -- 20
+purify$ -- 32
 quote$ -- 0
-skip$ -- 106
+skip$ -- 175
 stack$ -- 0
-substring$ -- 97
-swap$ -- 183
-text.length$ -- 8
+substring$ -- 168
+swap$ -- 306
+text.length$ -- 13
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 26
+type$ -- 44
 warning$ -- 0
-while$ -- 13
+while$ -- 22
 width$ -- 0
-write$ -- 63
+write$ -- 93

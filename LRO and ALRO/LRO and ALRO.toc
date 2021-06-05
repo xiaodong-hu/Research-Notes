@@ -2,11 +2,11 @@
 \contentsline {section}{\numberline {}Contents}{1}{}
 \tocdepth@restore 
 \contentsline {section}{\numberline {I}Low-energy Effective Hamiltonian}{1}{}
-\contentsline {subsection}{\numberline {A}Octehedral Crystal Field}{1}{}
-\contentsline {subsection}{\numberline {B}Spin-Orbital Coupling}{3}{}
-\contentsline {subsection}{\numberline {C}Trigonal Distortion with SOC}{3}{}
-\contentsline {subsection}{\numberline {D}Extra Distortion}{4}{}
-\contentsline {section}{\numberline {II}Long-Range Order}{5}{}
-\contentsline {subsection}{\numberline {A}LRO}{5}{}
-\contentsline {subsection}{\numberline {B}ALRO}{5}{}
-\contentsline {section}{\numberline {}References}{5}{}
+\contentsline {subsection}{\numberline {A}Octahedral Crystal Field}{2}{}
+\contentsline {subsection}{\numberline {B}Strong Spin-Orbital Coupling}{3}{}
+\contentsline {subsection}{\numberline {C}Strong Trigonal Distortion with SOC as Perturbation}{4}{}
+\contentsline {subsection}{\numberline {D}Extra Distortion}{5}{}
+\contentsline {section}{\numberline {II}Long-Range Order}{6}{}
+\contentsline {subsection}{\numberline {A}LRO}{6}{}
+\contentsline {subsection}{\numberline {B}ALRO}{6}{}
+\contentsline {section}{\numberline {}References}{6}{}

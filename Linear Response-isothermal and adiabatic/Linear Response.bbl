@@ -1,0 +1,74 @@
+\begin{thebibliography}{9}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname bibnamefont\endcsname\relax
+  \def\bibnamefont#1{#1}\fi
+\expandafter\ifx\csname bibfnamefont\endcsname\relax
+  \def\bibfnamefont#1{#1}\fi
+\expandafter\ifx\csname citenamefont\endcsname\relax
+  \def\citenamefont#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\providecommand{\bibinfo}[2]{#2}
+\providecommand{\eprint}[2][]{\url{#2}}
+
+\bibitem[{\citenamefont{Luttinger}(1964)}]{luttinger1964theory}
+\bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Luttinger}},
+  \bibinfo{journal}{Physical Review} \textbf{\bibinfo{volume}{135}},
+  \bibinfo{pages}{A1505} (\bibinfo{year}{1964}).
+
+\bibitem[{\citenamefont{L{\'e}vy}(2000)}]{levy2000magnetism}
+\bibinfo{author}{\bibfnamefont{L.-P.} \bibnamefont{L{\'e}vy}},
+  \emph{\bibinfo{title}{Magnetism and superconductivity}}
+  (\bibinfo{publisher}{Springer Science \& Business Media},
+  \bibinfo{year}{2000}).
+
+\bibitem[{\citenamefont{Giuliani and Vignale}(2005)}]{giuliani2005quantum}
+\bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Giuliani}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Vignale}},
+  \emph{\bibinfo{title}{Quantum theory of the electron liquid}}
+  (\bibinfo{publisher}{Cambridge university press}, \bibinfo{year}{2005}).
+
+\bibitem[{\citenamefont{Abrikosov et~al.}(2012)\citenamefont{Abrikosov, Gorkov,
+  and Dzyaloshinski}}]{abrikosov2012methods}
+\bibinfo{author}{\bibfnamefont{A.~A.} \bibnamefont{Abrikosov}},
+  \bibinfo{author}{\bibfnamefont{L.~P.} \bibnamefont{Gorkov}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{I.~E.}
+  \bibnamefont{Dzyaloshinski}}, \emph{\bibinfo{title}{Methods of quantum field
+  theory in statistical physics}} (\bibinfo{publisher}{Courier Corporation},
+  \bibinfo{year}{2012}).
+
+\bibitem[{\citenamefont{Kubo}(1957)}]{kubo1957statistical}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Kubo}},
+  \bibinfo{journal}{Journal of the Physical Society of Japan}
+  \textbf{\bibinfo{volume}{12}}, \bibinfo{pages}{570} (\bibinfo{year}{1957}).
+
+\bibitem[{\citenamefont{Kubo et~al.}(2012)\citenamefont{Kubo, Toda, and
+  Hashitsume}}]{kubo2012statistical}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Kubo}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Toda}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{N.}~\bibnamefont{Hashitsume}},
+  \emph{\bibinfo{title}{Statistical physics II: nonequilibrium statistical
+  mechanics}}, vol.~\bibinfo{volume}{31} (\bibinfo{publisher}{Springer Science
+  \& Business Media}, \bibinfo{year}{2012}).
+
+\bibitem[{\citenamefont{Kapustin and Spodyneiko}(2020)}]{kapustin2020thermal}
+\bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Kapustin}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{L.}~\bibnamefont{Spodyneiko}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{101}},
+  \bibinfo{pages}{045137} (\bibinfo{year}{2020}).
+
+\bibitem[{\citenamefont{Mahan}(1990)}]{mahanmany}
+\bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Mahan}},
+  \emph{\bibinfo{title}{Many-Particle Physics}} (\bibinfo{publisher}{Plenum
+  Press}, \bibinfo{year}{1990}).
+
+\bibitem[{\citenamefont{Scalapino et~al.}(1993)\citenamefont{Scalapino, White,
+  and Zhang}}]{scalapino1993insulator}
+\bibinfo{author}{\bibfnamefont{D.~J.} \bibnamefont{Scalapino}},
+  \bibinfo{author}{\bibfnamefont{S.~R.} \bibnamefont{White}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Zhang}},
+  \bibinfo{journal}{Physical Review B} \textbf{\bibinfo{volume}{47}},
+  \bibinfo{pages}{7995} (\bibinfo{year}{1993}).
+
+\end{thebibliography}

@@ -1,0 +1,357 @@
+\documentclass[10pt,nofootinbib,letterpaper]{revtex4}
+%\usepackage[nocap]{ctex}
+
+\usepackage{xeCJK}
+% if \usrpackage{xetex} it will invoke the open source Fandol Song Font by default, which lack many Chinese characters
+% Linux Requires TrueType Fonts from Windows (locating at C:\Windows\Fonts), and Simlink 
+% ln -s blablabla /usr/share/fonts/WindowsFonts 
+\setCJKmainfont[BoldFont={SimHei},ItalicFont={KaiTi}]{SimSun}
+\setCJKfamilyfont{kaishu}{KaiTi} 
+\newcommand*{\kaishu}{\CJKfamily{kaishu}}
+
+
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs,bm,dsfont}
+\usepackage{slashed}
+\usepackage{enumerate}
+\usepackage{enumitem} % Customize itemize, see https://ctan.org/tex-archive/macros/latex/contrib/enumitem/
+\usepackage[all]{xy}
+\usepackage[noabbrev]{cleveref} % multiple equation ref, see https://tex.stackexchange.com/questions/314217/how-i-can-refer-multiple-equation-in-latex?rq=1
+\usepackage[normalem]{ulem}	% delete line
+\usepackage{array}
+\usepackage{graphics,color}
+\usepackage{tikz}
+	\usetikzlibrary{calc}
+	\usetikzlibrary{decorations.markings}
+	\usetikzlibrary{arrows}
+	\usetikzlibrary{patterns}
+	%\usetikzlibrary{shapes.callouts}
+\tikzset{
+    level/.style = {
+        ultra thick,
+        blue,
+    },
+    connect/.style = {
+        dashed,
+        red
+    },
+    label/.style = {
+        text width=2cm
+    }
+}
+\usepackage{pgfplots}
+%\usepackage[citestyle=authortitle]{biblatex} % able to cite the title, author and year
+%\usepackage{hyperref}
+\usepackage{feynmp} % feymann diagram
+\usepackage{extarrows}
+\usepackage[normalem]{ulem} % 文字划掉（横），与 cite 兼容问题，见 https://tex.stackexchange.com/questions/98222/ulem-incompatibility-with-multiple-entries-in-cite
+
+\newcommand*\dd{\mathop{}\!\mathrm{d}}
+\newcounter{Claim}[section]
+\newenvironment{Claim}[1][]{{\par\normalfont\bfseries \underline{Claim~\stepcounter{Claim}\arabic{Claim}.}~#1~~}}{\par}
+\newcounter{Property}[section]
+\newenvironment{Property}[1][]{{\par\normalfont\bfseries \underline{Property~\stepcounter{Property}\arabic{Property}.}~#1~~}}{\par}
+\newcounter{Proposition}[section]
+\newenvironment{Proposition}[1][]{{\par\normalfont\bfseries \underline{Proposition~\stepcounter{Proposition}\arabic{Proposition}.}~#1~~}}{\par}
+\newcounter{Theorem}[section]
+\newenvironment{Theorem}[1][]{{\par\normalfont\bfseries \underline{Theorem~\stepcounter{Theorem}\arabic{Theorem}.}~#1~~}}{\par}
+\newcounter{Note}[section]
+\newenvironment{Note}[1][]{{\par\normalfont\bfseries \underline{Note~\stepcounter{Note}\arabic{Note}.}~#1~~}}{\par}
+\newcounter{Lemma}[section]
+\newenvironment{Lemma}[1][]{{\par\normalfont\bfseries \underline{Lemma~\stepcounter{Lemma}\arabic{Lemma}.}~#1~~}}{\par}
+\newcounter{Corollary}[section]
+\newenvironment{Corollary}[1][]{{\par\normalfont\bfseries \underline{Corollary~\stepcounter{Corollary}\arabic{Corollary}.}~#1~~}}{\par}
+\newenvironment{Proof}{{\par~{\normalfont\bfseries $\vartriangleright$}~~}}{\hfill $\square$\par\hfill\par} %\par
+\newcounter{Def}[section]
+\newenvironment{Def}[1][]{{\par\normalfont\bfseries \underline{Definition~\stepcounter{Def}\arabic{Def}.}~#1~~}}{\par}
+\newcounter{Assumption}[section]
+\newenvironment{Assumption}[1][]{{\par\normalfont\bfseries \underline{Assumption~\stepcounter{Assumption}\arabic{Assumption}.}~#1~~}}{\par}
+
+
+
+\allowdisplaybreaks[4] %允许 align 跨页编排
+
+%\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
+%\def\G{\mathcal{G}}
+\def\Z{\mathcal{Z}}
+\def\H{\mathcal{H}}
+\def\D{\mathcal{D}}
+
+\begin{document}
+\title{Linear Response Theory: Two Regimes, Two Equivalent Descriptions, and\\Two Parts of Electrical Conductivities}
+\author{Xiaodong Hu}
+
+%\altaffiliation[Also at ]{Boson College}
+\email{xiaodong.hu@bc.edu}
+\affiliation{Department of Physics, Boston College}
+
+\date{\today}
+
+\begin{abstract}
+	In this letter, we will review the general theory of isothermal linear response adiabatic linear response. Taking adiabatic charge current response as one example, we will show that the standard form of the response function, consisting of paramagnetic (Drude) and diamagnetic parts, can also be obtained in the formulation of Luttinger \cite{luttinger1964theory}. Some other useful forms of Kubo formula are also derived for future reference.\par
+	%\begin{center}
+		\hfill\par
+		{\centering\kaishu 当时共客长安，似二陆初来俱少年。有笔头千字，胸中万卷；致君尧舜，此事何难？\\[0.5em]}
+	%\end{center}
+	\hfill------ 苏轼「沁园春」
+\end{abstract}
+
+\maketitle
+\tableofcontents
+
+\section{Linear Response Theory}
+	The problem of linear-reponse is formulated as following:\par
+	Consider an system in equilibrium coupling with external driven forces through a perturbative fields $F(t)$ (switching on from $t_0$, for example)
+	\begin{equation}\label{1.0.1}
+		\hat H=\hat H_0+\hat H'(t)\equiv \hat H_0+F(t)\hat B(t),
+	\end{equation}
+	then for small fields $F(t)$, the meseasurable quantum average of the operator (in Schr\"{o}dinger picture, for example)
+	\begin{equation}\label{1.0.2}
+		\langle A\rangle(t)\equiv\dfrac{1}{\Z}\mathrm{Tr}\{\hat{\rho}_S(t)\hat A\}\equiv\dfrac{1}{\Z}\sum_{\psi}\langle\psi_S(t)|\hat\rho_S(t)\hat A|\psi_S(t)\rangle
+	\end{equation}
+	can be expand to the first order of $F(t)$, which is believed to reflect the intrinsic properties of the material. However, depending on the treatment of the perturbation in \eqref{1.0.2}, or more precisely whether we are in the \emph{fast} or \emph{slow} limit\footnote{Following \cite{luttinger1964theory}, the perturbation is fast if the density matrix can be taken as the one in old equilibrium, while is slow if the system is always in (new) quasi-equilibrium.}, we will fall into two regimes --- the (usual) \emph{adiabatic responses} and \emph{isothermal responses}.
+	
+	\subsection{Isothermal Response}
+		For isothermal reponses, the perturbation is \emph{slow} enough so that the system is always in quasi-equilibirum. So we can directly write down
+		\begin{equation}\label{1.1.1}
+			\hat\rho(t)=\dfrac{1}{\Z}e^{-\beta\hat H}=\dfrac{1}{\Z}e^{-\beta(\hat H_0+\hat H'(t))}.
+		\end{equation}
+		But even the density matrix is known, it is still hard to expand to the first order of $F(t)$ and evaluate the quantum average for \eqref{1.0.2}. Following \cite{levy2000magnetism}, we can make use of the analogy of imaginary-time and inverse-temperature to define a function of $\beta$ as
+		\begin{equation*}
+			V(\beta)\equiv e^{-\beta\hat H}e^{\beta\hat H_0}= e^{-\beta(\hat H_0+\hat H'(t))}e^{\beta\hat H_0}.
+		\end{equation*}
+		Clearly we have
+		\begin{align*}
+			\dfrac{\dd V(\beta)}{\dd\beta}&=e^{-\beta\hat H(t)}\hat H_0 e^{\beta\hat H_0}-e^{-\beta\hat H(t)}\hat H(t)e^{\beta\hat H_0}\equiv e^{-\beta\hat H(t)}\hat H'(t)e^{\beta\hat H_0}\\
+			&\equiv e^{-\beta\hat H(t)}e^{\beta\hat H_0}\cdot e^{-\beta\hat H_0}\hat H'(t)e^{\beta\hat H_0}\equiv V(\beta)\hat H'_I(t+i\hbar\beta),
+		\end{align*}
+		where $\hat H'_I(t+i\hbar\lambda)\equiv F(t)\hat B(i\hbar\lambda)$. This differential equation is equivalent to the integral equation (check by differentiation)
+		\begin{equation}\label{1.1.2}
+			V(\beta)=1+\int_0^\beta\dd\lambda\,V(\lambda)\hat H'_I(t+i\hbar\lambda),
+		\end{equation}
+		which can be solved iteratively. To the first-order approximation, we can take $\hat H'(t)=0$ in the definition of $V(\beta)$ (so to the zeroth order $V(\beta)=1$), getting
+		\begin{equation}\label{1.1.3}
+			V(\beta)\simeq1+\int_0^\beta\dd\lambda\,\hat H'_I(t+i\hbar\lambda)
+		\end{equation}
+		So
+		\begin{equation}\label{1.1.4}
+			e^{-\beta\hat H(t)}\equiv V(\beta)e^{-\beta\hat H_0}\simeq \left(1+\int_0^\beta\dd\lambda\,\hat H'_I(t+i\hbar\lambda)\right)e^{-\beta\hat H_0} 
+		\end{equation}
+		and the variation of the quantum average of the operator $\hat A$ takes the form of
+		\begin{equation}\label{1.1.5}
+			\delta \langle\hat A\rangle=\dfrac{1}{\Z}\mathrm{Tr}\{e^{-\beta\hat H(t)}\hat A\}-\dfrac{1}{\Z}\mathrm{Tr}\{e^{-\beta\hat H_0}\hat A\}=\int_0^\beta\dd\lambda\,\langle\hat A\hat H'_I(t+i\hbar\lambda)\rangle_0=\int_0^\beta\dd\lambda \langle\hat A e^{-\beta\hat H_0}\hat B e^{\beta\hat H_0}\rangle F(t).
+		\end{equation}
+		The \emph{isothermal response}
+		\begin{equation}\label{1.1.6}
+			\chi_{AB}^T\equiv\int_0^\beta\dd\lambda\,\langle\hat A e^{-\lambda\hat H_0}\hat Be^{\lambda\hat H_0}\rangle
+		\end{equation}
+		 can be easily expressed in the energy basis: splitting into the cases when $m\neq n$ and $m=n$ and perform the integral over inverse-temperature, we have
+		 \begin{equation}\label{1.1.7}
+		 	\chi_{AB}^T=\sum_{m,n}\int_0^\beta\dd\lambda\,e^{-\beta \varepsilon_n}A_{nm}e^{-\lambda \varepsilon_m}B_{mn}e^{-\lambda \varepsilon_n}=\sum_{\substack{m,n\\m\neq n}}A_{nm}B_{mn}\dfrac{e^{-\beta \varepsilon_m}-e^{-\beta \varepsilon_n}}{\varepsilon_n- \varepsilon_m}-\beta\sum_n e^{-\beta \varepsilon_n}A_{nn}B_{nn}.
+		 \end{equation}
+		 
+	\subsection{Adiabatic Response}
+		For the more widely-used adiabatic responses, however, \textbf{we have no assumption on the form of the time-dependent density matrix, but can only determine it from the definition}
+		\begin{equation}\label{1.2.1}
+			\dot{\hat\rho}_S(t)=\dfrac{1}{i\hbar}[\hat H_0+\hat H'(t),\hat\rho_S(t)].
+		\end{equation}
+		\begin{Note}
+			There are some literatures\footnote{Like Sec. 3.2.1 of \cite{giuliani2005quantum} and Sec. 8.3 of \cite{levy2000magnetism}.} going that the characteristic of the adiabatic response is that the density matrix can be assumed to stay as the same one in the old equilibrium $\hat\rho(t)=e^{-\beta\hat H_0}/\Z$ so that all-time dependence of adiabatic responses original from the time-evolved states. Such claim is true at least for linear response (giving the same result), but I am not sure if this is true for non-linear response as well. So I would not address in this way.
+		\end{Note}
+		\hfill\par
+		To solve the Liuville equation \eqref{1.2.1}, it is helpful to switch into the interaction picture $\hat\rho_I(t)\equiv U_0^{-1}(t)\hat\rho_S(t)U_0(t)\equiv e^{\frac{i}{\hbar}\hat H_0t}\hat\rho_S(t)e^{-\frac{i}{\hbar}\hat H_0t}$, leaving
+		\begin{equation}\label{1.2.2}
+			\dot{\hat\rho}_I(t)=\dfrac{1}{i\hbar}U_0^{-1}(t)[\hat H'(t),U_0(t)\hat\rho_I(t)U_0^{-1}(t)]U_0(t)=\dfrac{1}{i\hbar}[\hat H'_I(t),\hat\rho_I(t)]\equiv \hat L_I'\hat\rho_I(t),
+		\end{equation}
+		where the interaction picture operator $\hat H_I'(t)\equiv U_0^{-1}(t)\hat H'(t)U_0(t)\equiv e^{\frac{i}{\hbar}\hat H_0t}\hat H'(t)e^{-\frac{i}{\hbar}\hat H_0t}$ and we introduce a Liouville operator $\hat L'_I\hat{\mathcal{O}}:=\frac{1}{i\hbar}[\hat H'_I,\hat{\mathcal{O}}]$.\par
+		Differential equation \eqref{1.2.2} can be solved iteratetively: the zeroth-order solution is just the old equilibrium density matirix $\hat\rho_I(t_0)\equiv\hat\rho_S(t_0)\equiv\rho_0$, the first-order solution is obtained by inserting $\hat\rho_0$ into \eqref{1.2.2}, the second order is obtained by inserting the first-order, and so on. Namely, $\hat\rho_I(t)$ can be expressed in terms of \emph{Dyson series}
+		\begin{align}
+			\hat\rho_I(t)&=\hat\rho_0+\dfrac{1}{i\hbar}\int_{t_0}^t\dd\tau\,\hat L_I'(\tau)\hat\rho_0+\left(\dfrac{1}{i\hbar}\right)^2\int_{t_0}^t\dd\tau_2\int_{t_0}^{\tau_2}\dd\tau_1\,\hat L_I'(\tau_2)\hat L_I'(\tau_1)\hat\rho_0+\cdots.\nonumber\\
+			&=\hat\rho_0+\dfrac{1}{i\hbar}\int_{t_0}^t\dd\tau\,[\hat H'_I(\tau),\hat\rho_0]+\left(\dfrac{1}{i\hbar}\right)^2\int_{t_0}^t\dd\tau_2\int_{t_0}^{\tau_2}\dd\tau_1\,[\hat H'_I(\tau_2),[\hat H'_I(\tau_1),\hat\rho_0]]+\cdots.\label{1.2.3}
+		\end{align}
+		Therefore, the evaluation of \eqref{1.0.2} can be done in the interaction picture by cycling the trace
+		\begin{align}
+			\langle\hat A\rangle(t)&\equiv\mathrm{Tr}\{\hat\rho_S(t)\hat A_S\}=\mathrm{Tr}\{\hat\rho_I(t)e^{\frac{i}{\hbar}H_0 t}\hat A_Se^{-\frac{i}{\hbar}H_0t}\}\equiv\mathrm{Tr}\{\rho_I(t)\hat A_I(t)\}\nonumber\\
+			&=\mathrm{Tr}\{\hat\rho_0\hat A_I(t)\}+\dfrac{1}{i\hbar}\int_{t_0}^t\dd\tau\,\mathrm{Tr}\{[\hat H'_I(\tau),\hat\rho_0]\hat A_I(t)\}+\left(\dfrac{1}{i\hbar}\right)^2\int_{t_0}^t\dd\tau_2\int_{t_0}^{\tau_2}\dd\tau_1\,\mathrm{Tr}\bigg\{[\hat H'_I(\tau_2),[\hat H'_I(\tau_1),\hat\rho_0]]\hat A_I(t)\bigg\}+\cdots\nonumber\\
+			&=\langle\hat A\rangle_0+\dfrac{1}{i\hbar}\int_{t_0}^t\dd\tau\,\langle[\hat A_I(t),\hat H'_I(\tau)]\rangle_0+\left(\dfrac{1}{i\hbar}\right)^2\int_{t_0}^t\dd\tau_2\int_{t_0}^{t_2}\dd\tau_1\,\langle [[\hat A_I(t),\hat H'(\tau_2)],\hat H'_I(\tau_1)]\rangle_0+\cdots,\label{1.2.4}
+		\end{align}
+		where the first term (equilibrium average) is vanishing due to Bloch's theorem, and for the other terms identity
+		\begin{equation*}
+			\mathrm{Tr}\{[A,B]C\}\equiv\mathrm{Tr}\{B[C,A]\}.
+		\end{equation*}
+		is used to take out $\hat\rho_0$ and recover the quantum average. Without loss of generality, from now on we take $t_0\rightarrow-\infty$.\par
+		\hfill\par
+
+		If $\hat H'(t)$ is introduced in the way of \eqref{1.0.1}, the linear response is
+		\begin{equation}\label{1.2.5}
+			{\color{red}\delta \langle\hat A\rangle^{(1)}(t)=\dfrac{1}{i\hbar}\int_{-\infty}^t\dd t'\,\langle[\hat A_I(t),\hat B_I(t')]\rangle_0\cdot F(t'),}
+		\end{equation}
+		or in terms of \emph{retarded} Green function
+		\begin{equation}\label{1.2.6}
+			\delta \langle\hat A\rangle^{(1)}(t)=\dfrac{1}{\hbar}\int_{-\infty}^\infty\dd t' G_{AB}^R(t,t')F(t'),\quad iG_{AB}^R(t,t')=\theta(t-t')\langle[\hat A_I(t),\hat B_I(t')]\rangle_0
+		\end{equation}
+		if the integral \eqref{1.2.5} is extended to the entire domain of time. 
+		\begin{Note}
+			Comparing \eqref{1.2.5} with \eqref{1.1.5}, the most intuitive difference of isothermal response function and adiabatic response function is that the former one does not depend on time! This is resonable since the time-evolution of isothermal processes cannot be perceived by the system (it is always in quasi-equilibrium). 
+		\end{Note}
+		\hfill\par
+		Note that by cycling the time arguments of operator $\hat A$ and $\hat B$ in the retarded Green function, $G_{AB}^R(t,t')\equiv G^R_{AB}(t-t',0)$ so the R.H.S. of \eqref{1.2.6} has exactly the form of a \emph{convolution}. According to convolution theorem\footnote{The Fourier transformation of a convolution of two functions is the multiplication of each's Fourier transformation.}, we have, in frequency domain,
+		\begin{equation}\label{1.2.7}
+			\delta\langle\hat A\rangle(\omega)=\chi_{AB}(\omega)F(\omega),
+		\end{equation}
+		where
+		\begin{equation}\label{1.2.8}
+			 {\color{red}\chi_{AB}(\omega)\equiv\mathbb{F}\left[\dfrac{1}{\hbar}G_{AB}^R(t,0)\right]\equiv\lim_{s \rightarrow0^+}\dfrac{1}{\hbar}\int\dd\tau\,G^R_{AB}(\tau)e^{i\omega\tau+s\tau}=\lim_{s\rightarrow0^+}\dfrac{1}{i\hbar}\int_0^\infty\dd\tau\,\langle[\hat A_I(\tau),B_I]\rangle_0 e^{i\omega\tau-s\tau}},
+		\end{equation}
+		where an infinitesimal positive number $s$ is inserted because the retarded function is analytical only on the upper-half plane of the frequency space \cite{abrikosov2012methods}. Aother thing that needs to keep in mind is that unlike the integration domain in time space in \eqref{1.2.6}, for response function in frequency space the integration is taken within $[0,+\infty)$.\par
+		In the energy eigenstate, the response function takes the form of
+		\begin{align}
+			\chi_{AB}(\omega)&=\lim_{s\rightarrow0^+}\dfrac{1}{i\hbar}\int_0^\infty\dd\tau\,\sum_{m,n}(e^{-\beta \varepsilon_n}-e^{-\beta \varepsilon_m})A_{nm}B_{mn}e^{\frac{i}{\hbar}(\varepsilon_n- \varepsilon_m)\tau} e^{i(\omega+is)\tau}\nonumber\\
+			&=\dfrac{1}{\hbar}\lim_{s\rightarrow0^+}\sum_{m,n}\dfrac{e^{-\beta \varepsilon_n}-e^{-\beta \varepsilon_m}}{\omega+\frac{\varepsilon_n- \varepsilon_m}{\hbar}+is}A_{nm}B_{mn}.\label{1.2.9}
+		\end{align}
+		Comparing with \eqref{1.1.7}, this time the denomenator is always well-defined so we do not have to split into the diagonal and off-diagonal parts before performing the integral.
+		\begin{Note}
+			The off-diagonal part of isothermal response \eqref{1.1.7} is clear to coincides with the static limit of adiabatic response $\displaystyle\lim_{\omega\rightarrow0}\chi_{AB}(\omega)$, while the diagonal part of \eqref{1.1.7} is exclusive. So \textbf{in general isothermal responses do not have to be the same as the static limit of adiabatic responses.}
+		\end{Note}
+
+	\subsection{Example: Adiabatic Response of Charge Current}
+		In this section, we will consider the electric current driven by an external electric field. In general such electric field depends on both scalar and vector potentials
+		\begin{equation*}
+			\bm{E}(\bm{r},t)\equiv-\nabla\phi-\dfrac{\partial\bm{A}}{\partial t}.
+		\end{equation*}
+		Under the minimal coupling with external vector potential, the general continuum Hamiltonian with impurity potentials $V_{\text{imp}}$ and interacting terms $U$ (like four-fermion Coulomb interaction)
+		\begin{equation}\label{1.3.1}
+			H=\int\dd\bm{r}\,\psi^\dagger(\bm{r},t)\bigg(-\dfrac{\hbar^2}{2m}\nabla^2-\mu+V_{\text{imp}}(\bm{r})\bigg)\psi(\bm{r},t)+U
+		\end{equation}
+		becomes (we work in SI unit and $q\equiv-e$)
+		\begin{align}
+			H[A_\mu]&=\int\dd\bm{r}\,\psi^\dagger(\bm{r},t)\left(\dfrac{1}{2m}\left(\dfrac{\hbar}{i}\nabla-q\bm{A}(\bm{r},t)\right)^2+\dfrac{q}{c}\phi(\bm{r},t)-\mu+V_{\text{imp}}\right)\psi(\bm{r},t)+U\nonumber\\
+			&=H[0]+\dfrac{e\hbar}{2im}\int\dd\bm{r}\,\bigg(\psi^\dagger(\bm{r},t)\bm{A}(\bm{r},t)\cdot\nabla\psi(\bm{r},t)-\nabla\psi^\dagger(\bm{r},t)\cdot\bm{A}(\bm{r},t)\psi(\bm{r},t)\bigg)\nonumber\\
+			&\qquad-\dfrac{e}{c}\int\dd\bm{r}\,\psi^\dagger(\bm{r},t)\phi(\bm{r},t)\psi(\bm{r},t)+\dfrac{e^2}{2m}\int\dd\bm{r}\,\psi^\dagger(\bm{r})\bm{A}(\bm{r},t)^2\psi(\bm{r}).\label{1.3.2}
+		\end{align}
+		By definition of charge current $J_\mu\equiv\dfrac{\delta S[A_\mu]}{\delta A_\mu}$, we get\footnote{The minus sign of \eqref{1.3.3} is from the fact that the electric potential term is negative in Lagragian formulation \begin{equation*}
+			L=\frac{1}{2m}(\hat{\bm{p}}-q\bm{A}(\hat{\bm{r}},t))^2-\dfrac{q}{c}\phi(\hat{\bm{r}},t).
+		\end{equation*}This is NOT from the Minkowsi metric!} (in the $+2$ signature)
+		\begin{align}
+			J^0(\bm{r},t)&\equiv-\dfrac{\delta H[A_\mu]}{\delta A_0}=-\dfrac{\delta H}{\delta(-\phi/c)}=-e\psi^\dagger(\bm{r},t)\psi(\bm{r},t),\label{1.3.3}\\
+			J^i(\bm{r},t)&\equiv\dfrac{\delta H[A_\mu]}{\delta A_i}=\dfrac{e\hbar}{2im}\bigg(\psi^\dagger(\bm{r},t)(\partial^i\psi(\bm{r},t))-(\partial^i\psi^\dagger(\bm{r},t))\psi(\bm{r},t)\bigg)+\dfrac{e^2}{m}\psi^\dagger(\bm{r},t)A^i(\bm{r},t)\psi(\bm{r},t)=J^{P,i}(\bm{r},t)+J^{A,i}(\bm{r},t),\label{1.3.4}
+		\end{align}
+		where we introduce the \emph{paramagnetic} part $\bm{J}^P$ (of order $\mathcal{O}(1))$) and \emph{diamagnetic} part $\bm{J}^A$ (of order $\mathcal{O}(A_\mu)$) of the charge current.\par
+		If we regonize \eqref{1.3.3} as the charge of paramagnetic currents $J^{P,0}$, the couling terms of \eqref{1.3.2} can be re-written as
+		\begin{equation}\label{1.3.5}
+			H[A_\mu]=H[0]+\int\dd\bm{r}\,J^{P,\mu}A_\mu+\dfrac{1}{2}\int\dd\bm{r}\,\bm{J}^A\cdot\bm{A},
+		\end{equation}
+		
+		\noindent Keeping track of merely \emph{linear} coupling of the Hamiltonian, i.e., getting rid of the last term of \eqref{1.3.5} in consideration of adabatic linear response. We can  make use of the general result of adabatic linear response to write down the quantum average of total current at time $t$ as
+		\begin{align}
+			\langle J_\alpha(\bm{r},t)\rangle^{(1)}&=\langle J_\alpha^P(\bm{r},t)\rangle^{(1)}+\dfrac{e^2}{m}\langle\psi^\dagger(\bm{r},t)\psi(\bm{r},t)\rangle^{(0)}A_\alpha(\bm{r},t)(1-\delta_{\alpha0})\nonumber\\
+			&=\dfrac{1}{i\hbar}\int_{-\infty}^0\dd t'\int\dd\bm{r'}\,\langle[J^P_{\alpha,I}(\bm{r},t),J^P_{\beta,I}(\bm{r'},t')]\rangle_0 A_\beta(\bm{r'},t)+\dfrac{e^2}{m}n(\bm{r})(1-\delta_{\alpha0})A_\alpha(\bm{r},t)\nonumber\\
+			&=\int\dd\bm{r'}\int\dd t'\,\bigg\{\dfrac{e^2}{m}n(\bm{r'})\delta_{\alpha\beta}(1-\delta_{\alpha0})\delta(\bm{r}-\bm{r'})\delta(t-t')+\dfrac{1}{i\hbar}\theta(t-t')\langle[J^P_{\alpha,I}(\bm{r},t),J^P_{\beta,I}(\bm{r'},t')]\rangle_0\bigg\}A^{\beta}(\bm{r'},t'),\label{1.3.6}
+		\end{align}
+		where in the first line we take the zeroth-order approximation for the second term so that the equilibrium density $n(\bm{r})$ has no time-dependence.\par
+		Noting that the expression in the curly brace in \eqref{1.3.6} is just a function of $t-t'$. So for periodic driven fields of frequency $\omega$, convolution theorem tells
+		\begin{equation}\label{1.3.7}
+			\langle J_\alpha(\bm{r},\omega)\rangle^{(1)}=\int\dd\bm{r'}\sigma_{\alpha\beta}(\bm{r},\bm{r'};\omega)E_\beta(\bm{r'},\omega),
+		\end{equation}
+		with the conductivity matrix
+		\begin{equation}\label{1.3.8}
+			\sigma_{\alpha\beta}(\bm{r},\bm{r'};\omega)=\dfrac{1}{i\omega}\left[\dfrac{e^2}{m}n(\bm{r'})\delta_{\alpha\beta}(1-\delta_{\alpha0})\delta(\bm{r}-\bm{r'})+\chi_{\alpha\beta}^P\right],\quad\chi_{\alpha\beta}^P\equiv\lim_{s\rightarrow0^+}\dfrac{1}{i\hbar}\int_0^\infty\dd\tau \langle[J^P_{\alpha,I}(\bm{r},\tau),J^P_{\beta,I}(\bm{r'},0)]\rangle_0 e^{i\omega\tau-s\tau},
+		\end{equation}
+		where we take the gauge $\phi=0$ and express the electric field in terms of the vector potential $\bm{E}(\omega)=i\omega\bm{A}(\omega)$. In fact, the step of gauge fixing can be done at the very beginning to simplify our derivation. Anyway, if the material is furthermore homogeneous $\sigma_{\alpha\beta}(\bm{r},\bm{r'};\omega)\equiv\sigma_{\alpha\beta}(\bm{r}-\bm{r'};\omega)$, we get
+		\begin{equation}\label{1.3.9}
+			\langle J_\alpha(\bm{q},\omega)\rangle^{(1)}=\dfrac{1}{i\omega}\left\{\dfrac{e^2}{m}n_0\delta_{\alpha\beta}(1-\delta_{\alpha0})+\chi^P_{\alpha\beta}(\bm{q},\omega)\right\}E^\beta(\bm{q},\omega),
+		\end{equation}
+		with $V$ the volume of the material, $n_0\equiv n(\bm{q}=0)$, and
+		\begin{equation}\label{1.3.10}
+			\quad\chi_{\alpha\beta}^P(\bm{q},\omega)\equiv\lim_{s\rightarrow0^+}\dfrac{1}{i\hbar V}\int_0^\infty\dd\tau\,\langle[J^P_{\alpha,I}(\bm{q},\tau),J^P_{\beta,I}(-\bm{q},0)]\rangle_0 e^{i\omega\tau-s\tau}.
+		\end{equation}
+	
+	\subsection{Drude Formula: Cancellation of Static Diamagnetic Response}
+
+
+\section{Other Equivalent Forms of Kubo Formula}
+	\subsection{Kubo's Identities and Canonical Kubo Pair}
+		In Kubo's original paper \cite{kubo1957statistical}, he proved an identity:
+		\begin{Claim}[(Kubo's First Identity)]
+			For any time-dependent operator (in interaction picture, for instance (for future use)) $\hat X_I(t)\equiv e^{\frac i\hbar\hat H_0(t-t_0)}\hat X_S(t_0)e^{-\frac i\hbar\hat H_0(t-t_0)}$ and density matrix $\hat\rho_0=e^{-\beta\hat H_0}/\Z$, we have
+			\begin{equation}\label{2.1.1}
+				\dfrac{1}{i\hbar}[\hat X_I(t),\hat\rho_0]\equiv-\hat\rho_0\int_0^\beta\dd\lambda\,\dot{\hat X}_I(t-i\lambda\hbar),\quad \text{where}\quad\dot{\hat X}_I(t)\equiv\dfrac{1}{i\hbar}[\hat X_I(t),\hat H_0]
+			\end{equation}
+		\end{Claim}
+		\begin{Proof}
+			Proving by direct check:
+			\begin{align*}
+				\text{RHS}&=-\hat\rho_0\int_0^\beta\dd\lambda\,\dfrac{1}{i\hbar}[\hat X_I(t-i\lambda\hbar),\hat H_0]=-\dfrac{1}{i\hbar}\hat\rho_0\int_0^\beta\dd\lambda\,\left[e^{\lambda\hat H_0}\hat X_I(t)e^{-\lambda\hat H_0},\hat H_0\right]=-\dfrac{1}{i\hbar}\hat\rho_0\int_0^\beta\dd\lambda\,e^{\lambda\hat H_0}\hat[X_I(t),\hat H_0]e^{-\lambda\hat H_0}\\
+				&\equiv\dfrac{1}{i\hbar}\hat\rho_0\int_0^\beta\dd\lambda\,\dfrac{\dd}{\dd\lambda} \left[e^{\lambda\hat H_0}\hat X_I(t)e^{-\lambda\hat H_0}\right]=\dfrac{1}{i\hbar}\left(\hat\rho_0 e^{\beta\hat H_0}\hat X_I(t)e^{-\beta\hat H_0}-\hat\rho_0\hat X_I(t)\right)=\dfrac{1}{i\hbar}[\hat X_I(t),\hat\rho_0].
+			\end{align*}
+		\end{Proof}
+		If we introduce the \emph{canonical Kubo pair} \cite{kubo2012statistical} (still for operators in interaction picture, for instance(for future use))
+		\begin{equation}\label{Kubo pair}
+			\langle\langle A;B\rangle\rangle:=\dfrac{1}{\beta}\int_0^\beta\dd\lambda\,\langle A_I(-i\hbar\lambda)B_I(0)\rangle_0.
+		\end{equation} 
+		then a neat form of \emph{Kubo's second identity} can be immediately obtained
+		\begin{Corollary}[(Kubo's second identity)]
+			\begin{equation}\label{Kubo identity}
+				\beta\langle\langle[H_0,B];A(t)\rangle\rangle\equiv\langle[A_I(t),B_I(0)]\rangle_0.
+			\end{equation}
+		\end{Corollary}
+		\begin{Proof}
+			By Kubo's first identity \eqref{2.1.1}, we have
+			\begin{align*}
+				\text{LHS}&=i\hbar\int_0^\beta\dd\lambda\,\langle-\dot{\hat B}_I(-i\lambda\hbar)\hat A_I(t)\rangle=\mathop{\mathrm{Tr}}\left\{i\hbar\left(-\hat\rho\int_0^\beta\dd\lambda\,\dot{\hat B}_I(-i\lambda\hbar)\right)\hat A_I\right\}\\
+				&=\mathrm{Tr}\{[\hat B(0),\hat\rho_0]\hat A_I(t)\}=\mathop{\mathrm{Tr}}\{\hat\rho_0[\hat A_I(t),\hat B_I(0)]\}=\text{RHS}.
+			\end{align*}
+		\end{Proof}
+
+	\subsection{Equivalent Forms of Kubo Formula}
+		There are many forms of Kubo formula used in literatures. In this section, we will try to derive all of them.\par
+		Applying Kubo's second identity to the general adiabatic response in frequency domain \eqref{1.2.8}, the response function can be re-written as
+		\begin{align}
+			\chi_{AB}(\omega)&=\lim_{s \rightarrow0^+}\dfrac{1}{i\hbar}\int_0^{+\infty}\dd t\,\langle[\hat A_I(t),\hat B_I(0)]\rangle e^{i\omega t-st}=\lim_{s \rightarrow0^+}\dfrac{\beta}{i\hbar}\int_0^{+\infty}\dd t\,\langle\langle[H_0, B]; A(t)\rangle\rangle e^{i\omega t-st}\nonumber\\
+			&\equiv\lim_{s \rightarrow0^+}\dfrac{\beta}{i\hbar}\int_0^{+\infty}\dd t\, e^{i\omega t-st}\,\int_0^\beta\dd\lambda\,\langle[H_0,B_I(-i\hbar\lambda)]A_I(t)\rangle.\label{2.1.2}
+		\end{align}
+		\indent Particularly, for charge current response, if external sources is introduced in the way of Luttinger \cite{luttinger1964theory}, i.e., $H_0\mapsto H=H_0+Q(\varphi,t)e^{i\omega t}$, or $\hat B(t)\equiv Q(\varphi,t)$, we have, the charge conductivity (in the language of Kapustin \cite{kapustin2020thermal})
+		\begin{align}
+			\sigma_{\gamma\varphi}(\omega)&=\lim_{s \rightarrow0^+}\dfrac{\beta}{i\hbar}\int_0^{+\infty}\dd t\,\langle\langle[H_0, Q(\varphi)]; J(\delta\gamma,t)\rangle\rangle e^{i\omega t-st}\nonumber\\
+			&=\lim_{s \rightarrow0^+}\beta\int_0^{+\infty}\dd t\,\langle\langle J(\delta\varphi); J(\delta\gamma,t)\rangle\rangle e^{i\omega t-st}\equiv{\color{red}\lim_{s \rightarrow0^+}\beta\int_0^{+\infty}\dd t\,\langle\langle J(\delta\gamma,t); J(\delta\varphi)\rangle\rangle e^{i\omega t-st}},\label{2.1.3}
+		\end{align}
+		where charge conservation law
+		\begin{equation}\label{2.1.4}
+			\dfrac{\dd Q(\varphi)}{\dd t}=-(\partial J)(\varphi)\equiv J(\delta\varphi)
+		\end{equation}
+		and symmetric properties of Kubo canonical pairs $\langle\langle A;B\rangle\rangle\equiv\langle B;A\rangle\rangle$ are used. For example, for static response $\omega=0$, \eqref{2.1.3} coincides with {\color{blue}Eq. (37)} in \cite{kapustin2020thermal}.
+
+	\subsection{Equivalence bewteen Conductivity Obtained by Coupling with Vector Potentials and Electrical Potentials}
+		Electrical conductivities are separated by paramagnetic part and diamagnetic part as we have shown before. They are derived by coupling the system to external vector potentials (with the gauge choice $\varphi=0$). Is that prescription the same as that proposed by Luttinger? In this section, we will anwser this question.\par
+
+		Using the fact that the retarded Green function (and its descendents by Kubo's identities) is analytic on the upper half plane, we can re-written \eqref{2.1.3} in another form that
+		\begin{align}
+			\sigma_{\gamma\varphi}(\omega)&=\lim_{s \rightarrow0^+}\int_0^\infty\dd t\,e^{i\omega t-st}\int_0^\beta\dd\lambda\,\langle J(\delta\gamma,t-i\hbar\lambda)J(\delta\varphi)\rangle=\dfrac{-1}{i\hbar}\lim_{s \rightarrow0^+}\int_0^\infty\dd t\,e^{i\omega t-st}\int_t^{t-i\hbar\beta}\dd\tau\,\langle J(\delta\gamma,\tau)J(\delta\varphi)\rangle\nonumber\\
+			&=\dfrac{-1}{i\hbar}\lim_{s \rightarrow0^+}\int_0^\infty\dd t\,e^{i\omega t-st}\int_t^\infty\dd t'\bigg(\langle J(\delta\gamma,t')J(\delta\varphi)\rangle-\langle J(\delta\gamma,t-i\hbar\beta)J(\delta\varphi\rangle)\bigg)\nonumber\\
+			&=\dfrac{-1}{i\hbar}\lim_{s \rightarrow0^+}\int_0^\infty\dd t\,e^{i\omega t-st}\int_t^\infty\dd t'\,\mathop{\mathrm{Tr}}\bigg\{\rho_0\bigg(J(\delta\gamma,t')J(\delta\varphi)-e^{\beta H_0}J(\delta\gamma,t)e^{-\beta H_0}J(\delta\varphi)\bigg)\bigg\}\nonumber\\
+			&=\dfrac{-1}{i\hbar}\lim_{s \rightarrow0^+}\int_0^\infty\dd t\,e^{i\omega t-st}\int_t^\infty\dd t'\,\mathop{\mathrm{Tr}}\bigg\{\rho_0\bigg(J(\delta\gamma,t')J(\delta\varphi)-J(\delta\varphi)J(\delta\gamma,t)\bigg)\bigg\}\nonumber\\
+			&=\dfrac{-1}{i\hbar}\lim_{s \rightarrow0^+}\int_0^\infty\dd t\,e^{i\omega t-st}\int_t^\infty\dd t'\,\langle[J(\delta\gamma,t'),J(\delta\varphi)]\rangle.\label{2.1.5}
+		\end{align}
+		Integration by parts, we get
+		\begin{align}
+			\sigma_{\gamma\varphi}(\omega)&=\lim_{s \rightarrow0^+}\dfrac{1}{\hbar(\omega+is)}\left\{\left.e^{i\omega t-st}\int_t^\infty\dd t'\,\langle[J(\delta\gamma,t'),J(\delta\varphi)]\rangle\right|_0^\infty-\int_0^\infty\dd t\, e^{i\omega t-st}\dfrac{\dd}{\dd t}\int_t^\infty\dd t'\,\langle[J(\delta\gamma,t'),J(\delta\varphi)]\rangle\right\}\nonumber\\
+			&=\lim_{s \rightarrow0^+}\dfrac{1}{\hbar(\omega+is)}\left\{-\int_0^\infty\dd t\,\langle[J(\delta\gamma,t),J(\delta\varphi)]\rangle+\int_0^\infty\dd t\,e^{i\omega t-st}\langle[J(\delta\gamma,t),J(\delta\varphi)]\rangle\right\}\nonumber\\
+			&\equiv\lim_{s \rightarrow0^+}\big(\Sigma_{\gamma\varphi}(\omega)-\Sigma_{\gamma\varphi}(0)\big)\big/(\omega+is),\label{2.1.6}
+		\end{align}
+		with the current-current correlation function
+		\begin{equation}\label{2.1.7}
+			\Sigma_{\mu\nu}(\omega)\equiv\lim_{s \rightarrow0^+}\dfrac{1}{\hbar}\int_0^\infty\dd t\, e^{i\omega t-st}\langle[J(\delta\gamma,t),J(\delta\varphi)]\rangle
+		\end{equation}
+		recognizing as the \emph{Drude weight} of the conductivity (comparing with \eqref{1.3.10}), and $\Sigma_{\gamma\varphi}(0)$ is nothing by the diamagntic part of contribution
+		\begin{equation}\label{2.1.8}
+			-\dfrac{\Sigma_{\gamma\varphi}(0)}{\omega}=i\dfrac{ne^2}{m\omega}\delta_{\gamma\varphi}.
+		\end{equation}
+		Relation \eqref{2.1.8} is directly obtained by the \emph{$f$-sum rule}.\par
+		Since \eqref{2.1.7} has the form of retarded Green function again (DO NOT get confused by the Drude weigth here with the general linear response \eqref{1.2.6}), we can calculate it with the help of Matsubara Green function (of current operators) on imaginary frequence domain
+		\begin{equation*}
+			\mathcal{G}_{\gamma\varphi}(i\omega_n)\equiv\int_0^\beta\dd\tau\,e^{i\omega_n\tau}\mathcal{G}_{\gamma\varphi}(\tau)\equiv-\int_0^\beta\dd\tau\,e^{i\omega_n\tau}\langle\mathcal{T}_\tau J(\delta\gamma,\tau) J(\delta\varphi)\rangle=-\int_0^\beta\dd\tau\,e^{i\omega_n\tau}\langle J(\delta\gamma,\tau) J(\delta\varphi)\rangle.
+		\end{equation*}
+		and analytical continuation $\omega_n \rightarrow i\omega+0^+$. Such approach (which is always true by looking at the Lehmann spectral representation of both Green functions \cite{mahanmany}) is employed in \cite{scalapino1993insulator} to study the fast and slow limits.
+
+\bibliography{hxd}
+\bibliographystyle{apsrev} % apsrev is format for PRL of APS
+\end{document}

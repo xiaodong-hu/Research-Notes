@@ -79,7 +79,7 @@
 \def\D{\mathcal{D}}
 
 \begin{document}
-\title{Linear Response Theory: Two Regimes, Two Equivalent Descriptions, and\\Two Parts of Electrical Conductivities}
+\title{Linear Response Theory: Two Regimes, Two Parts of Electrical Conductivities, and Many Equivalent Forms of the Adiabatic Response}
 \author{Xiaodong Hu}
 
 %\altaffiliation[Also at ]{Boson College}
@@ -89,7 +89,7 @@
 \date{\today}
 
 \begin{abstract}
-	In this letter, we will review the general theory of isothermal linear response adiabatic linear response. Taking adiabatic charge current response as one example, we will show that the standard form of the conductivity tensor, consisting of paramagnetic and diamagnetic parts, can also be obtained by coupling with electrical potentials. We discuss the cancellation of diamagnetic parts at the uniform limit in metals, and derive some other useful forms of Kubo formula for future reference.\par
+	In this letter, we will review the general theory of isothermal linear response and adiabatic linear response. Taking adiabatic charge current response as one example, we will show that the standard form of the conductivity tensor, consisting of paramagnetic and diamagnetic parts, can also be obtained by coupling with electrical potentials. We discuss the cancellation of diamagnetic part, and obtain Drude weight in the uniform limit. We also derive some other useful forms of Kubo formula for future reference.\par
 	%\begin{center}
 		\hfill\par
 		{\centering\kaishu 当时共客长安，似二陆初来俱少年。有笔头千字，胸中万卷；致君尧舜，此事何难？\\[0.5em]}
@@ -308,15 +308,15 @@
 		\begin{equation*}
 			J^P_\alpha=\sum_{\bm{r},\bm{r'}}\psi(\bm{r})^\dagger\dfrac{q}{2m}\bigg(\langle\bm{r}|(-i\hbar\nabla')\bm{r'}\rangle+\langle(-i\hbar\nabla)\bm{r}|\bm{r'}\rangle\bigg)\psi(\bm{r'}),
 		\end{equation*}
-		we can immediately wirte down the single-particle current operator $\hat J_\alpha=\sum_{\mu\nu} \langle\mu|J^{(1)}_{\alpha}|\nu\rangle\psi_\mu^\dagger\psi_\nu$ for the $i$-th particle under the coordinate representation
+		the single-particle current operator $J^{(1)}_\alpha$ in the coordinate representation $\hat J_\alpha=\sum_{\bm{r},\bm{r'}} \langle\bm{r}|J^{(1)}_{\alpha}|\bm{r'}\rangle\psi_{\bm{r}}^\dagger\psi_{\bm{r'}}$ can be directly read out
 		\begin{equation}\label{1.4.3}
-			J^{(1)}_\alpha(\bm{r})=\dfrac{q}{2m}(\hat p_{i,\alpha} \delta(\bm{r}-\hat{\bm{r}}_i)+\delta(\bm{r}-\hat{\bm{r}}_i)\hat{p}_{i,\alpha}),
+			J^{(1)}_\alpha(\bm{r})=\dfrac{q}{2m}(\hat p_\alpha\delta(\bm{r}-\hat{\bm{r}})+\delta(\bm{r}-\hat{\bm{r}})\hat{p}_\alpha),
 		\end{equation}
 		or in momentum representation
 		\begin{equation}\label{1.4.4}
-			J^{(1)}_\alpha(\bm{q})=\dfrac{q}{2m}(\hat p_{i,\alpha} e^{-\frac i\hbar\bm{q}\cdot\hat{\bm{r}}_i}+e^{-\frac i\hbar\bm{q}\cdot\hat{\bm{r}}_i}\hat{p}_{i,\alpha}).
+			J^{(1)}_\alpha(\bm{q})=\dfrac{q}{2m}(\hat p_\alpha e^{-\frac i\hbar\bm{q}\cdot\hat{\bm{r}}}+e^{-\frac i\hbar\bm{q}\cdot\hat{\bm{r}}}\hat{p}_\alpha).
 		\end{equation}
-		Separating the denomenator \eqref{1.4.2} into two parts, we get
+		Separating the denomenator of equation \eqref{1.4.2} into two parts, we get
 		\begin{align}
 			\chi_{\alpha\beta}^P(\bm{q},\omega)&=\lim_{s \rightarrow0^+}\dfrac{1}{V}\sum_{m,n}(f_m-f_n)\dfrac{\langle m|J^{(1)}_\alpha(\bm{q})|n\rangle\langle n|J^{(1)}_\beta(-\bm{q})|m\rangle}{\hbar\varpi+\varepsilon_{mn}}\\
 			&\equiv\lim_{s \rightarrow0^+}\dfrac{1}{V}\sum_{m,n}(f_m-f_n)\langle m|J^{(1)}_\alpha(\bm{q})|n\rangle\langle n|J^{(1)}_\beta(-\bm{q})|m\rangle|\left[\dfrac{1}{\varepsilon_{mn}}\left(1-\dfrac{\hbar\varpi}{\hbar\varpi+\varepsilon_{mn}}\right)\right].\label{1.4.5}
@@ -329,12 +329,12 @@
 		\begin{equation}\label{1.4.7}
 			\chi_{\alpha\beta}^{P,\text{1st}}(\bm{q},\omega)\equiv\lim_{s \rightarrow0^+}\dfrac{1}{V}\sum_{m,n}(f_m-f_n)\dfrac{\langle m|J^{(1)}_\alpha(\bm{q})|n\rangle\langle n|J^{(1)}_\beta(-\bm{q})|m\rangle}{\varepsilon_m-\varepsilon_n}=-\dfrac{q^2 n}{m}\delta_{\alpha\beta}
 		\end{equation}
-		cancel exactly with the the diamagnetic part in the conductivity tensor \eqref{1.3.8}, leaving only
+		cancels exactly with the the diamagnetic part in the conductivity tensor \eqref{1.3.8}, leaving only
 		\begin{equation}\label{1.4.8}
 			{\color{red}\sigma_{\alpha\beta}(\bm{q},\omega)=\dfrac{-1}{i\omega}\chi_{\alpha\beta}^{P,\text{2nd}}=\lim_{s \rightarrow0^+}\dfrac{\hbar}{iV}\sum_{m,n}(f_m-f_n)\dfrac{\langle m|J^{(1)}_\alpha(\bm{q})|n\rangle\langle n|J^{(1)}_\beta(-\bm{q})|m\rangle}{\varepsilon_{mn}(\hbar\varpi+\varepsilon_{mn})}}.
 		\end{equation}
 		\begin{Note}
-			Althought the motivation to think about the diamagnetic cancellation starts from taking the the static limit $\omega \rightarrow 0$ of physical responses, formally the above cancellation is true for the whole energy scale!
+			Althought the motivation to think about the diamagnetic cancellation starts by observing an abnormal divergence when taking the the static limit $\omega \rightarrow 0$ of physical responses, the above derivation of cancellation is formally true for the whole energy scale! Even if there is a divergence for some materials like BCS superconductors, it comes from \eqref{1.4.8}.
 		\end{Note}
 		\hfill\par
 		The left task is to evaluate the quantum average within the Bloch states $|n\bm{k}\rangle$. For \textbf{the uniform limit $\bm{q}\rightarrow\bm{0}$ of band metals where intra-band processes dominate}, we get (spin degeneracy included)
@@ -436,7 +436,7 @@
 			are quite general since they are derived from basic operation at the operator-level. Below we will show that equation \eqref{2.1.3} will go back to the familiar form \eqref{1.3.8} if is applied to a system of \emph{parabolic} dispersion.
 		\end{Note}
 
-	\subsection{Equivalence bewteen Conductivity Obtained by Coupling with Vector Potentials and Electrical Potentials}
+	\subsection{Equivalence of the Charge Conductivity Obtained by Coupling with Vector Potentials\\ and Electrical Potentials}
 		Electrical conductivities are separated by paramagnetic part and diamagnetic part as we have shown before. They are derived by coupling the system to external vector potentials (with the gauge choice $\varphi=0$). Is such prescription the same as that proposed by Luttinger? In this section, we will anwser this question in two approaches.\par
 		\subsubsection{Approach 1}
 		The first approach starts from the original form of \eqref{2.1.2} without employing the Kubo's second identity (which is also a general formula). Namely,
@@ -464,7 +464,7 @@
 		since $J(\delta\gamma)=J^P(\delta\gamma)+J^D(\delta\gamma)$ and $J^D(\delta\gamma)\propto A_\gamma$.\par
 		To show the result \eqref{2.2.3} matches exactly with \eqref{1.3.9} to the systems with parabolic dispersion up to linear response, the left task is to prove that the first term of \eqref{2.2.3} is nothing but the diamagnetic part of contribution. In fact,
 		\begin{align}
-			\dfrac{1}{i\hbar}\langle[J(\delta\gamma),Q(\varphi)]\rangle_0&=\dfrac{1}{i\hbar V}\sum_{1,2,3,4}\bigg\langle\langle1|J^{(1)}(\delta\gamma)|2\rangle a_1^\dagger a_2\langle 3|Q^{(1)}(\varphi)|4\rangle a_3^\dagger a_4\bigg\rangle-\bigg\langle\langle3|Q^{(1)}(\varphi)|4\rangle a_3^\dagger a_4\langle 1|J^{(1)}(\delta\gamma)|2\rangle a_1^\dagger a_2\bigg\rangle\nonumber\\
+			\dfrac{1}{i\hbar}\langle[J(\delta\gamma),Q(\varphi)]\rangle_0&=\dfrac{1}{i\hbar V}\sum_{1,2,3,4}\wick{\bigg\langle\langle1|J^{(1)}(\delta\gamma)|2\rangle \c1 a_1^\dagger \c2 a_2\langle 3|Q^{(1)}(\varphi)|4\rangle \c2 a_3^\dagger \c1 a_4\bigg\rangle}-\wick{\bigg\langle\langle3|Q^{(1)}(\varphi)|4\rangle \c1 a_3^\dagger \c2 a_4\langle 1|J^{(1)}(\delta\gamma)|2\rangle\c2 a_1^\dagger \c1 a_2\bigg\rangle}\nonumber\\
 			&=\dfrac{1}{i\hbar}\sum_{m,n}\langle m|J^{(1)}(\delta\gamma)|n\rangle\langle n|Q^{(1)}(\varphi)|m\rangle\big(f_m(1-f_n)-f_n(1-f_m)\big)\nonumber\\
 			&=\dfrac{1}{i\hbar}\sum_{m,n}f_m\langle m|[J^{(1)}(\delta\gamma),Q^{(1)}(\varphi)]|m\rangle.\label{2.2.5}
 		\end{align}
@@ -472,9 +472,9 @@
 		\begin{equation}\label{2.2.6}
 			\dfrac{1}{i\hbar}\langle[J(\delta\gamma),Q(\varphi)]\rangle_0=\dfrac{1}{i\hbar}\sum_{m,n}f_m\left\langle m\middle|\middle[J^{(1)}_\gamma(\bm{q}),\dfrac{i\hbar}{q_\varphi}Q^{(1)}(-\bm{q})\middle]\middle|n\right\rangle.
 		\end{equation}
-		Inserting the first-quantized charge density operator
+		Inserting the first-quantized charge density operator (from $Q=\sum_{\bm{r}}q\psi_{\bm{r}}^\dagger\psi_{\bm{r}}$)
 		\begin{equation}\label{2.2.5}
-			Q^{(1)}(\bm{q})=e^{\frac i\hbar\bm{q}\cdot\hat{\bm{r}}}
+			Q^{(1)}(\bm{q})=q e^{\frac i\hbar\bm{q}\cdot\hat{\bm{r}}}
 		\end{equation}
 		and \eqref{1.4.4}, the commutator in \eqref{2.2.6} is
 		\begin{equation}\label{2.2.6}
@@ -587,7 +587,7 @@
 			\end{equation*}
 		\end{Proof}
 
-		\noindent Approach 1 can also be used to derive the integration form of f-sum rule:
+		The foundamental form of the f-sum rule (see in \cite{anderson1958coherent}) with approach 1 can also be used to derive the much more familiar result:
 		\begin{Corollary}[(Integration Form of f-sum Rule)]
 			\begin{equation}\label{a.1.5}
 				\dfrac{1}{2\pi}\int_{-\infty}^\infty\dd\omega\,\sigma_{\gamma\varphi}(\omega)=\dfrac{nq^2}{2m}\delta_{\gamma\varphi}

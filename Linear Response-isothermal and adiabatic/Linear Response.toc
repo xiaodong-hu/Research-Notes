@@ -9,7 +9,7 @@
 \contentsline {section}{\numberline {II}Other Equivalent Forms of Kubo Formula}{8}{}
 \contentsline {subsection}{\numberline {A}Kubo's Identities and Canonical Kubo Pair}{8}{}
 \contentsline {subsection}{\numberline {B}Equivalent Forms of Kubo Formula}{9}{}
-\contentsline {subsection}{\numberline {C}Equivalence bewteen Conductivity Obtained by Coupling with Vector Potentials and Electrical Potentials}{10}{}
+\contentsline {subsection}{\numberline {C}Equivalence of the Charge Conductivity Obtained by Coupling with Vector Potentials\\ and Electrical Potentials}{10}{}
 \contentsline {subsubsection}{\numberline {1}Approach 1}{10}{}
 \contentsline {subsubsection}{\numberline {2}Approach 2}{11}{}
 \contentsline {subsection}{\numberline {D}Matsubara Green Function of Imaginary-frequencies}{12}{}

@@ -89,7 +89,7 @@
 \date{\today}
 
 \begin{abstract}
-	In this letter, we will review the general theory of isothermal linear response adiabatic linear response. Taking adiabatic charge current response as one example, we will show that the standard form of the response function, consisting of paramagnetic (Drude) and diamagnetic parts, can also be obtained in the formulation of Luttinger \cite{luttinger1964theory}. Some other useful forms of Kubo formula are also derived for future reference.\par
+	In this letter, we will review the general theory of isothermal linear response adiabatic linear response. Taking adiabatic charge current response as one example, we will show that the standard form of the conductivity tensor, consisting of paramagnetic and diamagnetic parts, can also be obtained by coupling with electrical potentials. We discuss the cancellation of diamagnetic parts at the uniform limit in metals, and derive some other useful forms of Kubo formula for future reference.\par
 	%\begin{center}
 		\hfill\par
 		{\centering\kaishu 当时共客长安，似二陆初来俱少年。有笔头千字，胸中万卷；致君尧舜，此事何难？\\[0.5em]}
@@ -284,7 +284,7 @@
 		\begin{equation}\label{1.4.1}
 			\sigma_{\alpha\beta}^{\text{DC}}:=\lim_{\omega \rightarrow0}\lim_{\bm{q}\rightarrow0}\sigma_{\alpha\beta}(\bm{q},\omega).
 		\end{equation}
-		A first glance of \eqref{1.3.9} tells that there is a divergence provided $\chi_{\alpha\beta}(\bm{q},\omega)$ was analytic, conflicting with the physical observations for large amounts of materials. However, we will show below that for band metals (where only intra-band processes dominate) such divergence is exactly cancelled by the term containing in the paramagnetic part. Denoting $I_{\alpha\beta}(t)\equiv\langle\hat J_\alpha(t)\hat J_\beta\rangle_0$ and expressiong the many-body current operator as a summation of single-particle current operator $\hat J_\alpha=\sum_{\mu\nu}J^{(1)}_\alpha\hat a_\mu^\dagger\hat a_\nu$, we have (only \emph{connected} diagram contributes\footnote{This fact is much clearer in path-integral formalism, see, for example, \cite{fradkin2013field}.})
+		A first glance of \eqref{1.3.9} tells that there is a divergence provided $\chi_{\alpha\beta}(\bm{q},\omega)$ was analytic, conflicting with the physical observations for large amounts of materials. However, we will show below that for band metals (where only intra-band processes dominate) such divergence is exactly cancelled by the term containing in the paramagnetic part. Denoting $I_{\alpha\beta}(t)\equiv\langle\hat J_\alpha(t)\hat J_\beta\rangle_0$ and expressiong the many-body current operator as a summation of single-particle current operator $\hat J_\alpha=\sum_{\mu\nu}\langle\mu|J^{(1)}_\alpha|\nu\rangle \hat a_\mu^\dagger\hat a_\nu$, we have (only \emph{connected} diagram contributes\footnote{This fact is much clearer in path-integral formalism, see, for example, \cite{fradkin2013field}.})
 		\begin{align*}
 			I_{\alpha\beta}(t)-I_{\beta\alpha}(t)&=\sum_{1,2,3,4}\wick{\bigg\langle\langle 1|J^{(1)}_\alpha|2\rangle\c1 a_1^\dagger(t) \c2 a_2(t)\langle 3|J^{(1)}_\beta|4\rangle \c2 a_3^\dagger \c1 a_4\bigg\rangle-(\alpha\leftrightarrow\beta)}\\
 			&=\sum_{1,2,3,4}\langle 1|J^{(1)}_\alpha|2\rangle\langle 3|J^{(1)}_\beta|4\rangle\left\langle 4\middle|\dfrac{e^{\frac{i}{\hbar}ht}}{1+e^{\beta h}}\middle|1\right\rangle\left\langle2\middle|\dfrac{e^{-\frac{i}{\hbar}ht}}{1+e^{-\beta h}}\middle|3\right\rangle-(\alpha\leftrightarrow\beta)\\
@@ -306,7 +306,7 @@
 		\end{equation}
 		\indent Re-expression the second-quantized paramagnetic current operator \eqref{1.3.4} as
 		\begin{equation*}
-			J^P_\alpha=\sum_{\bm{r},\bm{r'}}\langle\psi|\bm{r}\rangle\dfrac{q}{2m}\bigg(\langle\bm{r}|(-i\hbar\nabla')\bm{r'}\rangle+\langle(-i\hbar\nabla)\bm{r}|\bm{r'}\rangle\bigg)\langle\bm{r'}|\psi\rangle,
+			J^P_\alpha=\sum_{\bm{r},\bm{r'}}\psi(\bm{r})^\dagger\dfrac{q}{2m}\bigg(\langle\bm{r}|(-i\hbar\nabla')\bm{r'}\rangle+\langle(-i\hbar\nabla)\bm{r}|\bm{r'}\rangle\bigg)\psi(\bm{r'}),
 		\end{equation*}
 		we can immediately wirte down the single-particle current operator $\hat J_\alpha=\sum_{\mu\nu} \langle\mu|J^{(1)}_{\alpha}|\nu\rangle\psi_\mu^\dagger\psi_\nu$ for the $i$-th particle under the coordinate representation
 		\begin{equation}\label{1.4.3}
@@ -314,42 +314,48 @@
 		\end{equation}
 		or in momentum representation
 		\begin{equation}\label{1.4.4}
-			J^{(1)}_\alpha(\bm{q})=\dfrac{q}{2m}(\hat p_{i,\alpha} e^{i\bm{q}\cdot\hat{\bm{r}}_i}+e^{i\bm{q}\cdot\hat{\bm{r}}_i}\hat{p}_{i,\alpha}).
+			J^{(1)}_\alpha(\bm{q})=\dfrac{q}{2m}(\hat p_{i,\alpha} e^{-\frac i\hbar\bm{q}\cdot\hat{\bm{r}}_i}+e^{-\frac i\hbar\bm{q}\cdot\hat{\bm{r}}_i}\hat{p}_{i,\alpha}).
 		\end{equation}
 		Separating the denomenator \eqref{1.4.2} into two parts, we get
 		\begin{align}
-			\chi_{\alpha\beta}^P(\bm{q},\omega)&=\lim_{s \rightarrow0^+}\dfrac{q^2}{4m^2V}\sum_{m,n}(f_m-f_n)\dfrac{\langle m|p_\alpha e^{i\bm{q}\cdot\bm{r}}+e^{i\bm{q}\cdot\bm{r}}p_\alpha|n\rangle\langle n|p_\beta e^{-i\bm{q}\cdot\bm{r}}+e^{-i\bm{q}\cdot\bm{r}}p_\beta|m\rangle}{\hbar\varpi+\varepsilon_{mn}}\\
-			&\equiv\lim_{s \rightarrow0^+}\dfrac{q^2}{m^2V}\sum_{m,n}(f_m-f_n)\langle m|p_\alpha e^{i\bm{q}\cdot\bm{r}}+e^{i\bm{q}\cdot\bm{r}}p_\alpha|n\rangle\langle n|p_\beta e^{-i\bm{q}\cdot\bm{r}}+e^{-i\bm{q}\cdot\bm{r}}p_\beta|m\rangle|\left[\dfrac{1}{\varepsilon_{mn}}\left(1-\dfrac{\hbar\varpi}{\hbar\varpi+\varepsilon_{mn}}\right)\right].\label{1.4.5}
+			\chi_{\alpha\beta}^P(\bm{q},\omega)&=\lim_{s \rightarrow0^+}\dfrac{1}{V}\sum_{m,n}(f_m-f_n)\dfrac{\langle m|J^{(1)}_\alpha(\bm{q})|n\rangle\langle n|J^{(1)}_\beta(-\bm{q})|m\rangle}{\hbar\varpi+\varepsilon_{mn}}\\
+			&\equiv\lim_{s \rightarrow0^+}\dfrac{1}{V}\sum_{m,n}(f_m-f_n)\langle m|J^{(1)}_\alpha(\bm{q})|n\rangle\langle n|J^{(1)}_\beta(-\bm{q})|m\rangle|\left[\dfrac{1}{\varepsilon_{mn}}\left(1-\dfrac{\hbar\varpi}{\hbar\varpi+\varepsilon_{mn}}\right)\right].\label{1.4.5}
 		\end{align}
 		\indent It is clear that with the help of \emph{f-sum rule} (the proof is given in the appendix)
 		\begin{equation}\label{1.4.6}
-			{\color{red}\sum_{m,n}(f_m-f_n)\dfrac{\langle m|p_\alpha|n\rangle\langle n|p_\beta|m\rangle}{\varepsilon_{mn}}=-mN\delta_{\alpha\beta}},
+			{\color{red}\sum_{m,n}(f_m-f_n)\dfrac{\langle m|J^{(1)}_\alpha(\bm{q})|n\rangle\langle n|J^{(1)}_\alpha(-\bm{q})|m\rangle}{\varepsilon_m-\varepsilon_n}=-\frac{Nq^2}{m}\delta_{\alpha\beta}},
 		\end{equation}
 		the first part of response function
-		\begin{align}\label{1.4.7}
-			\chi_{\alpha\beta}^{P,\text{1st}}(\bm{q}\rightarrow\bm{0},\omega)&\equiv\lim_{s \rightarrow0^+}\dfrac{q^2}{4m^2V}\sum_{m,n}(f_m-f_n)\dfrac{\langle m|p_\alpha e^{i\bm{q}\cdot\bm{r}}+e^{i\bm{q}\cdot\bm{r}}p_\alpha|n\rangle\langle n|p_\beta e^{-i\bm{q}\cdot\bm{r}}+e^{-i\bm{q}\cdot\bm{r}}p_\beta|m\rangle}{\varepsilon_m-\varepsilon_n}\nonumber\\
-			&=\lim_{s \rightarrow0^+}\dfrac{q^2}{m^2V}\sum_{m,n}(f_m-f_n)\dfrac{\langle m|p_\alpha|n\rangle\langle n|p_\beta|m\rangle}{\varepsilon_m-\varepsilon_n}=-\dfrac{q^2 n}{m}\delta_{\alpha\beta}
-		\end{align}
-		cancel exactly with the the diamagnetic part in the conductivity tensor \eqref{1.3.8} in the uniform limit $\bm{q}\rightarrow\bm{0}$ (when we can safely omit the exponential $e^{i\bm{q}\cdot\bm{r}}$ for small $\bm{q}$), leaving only
+		\begin{equation}\label{1.4.7}
+			\chi_{\alpha\beta}^{P,\text{1st}}(\bm{q},\omega)\equiv\lim_{s \rightarrow0^+}\dfrac{1}{V}\sum_{m,n}(f_m-f_n)\dfrac{\langle m|J^{(1)}_\alpha(\bm{q})|n\rangle\langle n|J^{(1)}_\beta(-\bm{q})|m\rangle}{\varepsilon_m-\varepsilon_n}=-\dfrac{q^2 n}{m}\delta_{\alpha\beta}
+		\end{equation}
+		cancel exactly with the the diamagnetic part in the conductivity tensor \eqref{1.3.8}, leaving only
 		\begin{equation}\label{1.4.8}
-			\sigma_{\alpha\beta}(\bm{q}\rightarrow\bm{0},\omega)=\dfrac{-1}{i\omega}\chi_{\alpha\beta}^{P,\text{2nd}}=\lim_{s \rightarrow0^+}\dfrac{\hbar q^2}{i4m^2V}\sum_{m,n}(f_m-f_n)\dfrac{\langle m|p_\alpha e^{i\bm{q}\cdot\bm{r}}+e^{i\bm{q}\cdot\bm{r}}p_\alpha|n\rangle\langle n|p_\beta e^{-i\bm{q}\cdot\bm{r}}+e^{-i\bm{q}\cdot\bm{r}}p_\beta|m\rangle}{\varepsilon_{mn}(\hbar\varpi+\varepsilon_{mn})}.
+			{\color{red}\sigma_{\alpha\beta}(\bm{q},\omega)=\dfrac{-1}{i\omega}\chi_{\alpha\beta}^{P,\text{2nd}}=\lim_{s \rightarrow0^+}\dfrac{\hbar}{iV}\sum_{m,n}(f_m-f_n)\dfrac{\langle m|J^{(1)}_\alpha(\bm{q})|n\rangle\langle n|J^{(1)}_\beta(-\bm{q})|m\rangle}{\varepsilon_{mn}(\hbar\varpi+\varepsilon_{mn})}}.
 		\end{equation}
-		\indent The left task is to evaluate the quantum average in the Bloch states $|n\bm{k}\rangle$. For metals where intra-band processes dominate, we get (we will keep the exponential here since the zeroth-order is vanishing)
+		\begin{Note}
+			Althought the motivation to think about the diamagnetic cancellation starts from taking the the static limit $\omega \rightarrow 0$ of physical responses, formally the above cancellation is true for the whole energy scale!
+		\end{Note}
+		\hfill\par
+		The left task is to evaluate the quantum average within the Bloch states $|n\bm{k}\rangle$. For \textbf{the uniform limit $\bm{q}\rightarrow\bm{0}$ of band metals where intra-band processes dominate}, we get (spin degeneracy included)
 		\begin{equation*}
-			\sigma_{\alpha\beta}^{\text{intra}}(\bm{q},\omega)=\lim_{s \rightarrow0^+}\dfrac{\hbar q^2}{i4m^2V}\sum_{n}\sum_s\sum_{\bm{k},\bm{k'}}(f_{n\bm{k}}-f_{n\bm{k'}})\dfrac{\langle n\bm{k}|p_\alpha e^{i\bm{q}\cdot\bm{r}}+e^{i\bm{q}\cdot\bm{r}}p_\alpha|n\bm{k'}\rangle\langle n\bm{k'}|e^{-i\bm{q}\cdot\bm{r}}p_\beta+e^{-i\bm{q}\cdot\bm{r}}p_\beta|n\bm{k}\rangle}{(\varepsilon_{n\bm{k}}-\varepsilon_{n\bm{k'}})(\hbar\omega+is+\varepsilon_{n\bm{k}}-\varepsilon_{n\bm{k'}})}.
+			\sigma_{\alpha\beta}^{\text{intra}}(\bm{q},\omega)=\lim_{s \rightarrow0^+}\dfrac{\hbar q^2}{i4m^2V}\sum_{n,s}\sum_{\bm{k},\bm{k'}}(f_{n\bm{k}}-f_{n\bm{k'}})\dfrac{\langle n\bm{k}|\hat p_\alpha e^{-\frac i\hbar\bm{q}\cdot\hat{\bm{r}}}+e^{-\frac i\hbar\bm{q}\cdot\hat{\bm{r}}}\hat p_\alpha|n\bm{k'}\rangle\langle n\bm{k'}|\hat p_\beta e^{\frac i\hbar\bm{q}\cdot\hat{\bm{r}}}+e^{\frac i\hbar\bm{q}\cdot\hat{\bm{r}}}\hat p_\beta|n\bm{k}\rangle}{(\varepsilon_{n\bm{k}}-\varepsilon_{n\bm{k'}})(\hbar\omega+is+\varepsilon_{n\bm{k}}-\varepsilon_{n\bm{k'}})}.
 		\end{equation*}
-		Using the definition of Block states $e^{i\bm{q}\cdot\bm{r}}|n\bm{k}\rangle\equiv e^{i\bm{q}\cdot\bm{r}}e^{i\bm{k}\cdot\bm{r}}u_n(\bm{r})=|n,\bm{k}+\bm{q}\rangle$, and for example $\langle n\bm{k}p_\alpha e^{i\bm{q}\cdot\bm{r}}|n\bm{k'}\rangle=\delta_{\bm{k},\bm{k'}+\bm{q}}m\langle n\bm{k}|v_\alpha|n\bm{k}\rangle$, we get
+		Using the definition of Block states $\langle\bm{r}|n\bm{k}\rangle\equiv e^{i\bm{k}\cdot\bm{r}}u_n(\bm{r})$, we have
+		\begin{equation*}
+			e^{\frac i\hbar\bm{q}\cdot\hat{\bm{r}}}|n\bm{k}\rangle=\int\dd\bm{r}\,e^{\frac i\hbar\bm{q}\cdot\hat{\bm{r}}}|\bm{r}\rangle\langle\bm{r}|n\bm{k}\rangle\equiv\int\dd\bm{r}\,e^{\frac i\hbar\bm{q}\cdot\bm{r}}e^{\frac i\hbar\bm{k}\cdot\bm{r}}u_n(\bm{r})=|n,\bm{k}+\bm{q}\rangle,
+		\end{equation*}
+		and, for example $\langle n\bm{k}|\hat p_\alpha e^{-\frac i\hbar\bm{q}\cdot\hat{\bm{r}}}|n\bm{k'}\rangle=m\delta_{\bm{k},\bm{k'}-\bm{q}}\langle n\bm{k}|\hat v_\alpha|n\bm{k}\rangle$. Thus the intra-band conductivity
 		\begin{equation}\label{1.4.9}
-			\sigma_{\alpha\beta}^{\text{intra}}(\bm{q},\omega)=\lim_{s \rightarrow0^+}\dfrac{2\hbar q^2}{iV}\sum_{n,\bm{k}}\dfrac{f_{n,\bm{k}}-f_{n,\bm{k-q}}}{\varepsilon_{n,\bm{k}}-\varepsilon_{n,\bm{k'-q}}}\dfrac{\langle n\bm{k}|v_\alpha|n\bm{k}\rangle \langle n\bm{k}|v_\beta|n\bm{k}\rangle}{\hbar\omega+is+\varepsilon_{n,\bm{k}}-\varepsilon_{n,\bm{k-q}}}.
+			\sigma_{\alpha\beta}^{\text{intra}}(\bm{q},\omega)=\lim_{s \rightarrow0^+}\dfrac{2\hbar q^2}{iV}\sum_{n,\bm{k}}\dfrac{f_{n,\bm{k}}-f_{n,\bm{k+q}}}{\varepsilon_{n,\bm{k}}-\varepsilon_{n,\bm{k'+q}}}\dfrac{\langle n\bm{k}|\hat v_\alpha|n\bm{k}\rangle \langle n\bm{k}|\hat v_\beta|n\bm{k}\rangle}{\hbar\omega+is+\varepsilon_{n,\bm{k}}-\varepsilon_{n,\bm{k+q}}}.
 		\end{equation}
-		For $|\bm{q}\ll1|$, and quadratic dispersion, we get
+		For quadratic dispersion relation, we have, in the uniform limit,
 		\begin{equation}\label{1.4.10}
-			\sigma_{\alpha\beta}^{\text{intra}}(\bm{q}\rightarrow\bm{0},\omega)\simeq\lim_{s \rightarrow0^+}\dfrac{2\hbar q^2}{iV}\sum_{n,\bm{k}}\left(\dfrac{\partial f_{n\bm{k}}}{\partial \varepsilon_{n\bm{k}}}\right)\dfrac{\langle n\bm{k}|v_\alpha|n\bm{k}\rangle \langle n\bm{k}|v_\beta|n\bm{k}\rangle}{\hbar\omega+is+\frac{\hbar^2}{m}\bm{k}\cdot\bm{q}}.
+			\sigma_{\alpha\beta}^{\text{intra}}(\bm{q}\rightarrow\bm{0},\omega)\simeq\lim_{s \rightarrow0^+}\dfrac{2\hbar q^2}{iV}\sum_{n,\bm{k}}\left(\dfrac{\partial f_{n\bm{k}}}{\partial \varepsilon_{n\bm{k}}}\right)\dfrac{\langle n\bm{k}|\hat v_\alpha|n\bm{k}\rangle \langle n\bm{k}|\hat v_\beta|n\bm{k}\rangle}{\hbar\omega+is-\frac{\hbar^2}{m}\bm{k}\cdot\bm{q}}.
 		\end{equation}
-		Equation \eqref{1.4.10} agrees with the result derived from the Boltzmann equation (if we identify the relaxation time $\tau\sim\hbar/s$).\par
-		If we further drop the linear-$\bm{q}$ term in \eqref{1.4.10}, we get ($\eta\equiv s/\hbar\ll 1$)
+		Equation \eqref{1.4.10} agrees with the result derived from the Boltzmann equation (if we identify the relaxation time $\tau\sim\hbar/s$). If we further ignore the linear-$\bm{q}$ term in \eqref{1.4.10}, we get ($\eta\equiv s/\hbar\ll 1$)
 		\begin{equation}\label{1.4.11}
-			\sigma_{\alpha\beta}^{\text{intra}}(\bm{q}\rightarrow\bm{0},\omega)\simeq\lim_{\eta \rightarrow0^+}\dfrac{i}{\omega+i\eta}\times\dfrac{2q^2}{V}\sum_{n,\bm{k}}\left(-\dfrac{\partial f_{n\bm{k}}}{\partial \varepsilon_{n\bm{k}}}\right)\langle n\bm{k}|v_\alpha|n\bm{k}\rangle \langle n\bm{k}|v_\beta|n\bm{k}\rangle\equiv\lim_{\eta \rightarrow0^+}\dfrac{i}{\omega+i\eta}\mathcal{D}_{\alpha\beta},
+			\sigma_{\alpha\beta}^{\text{intra}}(\bm{q}\rightarrow\bm{0},\omega)\simeq\lim_{\eta \rightarrow0^+}\dfrac{i}{\omega+i\eta}\times\dfrac{2q^2}{V}\sum_{n,\bm{k}}\left(-\dfrac{\partial f_{n\bm{k}}}{\partial \varepsilon_{n\bm{k}}}\right)\langle n\bm{k}|\hat v_\alpha|n\bm{k}\rangle \langle n\bm{k}|\hat v_\beta|n\bm{k}\rangle\equiv\lim_{\eta \rightarrow0^+}\dfrac{i}{\omega+i\eta}\mathcal{D}_{\alpha\beta},
 		\end{equation}
 		where $\mathcal{D}_{\alpha\beta}$ is the \emph{Drude weight}. Clearly the real part of the uniform limit of the conductivity tensor takes the form of Dirac delta function
 		\begin{equation}\label{1.4.12}
@@ -401,55 +407,150 @@
 		There are many forms of Kubo formula used in literatures. In this section, we will try to derive all of them.\par
 		Applying Kubo's second identity to the general adiabatic response in frequency domain \eqref{1.2.8}, the response function can be re-written as
 		\begin{align}
-			\chi_{AB}(\omega)&=\lim_{s \rightarrow0^+}\dfrac{1}{i\hbar}\int_0^{+\infty}\dd t\,\langle[\hat A_I(t),\hat B_I(0)]\rangle e^{i\varpi t}=\lim_{s \rightarrow0^+}\dfrac{\beta}{i\hbar}\int_0^{+\infty}\dd t\,\langle\langle[H_0, B]; A(t)\rangle\rangle e^{i\varpi t}\nonumber\\
+			\chi_{AB}(\omega)&=\lim_{s \rightarrow0^+}\dfrac{1}{i\hbar}\int_0^{+\infty}\dd t\,\langle[\hat A_I(t),\hat B_I(0)]\rangle_0 e^{i\varpi t}=\lim_{s \rightarrow0^+}\dfrac{\beta}{i\hbar}\int_0^{+\infty}\dd t\,\langle\langle[H_0, B]; A(t)\rangle\rangle e^{i\varpi t}\nonumber\\
 			&\equiv\lim_{s \rightarrow0^+}\dfrac{\beta}{i\hbar}\int_0^{+\infty}\dd t\, e^{i\varpi t}\,\int_0^\beta\dd\lambda\,\langle[H_0,B_I(-i\hbar\lambda)]A_I(t)\rangle.\label{2.1.2}
 		\end{align}
-		\indent Particularly, for charge current response, if external sources is introduced in the way of Luttinger \cite{luttinger1964theory}, i.e., $H_0\mapsto H=H_0+Q(\varphi,t)e^{i\omega t}$, or $\hat B(t)\equiv Q(\varphi,t)$, we have, the charge conductivity (in the language of Kapustin \cite{kapustin2020thermal})
+		\indent Particularly, for charge current response, if external sources is introduced in the way of Luttinger \cite{luttinger1964theory}, i.e., $H_0\mapsto H=H_0+Q(\varphi,t)e^{i\omega t}$, or $\hat B(\bm{r},t)\equiv Q(\varphi,t)$ and $F(t)=e^{i\omega t}$, we have, the current response (in the language of \cite{kapustin2020thermal})
+		\begin{equation*}
+			\langle J(\delta\gamma)\rangle(\omega)=\sigma_{\gamma\varphi}(\omega)\cdot e^{i\omega t}
+		\end{equation*}
+		with
 		\begin{align}
-			\sigma_{\gamma\varphi}(\omega)&=\lim_{s \rightarrow0^+}\dfrac{\beta}{i\hbar}\int_0^{+\infty}\dd t\,\langle\langle[H_0, Q(\varphi)]; J(\delta\gamma,t)\rangle\rangle e^{i\varpi t}\nonumber\\
+			{\color{red}\sigma_{\gamma\varphi}(\omega)}&=\lim_{s \rightarrow0^+}\dfrac{\beta}{i\hbar}\int_0^{+\infty}\dd t\,\langle\langle[H_0, Q(\varphi)]; J(\delta\gamma,t)\rangle\rangle e^{i\varpi t}\nonumber\\
 			&=\lim_{s \rightarrow0^+}\beta\int_0^{+\infty}\dd t\,\langle\langle J(\delta\varphi); J(\delta\gamma,t)\rangle\rangle e^{i\varpi t}\equiv{\color{red}\lim_{s \rightarrow0^+}\beta\int_0^{+\infty}\dd t\,\langle\langle J(\delta\gamma,t); J(\delta\varphi)\rangle\rangle e^{i\varpi t}},\label{2.1.3}
 		\end{align}
 		where charge conservation law
 		\begin{equation}\label{2.1.4}
-			\dfrac{\dd Q(\varphi)}{\dd t}=-(\partial J)(\varphi)\equiv J(\delta\varphi)
+			\dfrac{\dd Q(\varphi)}{\dd t}=-(\partial J)(\varphi)\equiv-J(\delta\varphi)
 		\end{equation}
-		and symmetric properties of Kubo canonical pairs $\langle\langle A;B\rangle\rangle\equiv\langle B;A\rangle\rangle$ are used. For example, for static response $\omega=0$, \eqref{2.1.3} coincides with {\color{blue}Eq. (37)} in \cite{kapustin2020thermal}.
+		and symmetric properties of Kubo canonical pairs $\langle\langle A;B\rangle\rangle\equiv\langle B;A\rangle\rangle$ are used. Equation \eqref{2.1.3} is used in \cite{kapustin2020thermal} for static response $\omega=0$.
+		\begin{Note}
+			One must be aware that here \textbf{the notation $J(\delta\gamma)$ indicates the \emph{total} current that satisfies the charge conservation law}. We do NOT explicitly separate the current operator into paramagnetic and diamagnetic part as we have done in the former formulation.
+		\end{Note}
+		\begin{Note}
+			In fact, relation \eqref{2.1.3}, and its descendents of thermoelectrical and thermal transports,
+			{\color{red}\begin{align}
+				\alpha_{\gamma\psi}(\omega)&=\lim_{s \rightarrow0^+}\beta^2\int_0^{+\infty}\dd t\,\langle\langle J(\delta\gamma,t); J^E(\delta\psi)\rangle\rangle e^{i\varpi t},\label{2.1.5}\\
+				\kappa_{\gamma\psi}(\omega)&=\lim_{s \rightarrow0^+}\beta^2\int_0^{+\infty}\dd t\,\langle\langle J^E(\delta\gamma,t); J^E(\delta\psi)\rangle\rangle e^{i\varpi t},\label{2.1.6}
+			\end{align}}
+			are quite general since they are derived from basic operation at the operator-level. Below we will show that equation \eqref{2.1.3} will go back to the familiar form \eqref{1.3.8} if is applied to a system of \emph{parabolic} dispersion.
+		\end{Note}
 
 	\subsection{Equivalence bewteen Conductivity Obtained by Coupling with Vector Potentials and Electrical Potentials}
-		Electrical conductivities are separated by paramagnetic part and diamagnetic part as we have shown before. They are derived by coupling the system to external vector potentials (with the gauge choice $\varphi=0$). Is such prescription the same as that proposed by Luttinger? In this section, we will anwser this question.\par
+		Electrical conductivities are separated by paramagnetic part and diamagnetic part as we have shown before. They are derived by coupling the system to external vector potentials (with the gauge choice $\varphi=0$). Is such prescription the same as that proposed by Luttinger? In this section, we will anwser this question in two approaches.\par
+		\subsubsection{Approach 1}
+		The first approach starts from the original form of \eqref{2.1.2} without employing the Kubo's second identity (which is also a general formula). Namely,
+		\begin{equation}\label{2.2.1}
+			{\color{red}\sigma_{\gamma\varphi}(\omega)=\lim_{s \rightarrow0^+}\dfrac{1}{i\hbar}\int_0^\infty\dd t\,\langle[J(\delta\gamma,t),Q(\varphi,0)]\rangle_0 e^{i\varpi t}}.
+		\end{equation}
+		Integration by parts, and making use of the charge conservation law \eqref{2.1.4}, we get
+		\begin{align}
+			\sigma_{\gamma\varphi}(\omega)&\equiv\lim_{s \rightarrow0^+}\dfrac{1}{i\hbar}\int_0^\infty\dd t\,\langle[J(\delta\gamma,0),Q(\varphi,-t)]\rangle e^{i\varpi t}\nonumber\\
+			&\equiv\lim_{s \rightarrow0^+}\dfrac{1}{i\varpi}\dfrac{1}{i\hbar}\left\{-\langle[J(\delta\gamma,0),Q(\varphi,0)]\rangle-\int_0^\infty\dd t\,\langle[J(\delta\gamma,0),J(\delta\varphi,-t)]\rangle e^{i\varpi t}\right\}\nonumber\\
+			&\equiv\lim_{s \rightarrow0^+}\dfrac{i}{\omega+is}\times\left\{\dfrac{1}{i\hbar}\langle[J(\delta\gamma,0),Q(\varphi,0)]\rangle+\dfrac{1}{i\hbar}\int_0^\infty\dd t\,\langle[J(\delta\gamma,t),J(\delta\varphi,0)]\rangle e^{i\varpi t}\right\}.\label{2.2.2}
+		\end{align}
+		Comparing with \eqref{1.4.11}, we recognize the Drude weight
+		\begin{equation}\label{2.2.3}
+			{\color{red}\mathcal{D}_{\gamma\varphi}=\lim_{s \rightarrow0^+}\dfrac{1}{V}\left\{\dfrac{1}{i\hbar}\langle[J(\delta\gamma,0),Q(\varphi,0)]\rangle+\dfrac{1}{i\hbar}\int_0^\infty\dd t\,\langle[J(\delta\gamma,t),J(\delta\varphi,0)]\rangle e^{i\varpi t}\right\}}.
+		\end{equation}
+		\indent The second part of \eqref{2.2.2} or \eqref{2.2.3},
+		\begin{equation}\label{2.2.4}
+			\Sigma_{\gamma\varphi}(\omega):=\dfrac{1}{i\hbar}\int_0^\infty\dd t\,\langle[J(\delta\gamma,t),J(\delta\varphi,0)]\rangle e^{i\varpi t},
+		\end{equation}
+		may remind you of the response function of the \emph{paramagnetic} current \eqref{1.3.10}, but they are DIFFERENT --- In the formulation of Luttinger, all current operators in consideration are the \emph{total} current. But if you do want to go back to the vector potential formulation with \emph{parabolic} dispersion relation, up to linear response (so that there should be NO dependence of $A_\mu$ in the conductivity) $\Sigma_{\gamma\varphi}(\omega)$ will degenerates correctly to the paramagnetic response function 
+		\begin{equation*}
+			\Sigma_{\gamma\varphi}(\omega)\rightarrow \chi_{\gamma\varphi}(\omega)+\mathcal{O}(A_\mu)
+		\end{equation*}
+		since $J(\delta\gamma)=J^P(\delta\gamma)+J^D(\delta\gamma)$ and $J^D(\delta\gamma)\propto A_\gamma$.\par
+		To show the result \eqref{2.2.3} matches exactly with \eqref{1.3.9} to the systems with parabolic dispersion up to linear response, the left task is to prove that the first term of \eqref{2.2.3} is nothing but the diamagnetic part of contribution. In fact,
+		\begin{align}
+			\dfrac{1}{i\hbar}\langle[J(\delta\gamma),Q(\varphi)]\rangle_0&=\dfrac{1}{i\hbar V}\sum_{1,2,3,4}\bigg\langle\langle1|J^{(1)}(\delta\gamma)|2\rangle a_1^\dagger a_2\langle 3|Q^{(1)}(\varphi)|4\rangle a_3^\dagger a_4\bigg\rangle-\bigg\langle\langle3|Q^{(1)}(\varphi)|4\rangle a_3^\dagger a_4\langle 1|J^{(1)}(\delta\gamma)|2\rangle a_1^\dagger a_2\bigg\rangle\nonumber\\
+			&=\dfrac{1}{i\hbar}\sum_{m,n}\langle m|J^{(1)}(\delta\gamma)|n\rangle\langle n|Q^{(1)}(\varphi)|m\rangle\big(f_m(1-f_n)-f_n(1-f_m)\big)\nonumber\\
+			&=\dfrac{1}{i\hbar}\sum_{m,n}f_m\langle m|[J^{(1)}(\delta\gamma),Q^{(1)}(\varphi)]|m\rangle.\label{2.2.5}
+		\end{align}
+		In the momentum space, the $0$-chain $\varphi_p(\bm{q})=V(\bm{q})e^{\frac i\hbar q_\varphi\hat n_\varphi\cdot\bm{r}}$ is prescribed to be $V(\bm{q})=\frac{i\hbar}{q_\varphi}$ so that the response has no explicit dependence on the electrical field $\bm{E}(\bm{q})=-\frac i\hbar q_\varphi V$. Thus the Fourier transformation of \eqref{2.2.5} reads
+		\begin{equation}\label{2.2.6}
+			\dfrac{1}{i\hbar}\langle[J(\delta\gamma),Q(\varphi)]\rangle_0=\dfrac{1}{i\hbar}\sum_{m,n}f_m\left\langle m\middle|\middle[J^{(1)}_\gamma(\bm{q}),\dfrac{i\hbar}{q_\varphi}Q^{(1)}(-\bm{q})\middle]\middle|n\right\rangle.
+		\end{equation}
+		Inserting the first-quantized charge density operator
+		\begin{equation}\label{2.2.5}
+			Q^{(1)}(\bm{q})=e^{\frac i\hbar\bm{q}\cdot\hat{\bm{r}}}
+		\end{equation}
+		and \eqref{1.4.4}, the commutator in \eqref{2.2.6} is
+		\begin{equation}\label{2.2.6}
+			[J^{(1)}_\gamma(\bm{q}),Q^{(1)}(-\bm{q})]=\dfrac{q^2}{2m}\bigg[(\hat{p}_\gamma+e^{-i\bm{q}\cdot\hat{r}}\hat p_\gamma e^{i\bm{q}\cdot\hat{r}})-(\hat{p}_\gamma+e^{i\bm{q}\cdot\hat{r}}\hat p_\gamma e^{-i\bm{q}\cdot\hat{r}})\bigg]=\dfrac{\hbar q^2\cdot q_\alpha}{m}\delta_{\alpha\gamma},
+		\end{equation}
+		and thus
+		\begin{equation}\label{2.2.7}
+			{\color{red}\dfrac{1}{i\hbar}\langle[J(\delta\gamma),Q(\varphi)]\rangle_0=\dfrac{nq^2}{m}\delta_{\gamma\varphi}}.
+		\end{equation}
+		matches perfectly with the diamagnetic part.
 
-		Using the fact that the retarded Green function (and its descendents by Kubo's identities) is analytic on the upper half plane, we can re-written \eqref{2.1.3} in another form that
+		\subsubsection{Approach 2}
+		The second approach is to change the integration variable in \eqref{2.1.3} and choose the contour as in FIG. \ref{fig:contour} (by assuming the analyticity of the Kubo canonical pair).
+		\begin{figure}[!htp]
+			\centering
+			\begin{tikzpicture}
+				\draw[-latex,gray] (-1,0) -- (8.2,0);
+				\draw[-latex,gray] (0,-2) -- (0,1);
+				\begin{scope}[very thick,decoration={ % See https://tex.stackexchange.com/questions/3161/tikz-how-to-draw-an-arrow-in-the-middle-of-the-line/3172#3172
+						markings,
+						mark=at position 0.5 with {\arrow{latex}}}
+					]
+					\draw[postaction={decorate},red] (1.5,0) -- (1.5,-1);
+					\draw[postaction={decorate},blue] (1.5,0)--(8,0);
+					\draw[postaction={decorate},shift={(8,0)},blue] (0,0) arc (0:-9.8:6);
+					\draw[postaction={decorate},blue] (7.9,-1)--(1.5,-1);
+				\end{scope}
+				\node[above] at (1.5,0) {$t$};
+				\node[below] at (1.5,-1) {$t-i\hbar\lambda$};
+				\node[above] at (8,0) {$\infty$};
+				\node[right] at (8.2,0) {$\mathop{\mathcal{R}e}\tau$};
+				\node[left] at (0,1) {$\mathop{\mathcal{I}m}\tau$};
+
+				\node[above] at (4.75,0) {\color{blue}$\mathcal{C}_1$};
+				\node[right] at (7.95,-0.5) {\color{blue}$\mathcal{C}_2$};
+				\node[below] at (4.72,-1) {\color{blue}$\mathcal{C}_3$};
+			\end{tikzpicture}
+			\caption{{\bf Complex-$\tau$ Plane}. Cauchy's theorem ensures that the integration along red path can be replaced by the integration along the blue path $\mathcal{C}_1+\mathcal{C}_2+\mathcal{C}_3$, with the contribution over $\mathcal{C}_2$ being vanishing.}
+			\label{fig:contour}
+		\end{figure}
+		
+		\noindent Including the non-vanishing contribution from the contour $\mathcal{C}_1$ and $\mathcal{C}_2$, we have, the conductivity tensor,
 		\begin{align}
 			\sigma_{\gamma\varphi}(\omega)&=\lim_{s \rightarrow0^+}\int_0^\infty\dd t\,e^{i\varpi t}\int_0^\beta\dd\lambda\,\langle J(\delta\gamma,t-i\hbar\lambda)J(\delta\varphi)\rangle=\dfrac{-1}{i\hbar}\lim_{s \rightarrow0^+}\int_0^\infty\dd t\,e^{i\varpi t}\int_t^{t-i\hbar\beta}\dd\tau\,\langle J(\delta\gamma,\tau)J(\delta\varphi)\rangle\nonumber\\
 			&=\dfrac{-1}{i\hbar}\lim_{s \rightarrow0^+}\int_0^\infty\dd t\,e^{i\varpi t}\int_t^\infty\dd t'\bigg(\langle J(\delta\gamma,t')J(\delta\varphi)\rangle-\langle J(\delta\gamma,t-i\hbar\beta)J(\delta\varphi\rangle)\bigg)\nonumber\\
 			&=\dfrac{-1}{i\hbar}\lim_{s \rightarrow0^+}\int_0^\infty\dd t\,e^{i\varpi t}\int_t^\infty\dd t'\,\mathop{\mathrm{Tr}}\bigg\{\rho_0\bigg(J(\delta\gamma,t')J(\delta\varphi)-e^{\beta H_0}J(\delta\gamma,t)e^{-\beta H_0}J(\delta\varphi)\bigg)\bigg\}\nonumber\\
 			&=\dfrac{-1}{i\hbar}\lim_{s \rightarrow0^+}\int_0^\infty\dd t\,e^{i\varpi t}\int_t^\infty\dd t'\,\mathop{\mathrm{Tr}}\bigg\{\rho_0\bigg(J(\delta\gamma,t')J(\delta\varphi)-J(\delta\varphi)J(\delta\gamma,t)\bigg)\bigg\}\nonumber\\
-			&=\dfrac{-1}{i\hbar}\lim_{s \rightarrow0^+}\int_0^\infty\dd t\,e^{i\varpi t}\int_t^\infty\dd t'\,\langle[J(\delta\gamma,t'),J(\delta\varphi)]\rangle.\label{2.1.5}
+			&=\dfrac{-1}{i\hbar}\lim_{s \rightarrow0^+}\int_0^\infty\dd t\,e^{i\varpi t}\int_t^\infty\dd t'\,\langle[J(\delta\gamma,t'),J(\delta\varphi)]\rangle.\label{2.2.8}
 		\end{align}
 		Integration by parts, we get
 		\begin{align}
 			\sigma_{\gamma\varphi}(\omega)&=\lim_{s \rightarrow0^+}\dfrac{1}{\hbar\varpi}\left\{\left.e^{i\varpi t}\int_t^\infty\dd t'\,\langle[J(\delta\gamma,t'),J(\delta\varphi)]\rangle\right|_0^\infty-\int_0^\infty\dd t\, e^{i\varpi t}\dfrac{\dd}{\dd t}\int_t^\infty\dd t'\,\langle[J(\delta\gamma,t'),J(\delta\varphi)]\rangle\right\}\nonumber\\
 			&=\lim_{s \rightarrow0^+}\dfrac{-1}{i\varpi}\left\{\dfrac{-1}{i\hbar}\int_0^\infty\dd t\,\langle[J(\delta\gamma,t),J(\delta\varphi)]\rangle+\dfrac{1}{i\hbar}\int_0^\infty\dd t\,e^{i\varpi t}\langle[J(\delta\gamma,t),J(\delta\varphi)]\rangle\right\}\nonumber\\
-			&\equiv\lim_{s \rightarrow0^+}\dfrac{-1}{i\varpi}(\chi_{\gamma\varphi}(\omega)-\chi_{\gamma\varphi}(0))\label{2.1.6}
+			&\equiv\lim_{s \rightarrow0^+}\dfrac{-1}{i\varpi}\bigg\{\Sigma_{\gamma\varphi}(\omega)-\Sigma_{\gamma\varphi}(0)\bigg\}\label{2.2.9}
 		\end{align}
-		with the familiar response function
-		\begin{equation}\label{2.1.7}
-			\chi_{\gamma\varphi}(\omega)\equiv\lim_{s \rightarrow0^+}\dfrac{1}{i\hbar}\int_0^\infty\dd t\, e^{i\varpi t}\langle[J(\delta\gamma,t),J(\delta\varphi)]\rangle
+		with the familiar response function $\Sigma_{\gamma\varphi}(\omega)$ for the \emph{total} current.\par
+		\indent Again if we try to go back to the system with quadratic dispersion relation up to linear response, we have to prove that $-\chi_{\gamma\varphi}(0)$ is indeed the diamagnetic part of contribution. In fact, by taking similar steps as \eqref{1.4.2} and working in momentum space, we get
+		\begin{equation}\label{2.2.10}
+			-\Sigma_{\gamma\varphi}(\bm{q},0)=\cdots=-\dfrac{1}{V}\sum_{m,n}(f_m-f_n)\dfrac{\langle m|J_\gamma^{(1)}(\bm{q})|n\rangle\langle n|J_\varphi^{(1)}(\bm{-q})|m\rangle}{\varepsilon_m-\varepsilon_n}.
 		\end{equation}
-		To show that \eqref{2.1.6} matches perfectly with the conductivity tensor \eqref{1.3.8} we have derived before, we have to show that $-\chi_{\gamma\varphi}(0)$ is nothing but the diamagnetic part of contribution. In fact, by taking similar steps as \eqref{1.4.2}, we get
-		\begin{equation}\label{2.1.8}
-			-\chi_{\gamma\varphi}(0)=\cdots=-\sum_{m,n}(f_m-f_n)\dfrac{\langle J_\gamma^{(1)}(\bm{q})|n\rangle\langle n|J_\varphi^{(1)}(\bm{-q})|m\rangle}{\varepsilon_m-\varepsilon_n}.
+		And f-sum rule immediately tells
+		\begin{equation}\label{2.2.11}
+			-\Sigma_{\gamma\varphi}(\bm{q},0)=\dfrac{nq^2}{m}\delta_{\gamma\varphi},
 		\end{equation}
-		Again by inserting the single-particle current operator \eqref{1.4.4} and using f-sum rule, we confirm that $-\chi_{\gamma\varphi}(0)$ is indeed the diamagnetic part
-		\begin{equation}\label{2.1.8}
-			-\chi_{\gamma\varphi}(0)=\dfrac{nq^2}{m}\delta_{\gamma\varphi}.
-		\end{equation}
+		matching perfectly with the diamagnetic part.
+
 	\subsection{Matsubara Green Function of Imaginary-frequencies}
-		Since \eqref{2.1.7} (or \eqref{1.3.10}) takes the form of retarded Green function $G^R_{J_\gamma J_\varphi}(\omega)$, we can also evaluate it with the help of Matsubara Green function (of current operators) on imaginary frequence domain
+		Since the response function $\Sigma_{\gamma\varphi}(\omega)$ (or paramagnetic response function $\chi_{\gamma\varphi}(\omega)$) contains a kernel of retarded Green function $G^R_{J_\gamma J_\varphi}(\omega)$, we can also evaluate it with the help of Matsubara Green function (of current operators) on imaginary-frequency domain
 		\begin{equation*}
 			\mathcal{G}_{J_\gamma J_\varphi}(i\omega_n)\equiv\int_0^\beta\dd\tau\,e^{i\omega_n\tau}\mathcal{G}_{J_\gamma J_\varphi}(\tau)\equiv\int_0^\beta\dd\tau\,e^{i\omega_n\tau}(-1)\langle\mathcal{T}_\tau J(\delta\gamma,\tau) J(\delta\varphi)\rangle=-\int_0^\beta\dd\tau\,e^{i\omega_n\tau}\langle J(\delta\gamma,\tau) J(\delta\varphi)\rangle.
 		\end{equation*}
-		and analytical continuation $\omega_n \rightarrow i\omega+0^+$. The imaginary-time order is removed just because the integration is performed on $[0,\beta)$ (essentially this comes from the periodicity of the Matsubara Green function $\mathcal{G}(\tau)\equiv\mp\mathcal{G}(\tau+i\hbar\beta)$). This approach is gauranteed by the Lehmann spectral representation from there definition \cite{mahanmany}. For instance, Scalapino \textit{et al.} \cite{scalapino1993insulator} employ such method to study the fast and slow limits for metals, insulators, and superconductors.
+		and analytical continuation
+		\begin{equation*}
+			G^R_{J_\gamma J_\varphi}(\omega)=\left.\mathcal{G}_{J_\gamma J_\varphi}(i\omega_n)\right|_{i\omega_n \rightarrow i\omega+0^+}.
+		\end{equation*}
+		The imaginary-time order is removed here just because the integration is performed on $[0,\beta)$ (essentially this comes from the (anti-)periodicity of the Matsubara Green function for boson (fermion) $\mathcal{G}(\tau)\equiv\mp\mathcal{G}(\tau+i\hbar\beta)$). This approach is gauranteed by the Lehmann spectral representation of their definition \cite{abrikosov2012methods,mahanmany}. For instance, Scalapino \textit{et al.} \cite{scalapino1993insulator} employ such method to study the fast and slow limits for metals, insulators, and superconductors.
 
 
 \section{Appendix}
@@ -457,36 +558,50 @@
 		In this section, we will give a proof of the identity \eqref{1.4.6} used in the main text. Let me quote it here again
 		\begin{Theorem}[(f-sum Rule)]
 			\begin{equation}\label{a.1.1}
-				\sum_{m,n}(f_m-f_n)\dfrac{\langle m|p_\alpha|n\rangle\langle n|p_\beta|m\rangle}{\varepsilon_{mn}}=-mN\delta_{\alpha\beta}.
+				\sum_{m,n}(f_m-f_n)\dfrac{\langle m|J^{(1)}_\alpha(\bm{q})|n\rangle\langle n|J^{(1)}_\beta(-\bm{q})|m\rangle}{\varepsilon_{mn}}=-\dfrac{Nq^2}{m}\delta_{\alpha\beta}.
 			\end{equation}
 		\end{Theorem}
 		\begin{Proof}
 			Relabling the states, we have, equivalently
-			\begin{align*}
-				\text{LHS}&=\sum_{m,n}f_m\dfrac{\langle m|p_\alpha|n\rangle\langle n|p_\beta|m\rangle+\langle m|p_\beta|n\rangle\langle n|p_\alpha|m\rangle}{\varepsilon_m-\varepsilon_n}\\
-				&=\sum_{m,n}f_m\dfrac{\frac{m}{-i\hbar}(\varepsilon_m-\varepsilon_n)}{\varepsilon_m-\varepsilon_n}\bigg(\langle m|r_\alpha|n\rangle\langle n|p_\beta|m\rangle+\langle m|p_\beta|n\rangle\langle n|r_\alpha|m\rangle\bigg)\\
-				&=\dfrac{m}{-i\hbar}\sum_m f_m\langle m|[r_\alpha,p_\beta]|m\rangle=-m N,
-			\end{align*}
-			where in the second line we take the quantum average of the identity 
+			\begin{align}
+				\text{LHS}&=\sum_{m,n}f_m\dfrac{\langle m|J^{(1)}_\alpha(\bm{q})|n\rangle\langle n|J^{(1)}_\beta(-\bm{q})|m\rangle+\langle m|J^{(1)}_\beta(-\bm{q})|n\rangle\langle n|J^{(1)}_\alpha(\bm{q})|m\rangle}{\varepsilon_m-\varepsilon_n}\nonumber\\
+				&=\sum_{m,n}f_m\dfrac{\frac{-1}{\hbar q^\alpha}(\varepsilon_m-\varepsilon_n)}{\varepsilon_m-\varepsilon_n}\bigg(\langle m|Q^{(1)}(\bm{q})|n\rangle\langle n|J^{(1)}_\beta(-\bm{q})|m\rangle-\langle m|J^{(1)}_\beta(-\bm{q})|n\rangle\langle n|Q^{(1)}(\bm{q})|m\rangle\bigg)\nonumber\\
+				&=\dfrac{-1}{\hbar q^\alpha}\sum_m f_m\langle m|[Q(\bm{q}),J_\beta^{(1)}(-\bm{q})]|m\rangle,\label{a.1.2}
+			\end{align}
+			where in the second line, we make use of the momentum space charge conservation law
 			\begin{equation*}
-				[h,r_\alpha]=\dfrac{-i\hbar}{m}p_\alpha,
+				\dfrac{\dd Q(\bm{q},t)}{\dd t}\equiv\dfrac{1}{i\hbar}[Q(\bm{q}),h]=-\dfrac{i}{\hbar}\bm{q}\cdot\bm{J}(\bm{q})
+				%\dfrac{1}{i\hbar}\left[e^{-\frac i\hbar\bm{q}\cdot\hat{\bm{r}}},\dfrac{\hat p^2}{2m}\right]=\dfrac{1}{2mi\hbar}[e^{-\frac i\hbar\bm{q}\cdot\hat{\bm{r}}},\hat p^\alpha]\hat p_\alpha=\dfrac{1}{2mi\hbar}e^{-\frac i\hbar\bm{q}\cdot\hat{\bm{r}}}q^\alpha\hat p_\alpha\equiv Q(\bm{q})\dfrac{\bm{q}\cdot\hat{\bm{p}}}{2mi\hbar}=
 			\end{equation*}
-			under the single-particle states $\langle m|$ and $|n\rangle$. This is always true if the single-particle Hamiltonian of the system takes the form $h=\frac{\bm{p}^2}{2m}+V(\bm{r})$.
-		\end{Proof}
-		\begin{Note}
-			The term ``f-sum rule'' is abused in literature. In fact, the most fundamental form is for the commutator with charge densities \cite{anderson1958coherent}
-			\begin{equation}\label{a.1.2}
-				[[h,n(\bm{q})],n(-\bm{q})]=\dfrac{Nq^2\hbar^2}{m},
-			\end{equation}
-			or
+			and take the quantum average over states $\langle m|$ and $|n\rangle$
 			\begin{equation}\label{a.1.3}
-				\sum_{m,n}(\varepsilon_m-\varepsilon_n)\langle m|n(\bm{q})|n\rangle\langle n|n(-\bm{q})|m\rangle=\dfrac{Nq^2\hbar^2}{2m}.
+				(\varepsilon_n-\varepsilon_m)\langle m|Q(\bm{q})|n\rangle=q^\alpha\langle m|J_\alpha(\bm{q})|n\rangle
 			\end{equation}
-			The proof share the same spirits here. Based on \eqref{a.1.2} we can then prove the widely-seen form
+			to replace the average of current operators. The commutator in \eqref{a.1.2} can be calculated by inserting the first quantized charge currents and charge densities (do not get confused with the charge $q$ and momentum $q_\alpha$...)
 			\begin{equation}\label{a.1.4}
-				\int_{-\infty}^\infty\dd\omega\,\sigma_{\alpha\beta}(\omega)=\delta_{\alpha\beta}\dfrac{n}{2m}.
+				[Q(\bm{q}),J_\beta(-\bm{q})]=\left[q e^{-\frac i\hbar\bm{q}\cdot\hat{\bm{r}}},\dfrac{q}{2m}(\hat p_\beta e^{\frac i\hbar\bm{q}\cdot\hat{\bm{r}}}+e^{\frac i\hbar\bm{q}\cdot\hat{\bm{r}}}\hat p_\beta)\right]=\dfrac{q^2}{2m}\bigg[(e^{-\frac i\hbar\bm{q}\cdot\hat{\bm{r}}}\hat p_\beta e^{\frac i\hbar\bm{q}\cdot\hat{\bm{r}}}+\hat p_\beta)-(\hat p_\beta+e^{\frac i\hbar\bm{q}\cdot\hat{\bm{r}}}\hat p_\beta e^{-\frac i\hbar\bm{q}\cdot\hat{\bm{r}}})\bigg]=\dfrac{q^2\cdot q_\alpha}{m}\delta_{\alpha\beta}.
 			\end{equation}
-		\end{Note}
+			Thus we have
+			\begin{equation*}
+				\text{LHS}=-\dfrac{q^2}{m}\delta_{\alpha\beta}\sum_m f_m=-\dfrac{Nq^2}{m}\delta_{\alpha\beta}=\text{RHS}.
+			\end{equation*}
+		\end{Proof}
+
+		\noindent Approach 1 can also be used to derive the integration form of f-sum rule:
+		\begin{Corollary}[(Integration Form of f-sum Rule)]
+			\begin{equation}\label{a.1.5}
+				\dfrac{1}{2\pi}\int_{-\infty}^\infty\dd\omega\,\sigma_{\gamma\varphi}(\omega)=\dfrac{nq^2}{2m}\delta_{\gamma\varphi}
+			\end{equation}
+		\end{Corollary}
+		\begin{Proof}
+			Taking the form of conductivity tensor as \eqref{2.2.1} and change the order of integration, we have
+			\begin{align*}
+				\text{LHS}&=\lim_{s \rightarrow0^+}\dfrac{1}{2\pi}\int\dd\omega\,\dfrac{1}{i\hbar}\int_0^\infty\dd t\,\langle[J(\delta\gamma,t),Q(\varphi)]\rangle_0e^{i\varpi t}=\dfrac{1}{i\hbar}\int_{-\infty}^\infty\dd t\,\theta(t)\langle[J(\delta\gamma,t),Q(\varphi)]\rangle_0 \delta(t)\\
+				&=\dfrac{1}{2i\hbar}\langle[J(\delta\gamma),Q(\varphi)]\rangle_0=\dfrac{nq^2}{2m}\delta_{\gamma\varphi},
+			\end{align*}
+			where in first line we take the Heaviside theta function $\theta(0)=\frac{1}{2}$ and in the second line we insert the equivalence with the diamangetic part \eqref{2.2.7}.
+		\end{Proof}
+
 \bibliography{hxd}
 \bibliographystyle{apsrev} % apsrev is format for PRL of APS
 \end{document}

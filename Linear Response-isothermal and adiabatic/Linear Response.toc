@@ -3,14 +3,16 @@
 \tocdepth@restore 
 \contentsline {section}{\numberline {I}Linear Response Theory}{1}{}
 \contentsline {subsection}{\numberline {A}Isothermal Response}{2}{}
-\contentsline {subsection}{\numberline {B}Adiabatic Response}{2}{}
-\contentsline {subsection}{\numberline {C}Example: Adiabatic Response of Charge Current}{4}{}
+\contentsline {subsection}{\numberline {B}Adiabatic Response}{3}{}
+\contentsline {subsection}{\numberline {C}Example: Adiabatic Response of Charge Current}{5}{}
 \contentsline {subsection}{\numberline {D}Drude Formula: Cancellation of Static Diamagnetic Response in Metals}{6}{}
 \contentsline {section}{\numberline {II}Other Equivalent Forms of Kubo Formula}{8}{}
 \contentsline {subsection}{\numberline {A}Kubo's Identities and Canonical Kubo Pair}{8}{}
 \contentsline {subsection}{\numberline {B}Equivalent Forms of Kubo Formula}{9}{}
-\contentsline {subsection}{\numberline {C}Equivalence bewteen Conductivity Obtained by Coupling with Vector Potentials and Electrical Potentials}{9}{}
-\contentsline {subsection}{\numberline {D}Matsubara Green Function of Imaginary-frequencies}{10}{}
-\contentsline {section}{\numberline {III}Appendix}{10}{}
-\contentsline {subsection}{\numberline {A}f-sum Rule}{10}{}
-\contentsline {section}{\numberline {}References}{11}{}
+\contentsline {subsection}{\numberline {C}Equivalence bewteen Conductivity Obtained by Coupling with Vector Potentials and Electrical Potentials}{10}{}
+\contentsline {subsubsection}{\numberline {1}Approach 1}{10}{}
+\contentsline {subsubsection}{\numberline {2}Approach 2}{11}{}
+\contentsline {subsection}{\numberline {D}Matsubara Green Function of Imaginary-frequencies}{12}{}
+\contentsline {section}{\numberline {III}Appendix}{12}{}
+\contentsline {subsection}{\numberline {A}f-sum Rule}{12}{}
+\contentsline {section}{\numberline {}References}{13}{}

@@ -18,45 +18,45 @@ Repeated entry---line 628 of file hxd.bib
 I'm skipping whatever remains of this entry
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 11 entries,
+You've used 10 entries,
             3411 wiz_defined-function locations,
-            1220 strings with 11580 characters,
-and the built_in function-call counts, 6148 in all, are:
-= -- 343
-> -- 151
-< -- 28
-+ -- 108
-- -- 38
-* -- 784
-:= -- 712
-add.period$ -- 11
-call.type$ -- 11
-change.case$ -- 44
-chr.to.int$ -- 11
-cite$ -- 11
-duplicate$ -- 579
-empty$ -- 581
-format.name$ -- 101
-if$ -- 1167
+            1213 strings with 11417 characters,
+and the built_in function-call counts, 5650 in all, are:
+= -- 311
+> -- 144
+< -- 26
++ -- 104
+- -- 36
+* -- 726
+:= -- 649
+add.period$ -- 10
+call.type$ -- 10
+change.case$ -- 40
+chr.to.int$ -- 10
+cite$ -- 10
+duplicate$ -- 531
+empty$ -- 533
+format.name$ -- 96
+if$ -- 1070
 int.to.chr$ -- 1
-int.to.str$ -- 12
-missing$ -- 98
-newline$ -- 48
-num.names$ -- 33
-pop$ -- 174
+int.to.str$ -- 11
+missing$ -- 90
+newline$ -- 45
+num.names$ -- 30
+pop$ -- 163
 preamble$ -- 1
-purify$ -- 44
+purify$ -- 40
 quote$ -- 0
-skip$ -- 234
+skip$ -- 214
 stack$ -- 0
-substring$ -- 189
-swap$ -- 414
-text.length$ -- 20
+substring$ -- 168
+swap$ -- 381
+text.length$ -- 19
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 54
+type$ -- 48
 warning$ -- 0
-while$ -- 27
+while$ -- 24
 width$ -- 0
-write$ -- 119
+write$ -- 109
 (There were 3 error messages)
